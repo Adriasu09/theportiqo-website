@@ -15,8 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       AWS_REGION: eu-west-1
-      ECR_REPOSITORY: 533267036621.dkr.ecr.eu-west-1.amazonaws.com/theportiqo-website-dev
-      NEXT_PUBLIC_API_URL: https://api.dev.theportiqo.com
+      ECR_REPOSITORY: 533267036621.dkr.ecr.eu-west-1.amazonaws.com/theportiqo-website
+      NEXT_PUBLIC_API_URL: https://gw.dev.theportiqo.com
 
     steps:
       - name: Checkout code
@@ -41,9 +41,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: |
-            ${{ env.ECR_REPOSITORY }}:${{ github.sha }}
-            ${{ env.ECR_REPOSITORY }}:latest
+          tags: ${{ env.ECR_REPOSITORY }}:dev-${{ github.sha }}
           build-args: |
             NEXT_PUBLIC_API_URL=${{ env.NEXT_PUBLIC_API_URL }}
           cache-from: type=registry,ref=${{ env.ECR_REPOSITORY }}:buildcache
