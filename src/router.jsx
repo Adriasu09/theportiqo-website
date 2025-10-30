@@ -3,6 +3,8 @@ import { RootLayout } from './components/RootLayout'
 import { HomePage } from './routes/index'
 import { AboutPage } from './routes/about'
 import { PortfolioPage } from './routes/portfolio'
+import { DashboardPage } from './routes/dashboard'
+import { ProtectedRoute } from './components/ProtectedRoute'
 
 // Define routes
 const rootRoute = createRootRoute({
@@ -27,8 +29,18 @@ const portfolioRoute = createRoute({
   component: PortfolioPage,
 })
 
+const dashboardRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/dashboard',
+  component: () => (
+    <ProtectedRoute>
+      <DashboardPage />
+    </ProtectedRoute>
+  ),
+})
+
 // Create the route tree
-const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, portfolioRoute])
+const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, portfolioRoute, dashboardRoute])
 
 // Create the router
 export const router = createRouter({ routeTree })

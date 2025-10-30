@@ -11,10 +11,85 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .app-header h2 {
   margin: 0;
   color: #646cff;
   font-size: 1.8rem;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.main-nav .nav-link {
+  color: #ccc;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.25s;
+  font-weight: 500;
+}
+
+.main-nav .nav-link:hover {
+  color: #646cff;
+  background-color: rgba(100, 108, 255, 0.1);
+}
+
+.auth-section {
+  display: flex;
+  align-items: center;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-greeting {
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.sign-out-btn {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 1px solid #646cff;
+  color: #646cff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s;
+  font-size: 0.9rem;
+}
+
+.sign-out-btn:hover {
+  background-color: #646cff;
+  color: white;
+}
+
+.sign-in-link {
+  color: #646cff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid #646cff;
+  border-radius: 6px;
+  transition: all 0.25s;
+  font-weight: 500;
+}
+
+.sign-in-link:hover {
+  background-color: #646cff;
+  color: white;
 }
 
 .app-main {
@@ -52,6 +127,17 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.feature-highlight {
+  background-color: rgba(100, 108, 255, 0.1);
+  border: 1px solid rgba(100, 108, 255, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1.5rem auto;
+  max-width: 500px;
+  color: #646cff;
+  font-weight: 500;
 }
 
 .navigation {
@@ -130,5 +216,341 @@
 
 .loading {
   color: #646cff;
+}
+
+/* Authentication Components */
+.auth-required-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  padding: 2rem;
+}
+
+.auth-card {
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.auth-card h2 {
+  margin-bottom: 1rem;
+  color: #646cff;
+}
+
+.auth-card p {
+  margin-bottom: 2rem;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.google-signin-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.signin-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.signin-option {
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.signin-option h3 {
+  margin: 0 0 0.5rem 0;
+  color: #646cff;
+  font-size: 1.1rem;
+}
+
+.signin-option p {
+  margin: 0 0 1rem 0;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.signin-divider {
+  text-align: center;
+  color: #888;
+  font-weight: 500;
+  position: relative;
+}
+
+.signin-divider::before,
+.signin-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.signin-divider::before {
+  left: 0;
+}
+
+.signin-divider::after {
+  right: 0;
+}
+
+.backend-signin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.backend-signin-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #646cff;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s;
+  font-weight: 500;
+  font-size: 1rem;
+  min-width: 250px;
+}
+
+.backend-signin-button:hover:not(:disabled) {
+  background-color: #535bf2;
+  transform: translateY(-1px);
+}
+
+.backend-signin-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.loading-text,
+.signin-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.signin-error {
+  color: #ff6b6b;
+  background-color: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  border-radius: 6px;
+  padding: 0.75rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.debug-info {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.debug-info pre {
+  margin: 0;
+  color: #ccc;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.loading-spinner {
+  color: #646cff;
+  font-size: 1.2rem;
+}
+
+/* User Profile Component */
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #646cff;
+}
+
+.user-details h3 {
+  margin: 0 0 0.25rem 0;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.user-details p {
+  margin: 0;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.sign-out-button {
+  padding: 0.5rem 1rem;
+  background-color: #ff6b6b;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.25s;
+  font-weight: 500;
+}
+
+.sign-out-button:hover {
+  background-color: #ff5252;
+}
+
+/* Dashboard Page */
+.dashboard-page {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+  color: #646cff;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dashboard-section {
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dashboard-section h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #646cff;
+  font-size: 1.5rem;
+}
+
+.info-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.info-card p {
+  margin: 0.75rem 0;
+  color: #ccc;
+}
+
+.info-card strong {
+  color: #fff;
+}
+
+.protected-content {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.feature-list {
+  margin-top: 1.5rem;
+}
+
+.feature-list h3 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.feature-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-list li {
+  margin: 0.5rem 0;
+  color: #ccc;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.action-button {
+  padding: 1rem;
+  background-color: rgba(100, 108, 255, 0.1);
+  border: 1px solid #646cff;
+  color: #646cff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s;
+  font-weight: 500;
+}
+
+.action-button:hover {
+  background-color: #646cff;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .main-nav {
+    justify-content: center;
+  }
+  
+  .dashboard-content {
+    padding: 1rem;
+  }
+  
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
