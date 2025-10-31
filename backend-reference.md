@@ -47,15 +47,35 @@ curl -X 'GET' \
 3. **Backend returns** Google OAuth URL
 4. **Frontend opens** OAuth URL in popup window
 5. **User completes** Google authentication
-6. **Popup closes**, frontend calls `GET ${VITE_BACKEND_URL}/api/users/google/callback`
-7. **Backend returns** JWT token with user information
+6. **Backend redirects** to callback handler
+7. **Frontend processes** JWT token from callback
 8. **Frontend stores** token and user data locally
+
+## Handling the JWT Response
+
+The frontend now supports multiple ways to receive the JWT token:
+
+### Method 1: JSON Response Page (Current Issue)
+- Backend shows JSON like `{"access_token":"eyJ..."}`
+- Frontend automatically detects and parses this JSON
+- Works with current backend implementation
+
+### Method 2: URL Parameters (Recommended)
+- Backend redirects to: `http://localhost:5173/auth/callback?access_token={token}`
+- Cleaner user experience
+- Easier to implement
+
+### Method 3: PostMessage
+- Backend sends `window.opener.postMessage({access_token: "..."}, origin)`
+- Most seamless integration
+- Requires backend modification
 
 ## Expected Backend Behavior
 
 ### Login Endpoint (`GET /api/users/google/login`)
 - Returns Google OAuth authorization URL
 - Should include redirect_uri pointing to your callback handler
+- **Recommended redirect_uri**: `${FRONTEND_URL}/auth/callback` for better UX
 - May include state parameter for security
 
 ### Callback Endpoint (`GET /api/users/google/callback`) 
@@ -63,7 +83,8 @@ curl -X 'GET' \
 - Exchanges authorization code for access token
 - Retrieves user information from Google
 - Generates your own JWT token
-- Returns JWT token and user data
+- **Option 1**: Returns JWT token and user data as JSON
+- **Option 2**: Redirects to `${FRONTEND_URL}/auth/callback?access_token={token}`
 
 ## CORS Configuration Required
 

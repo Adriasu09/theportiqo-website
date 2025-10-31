@@ -57,19 +57,97 @@ export const AuthProvider = ({ children }) => {
 
         // Listen for the popup to close or receive a message
         return new Promise((resolve, reject) => {
-          const checkClosed = setInterval(() => {
-            if (authWindow.closed) {
+          // Listen for messages from the popup
+          const messageListener = (event) => {
+            // Accept messages from our own origin or backend origin
+            const allowedOrigins = [
+              window.location.origin,
+              new URL(import.meta.env.VITE_BACKEND_URL).origin
+            ]
+            
+            if (!allowedOrigins.includes(event.origin)) {
+              return // Ignore messages from other origins
+            }
+
+            if (event.data && (event.data.type === 'AUTH_SUCCESS' || event.data.access_token)) {
+              window.removeEventListener('message', messageListener)
               clearInterval(checkClosed)
-              // After popup closes, get the user data from callback
-              this.handleAuthCallback()
-                .then(resolve)
-                .catch(reject)
+              
+              if (event.data.access_token) {
+                // Direct token from backend
+                processTokenFromBackend(event.data)
+                  .then(resolve)
+                  .catch(reject)
+              } else if (event.data.type === 'AUTH_SUCCESS') {
+                // Success message from callback page, get token from callback endpoint
+                handleAuthCallback()
+                  .then(resolve)
+                  .catch(reject)
+              }
+            } else if (event.data && event.data.type === 'AUTH_ERROR') {
+              window.removeEventListener('message', messageListener)
+              clearInterval(checkClosed)
+              reject(new Error(event.data.error || 'Authentication failed'))
+            }
+          }
+
+          window.addEventListener('message', messageListener)
+
+          // Also check if popup URL changes to detect token in URL or page content
+          const checkClosed = setInterval(() => {
+            try {
+              // Check if popup is closed
+              if (authWindow.closed) {
+                clearInterval(checkClosed)
+                window.removeEventListener('message', messageListener)
+                // Try to get token from callback endpoint
+                this.handleAuthCallback()
+                  .then(resolve)
+                  .catch(reject)
+                return
+              }
+
+              // Try to read the popup URL/content if same-origin
+              try {
+                // Check if we can access the popup URL
+                authWindow.location.href
+                const popupDoc = authWindow.document
+
+                // Check if the page contains JSON with access_token
+                if (popupDoc && popupDoc.body) {
+                  const bodyText = popupDoc.body.innerText || popupDoc.body.textContent
+                  
+                  // Try to parse JSON from the page content
+                  if (bodyText.includes('access_token')) {
+                    try {
+                      const tokenData = JSON.parse(bodyText)
+                      if (tokenData.access_token) {
+                        clearInterval(checkClosed)
+                        window.removeEventListener('message', messageListener)
+                        authWindow.close()
+                        
+                        this.processTokenFromBackend(tokenData)
+                          .then(resolve)
+                          .catch(reject)
+                        return
+                      }
+                    } catch {
+                      // If it's not valid JSON, continue checking
+                    }
+                  }
+                }
+              } catch {
+                // Can't access popup content due to CORS, continue checking
+              }
+            } catch {
+              // Popup might be closed or inaccessible, continue
             }
           }, 1000)
 
           // Timeout after 5 minutes
           setTimeout(() => {
             clearInterval(checkClosed)
+            window.removeEventListener('message', messageListener)
             if (!authWindow.closed) {
               authWindow.close()
             }
@@ -81,6 +159,46 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (error) {
       console.error('Backend sign-in error:', error)
+      throw error
+    }
+  }
+
+  const processTokenFromBackend = async (tokenData) => {
+    try {
+      const token = tokenData.access_token || tokenData.token || tokenData.jwt
+      
+      if (!token) {
+        throw new Error('No access token found in response')
+      }
+
+      // Try to decode JWT token to get user information
+      let userInfo
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1]))
+        userInfo = {
+          id: payload.sub || payload.id || payload.user_id,
+          email: payload.email,
+          name: payload.name || payload.full_name,
+          picture: payload.picture || payload.avatar,
+          role: payload.role,
+          token: token,
+          backendData: tokenData
+        }
+      } catch {
+        // If JWT decoding fails, use minimal user info
+        userInfo = {
+          token: token,
+          backendData: tokenData,
+          email: tokenData.email || 'Unknown',
+          name: tokenData.name || 'User'
+        }
+      }
+      
+      setUser(userInfo)
+      localStorage.setItem('gsi_user', JSON.stringify(userInfo))
+      return userInfo
+    } catch (error) {
+      console.error('Error processing token from backend:', error)
       throw error
     }
   }
@@ -185,6 +303,7 @@ export const AuthProvider = ({ children }) => {
     signIn,
     signInWithBackend,
     handleAuthCallback,
+    processTokenFromBackend,
     signOut,
     isAuthenticated
   }

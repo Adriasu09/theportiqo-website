@@ -4,6 +4,8 @@ import { HomePage } from './routes/index'
 import { AboutPage } from './routes/about'
 import { PortfolioPage } from './routes/portfolio'
 import { DashboardPage } from './routes/dashboard'
+import { AuthCallbackPage } from './routes/auth-callback'
+import { AuthTestPage } from './routes/auth-test'
 import { ProtectedRoute } from './components/ProtectedRoute'
 
 // Define routes
@@ -39,8 +41,20 @@ const dashboardRoute = createRoute({
   ),
 })
 
+const authCallbackRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/auth/callback',
+  component: AuthCallbackPage,
+})
+
+const authTestRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/auth/test',
+  component: AuthTestPage,
+})
+
 // Create the route tree
-const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, portfolioRoute, dashboardRoute])
+const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, portfolioRoute, dashboardRoute, authCallbackRoute, authTestRoute])
 
 // Create the router
 export const router = createRouter({ routeTree })
