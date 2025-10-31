@@ -534,6 +534,17 @@
   transform: translateY(-2px);
 }
 
+/* Google One Tap Styling */
+.one-tap-container {
+  position: relative;
+}
+
+/* Style the Google One Tap iframe when it appears */
+iframe[src*="accounts.google.com"] {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .header-content {
@@ -551,6 +562,11 @@
   
   .actions-grid {
     grid-template-columns: 1fr;
+  }
+  
+  /* Make One Tap responsive on mobile */
+  iframe[src*="accounts.google.com"] {
+    max-width: 100% !important;
   }
 }
 

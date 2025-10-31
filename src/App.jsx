@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { RouterProvider } from '@tanstack/react-router'
 import { router } from './router'
 import { AuthProvider } from './contexts/AuthContext'
+import { GoogleOneTap } from './components/GoogleOneTap'
 import './App.css'
 
 // Create a client
@@ -18,6 +19,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
+        <GoogleOneTap />
         <RouterProvider router={router} />
       </AuthProvider>
     </QueryClientProvider>

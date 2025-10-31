@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import { BackendSignIn } from '../components/BackendSignIn'
 import { GoogleSignIn } from '../components/GoogleSignIn'
+import { GoogleOneTap } from '../components/GoogleOneTap'
 
 export const AuthTestPage = () => {
   const { user, signOut, isAuthenticated } = useAuth()
@@ -67,6 +68,27 @@ export const AuthTestPage = () => {
           <p>Please sign in to test the authentication flow.</p>
         </div>
       )}
+
+      <div style={{ 
+        padding: '1rem', 
+        backgroundColor: 'rgba(34, 197, 94, 0.1)', 
+        borderRadius: '8px',
+        border: '1px solid rgba(34, 197, 94, 0.3)',
+        marginBottom: '2rem'
+      }}>
+        <h3>⚡ Google One Tap</h3>
+        <p>Seamless sign-in experience (should appear automatically if not signed in)</p>
+        <GoogleOneTap 
+          onSuccess={handleSignInSuccess}
+          onError={handleSignInError}
+          disabled={isAuthenticated()}
+        />
+        {!isAuthenticated() && (
+          <p style={{ fontSize: '0.9rem', color: '#666', fontStyle: 'italic' }}>
+            One Tap should appear as a popup overlay. If not, check console logs.
+          </p>
+        )}
+      </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
         <div style={{ 
