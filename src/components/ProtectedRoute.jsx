@@ -1,6 +1,5 @@
+import { Link } from '@tanstack/react-router'
 import { useAuth } from '../contexts/AuthContext'
-import { GoogleSignIn } from '../components/GoogleSignIn'
-import { BackendSignIn } from '../components/BackendSignIn'
 
 export const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, isLoading } = useAuth()
@@ -18,22 +17,25 @@ export const ProtectedRoute = ({ children }) => {
       <div className="auth-required-container">
         <div className="auth-card">
           <h2>Authentication Required</h2>
-          <p>Please sign in with your Google account to access this content.</p>
-          
-          <div className="signin-options">
-            <div className="signin-option">
-              <h3>Backend Authentication</h3>
-              <p>Sign in using the backend API (recommended)</p>
-              <BackendSignIn />
-            </div>
-            
-            <div className="signin-divider">OR</div>
-            
-            <div className="signin-option">
-              <h3>Direct Google Sign-In</h3>
-              <p>Sign in directly with Google (fallback)</p>
-              <GoogleSignIn />
-            </div>
+          <p>Please log in to access this content.</p>
+
+          <div className="signin-option">
+            <p>Click the button below to log in to your account.</p>
+            <Link
+              to="/login"
+              className="manual-signin-button"
+            >
+              🔐 Log In
+            </Link>
+          </div>
+
+          <div className="auth-links">
+            <Link to="/forgot-password" className="forgot-password-link">
+              Forgot password?
+            </Link>
+            <Link to="/register" className="register-link">
+              Don't have an account? Sign up
+            </Link>
           </div>
         </div>
       </div>

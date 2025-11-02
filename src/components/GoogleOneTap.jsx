@@ -1,13 +1,16 @@
 import { useEffect, useRef, useCallback } from 'react'
+import { useLocation } from '@tanstack/react-router'
 import { useAuth } from '../contexts/AuthContext'
 
 export const GoogleOneTap = ({ onSuccess, onError, disabled = false }) => {
-  const { signIn, isAuthenticated } = useAuth()
-  const initialized = useRef(false)
+  const { signInWithOneTap, isAuthenticated } = useAuth()
+  const location = useLocation()
+  const googleInitialized = useRef(false)
 
   const handleCredentialResponse = useCallback(async (response) => {
     try {
-      const user = await signIn(response.credential)
+      // response.credential contains the JWT token from Google One Tap
+      const user = await signInWithOneTap(response.credential)
       if (onSuccess) {
         onSuccess(user)
       }
@@ -17,30 +20,46 @@ export const GoogleOneTap = ({ onSuccess, onError, disabled = false }) => {
         onError(error)
       }
     }
-  }, [signIn, onSuccess, onError])
+  }, [signInWithOneTap, onSuccess, onError])
 
-  const initializeOneTap = useCallback(() => {
-    if (initialized.current) return
-    initialized.current = true
+  const showOneTapPrompt = useCallback(() => {
+    if (!window.google?.accounts?.id) return
 
-    window.google.accounts.id.initialize({
-      client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
-      callback: handleCredentialResponse,
-      auto_select: false,
-      cancel_on_tap_outside: true,
-      context: 'signin'
-    })
-
-    // Display the One Tap prompt
-    window.google.accounts.id.prompt((notification) => {
-      console.log('Google One Tap notification:', notification)
+    // Initialize Google accounts if not already done
+    if (!googleInitialized.current) {
+      const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID
       
-      if (notification.isNotDisplayed()) {
-        console.log('One Tap not displayed:', notification.getNotDisplayedReason())
-      } else if (notification.isSkippedMoment()) {
-        console.log('One Tap skipped:', notification.getSkippedReason())
-      } else if (notification.isDismissedMoment()) {
-        console.log('One Tap dismissed:', notification.getDismissedReason())
+      try {
+        window.google.accounts.id.initialize({
+          client_id: clientId,
+          callback: handleCredentialResponse,
+          auto_select: false,
+          cancel_on_tap_outside: true,
+          context: 'signin',
+          use_fedcm_for_prompt: false
+        })
+        googleInitialized.current = true
+        console.log('✅ Google One Tap initialized successfully')
+      } catch (error) {
+        console.error('❌ Google One Tap initialization failed:', error)
+      }
+    }
+
+    // Display the One Tap prompt on this page
+    window.google.accounts.id.prompt((notification) => {
+      if (notification) {
+        console.log('Google One Tap notification:', notification)
+
+        // Check notification status (traditional flow)
+        if (notification.isNotDisplayed && notification.isNotDisplayed()) {
+          console.log('One Tap not displayed:', notification.getNotDisplayedReason?.())
+        } else if (notification.isSkippedMoment && notification.isSkippedMoment()) {
+          console.log('One Tap skipped:', notification.getSkippedReason?.())
+        } else if (notification.isDismissedMoment && notification.isDismissedMoment()) {
+          console.log('One Tap dismissed - will show again on next page:', notification.getDismissedReason?.())
+        } else {
+          console.log('One Tap prompt displayed successfully')
+        }
       }
     })
   }, [handleCredentialResponse])
@@ -51,25 +70,25 @@ export const GoogleOneTap = ({ onSuccess, onError, disabled = false }) => {
       return
     }
 
-    // Don't initialize twice
-    if (initialized.current) {
-      return
-    }
+    // Show One Tap on every page navigation regardless of previous dismissal
+    // It will show until user logs in
+    console.log('Showing Google One Tap on page:', location.pathname)
 
+    // Show One Tap on every page navigation
     if (window.google?.accounts?.id) {
-      initializeOneTap()
+      showOneTapPrompt()
     } else {
       // Wait for Google GSI to load
       const checkGoogle = setInterval(() => {
         if (window.google?.accounts?.id) {
           clearInterval(checkGoogle)
-          initializeOneTap()
+          showOneTapPrompt()
         }
       }, 100)
 
       return () => clearInterval(checkGoogle)
     }
-  }, [isAuthenticated, disabled, initializeOneTap])
+  }, [location.pathname, isAuthenticated, disabled, showOneTapPrompt])
 
   // One Tap doesn't render anything visible - it's a popup/overlay
   return null

@@ -9,7 +9,7 @@ export function RootLayout() {
       <header className="app-header">
         <div className="header-content">
           <h2>ThePortiqo</h2>
-          
+
           <nav className="main-nav">
             <Link to="/" className="nav-link">Home</Link>
             <Link to="/about" className="nav-link">About</Link>
@@ -26,18 +26,23 @@ export function RootLayout() {
                 <button onClick={signOut} className="sign-out-btn">Sign Out</button>
               </div>
             ) : (
-              <Link to="/dashboard" className="sign-in-link">Sign In</Link>
+              <div className="auth-buttons">
+                <Link to="/login" className="login-btn">Login</Link>
+                <Link to="/register" className="signup-btn">Sign Up</Link>
+              </div>
             )}
           </div>
         </div>
       </header>
-      
+
       <main className="app-main">
         <Outlet />
       </main>
-      
+
       <footer className="app-footer">
-        <p>© 2025 ThePortiqo - Built with React and TanStack</p>
+        <div className="footer-content">
+          <p>© 2025 ThePortiqo - Built with React and TanStack</p>
+        </div>
       </footer>
     </div>
   )

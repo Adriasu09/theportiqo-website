@@ -130,13 +130,13 @@ When users try to access protected routes without being authenticated, they'll b
 
 ## Authentication Features
 
+- ⚡ **Google One Tap** - Seamless sign-in experience with backend integration
 - 🔐 Google OAuth 2.0 integration
-- ⚡ **Google One Tap** - Seamless sign-in experience
-- 🔒 Protected route components
+- 🔒 Protected route components  
 - 💾 Session persistence in localStorage
 - 👤 User profile display
 - 🚪 Secure sign-out functionality
-- 🔄 Multiple authentication methods (Backend API + Direct Google)
+- � Mobile-optimized authentication flow
 
 ## Project Structure
 

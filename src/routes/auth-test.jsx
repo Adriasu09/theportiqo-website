@@ -1,11 +1,9 @@
 import { useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
-import { BackendSignIn } from '../components/BackendSignIn'
-import { GoogleSignIn } from '../components/GoogleSignIn'
 import { GoogleOneTap } from '../components/GoogleOneTap'
 
 export const AuthTestPage = () => {
-  const { user, signOut, isAuthenticated } = useAuth()
+  const { user, signOut, isAuthenticated, signInWithOneTap } = useAuth()
   const [logs, setLogs] = useState([])
 
   const addLog = (message) => {
@@ -19,6 +17,16 @@ export const AuthTestPage = () => {
 
   const handleSignInError = (error) => {
     addLog(`❌ Sign-in error: ${error.message}`)
+  }
+
+  const handleManualSignIn = async () => {
+    addLog('🔄 Starting manual Google Sign-In...')
+    try {
+      const user = await signInWithOneTap()
+      addLog(`✅ Manual sign-in successful: ${user.email}`)
+    } catch (error) {
+      addLog(`❌ Manual sign-in error: ${error.message}`)
+    }
   }
 
   const clearLogs = () => {
@@ -76,47 +84,53 @@ export const AuthTestPage = () => {
         border: '1px solid rgba(34, 197, 94, 0.3)',
         marginBottom: '2rem'
       }}>
-        <h3>⚡ Google One Tap</h3>
-        <p>Seamless sign-in experience (should appear automatically if not signed in)</p>
+        <h3>⚡ Google One Tap Authentication</h3>
+        <p>Seamless sign-in experience with backend integration</p>
         <GoogleOneTap 
           onSuccess={handleSignInSuccess}
           onError={handleSignInError}
           disabled={isAuthenticated()}
         />
         {!isAuthenticated() && (
-          <p style={{ fontSize: '0.9rem', color: '#666', fontStyle: 'italic' }}>
-            One Tap should appear as a popup overlay. If not, check console logs.
-          </p>
+          <div>
+            <p style={{ fontSize: '0.9rem', color: '#666', fontStyle: 'italic', marginBottom: '1rem' }}>
+              One Tap should appear as a popup overlay. If not, try manual sign-in:
+            </p>
+            <button 
+              onClick={handleManualSignIn}
+              style={{
+                padding: '0.75rem 1.5rem',
+                backgroundColor: '#4285f4',
+                color: 'white',
+                border: 'none',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                fontSize: '1rem',
+                fontWeight: '500'
+              }}
+            >
+              🔐 Manual Google Sign-In
+            </button>
+          </div>
         )}
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
-        <div style={{ 
-          padding: '1rem', 
-          backgroundColor: 'rgba(100, 108, 255, 0.1)', 
-          borderRadius: '8px',
-          border: '1px solid rgba(100, 108, 255, 0.3)'
-        }}>
-          <h3>🔐 Backend Authentication</h3>
-          <p>Test the backend OAuth flow</p>
-          <BackendSignIn 
-            onSuccess={handleSignInSuccess}
-            onError={handleSignInError}
-          />
-        </div>
-
-        <div style={{ 
-          padding: '1rem', 
-          backgroundColor: 'rgba(100, 108, 255, 0.1)', 
-          borderRadius: '8px',
-          border: '1px solid rgba(100, 108, 255, 0.3)'
-        }}>
-          <h3>🔗 Direct Google Sign-In</h3>
-          <p>Test direct Google authentication</p>
-          <GoogleSignIn 
-            onSuccess={handleSignInSuccess}
-            onError={handleSignInError}
-          />
+      <div style={{ 
+        padding: '1rem', 
+        backgroundColor: 'rgba(100, 108, 255, 0.1)', 
+        borderRadius: '8px',
+        border: '1px solid rgba(100, 108, 255, 0.3)',
+        marginBottom: '2rem'
+      }}>
+        <h3>� Authentication Flow</h3>
+        <div style={{ fontSize: '0.9rem', color: '#ccc', lineHeight: '1.6' }}>
+          <p><strong>Expected Backend Behavior:</strong></p>
+          <ol style={{ paddingLeft: '1.5rem' }}>
+            <li>GET <code>/api/users/google/login?redirect_uri=http://localhost:5173/auth/callback</code></li>
+            <li>Backend redirects to Google OAuth</li>
+            <li>After Google auth, backend redirects to: <code>/auth/callback?access_token=&#123;jwt&#125;</code></li>
+            <li>Frontend extracts token and authenticates user</li>
+          </ol>
         </div>
       </div>
 

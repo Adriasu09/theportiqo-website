@@ -6,7 +6,7 @@ export function HomePage() {
       <h1>Welcome to ThePortiqo</h1>
       <p>Official website for ThePortiqo - Built with React and TanStack</p>
       <p className="feature-highlight">
-        🔐 Now featuring secure Google authentication with protected user areas!
+        🔐 Now featuring secure authentication with protected user areas!
       </p>
       <div className="navigation">
         <Link to="/about" className="nav-link">
