@@ -113,6 +113,37 @@ export const AuthProvider = ({ children }) => {
     }
   }
 
+  // Sign in with Google One Tap credential
+  const signInWithGoogle = async (googleCredential) => {
+    try {
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000'
+
+      // Send the Google JWT credential to backend for verification
+      const response = await fetch(`${backendUrl}/api/users/google/verify-token`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          token: googleCredential,
+        }),
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(errorData.message || `Google token verification failed: ${response.status}`)
+      }
+
+      const data = await response.json()
+      
+      // Process the new JWT token from backend and login user
+      return await processTokenFromBackend(data)
+    } catch (error) {
+      console.error('Google sign-in error:', error)
+      throw error
+    }
+  }
+
   // Forgot password - request reset
   const forgotPassword = async (email) => {
     try {
@@ -210,25 +241,35 @@ export const AuthProvider = ({ children }) => {
       let userInfo
       try {
         const payload = JSON.parse(atob(token.split('.')[1]))
+        console.log('🔍 JWT Payload:', payload)
+        console.log('🔍 Backend Response:', tokenData)
+        
         userInfo = {
           id: payload.sub || payload.id || payload.user_id,
-          email: payload.email,
-          name: payload.name || payload.full_name,
-          picture: payload.picture || payload.avatar,
-          role: payload.role,
+          email: payload.email || tokenData.user?.email,
+          name: payload.name || payload.full_name || tokenData.user?.name,
+          given_name: payload.given_name || tokenData.user?.given_name,
+          family_name: payload.family_name || tokenData.user?.family_name,
+          picture: payload.picture || payload.avatar || tokenData.user?.picture,
+          role: payload.role || tokenData.user?.role,
           token: token,
           backendData: tokenData
         }
       } catch {
-        // If JWT decoding fails, use minimal user info
+        // If JWT decoding fails, use backend response data directly
+        console.log('🔍 Using backend data directly:', tokenData)
         userInfo = {
           token: token,
           backendData: tokenData,
-          email: tokenData.email || 'Unknown',
-          name: tokenData.name || 'User'
+          id: tokenData.user?.id || tokenData.id,
+          email: tokenData.user?.email || tokenData.email || 'Unknown',
+          name: tokenData.user?.name || tokenData.name || 'User',
+          given_name: tokenData.user?.given_name || tokenData.given_name,
+          picture: tokenData.user?.picture || tokenData.picture
         }
       }
       
+      console.log('👤 Final User Info:', userInfo)
       setUser(userInfo)
       localStorage.setItem('user', JSON.stringify(userInfo))
       return userInfo
@@ -254,6 +295,7 @@ export const AuthProvider = ({ children }) => {
     isLoading,
     login,
     register,
+    signInWithGoogle,
     confirmEmail,
     forgotPassword,
     changePassword,

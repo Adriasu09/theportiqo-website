@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { useAuth } from '../contexts/AuthContext'
+import { GoogleOneTap } from '../components/GoogleOneTap'
 
 export const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, isLoading } = useAuth()
@@ -37,6 +38,8 @@ export const ProtectedRoute = ({ children }) => {
               Don't have an account? Sign up
             </Link>
           </div>
+
+          <GoogleOneTap />
         </div>
       </div>
     )

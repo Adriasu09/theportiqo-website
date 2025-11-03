@@ -1,11 +1,17 @@
 import { Outlet, Link } from '@tanstack/react-router'
 import { useAuth } from '../contexts/AuthContext'
+import { GoogleOneTap } from './GoogleOneTap'
 
 export function RootLayout() {
   const { isAuthenticated, user, signOut } = useAuth()
 
+  // Debug localStorage user data
+  console.log('🔍 LocalStorage user:', localStorage.getItem('user'))
+  console.log('🔍 Context user:', user)
+
   return (
     <div className="app-container">
+      {!user && <GoogleOneTap />}
       <header className="app-header">
         <div className="header-content">
           <h2>ThePortiqo</h2>
@@ -20,10 +26,20 @@ export function RootLayout() {
           </nav>
 
           <div className="auth-section">
-            {isAuthenticated() ? (
-              <div className="user-menu">
-                <span className="user-greeting">Hello, {user?.name?.split(' ')[0]}!</span>
-                <button onClick={signOut} className="sign-out-btn">Sign Out</button>
+            {user ? (
+              <div className="flex items-center gap-4">
+                <span className="text-white">
+                  Hello, {(() => {
+                    console.log('🔍 Current user in header:', user)
+                    return user?.name?.split(' ')[0] || 'User'
+                  })()}!
+                </span>
+                <button
+                  onClick={signOut}
+                  className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition-colors"
+                >
+                  Logout
+                </button>
               </div>
             ) : (
               <div className="auth-buttons">

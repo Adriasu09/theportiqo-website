@@ -3,24 +3,26 @@ import { useLocation } from '@tanstack/react-router'
 import { useAuth } from '../contexts/AuthContext'
 
 export const GoogleOneTap = ({ onSuccess, onError, disabled = false }) => {
-  const { signInWithOneTap, isAuthenticated } = useAuth()
+  const { signInWithGoogle, isAuthenticated } = useAuth()
   const location = useLocation()
   const googleInitialized = useRef(false)
 
   const handleCredentialResponse = useCallback(async (response) => {
     try {
       // response.credential contains the JWT token from Google One Tap
-      const user = await signInWithOneTap(response.credential)
+      const user = await signInWithGoogle(response.credential)
+      console.log('✅ Google One Tap sign-in successful:', user)
+      
       if (onSuccess) {
         onSuccess(user)
       }
     } catch (error) {
-      console.error('One Tap sign-in error:', error)
+      console.error('❌ Google One Tap sign-in error:', error)
       if (onError) {
         onError(error)
       }
     }
-  }, [signInWithOneTap, onSuccess, onError])
+  }, [signInWithGoogle, onSuccess, onError])
 
   const showOneTapPrompt = useCallback(() => {
     if (!window.google?.accounts?.id) return
@@ -28,6 +30,11 @@ export const GoogleOneTap = ({ onSuccess, onError, disabled = false }) => {
     // Initialize Google accounts if not already done
     if (!googleInitialized.current) {
       const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID
+      console.log('🔍 Initializing Google One Tap with Client ID:', clientId)
+      console.log('🔍 Current origin:', window.location.origin)
+      console.log('🔍 Current hostname:', window.location.hostname)
+      console.log('🔍 Current port:', window.location.port)
+      console.log('🔍 Full URL:', window.location.href)
       
       try {
         window.google.accounts.id.initialize({
@@ -36,12 +43,13 @@ export const GoogleOneTap = ({ onSuccess, onError, disabled = false }) => {
           auto_select: false,
           cancel_on_tap_outside: true,
           context: 'signin',
-          use_fedcm_for_prompt: false
+          use_fedcm_for_prompt: false // Temporarily disable FedCM to debug origin issue
         })
         googleInitialized.current = true
         console.log('✅ Google One Tap initialized successfully')
       } catch (error) {
         console.error('❌ Google One Tap initialization failed:', error)
+        return
       }
     }
 
