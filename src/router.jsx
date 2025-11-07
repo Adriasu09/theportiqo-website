@@ -13,6 +13,7 @@ import { ForgotPasswordPage } from './routes/forgot-password'
 import { ResetPasswordPage } from './routes/reset-password'
 import { ChangePasswordPage } from './routes/change-password'
 import { ProtectedRoute } from './components/ProtectedRoute'
+import { LandingPage } from './routes/landing'
 
 // Define routes
 const rootRoute = createRootRoute({
@@ -22,7 +23,7 @@ const rootRoute = createRootRoute({
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/',
-  component: HomePage,
+  component: LandingPage,
 })
 
 const aboutRoute = createRoute({

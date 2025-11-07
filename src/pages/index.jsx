@@ -15,7 +15,7 @@ export function HomePage() {
         <Link to="/portfolio" className="nav-link">
           View Our Portfolio
         </Link>
-        <Link to="/dashboard" className="nav-link">
+        <Link to="/dashboard" className="nav-link bg">
           Access Dashboard
         </Link>
       </div>
