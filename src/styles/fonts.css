@@ -1,0 +1,35 @@
+@font-face {
+  font-family: clash-display-regular;
+  src: url("../assets/fonts/clash-display/ClashDisplay-Regular.woff2");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: clash-display-medium;
+  src: url("../assets/fonts/clash-display/ClashDisplay-Medium.woff2");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: clash-display-bold;
+  src: url("../assets/fonts/clash-display/ClashDisplay-Bold.woff2");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: manrope-regular;
+  src: url("../assets/fonts/manrope/Manrope-Regular.ttf");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: manrope-medium;
+  src: url("../assets/fonts/manrope/Manrope-Medium.ttf");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: manrope-bold;
+  src: url("../assets/fonts/manrope/Manrope-Bold.ttf");
+  font-weight: 200;
+}

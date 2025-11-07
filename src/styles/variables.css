@@ -1,0 +1,54 @@
+/* Portiqo brand colors and custom fonts */
+@theme {
+  /* Font families */
+  --font-clash-display-regular: clash-display-regular, sans-serif;
+  --font-clash-display-medium: clash-display-medium, sans-serif;
+  --font-clash-display-bold: clash-display-bold, sans-serif;
+  --font-manrope-regular: manrope-regular, sans-serif;
+  --font-manrope-medium: manrope-medium, sans-serif;
+  --font-manrope-bold: manrope-bold, sans-serif;
+
+  /* Colors */
+  --pq-gray-25: #fcfcfd;
+  --pq-gray-50: #f9fafb;
+  --pq-gray-100: #f2f4f7;
+  --pq-gray-200: #eaecf0;
+  --pq-gray-300: #d0d5dd;
+  --pq-gray-400: #98a2b3;
+  --pq-gray-500: #667085;
+  --pq-gray-600: #475467;
+  --pq-gray-700: #344054;
+  --pq-gray-800: #1d2939;
+  --pq-gray-900: #101828;
+
+  --pq-primary-25: #fff6f5;
+  --pq-primary-50: #ffe8e5;
+  --pq-primary-100: #ffd2cb;
+  --pq-primary-200: #ffb7ae;
+  --pq-primary-300: #ff998e;
+  --pq-primary-400: #ff8375;
+  --pq-primary-500: #ff6f61;
+  --pq-primary-600: #e05f55;
+  --pq-primary-700: #b24c45;
+  --pq-primary-800: #8a3c37;
+  --pq-primary-900: #5e2a26;
+
+  --pq-success-100: #d1fadf;
+  --pq-success-300: #6ce9a6;
+  --pq-success-400: #32d583;
+  --pq-success-500: #12b76a;
+
+  --pq-warning-100: #FEF0C7;
+  --pq-warning-300: #FEDF89;
+  --pq-warning-400: #FEC84B;
+  --pq-warning-500: #FDB022;
+
+  --pq-error-100: #FEE4E2;
+  --pq-error-300: #F97066;
+  --pq-error-400: #F04438;
+  --pq-error-500: #D92D20;
+
+  --pq-icon-light: var(--pq-gray-25);
+  --pq-icon-neutral: var(--pq-gray-500);
+  --pq-icon-dark: var(--pq-gray-900);
+}
