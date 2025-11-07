@@ -4,24 +4,25 @@ import {
   createRouter,
 } from "@tanstack/react-router";
 import { RootLayout } from "./components/RootLayout";
-import { HomePage } from "./routes/index";
-import { AboutPage } from "./routes/about";
-import { PortfolioPage } from "./routes/portfolio";
-import { DashboardPage } from "./routes/dashboard";
-import { AuthCallbackPage } from "./routes/auth-callback";
-import { AuthTestPage } from "./routes/auth-test";
-import { LoginPage } from "./routes/login";
-import { RegisterPage } from "./routes/register";
-import { ConfirmEmailPage } from "./routes/confirm-email";
-import { ForgotPasswordPage } from "./routes/forgot-password";
-import { ResetPasswordPage } from "./routes/reset-password";
-import { ChangePasswordPage } from "./routes/change-password";
+import { HomePage } from "./pages/index";
+import { AboutPage } from "./pages/about";
+import { PortfolioPage } from "./pages/portfolio";
+import { DashboardPage } from "./pages/dashboard";
+import { AuthCallbackPage } from "./pages/auth-callback";
+import { AuthTestPage } from "./pages/auth-test";
+import { LoginPage } from "./pages/login";
+import { RegisterPage } from "./pages/register";
+import { ConfirmEmailPage } from "./pages/confirm-email";
+import { ForgotPasswordPage } from "./pages/forgot-password";
+import { ResetPasswordPage } from "./pages/reset-password";
+import { ChangePasswordPage } from "./pages/change-password";
 import { ProtectedRoute } from "./components/ProtectedRoute";
-import { LandingPage } from "./routes/landing";
+import { LandingPage } from "./pages/landing";
+import { LandingLayout } from "@layout/landingPage/landingLayout";
 
 // Define routes
 const rootRoute = createRootRoute({
-  component: RootLayout,
+  component: LandingLayout,
 });
 
 const indexRoute = createRoute({
