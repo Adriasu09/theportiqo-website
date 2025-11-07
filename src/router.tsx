@@ -3,22 +3,22 @@ import {
   createRoute,
   createRouter,
 } from "@tanstack/react-router";
-import { RootLayout } from "./components/RootLayout";
-import { HomePage } from "./pages/index";
-import { AboutPage } from "./pages/about";
-import { PortfolioPage } from "./pages/portfolio";
-import { DashboardPage } from "./pages/dashboard";
-import { AuthCallbackPage } from "./pages/auth-callback";
-import { AuthTestPage } from "./pages/auth-test";
-import { LoginPage } from "./pages/login";
-import { RegisterPage } from "./pages/register";
+import { RootLayout } from "@components/RootLayout";
+import { HomePage } from "@pages/index";
+import { AboutPage } from "@pages/about";
+import { PortfolioPage } from "@pages/portfolio";
+import { DashboardPage } from "@pages/dashboard";
+import { AuthCallbackPage } from "@pages/auth-callback";
+import { AuthTestPage } from "@pages/auth-test";
+import { LoginPage } from "@pages/login";
+import { RegisterPage } from "@pages/register";
 import { ConfirmEmailPage } from "./pages/confirm-email";
-import { ForgotPasswordPage } from "./pages/forgot-password";
-import { ResetPasswordPage } from "./pages/reset-password";
-import { ChangePasswordPage } from "./pages/change-password";
-import { ProtectedRoute } from "./components/ProtectedRoute";
-import { LandingPage } from "./pages/landing";
-import { LandingLayout } from "@layout/landingPage/landingLayout";
+import { ForgotPasswordPage } from "@pages/forgot-password";
+import { ResetPasswordPage } from "@pages/reset-password";
+import { ChangePasswordPage } from "@pages/change-password";
+import { ProtectedRoute } from "@components/ProtectedRoute";
+import { LandingPage } from "@pages/landing";
+import { LandingLayout } from "@layout/landingLayout";
 
 // Define routes
 const rootRoute = createRootRoute({
