@@ -1,66 +1,66 @@
-import { useState } from 'react'
-import { useNavigate } from '@tanstack/react-router'
-import { useAuth } from '../contexts/AuthContext'
-import '../styles/auth.css'
+import { useState } from "react";
+import { useNavigate } from "@tanstack/react-router";
+import { useAuth } from "../contexts/AuthContext";
+import "../styles/auth.css";
 
 export const ChangePasswordPage = () => {
-  const { changePassword, isAuthenticated } = useAuth()
-  const navigate = useNavigate()
-  const [currentPassword, setCurrentPassword] = useState('')
-  const [newPassword, setNewPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
-  const [error, setError] = useState('')
-  const [success, setSuccess] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+  const { changePassword, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Redirect if not authenticated
   if (!isAuthenticated()) {
-    navigate({ to: '/login' })
-    return null
+    navigate({ to: "/login" });
+    return null;
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setError('')
-    setSuccess(false)
+    e.preventDefault();
+    setError("");
+    setSuccess(false);
 
     // Validate passwords match
     if (newPassword !== confirmPassword) {
-      setError('New passwords do not match')
-      return
+      setError("New passwords do not match");
+      return;
     }
 
     // Validate password strength
     if (newPassword.length < 8) {
-      setError('New password must be at least 8 characters long')
-      return
+      setError("New password must be at least 8 characters long");
+      return;
     }
 
     // Check that new password is different from current
     if (currentPassword === newPassword) {
-      setError('New password must be different from current password')
-      return
+      setError("New password must be different from current password");
+      return;
     }
 
-    setIsLoading(true)
+    setIsLoading(true);
 
     try {
-      await changePassword(currentPassword, newPassword)
-      setSuccess(true)
-      setCurrentPassword('')
-      setNewPassword('')
-      setConfirmPassword('')
+      await changePassword(currentPassword, newPassword);
+      setSuccess(true);
+      setCurrentPassword("");
+      setNewPassword("");
+      setConfirmPassword("");
 
       // Redirect to dashboard after 2 seconds
       setTimeout(() => {
-        navigate({ to: '/dashboard' })
-      }, 2000)
+        navigate({ to: "/dashboard" });
+      }, 2000);
     } catch (err) {
-      setError(err.message || 'Failed to change password. Please try again.')
+      setError(err.message || "Failed to change password. Please try again.");
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   return (
     <div className="auth-container">
@@ -68,11 +68,7 @@ export const ChangePasswordPage = () => {
         <h1 className="auth-title">Change Password</h1>
         <p className="auth-subtitle">Update your account password</p>
 
-        {error && (
-          <div className="auth-error">
-            {error}
-          </div>
-        )}
+        {error && <div className="auth-error">{error}</div>}
 
         {success && (
           <div className="auth-success">
@@ -130,18 +126,18 @@ export const ChangePasswordPage = () => {
             className="btn-primary"
             disabled={isLoading || success}
           >
-            {isLoading ? 'Changing password...' : 'Change Password'}
+            {isLoading ? "Changing password..." : "Change Password"}
           </button>
         </form>
 
         <button
-          onClick={() => navigate({ to: '/dashboard' })}
+          onClick={() => navigate({ to: "/dashboard" })}
           className="btn-secondary"
-          style={{ marginTop: '1rem' }}
+          style={{ marginTop: "1rem" }}
         >
           Back to Dashboard
         </button>
       </div>
     </div>
-  )
-}
+  );
+};

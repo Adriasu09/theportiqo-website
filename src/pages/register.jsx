@@ -1,54 +1,54 @@
-import { useState } from 'react'
-import { Link, useNavigate } from '@tanstack/react-router'
-import { useAuth } from '../contexts/AuthContext'
-import '../styles/auth.css'
+import { useState } from "react";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { useAuth } from "../contexts/AuthContext";
+import "../styles/auth.css";
 
 export const RegisterPage = () => {
-  const { register, isAuthenticated } = useAuth()
-  const navigate = useNavigate()
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
-  const [error, setError] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
-  const [registrationSuccess, setRegistrationSuccess] = useState(false)
+  const { register, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
   // Redirect if already authenticated
   if (isAuthenticated()) {
-    navigate({ to: '/dashboard' })
-    return null
+    navigate({ to: "/dashboard" });
+    return null;
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setError('')
+    e.preventDefault();
+    setError("");
 
     // Validate passwords match
     if (password !== confirmPassword) {
-      setError('Passwords do not match')
-      return
+      setError("Passwords do not match");
+      return;
     }
 
     // Validate password strength
     if (password.length < 8) {
-      setError('Password must be at least 8 characters long')
-      return
+      setError("Password must be at least 8 characters long");
+      return;
     }
 
-    setIsLoading(true)
+    setIsLoading(true);
 
     try {
-      const result = await register(email, password, name)
+      const result = await register(email, password, name);
       // Show success message instead of navigating to dashboard
-      setRegistrationSuccess(true)
-      console.log('Registration successful:', result)
+      setRegistrationSuccess(true);
+      console.log("Registration successful:", result);
     } catch (err) {
-      setError(err.message || 'Registration failed. Please try again.')
+      setError(err.message || "Registration failed. Please try again.");
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   // Show success screen after registration
   if (registrationSuccess) {
@@ -61,10 +61,16 @@ export const RegisterPage = () => {
             <p className="auth-subtitle">
               We've sent a confirmation email to <strong>{email}</strong>
             </p>
-            
+
             <div className="confirmation-message">
-              <p>Please check your email and click the confirmation link to activate your account.</p>
-              <p>Don't forget to check your spam folder if you don't see the email.</p>
+              <p>
+                Please check your email and click the confirmation link to
+                activate your account.
+              </p>
+              <p>
+                Don't forget to check your spam folder if you don't see the
+                email.
+              </p>
             </div>
 
             <div className="auth-divider">
@@ -77,7 +83,7 @@ export const RegisterPage = () => {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -86,11 +92,7 @@ export const RegisterPage = () => {
         <h1 className="auth-title">Create Account</h1>
         <p className="auth-subtitle">Join us today</p>
 
-        {error && (
-          <div className="auth-error">
-            {error}
-          </div>
-        )}
+        {error && <div className="auth-error">{error}</div>}
 
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
@@ -151,12 +153,8 @@ export const RegisterPage = () => {
             />
           </div>
 
-          <button
-            type="submit"
-            className="btn-primary"
-            disabled={isLoading}
-          >
-            {isLoading ? 'Creating account...' : 'Create Account'}
+          <button type="submit" className="btn-primary" disabled={isLoading}>
+            {isLoading ? "Creating account..." : "Create Account"}
           </button>
         </form>
 
@@ -169,5 +167,5 @@ export const RegisterPage = () => {
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};

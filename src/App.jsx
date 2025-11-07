@@ -1,8 +1,8 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { RouterProvider } from '@tanstack/react-router'
-import { router } from './router'
-import { AuthProvider } from './contexts/AuthContext'
-import './App.css'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { RouterProvider } from "@tanstack/react-router";
+import { router } from "./router";
+import { AuthProvider } from "./contexts/AuthContext";
+import "./App.css";
 
 // Create a client
 const queryClient = new QueryClient({
@@ -12,7 +12,7 @@ const queryClient = new QueryClient({
       refetchOnWindowFocus: false,
     },
   },
-})
+});
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <RouterProvider router={router} />
       </AuthProvider>
     </QueryClientProvider>
-  )
+  );
 }
 
-export default App
+export default App;

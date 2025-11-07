@@ -1,13 +1,13 @@
-import { Outlet, Link } from '@tanstack/react-router'
-import { useAuth } from '../contexts/AuthContext'
-import { GoogleOneTap } from './GoogleOneTap'
+import { Outlet, Link } from "@tanstack/react-router";
+import { useAuth } from "../contexts/AuthContext";
+import { GoogleOneTap } from "./GoogleOneTap";
 
 export function RootLayout() {
-  const { isAuthenticated, user, signOut } = useAuth()
+  const { isAuthenticated, user, signOut } = useAuth();
 
   // Debug localStorage user data
-  console.log('🔍 LocalStorage user:', localStorage.getItem('user'))
-  console.log('🔍 Context user:', user)
+  console.log("🔍 LocalStorage user:", localStorage.getItem("user"));
+  console.log("🔍 Context user:", user);
 
   return (
     <div className="app-container">
@@ -17,22 +17,32 @@ export function RootLayout() {
           <h2>ThePortiqo</h2>
 
           <nav className="main-nav">
-            <Link to="/" className="nav-link">Home</Link>
-            <Link to="/about" className="nav-link">About</Link>
-            <Link to="/portfolio" className="nav-link">Portfolio</Link>
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+            <Link to="/about" className="nav-link">
+              About
+            </Link>
+            <Link to="/portfolio" className="nav-link">
+              Portfolio
+            </Link>
             {isAuthenticated() && (
-              <Link to="/dashboard" className="nav-link">Dashboard</Link>
+              <Link to="/dashboard" className="nav-link">
+                Dashboard
+              </Link>
             )}
           </nav>
 
           <div className="auth-section">
             {user ? (
-              <div className="flex items-center gap-4">
+              <div className="gap-4 flex items-center">
                 <span className="text-white">
-                  Hello, {(() => {
-                    console.log('🔍 Current user in header:', user)
-                    return user?.name?.split(' ')[0] || 'User'
-                  })()}!
+                  Hello,{" "}
+                  {(() => {
+                    console.log("🔍 Current user in header:", user);
+                    return user?.name?.split(" ")[0] || "User";
+                  })()}
+                  !
                 </span>
                 <button
                   onClick={signOut}
@@ -43,8 +53,12 @@ export function RootLayout() {
               </div>
             ) : (
               <div className="auth-buttons">
-                <Link to="/login" className="login-btn">Login</Link>
-                <Link to="/register" className="signup-btn">Sign Up</Link>
+                <Link to="/login" className="login-btn">
+                  Login
+                </Link>
+                <Link to="/register" className="signup-btn">
+                  Sign Up
+                </Link>
               </div>
             )}
           </div>
@@ -61,5 +75,5 @@ export function RootLayout() {
         </div>
       </footer>
     </div>
-  )
+  );
 }

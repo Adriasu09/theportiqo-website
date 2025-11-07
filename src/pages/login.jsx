@@ -1,36 +1,36 @@
-import { useState } from 'react'
-import { Link, useNavigate } from '@tanstack/react-router'
-import { useAuth } from '../contexts/AuthContext'
-import '../styles/auth.css'
+import { useState } from "react";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { useAuth } from "../contexts/AuthContext";
+import "../styles/auth.css";
 
 export const LoginPage = () => {
-  const { login, isAuthenticated } = useAuth()
-  const navigate = useNavigate()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
+  const { login, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   // Redirect if already authenticated
   if (isAuthenticated()) {
-    navigate({ to: '/dashboard' })
-    return null
+    navigate({ to: "/dashboard" });
+    return null;
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setError('')
-    setIsLoading(true)
+    e.preventDefault();
+    setError("");
+    setIsLoading(true);
 
     try {
-      await login(email, password)
-      navigate({ to: '/dashboard' })
+      await login(email, password);
+      navigate({ to: "/dashboard" });
     } catch (err) {
-      setError(err.message || 'Login failed. Please check your credentials.')
+      setError(err.message || "Login failed. Please check your credentials.");
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   return (
     <div className="auth-container">
@@ -38,11 +38,7 @@ export const LoginPage = () => {
         <h1 className="auth-title">Welcome Back</h1>
         <p className="auth-subtitle">Sign in to your account</p>
 
-        {error && (
-          <div className="auth-error">
-            {error}
-          </div>
-        )}
+        {error && <div className="auth-error">{error}</div>}
 
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
@@ -79,12 +75,8 @@ export const LoginPage = () => {
             </Link>
           </div>
 
-          <button
-            type="submit"
-            className="btn-primary"
-            disabled={isLoading}
-          >
-            {isLoading ? 'Signing in...' : 'Sign In'}
+          <button type="submit" className="btn-primary" disabled={isLoading}>
+            {isLoading ? "Signing in..." : "Sign In"}
           </button>
         </form>
 
@@ -97,5 +89,5 @@ export const LoginPage = () => {
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};

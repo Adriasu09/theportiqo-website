@@ -1,31 +1,31 @@
-import { useState } from 'react'
-import { Link } from '@tanstack/react-router'
-import { useAuth } from '../contexts/AuthContext'
-import '../styles/auth.css'
+import { useState } from "react";
+import { Link } from "@tanstack/react-router";
+import { useAuth } from "../contexts/AuthContext";
+import "../styles/auth.css";
 
 export const ForgotPasswordPage = () => {
-  const { forgotPassword } = useAuth()
-  const [email, setEmail] = useState('')
-  const [error, setError] = useState('')
-  const [success, setSuccess] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+  const { forgotPassword } = useAuth();
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setError('')
-    setSuccess(false)
-    setIsLoading(true)
+    e.preventDefault();
+    setError("");
+    setSuccess(false);
+    setIsLoading(true);
 
     try {
-      await forgotPassword(email)
-      setSuccess(true)
-      setEmail('')
+      await forgotPassword(email);
+      setSuccess(true);
+      setEmail("");
     } catch (err) {
-      setError(err.message || 'Failed to send reset email. Please try again.')
+      setError(err.message || "Failed to send reset email. Please try again.");
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   return (
     <div className="auth-container">
@@ -35,15 +35,12 @@ export const ForgotPasswordPage = () => {
           Enter your email and we'll send you a link to reset your password
         </p>
 
-        {error && (
-          <div className="auth-error">
-            {error}
-          </div>
-        )}
+        {error && <div className="auth-error">{error}</div>}
 
         {success && (
           <div className="auth-success">
-            Password reset email sent! Check your inbox for further instructions.
+            Password reset email sent! Check your inbox for further
+            instructions.
           </div>
         )}
 
@@ -62,12 +59,8 @@ export const ForgotPasswordPage = () => {
             />
           </div>
 
-          <button
-            type="submit"
-            className="btn-primary"
-            disabled={isLoading}
-          >
-            {isLoading ? 'Sending...' : 'Send Reset Link'}
+          <button type="submit" className="btn-primary" disabled={isLoading}>
+            {isLoading ? "Sending..." : "Send Reset Link"}
           </button>
         </form>
 
@@ -80,5 +73,5 @@ export const ForgotPasswordPage = () => {
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};

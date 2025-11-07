@@ -1,64 +1,67 @@
-import { useEffect, useState } from 'react'
-import { Link, useNavigate, useSearch } from '@tanstack/react-router'
-import { useAuth } from '../contexts/AuthContext'
-import '../styles/auth.css'
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useSearch } from "@tanstack/react-router";
+import { useAuth } from "../contexts/AuthContext";
+import "../styles/auth.css";
 
 export const ResetPasswordPage = () => {
-  const { resetPassword, isAuthenticated } = useAuth()
-  const navigate = useNavigate()
-  const { token } = useSearch({ from: '/auth/reset-password' })
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
-  const [error, setError] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
-  const [tokenValid, setTokenValid] = useState(null) // null = checking, true = valid, false = invalid
-  const [resetSuccess, setResetSuccess] = useState(false)
+  const { resetPassword, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+  const { token } = useSearch({ from: "/auth/reset-password" });
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [tokenValid, setTokenValid] = useState(null); // null = checking, true = valid, false = invalid
+  const [resetSuccess, setResetSuccess] = useState(false);
 
   // Redirect if already authenticated
   useEffect(() => {
     if (isAuthenticated()) {
-      navigate({ to: '/dashboard' })
-      return
+      navigate({ to: "/dashboard" });
+      return;
     }
 
     // Validate token exists
     if (!token) {
-      setTokenValid(false)
-      setError('Invalid reset link. Please request a new password reset.')
-      return
+      setTokenValid(false);
+      setError("Invalid reset link. Please request a new password reset.");
+      return;
     }
 
     // Token exists, assume it's valid for now (backend will validate)
-    setTokenValid(true)
-  }, [token, isAuthenticated, navigate])
+    setTokenValid(true);
+  }, [token, isAuthenticated, navigate]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setError('')
+    e.preventDefault();
+    setError("");
 
     // Validate passwords match
     if (password !== confirmPassword) {
-      setError('Passwords do not match')
-      return
+      setError("Passwords do not match");
+      return;
     }
 
     // Validate password strength
     if (password.length < 8) {
-      setError('Password must be at least 8 characters long')
-      return
+      setError("Password must be at least 8 characters long");
+      return;
     }
 
-    setIsLoading(true)
+    setIsLoading(true);
 
     try {
-      await resetPassword(token, password)
-      setResetSuccess(true)
+      await resetPassword(token, password);
+      setResetSuccess(true);
     } catch (err) {
-      setError(err.message || 'Password reset failed. The link may be expired or invalid.')
+      setError(
+        err.message ||
+          "Password reset failed. The link may be expired or invalid.",
+      );
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   // Loading state while checking token
   if (tokenValid === null) {
@@ -68,11 +71,13 @@ export const ResetPasswordPage = () => {
           <div className="auth-loading">
             <div className="loading-spinner">🔄</div>
             <h1 className="auth-title">Validating Reset Link</h1>
-            <p className="auth-subtitle">Please wait while we validate your password reset link...</p>
+            <p className="auth-subtitle">
+              Please wait while we validate your password reset link...
+            </p>
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   // Invalid token state
@@ -83,11 +88,9 @@ export const ResetPasswordPage = () => {
           <div className="auth-error-state">
             <div className="error-icon">❌</div>
             <h1 className="auth-title">Invalid Reset Link</h1>
-            
-            <div className="auth-error">
-              {error}
-            </div>
-            
+
+            <div className="auth-error">{error}</div>
+
             <div className="confirmation-message">
               <p>This could happen if:</p>
               <ul>
@@ -100,7 +103,7 @@ export const ResetPasswordPage = () => {
             <Link to="/forgot-password" className="btn-primary">
               Request New Reset Link
             </Link>
-            
+
             <div className="auth-divider">
               <span>Remember your password?</span>
             </div>
@@ -111,7 +114,7 @@ export const ResetPasswordPage = () => {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   // Success state
@@ -125,7 +128,7 @@ export const ResetPasswordPage = () => {
             <p className="auth-subtitle">
               Your password has been successfully updated.
             </p>
-            
+
             <div className="confirmation-message">
               <p>You can now sign in with your new password.</p>
             </div>
@@ -133,7 +136,7 @@ export const ResetPasswordPage = () => {
             <Link to="/login" className="btn-primary">
               Sign In Now
             </Link>
-            
+
             <div className="auth-divider">
               <span>Or explore the site</span>
             </div>
@@ -144,7 +147,7 @@ export const ResetPasswordPage = () => {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   // Reset password form
@@ -154,11 +157,7 @@ export const ResetPasswordPage = () => {
         <h1 className="auth-title">Reset Your Password</h1>
         <p className="auth-subtitle">Enter your new password below</p>
 
-        {error && (
-          <div className="auth-error">
-            {error}
-          </div>
-        )}
+        {error && <div className="auth-error">{error}</div>}
 
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
@@ -191,12 +190,8 @@ export const ResetPasswordPage = () => {
             />
           </div>
 
-          <button
-            type="submit"
-            className="btn-primary"
-            disabled={isLoading}
-          >
-            {isLoading ? 'Resetting Password...' : 'Reset Password'}
+          <button type="submit" className="btn-primary" disabled={isLoading}>
+            {isLoading ? "Resetting Password..." : "Reset Password"}
           </button>
         </form>
 
@@ -209,5 +204,5 @@ export const ResetPasswordPage = () => {
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -239,7 +239,9 @@ body {
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.25s, border-color 0.25s;
+  transition:
+    transform 0.25s,
+    border-color 0.25s;
 }
 
 .project-card:hover {
@@ -298,8 +300,6 @@ body {
   line-height: 1.5;
 }
 
-
-
 .signin-options {
   display: flex;
   flex-direction: column;
@@ -335,7 +335,7 @@ body {
 
 .signin-divider::before,
 .signin-divider::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   width: 40%;
@@ -411,7 +411,7 @@ body {
 .debug-info pre {
   margin: 0;
   color: #ccc;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   font-size: 0.8rem;
   white-space: pre-wrap;
 }
@@ -707,4 +707,3 @@ iframe[src*="accounts.google.com"] {
     width: 85%;
   }
 }
-

@@ -1,4 +1,4 @@
-import { Link } from '@tanstack/react-router'
+import { Link } from "@tanstack/react-router";
 
 export function HomePage() {
   return (
@@ -20,5 +20,5 @@ export function HomePage() {
         </Link>
       </div>
     </div>
-  )
+  );
 }

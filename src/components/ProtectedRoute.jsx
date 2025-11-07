@@ -1,16 +1,16 @@
-import { Link } from '@tanstack/react-router'
-import { useAuth } from '../contexts/AuthContext'
-import { GoogleOneTap } from '../components/GoogleOneTap'
+import { Link } from "@tanstack/react-router";
+import { useAuth } from "../contexts/AuthContext";
+import { GoogleOneTap } from "../components/GoogleOneTap";
 
 export const ProtectedRoute = ({ children }) => {
-  const { isAuthenticated, isLoading } = useAuth()
+  const { isAuthenticated, isLoading } = useAuth();
 
   if (isLoading) {
     return (
       <div className="loading-container">
         <div className="loading-spinner">Loading...</div>
       </div>
-    )
+    );
   }
 
   if (!isAuthenticated()) {
@@ -22,10 +22,7 @@ export const ProtectedRoute = ({ children }) => {
 
           <div className="signin-option">
             <p>Click the button below to log in to your account.</p>
-            <Link
-              to="/login"
-              className="manual-signin-button"
-            >
+            <Link to="/login" className="manual-signin-button">
               🔐 Log In
             </Link>
           </div>
@@ -42,8 +39,8 @@ export const ProtectedRoute = ({ children }) => {
           <GoogleOneTap />
         </div>
       </div>
-    )
+    );
   }
 
-  return children
-}
+  return children;
+};
