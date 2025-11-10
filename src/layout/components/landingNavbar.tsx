@@ -8,7 +8,7 @@ export const LandingNavbar = () => {
 
   return (
     <div className="fixed top-0 right-0 left-0 flex h-20 w-full items-center justify-between bg-cover px-6">
-      <div className="flex gap-16 items-center">
+      <div className="flex items-center gap-6">
         <Menu className="min-[1440px]:hidden" />
         <div className="font-oswald text-2xl font-black">QO</div>
       </div>
@@ -27,7 +27,9 @@ export const LandingNavbar = () => {
           <ArrowRight />
         </Button>
 
-        <Button variant="outline">{t("global.button.clients")}</Button>
+        <div className="max-[480px]:hidden">
+          <Button variant="outline">{t("global.button.clients")}</Button>
+        </div>
       </div>
     </div>
   );
