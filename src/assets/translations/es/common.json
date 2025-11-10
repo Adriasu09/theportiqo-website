@@ -1,5 +1,14 @@
 {
 	"global": {
+		"button": {
+			"becomeClient": "Hazte cliente",
+			"clients": "Clientes"
+		},
+		"menu": {
+			"company": "Compañía",
+			"product": "Producto",
+			"simulator": "Simulador"
+		},
 		"title": "Título de la prueba"
 	},
 	"test": "Esta es una cadena de prueba en inglés"

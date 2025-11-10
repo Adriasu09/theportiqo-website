@@ -1,5 +1,14 @@
 {
 	"global": {
+		"button": {
+			"becomeClient": "Become a client",
+			"clients": "Clients"
+		},
+		"menu": {
+			"company": "Company",
+			"product": "Product",
+			"simulator": "Simulator"
+		},
 		"title": "Test title"
 	},
 	"test": "Prueba"

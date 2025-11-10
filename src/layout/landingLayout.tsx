@@ -1,22 +1,9 @@
 import { LandingFooter, LandingNavbar } from "./components";
-import { useTranslation } from "react-i18next";
 
 export const LandingLayout = () => {
-  const { t } = useTranslation();
-
   return (
-    <div className="flex h-screen w-full flex-col justify-between">
+    <div className="flex h-screen w-full flex-col justify-end bg-qo-brand-25 font-manrope-regular">
       <LandingNavbar />
-      <div className="text-9xl">
-        <p className="font-clash-display-regular">Invierte como un experto</p>
-        <p className="font-clash-display-medium">Invierte como un experto</p>
-        <p className="font-clash-display-bold">Invierte como un experto</p>
-
-        <p className="font-manrope-regular">Saber que mis inversiones</p>
-        <p className="font-manrope-medium">Saber que mis inversiones</p>
-        <p className="font-manrope-bold">Saber que mis inversiones</p>
-        <p className="font-manrope-bold">{t("global.title")}</p>
-      </div>
       <LandingFooter />
     </div>
   );
