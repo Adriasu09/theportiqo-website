@@ -1,7 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { I18nextProvider } from "react-i18next";
-import i18next from "i18next";
+import "./assets/translations/i18n.ts";
 import "./index.css";
 import App from "./App.jsx";
 
@@ -13,8 +12,6 @@ if (!rootElement) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <I18nextProvider i18n={i18next}>
-      <App />
-    </I18nextProvider>
+    <App />
   </StrictMode>,
 );
