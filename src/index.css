@@ -1,6 +1,14 @@
 /* Global styles here */
 
-@import './styles/variables.css';
 @import './styles/fonts.css';
+@import './styles/variables.css';
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
 

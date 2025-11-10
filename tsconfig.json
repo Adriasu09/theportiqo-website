@@ -23,7 +23,7 @@
     /* Path aliases */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": ["./*"],
       "@pages/*": ["./src/pages/*"],
       "@components/*": ["./src/components/*"],
       "@layout/*": ["./src/layout/*"],
@@ -32,5 +32,5 @@
       "@styles/*": ["./src/styles/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "lib", "components"]
 }
