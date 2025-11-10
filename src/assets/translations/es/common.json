@@ -1,3 +1,6 @@
 {
+	"global": {
+		"title": "Título de la prueba"
+	},
 	"test": "Esta es una cadena de prueba en inglés"
 }
