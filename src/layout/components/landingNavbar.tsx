@@ -14,7 +14,7 @@ export const LandingNavbar = () => {
   const menuItems: string[] = ["product", "simulator", "company"];
 
   return (
-    <div className="fixed top-0 right-0 left-0 flex h-20 w-full items-center justify-between bg-cover px-6">
+    <div className="fixed z-10 top-0 right-0 left-0 flex h-20 w-full items-center justify-between bg-cover px-6">
       <div className="flex items-center gap-6">
         <Sheet>
           <SheetTrigger asChild>
