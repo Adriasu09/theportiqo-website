@@ -11,7 +11,7 @@ export const LandingHero = () => {
         <div className="flex h-full max-w-xl flex-col items-start justify-center gap-4">
           <p>From 10,000 eur</p>
 
-          <h1 className="font-clash-display-bold text-7xl leading-tight font-black">
+          <h1 className="font-accent text-7xl leading-tight font-black">
             {t("landing.hero.title")}
           </h1>
 

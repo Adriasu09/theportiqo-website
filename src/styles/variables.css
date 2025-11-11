@@ -1,12 +1,10 @@
 /* Portiqo brand colors and custom fonts */
 @theme {
   /* Font families */
-  --font-clash-display-regular: clash-display-regular, sans-serif;
-  --font-clash-display-medium: clash-display-medium, sans-serif;
-  --font-clash-display-bold: clash-display-bold, sans-serif;
-  --font-manrope-regular: manrope-regular, sans-serif;
-  --font-manrope-medium: manrope-medium, sans-serif;
-  --font-manrope-bold: manrope-bold, sans-serif;
+  --font-accent: clash-display-bold, sans-serif;
+  --font-main: manrope-regular, sans-serif;
+  --font-main-medium: manrope-medium, sans-serif;
+  --font-main-bold: manrope-bold, sans-serif;
   --font-oswald: Oswald, sans-serif;
 
   /* Colors */
