@@ -1,14 +1,14 @@
+import { Button } from "@/components/ui/button";
 import { LandingHero } from "./components/landingHero";
+import { PARTNERS_LOGOS } from "./constants/landing.constants";
+import { Partners } from "./components/partners";
 
 export const LandingPage = () => {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex w-full flex-col gap-28">
       <LandingHero />
 
-      <div className="w-full flex flex-col gap-4">
-        <h2 className="font-accent"></h2>
-
-      </div>
+      <Partners />
     </div>
   );
 };

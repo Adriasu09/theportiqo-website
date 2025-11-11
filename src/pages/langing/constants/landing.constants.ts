@@ -1,10 +1,19 @@
+import { CarouselItem } from "../models/carouset.models";
 import houseAnimation from "@assets/videos/house-animated.webm";
 import robotAnimation from "@assets/videos/robot-animated.webm";
 import windmillAnimation from "@assets/videos/windmill-animated.webm";
+import blackrockLogo from "@assets/imgs/logos/blackrock.png";
+import fidelityLogo from "@assets/imgs/logos/fidelity.png";
+import vanguardLogo from "@assets/imgs/logos/vanguard.png";
 
+export const PARTNERS_LOGOS: { url: string; height: number }[] = [
+  { url: blackrockLogo, height: 8  },
+  { url: fidelityLogo, height: 10  },
+  { url: vanguardLogo, height: 10  },
+];
 
-export const CAROUSEL_ITEMS = [
+export const CAROUSEL_ITEMS: CarouselItem[] = [
   { url: houseAnimation, titleKey: "realState" },
   { url: robotAnimation, titleKey: "technology" },
   { url: windmillAnimation, titleKey: "renewableEnergies" },
-]
+];

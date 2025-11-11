@@ -27,7 +27,10 @@ export const Carousel = ({ items }: Props) => {
   return (
     <div className="flex flex-col items-center justify-center gap-2">
       <div className="flex items-center justify-center gap-4">
-        <ChevronLeft className="cursor-pointer" onClick={goPreviousSlide} />
+        <ChevronLeft
+          className={`${currentIndex === 0 && "opacity-25"} cursor-pointer`}
+          onClick={goPreviousSlide}
+        />
 
         <div className="flex h-[500px] w-[500px] overflow-hidden">
           {items.map((item: CarouselItem) => (
@@ -38,7 +41,7 @@ export const Carousel = ({ items }: Props) => {
               loop
               muted
               playsInline
-              style={{ 
+              style={{
                 height: "500px",
                 width: "500px",
                 translate: `${-100 * currentIndex}%`,
@@ -50,7 +53,10 @@ export const Carousel = ({ items }: Props) => {
           ))}
         </div>
 
-        <ChevronRight className="cursor-pointer" onClick={goNextSlide} />
+        <ChevronRight
+          className={`${currentIndex >= items.length - 1 && "opacity-25"} cursor-pointer`}
+          onClick={goNextSlide}
+        />
       </div>
 
       <p>{t(`global.label.${items[currentIndex].titleKey}`)}</p>
