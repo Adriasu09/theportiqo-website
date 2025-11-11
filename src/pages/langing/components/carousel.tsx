@@ -32,7 +32,7 @@ export const Carousel = ({ items }: Props) => {
           onClick={goPreviousSlide}
         />
 
-        <div className="flex h-[500px] w-[500px] overflow-hidden">
+        <div className="h-[300px] w-[300px] flex sm:h-[500px] sm:w-[500px] overflow-hidden">
           {items.map((item: CarouselItem) => (
             <video
               key={item.titleKey}
@@ -42,11 +42,7 @@ export const Carousel = ({ items }: Props) => {
               muted
               playsInline
               style={{
-                height: "500px",
-                width: "500px",
                 translate: `${-100 * currentIndex}%`,
-                flexShrink: 0,
-                flexGrow: 0,
                 transition: "translate 300ms ease-in-out",
               }}
             />

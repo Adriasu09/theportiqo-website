@@ -3,7 +3,10 @@
 		"button": {
 			"becomeClient": "Hazte cliente",
 			"clients": "Clientes",
+			"goSimulator": "Ir al simulador de nuestras carteras",
+			"goToPortfolioSimulator": "Ir al simulador de nuestras carteras",
 			"startInvesting": "Empieza a invertir hoy",
+			"startInvestingNow": "Comience a invertir ahora mismo",
 			"tryPortiqo": "Quiero probar Portiqo"
 		},
 		"label": {
@@ -23,6 +26,17 @@
 			"paragraph1": "Invierta en carteras exclusivas diseñadas para maximizar su rentabilidad. Con carteras claras,",
 			"paragraph2": "sin jerga ni complicaciones, hasta ahora reservadas para grandes inversores.",
 			"title": "Invierte como un experto, sin serlo."
+		},
+		"ourPortfolio": {
+			"getAccess": "Puede acceder a nuestra cartera completa, sólo con un correo electrónico",
+			"gmailAccount": "Cuenta de Gmail",
+			"requirements": "REQUISITOS",
+			"title": "Algunos temas de nuestras carteras",
+			"wantToKnowMore": "¿Quiere ver el resto de nuestras carteras?"
+		},
+		"partners": {
+			"comment": "\"Saber que mis inversiones están respaldadas por líderes mundiales me da total confianza para seguir creciendo\". - Ana M.",
+			"title": "Invierta con la tranquilidad de la banca mundial"
 		}
 	}
 }

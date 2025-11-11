@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Carousel } from "./Carousel";
+import { Carousel } from "./carousel";
 import { CAROUSEL_ITEMS } from "../constants/landing.constants";
 import { useTranslation } from "react-i18next";
 
@@ -11,7 +11,7 @@ export const LandingHero = () => {
         <div className="flex h-full max-w-xl flex-col items-start justify-center gap-4">
           <p>From 10,000 eur</p>
 
-          <h1 className="font-accent text-7xl leading-tight font-black">
+          <h1 className="heading1">
             {t("landing.hero.title")}
           </h1>
 

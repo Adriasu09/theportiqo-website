@@ -14,7 +14,7 @@ export const LandingNavbar = () => {
   const menuItems: string[] = ["product", "simulator", "company"];
 
   return (
-    <div className="fixed z-10 top-0 right-0 left-0 flex h-20 w-full items-center justify-between bg-cover px-6">
+    <div className="backdrop-blur-xl min-[1440px]:backdrop-blur-none fixed z-10 top-0 right-0 left-0 flex h-20 w-full items-center justify-between bg-cover px-6">
       <div className="flex items-center gap-6">
         <Sheet>
           <SheetTrigger asChild>
@@ -40,7 +40,7 @@ export const LandingNavbar = () => {
         <div className="font-oswald text-2xl font-black">QO</div>
       </div>
 
-      <div className="hidden justify-between gap-52 rounded-full px-8 py-4 backdrop-blur-sm min-[1440px]:flex">
+      <div className="hidden justify-between gap-52 rounded-full px-8 py-4 backdrop-blur-xl min-[1440px]:flex">
         {menuItems.map((item: string) => (
           <p key={item} className="cursor-pointer">
             {t(`global.menu.${item}`)}

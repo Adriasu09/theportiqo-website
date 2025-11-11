@@ -1,7 +1,6 @@
-import { Button } from "@/components/ui/button";
 import { LandingHero } from "./components/landingHero";
-import { PARTNERS_LOGOS } from "./constants/landing.constants";
 import { Partners } from "./components/partners";
+import { PortfolioThemses } from "./components/portfolioThemes";
 
 export const LandingPage = () => {
   return (
@@ -9,6 +8,8 @@ export const LandingPage = () => {
       <LandingHero />
 
       <Partners />
+
+      <PortfolioThemses />
     </div>
   );
 };

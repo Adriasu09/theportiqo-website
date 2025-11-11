@@ -3,7 +3,10 @@
 		"button": {
 			"becomeClient": "Become a client",
 			"clients": "Clients",
+			"goSimulator": "Go to the simulator of our portfolios",
+			"goToPortfolioSimulator": "Go to the simulator of our portfolios",
 			"startInvesting": "Start investing today",
+			"startInvestingNow": "Start investing right now",
 			"tryPortiqo": "I want to try Portiqo"
 		},
 		"label": {
@@ -23,6 +26,17 @@
 			"paragraph1": "Invest in exclusive portfolios designed to maximise your returns. With clear portfolios,",
 			"paragraph2": "free from jargon and complications, previously reserved for large investors.",
 			"title": "Invest like an expert, without being one."
+		},
+		"ourPortfolio": {
+			"getAccess": "You can access our complete portfolio, just with an email",
+			"gmailAccount": "Gmail account",
+			"requirements": "REQUERIMENTS",
+			"title": "Some themes of our portfolios",
+			"wantToKnowMore": "Do you want to see the rest of our portfolios"
+		},
+		"partners": {
+			"comment": "\"Knowing that my investments are backed by global leaders gives me complete confidence to keep growing\". - Ana M.",
+			"title": "Invest with the peace of mind of global banking"
 		}
 	}
 }
