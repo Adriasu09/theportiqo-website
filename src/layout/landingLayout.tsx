@@ -1,9 +1,15 @@
+import { Outlet } from "@tanstack/react-router";
 import { LandingFooter, LandingNavbar } from "./components";
 
 export const LandingLayout = () => {
   return (
-    <div className="flex h-screen w-full flex-col justify-end bg-qo-brand-25 font-manrope-regular">
+    <div className="flex h-screen w-full flex-col justify-between bg-qo-brand-25 font-manrope-regular">
       <LandingNavbar />
+
+      <div className="flex-1 pt-20 px-6 pb-6">
+        <Outlet />
+      </div>
+
       <LandingFooter />
     </div>
   );
