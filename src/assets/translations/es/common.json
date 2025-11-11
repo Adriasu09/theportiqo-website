@@ -2,7 +2,14 @@
 	"global": {
 		"button": {
 			"becomeClient": "Hazte cliente",
-			"clients": "Clientes"
+			"clients": "Clientes",
+			"startInvesting": "Empieza a invertir hoy",
+			"tryPortiqo": "Quiero probar Portiqo"
+		},
+		"label": {
+			"realState": "Inmobiliario",
+			"renewableEnergies": "Energías renovables",
+			"technology": "Tecnología e inteligencia artificial"
 		},
 		"menu": {
 			"company": "Compañía",
@@ -10,5 +17,12 @@
 			"simulator": "Simulador"
 		},
 		"title": "Título de la prueba"
+	},
+	"landing": {
+		"hero": {
+			"paragraph1": "Invierta en carteras exclusivas diseñadas para maximizar su rentabilidad. Con carteras claras,",
+			"paragraph2": "sin jerga ni complicaciones, hasta ahora reservadas para grandes inversores.",
+			"title": "Invierte como un experto, sin serlo."
+		}
 	}
 }

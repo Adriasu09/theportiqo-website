@@ -17,7 +17,7 @@ import { ForgotPasswordPage } from "@pages/forgot-password";
 import { ResetPasswordPage } from "@pages/reset-password";
 import { ChangePasswordPage } from "@pages/change-password";
 import { ProtectedRoute } from "@components/ProtectedRoute";
-import { LandingPage } from "@pages/landing";
+import { LandingPage } from "@/src/pages/langing/landing";
 import { LandingLayout } from "@layout/landingLayout";
 
 // Define routes
