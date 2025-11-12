@@ -1,4 +1,4 @@
-import { CarouselItem } from "../models/carouset.models";
+import { BenefitCard, CarouselItem } from "../models/landing.models";
 import houseAnimation from "@assets/videos/house-animated.webm";
 import robotAnimation from "@assets/videos/robot-animated.webm";
 import windmillAnimation from "@assets/videos/windmill-animated.webm";
@@ -17,3 +17,30 @@ export const CAROUSEL_ITEMS: CarouselItem[] = [
   { url: robotAnimation, titleKey: "technology" },
   { url: windmillAnimation, titleKey: "renewableEnergies" },
 ];
+
+export const BENEFITS_LIST: BenefitCard[] = [
+  {
+    titleKey: "backedByExperts",
+    descriptionKey: "backedByExpertsDescription",
+  },
+  {
+    titleKey: "experience",
+    isAccented: true,
+  },
+  {
+    titleKey: "profitability",
+    isAccented: true,
+  },
+  {
+    titleKey: "maximumProfitability",
+    descriptionKey: "maximumProfitabilityDescription",
+  },
+  {
+    titleKey: "everythingClear",
+    descriptionKey: "everythingClearDescription",
+  },
+  {
+    titleKey: "fees",
+    isAccented: true,
+  },
+]

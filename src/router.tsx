@@ -18,7 +18,7 @@ import { ResetPasswordPage } from "@pages/reset-password";
 import { ChangePasswordPage } from "@pages/change-password";
 import { ProtectedRoute } from "@components/ProtectedRoute";
 import { LandingPage } from "@/src/pages/langing/landing";
-import { LandingLayout } from "@layout/landingLayout";
+import { LandingLayout } from "@/src/layout/landing-layout";
 
 // Define routes
 const rootRoute = createRootRoute({

@@ -22,6 +22,17 @@
 		"title": "Test title"
 	},
 	"landing": {
+		"benefits": {
+			"backedByExperts": "Backed by experts",
+			"backedByExpertsDescription": "Investments selected by experienced professionals with the guarantee of prestigious funds.",
+			"everythingClear": "Everything clear and accessible",
+			"everythingClearDescription": "Understand every step, without jargon or technicalities. Choose your investments in categories you know and control every decision.",
+			"experience": "15 years of experience",
+			"fees": "0.0 fess",
+			"maximumProfitability": "Maximum profitability",
+			"maximumProfitabilityDescription": "Investments selected by experienced professionals with the guarantee of prestigious funds.",
+			"profitability": "13.4%\n12.3%\n11.1%"
+		},
 		"hero": {
 			"paragraph1": "Invest in exclusive portfolios designed to maximise your returns. With clear portfolios,",
 			"paragraph2": "free from jargon and complications, previously reserved for large investors.",

@@ -22,6 +22,17 @@
 		"title": "Título de la prueba"
 	},
 	"landing": {
+		"benefits": {
+			"backedByExperts": "Con el respaldo de expertos",
+			"backedByExpertsDescription": "Inversiones seleccionadas por profesionales experimentados con la garantía de fondos de prestigio.",
+			"everythingClear": "Todo claro y accesible",
+			"everythingClearDescription": "Entienda cada paso, sin jerga ni tecnicismos. Elija sus inversiones en categorías que conozca y controle cada decisión.",
+			"experience": "15 años de experiencia",
+			"fees": "0,0 comisiones",
+			"maximumProfitability": "Máxima rentabilidad",
+			"maximumProfitabilityDescription": "Inversiones seleccionadas por profesionales experimentados con la garantía de fondos de prestigio.",
+			"profitability": "13.4%\n12.3%\n11.1%"
+		},
 		"hero": {
 			"paragraph1": "Invierta en carteras exclusivas diseñadas para maximizar su rentabilidad. Con carteras claras,",
 			"paragraph2": "sin jerga ni complicaciones, hasta ahora reservadas para grandes inversores.",

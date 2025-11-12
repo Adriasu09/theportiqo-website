@@ -1,6 +1,7 @@
-import { LandingHero } from "./components/landingHero";
+import { Benefits } from "./components/benefits";
+import { LandingHero } from "./components/landing-hero";
 import { Partners } from "./components/partners";
-import { PortfolioThemses } from "./components/portfolioThemes";
+import { PortfolioThemes } from "./components/portfolio-themes";
 
 export const LandingPage = () => {
   return (
@@ -9,7 +10,9 @@ export const LandingPage = () => {
 
       <Partners />
 
-      <PortfolioThemses />
+      <PortfolioThemes />
+
+      <Benefits />
     </div>
   );
 };

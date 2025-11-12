@@ -3,7 +3,7 @@ import { CAROUSEL_ITEMS } from "../constants/landing.constants";
 import gmail3D from "@assets/imgs/gmail.png";
 import { Button } from "@/components/ui/button";
 
-export const PortfolioThemses = () => {
+export const PortfolioThemes = () => {
   const { t } = useTranslation();
 
   return (

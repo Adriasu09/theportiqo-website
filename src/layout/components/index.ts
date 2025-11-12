@@ -1,2 +1,2 @@
-export * from "./landingNavbar";
-export * from "./landingFooter";
+export * from "./landing-navbar";
+export * from "./landing-footer";
