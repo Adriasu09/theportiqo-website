@@ -1,9 +1,9 @@
 /* Global styles here */
-
-@import './styles/fonts.css';
-@import './styles/variables.css';
+@import "./styles/fonts.css";
+@import "./styles/variables.css";
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "flag-icons/css/flag-icons.min.css";
 
 @layer base {
   button:not(:disabled),
@@ -19,4 +19,3 @@
 .heading2 {
   @apply font-accent text-5xl;
 }
-

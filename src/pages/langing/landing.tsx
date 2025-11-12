@@ -12,7 +12,7 @@ import { FAQ } from "./components/faq";
 
 export const LandingPage = () => {
   return (
-    <div className="flex w-full flex-col items-center gap-28">
+    <div className="flex w-full flex-col items-center gap-28 pb-28">
       <LandingHero />
 
       <Partners />

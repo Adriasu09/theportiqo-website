@@ -1,4 +1,23 @@
 {
+	"footer": {
+		"company": {
+			"title": "Empresa",
+			"whoWeAre": "Quiénes somos"
+		},
+		"global": "Global",
+		"legal": {
+			"legalNotice": "Aviso legal",
+			"privacyPolicity": "Política de privacidad",
+			"terms": "Términos y condiciones",
+			"title": "Legal"
+		},
+		"spain": "España",
+		"support": {
+			"contact": "Contacto",
+			"faq": "Preguntas más frecuentes",
+			"title": "Ayuda"
+		}
+	},
 	"global": {
 		"button": {
 			"becomeClient": "Hazte cliente",
