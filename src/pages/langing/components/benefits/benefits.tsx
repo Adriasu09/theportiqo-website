@@ -1,5 +1,5 @@
-import { BENEFITS_LIST } from "../constants/landing.constants";
-import { BenefitCard } from "../models/landing.models";
+import { BENEFITS_LIST } from "../../constants/landing.constants";
+import { BenefitCard } from "../../models/landing.models";
 import { BenefitsCard } from "./benefits-card";
 
 export const Benefits = () => {

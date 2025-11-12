@@ -9,3 +9,8 @@ export interface BenefitCard {
   descriptionKey?: string;
   isAccented?: boolean;
 }
+
+export interface FAQItem {
+  questionKey: string;
+  answerKey: string;
+}

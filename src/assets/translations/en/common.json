@@ -33,6 +33,12 @@
 			"maximumProfitabilityDescription": "Investments selected by experienced professionals with the guarantee of prestigious funds.",
 			"profitability": "13.4%\n12.3%\n11.1%"
 		},
+		"faq": {
+			"canWithdrawAnytime": "Can I withdraw my investment at any time?",
+			"fees": "What fees does Portiqo charge?",
+			"isSafe": "Is it safe to invest in Portiqo?",
+			"minimumInvestment": "What is the minimum investment?"
+		},
 		"hero": {
 			"paragraph1": "Invest in exclusive portfolios designed to maximise your returns. With clear portfolios,",
 			"paragraph2": "free from jargon and complications, previously reserved for large investors.",

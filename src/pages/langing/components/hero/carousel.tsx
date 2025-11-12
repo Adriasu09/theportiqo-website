@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CarouselItem } from "../models/landing.models";
+import { CarouselItem } from "../../models/landing.models";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 

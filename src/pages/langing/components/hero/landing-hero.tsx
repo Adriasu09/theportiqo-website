@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Carousel } from "./carousel";
-import { CAROUSEL_ITEMS } from "../constants/landing.constants";
+import { CAROUSEL_ITEMS } from "../../constants/landing.constants";
 import { useTranslation } from "react-i18next";
 
 export const LandingHero = () => {

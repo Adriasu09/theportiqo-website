@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { BenefitCard } from "../models/landing.models";
+import { BenefitCard } from "../../models/landing.models";
 
 export const BenefitsCard = ({
   titleKey,

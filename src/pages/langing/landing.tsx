@@ -1,11 +1,18 @@
-import { Benefits } from "./components/benefits";
-import { LandingHero } from "./components/landing-hero";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Benefits } from "./components/benefits/benefits";
+import { LandingHero } from "./components/hero/landing-hero";
 import { Partners } from "./components/partners";
 import { PortfolioThemes } from "./components/portfolio-themes";
+import { FAQ } from "./components/faq";
 
 export const LandingPage = () => {
   return (
-    <div className="flex w-full flex-col gap-28">
+    <div className="flex w-full flex-col items-center gap-28">
       <LandingHero />
 
       <Partners />
@@ -13,6 +20,8 @@ export const LandingPage = () => {
       <PortfolioThemes />
 
       <Benefits />
+
+      <FAQ />
     </div>
   );
 };
