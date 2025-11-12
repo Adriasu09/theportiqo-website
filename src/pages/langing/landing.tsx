@@ -1,9 +1,3 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Benefits } from "./components/benefits/benefits";
 import { LandingHero } from "./components/hero/landing-hero";
 import { Partners } from "./components/partners";
