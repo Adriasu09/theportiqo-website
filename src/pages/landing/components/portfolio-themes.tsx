@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { CAROUSEL_ITEMS } from "../constants/landing.constants";
-import gmail3D from "@assets/imgs/gmail.png";
 import { Button } from "@/components/ui/button";
+import gmail3D from "@assets/imgs/3d/gmail.png";
 
 export const PortfolioThemes = () => {
   const { t } = useTranslation();

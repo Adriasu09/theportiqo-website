@@ -77,4 +77,8 @@
   --color-qo-icon-light: var(--color-qo-gray-25);
   --color-qo-icon-neutral: var(--color-qo-gray-500);
   --color-qo-icon-dark: var(--color-qo-gray-900);
+
+  --color-badge-yellow: #EDFD36;
+  --color-badge-purple: #D2BEFD;
+  --color-badge-orange: #FDB022;
 }

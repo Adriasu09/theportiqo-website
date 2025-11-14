@@ -8,12 +8,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { MenuItem } from "../models/menu.models";
 import { LANDING_MENU } from "../constants/menu.constants";
 
 export const LandingNavbar = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   return (
     <div className="fixed top-0 right-0 left-0 z-10 flex h-20 w-full items-center justify-between bg-cover px-6 backdrop-blur-xl min-[1440px]:backdrop-blur-none">
@@ -59,7 +60,7 @@ export const LandingNavbar = () => {
       </div>
 
       <div className="flex gap-2">
-        <Button size={"default"}>
+        <Button size={"default"} onClick={() => navigate({ to: "/auth/three-steps" })}>
           {t("global.button.becomeClient")}
           <ArrowRight />
         </Button>

@@ -8,23 +8,28 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
+import { createFileRoute } from '@tanstack/react-router'
+
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as LandingRouteImport } from './routes/landing'
-import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as LandingSimulatorRouteImport } from './routes/landing/simulator'
-import { Route as LandingProductRouteImport } from './routes/landing/product'
 import { Route as LandingHomeRouteImport } from './routes/landing/home'
+import { Route as AuthCreateAccountRouteImport } from './routes/auth/create-account'
 
+const AuthLazyRouteImport = createFileRoute('/auth')()
+const LandingSimulatorLazyRouteImport = createFileRoute('/landing/simulator')()
+const LandingProductLazyRouteImport = createFileRoute('/landing/product')()
+const AuthThreeStepsLazyRouteImport = createFileRoute('/auth/three-steps')()
+
+const AuthLazyRoute = AuthLazyRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/auth.lazy').then((d) => d.Route))
 const LandingRoute = LandingRouteImport.update({
   id: '/landing',
   path: '/landing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AuthRoute = AuthRouteImport.update({
-  id: '/auth',
-  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppRoute = AppRouteImport.update({
@@ -37,76 +42,104 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LandingSimulatorRoute = LandingSimulatorRouteImport.update({
+const LandingSimulatorLazyRoute = LandingSimulatorLazyRouteImport.update({
   id: '/simulator',
   path: '/simulator',
   getParentRoute: () => LandingRoute,
-} as any)
-const LandingProductRoute = LandingProductRouteImport.update({
+} as any).lazy(() =>
+  import('./routes/landing/simulator.lazy').then((d) => d.Route),
+)
+const LandingProductLazyRoute = LandingProductLazyRouteImport.update({
   id: '/product',
   path: '/product',
   getParentRoute: () => LandingRoute,
-} as any)
+} as any).lazy(() =>
+  import('./routes/landing/product.lazy').then((d) => d.Route),
+)
+const AuthThreeStepsLazyRoute = AuthThreeStepsLazyRouteImport.update({
+  id: '/three-steps',
+  path: '/three-steps',
+  getParentRoute: () => AuthLazyRoute,
+} as any).lazy(() =>
+  import('./routes/auth/three-steps.lazy').then((d) => d.Route),
+)
 const LandingHomeRoute = LandingHomeRouteImport.update({
   id: '/home',
   path: '/home',
   getParentRoute: () => LandingRoute,
 } as any)
+const AuthCreateAccountRoute = AuthCreateAccountRouteImport.update({
+  id: '/create-account',
+  path: '/create-account',
+  getParentRoute: () => AuthLazyRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/app': typeof AppRoute
-  '/auth': typeof AuthRoute
   '/landing': typeof LandingRouteWithChildren
+  '/auth': typeof AuthLazyRouteWithChildren
+  '/auth/create-account': typeof AuthCreateAccountRoute
   '/landing/home': typeof LandingHomeRoute
-  '/landing/product': typeof LandingProductRoute
-  '/landing/simulator': typeof LandingSimulatorRoute
+  '/auth/three-steps': typeof AuthThreeStepsLazyRoute
+  '/landing/product': typeof LandingProductLazyRoute
+  '/landing/simulator': typeof LandingSimulatorLazyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/app': typeof AppRoute
-  '/auth': typeof AuthRoute
   '/landing': typeof LandingRouteWithChildren
+  '/auth': typeof AuthLazyRouteWithChildren
+  '/auth/create-account': typeof AuthCreateAccountRoute
   '/landing/home': typeof LandingHomeRoute
-  '/landing/product': typeof LandingProductRoute
-  '/landing/simulator': typeof LandingSimulatorRoute
+  '/auth/three-steps': typeof AuthThreeStepsLazyRoute
+  '/landing/product': typeof LandingProductLazyRoute
+  '/landing/simulator': typeof LandingSimulatorLazyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/app': typeof AppRoute
-  '/auth': typeof AuthRoute
   '/landing': typeof LandingRouteWithChildren
+  '/auth': typeof AuthLazyRouteWithChildren
+  '/auth/create-account': typeof AuthCreateAccountRoute
   '/landing/home': typeof LandingHomeRoute
-  '/landing/product': typeof LandingProductRoute
-  '/landing/simulator': typeof LandingSimulatorRoute
+  '/auth/three-steps': typeof AuthThreeStepsLazyRoute
+  '/landing/product': typeof LandingProductLazyRoute
+  '/landing/simulator': typeof LandingSimulatorLazyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/app'
-    | '/auth'
     | '/landing'
+    | '/auth'
+    | '/auth/create-account'
     | '/landing/home'
+    | '/auth/three-steps'
     | '/landing/product'
     | '/landing/simulator'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/app'
-    | '/auth'
     | '/landing'
+    | '/auth'
+    | '/auth/create-account'
     | '/landing/home'
+    | '/auth/three-steps'
     | '/landing/product'
     | '/landing/simulator'
   id:
     | '__root__'
     | '/'
     | '/app'
-    | '/auth'
     | '/landing'
+    | '/auth'
+    | '/auth/create-account'
     | '/landing/home'
+    | '/auth/three-steps'
     | '/landing/product'
     | '/landing/simulator'
   fileRoutesById: FileRoutesById
@@ -114,24 +147,24 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppRoute: typeof AppRoute
-  AuthRoute: typeof AuthRoute
   LandingRoute: typeof LandingRouteWithChildren
+  AuthLazyRoute: typeof AuthLazyRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/landing': {
       id: '/landing'
       path: '/landing'
       fullPath: '/landing'
       preLoaderRoute: typeof LandingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/app': {
@@ -152,15 +185,22 @@ declare module '@tanstack/react-router' {
       id: '/landing/simulator'
       path: '/simulator'
       fullPath: '/landing/simulator'
-      preLoaderRoute: typeof LandingSimulatorRouteImport
+      preLoaderRoute: typeof LandingSimulatorLazyRouteImport
       parentRoute: typeof LandingRoute
     }
     '/landing/product': {
       id: '/landing/product'
       path: '/product'
       fullPath: '/landing/product'
-      preLoaderRoute: typeof LandingProductRouteImport
+      preLoaderRoute: typeof LandingProductLazyRouteImport
       parentRoute: typeof LandingRoute
+    }
+    '/auth/three-steps': {
+      id: '/auth/three-steps'
+      path: '/three-steps'
+      fullPath: '/auth/three-steps'
+      preLoaderRoute: typeof AuthThreeStepsLazyRouteImport
+      parentRoute: typeof AuthLazyRoute
     }
     '/landing/home': {
       id: '/landing/home'
@@ -169,29 +209,50 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LandingHomeRouteImport
       parentRoute: typeof LandingRoute
     }
+    '/auth/create-account': {
+      id: '/auth/create-account'
+      path: '/create-account'
+      fullPath: '/auth/create-account'
+      preLoaderRoute: typeof AuthCreateAccountRouteImport
+      parentRoute: typeof AuthLazyRoute
+    }
   }
 }
 
 interface LandingRouteChildren {
   LandingHomeRoute: typeof LandingHomeRoute
-  LandingProductRoute: typeof LandingProductRoute
-  LandingSimulatorRoute: typeof LandingSimulatorRoute
+  LandingProductLazyRoute: typeof LandingProductLazyRoute
+  LandingSimulatorLazyRoute: typeof LandingSimulatorLazyRoute
 }
 
 const LandingRouteChildren: LandingRouteChildren = {
   LandingHomeRoute: LandingHomeRoute,
-  LandingProductRoute: LandingProductRoute,
-  LandingSimulatorRoute: LandingSimulatorRoute,
+  LandingProductLazyRoute: LandingProductLazyRoute,
+  LandingSimulatorLazyRoute: LandingSimulatorLazyRoute,
 }
 
 const LandingRouteWithChildren =
   LandingRoute._addFileChildren(LandingRouteChildren)
 
+interface AuthLazyRouteChildren {
+  AuthCreateAccountRoute: typeof AuthCreateAccountRoute
+  AuthThreeStepsLazyRoute: typeof AuthThreeStepsLazyRoute
+}
+
+const AuthLazyRouteChildren: AuthLazyRouteChildren = {
+  AuthCreateAccountRoute: AuthCreateAccountRoute,
+  AuthThreeStepsLazyRoute: AuthThreeStepsLazyRoute,
+}
+
+const AuthLazyRouteWithChildren = AuthLazyRoute._addFileChildren(
+  AuthLazyRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppRoute: AppRoute,
-  AuthRoute: AuthRoute,
   LandingRoute: LandingRouteWithChildren,
+  AuthLazyRoute: AuthLazyRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
