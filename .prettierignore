@@ -1,5 +1,6 @@
 /node_modules
 /.github
+src/routeTree.gen.ts
 docker-compose.yml
 README.md
 backend-reference.md
