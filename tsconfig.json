@@ -26,10 +26,11 @@
       "@/*": ["./*"],
       "@pages/*": ["./src/pages/*"],
       "@components/*": ["./src/components/*"],
-      "@layout/*": ["./src/layout/*"],
+      "@layout/*": ["src/layouts/*"],
       "@contexts/*": ["./src/contexts/*"],
       "@assets/*": ["./src/assets/*"],
-      "@styles/*": ["./src/styles/*"]
+      "@styles/*": ["./src/styles/*"],
+      "@layouts/*": ["./src/layouts/*"]
     }
   },
   "include": ["src", "lib", "components"]

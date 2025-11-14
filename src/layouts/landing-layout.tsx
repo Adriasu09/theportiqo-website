@@ -1,5 +1,5 @@
 import { Outlet } from "@tanstack/react-router";
-import { LandingFooter, LandingNavbar } from "./components";
+import { Footer, LandingNavbar } from "./components";
 
 export const LandingLayout = () => {
   return (
@@ -10,7 +10,7 @@ export const LandingLayout = () => {
         <Outlet />
       </div>
 
-      <LandingFooter />
+      <Footer />
     </div>
   );
 };

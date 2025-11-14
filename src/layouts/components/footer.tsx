@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 import { FOOTER_SECTIONS } from "../constants/footer.constants";
 import { FooterSection } from "../models/footer.models";
 
-export const LandingFooter = () => {
+export const Footer = () => {
   const { t } = useTranslation();
 
   return (
