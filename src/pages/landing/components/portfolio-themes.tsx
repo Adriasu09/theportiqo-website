@@ -7,10 +7,12 @@ export const PortfolioThemes = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-8 p-4">
-      <h2 className="heading2 text-center">{t("landing.ourPortfolio.title")}</h2>
+    <div className="flex w-full flex-col items-center justify-center gap-8 px-4">
+      <h2 className="text-center font-accent text-qo-h3">
+        {t("landing.ourPortfolio.title")}
+      </h2>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         {CAROUSEL_ITEMS.map((item) => (
           <div
             key={item.url}
@@ -33,25 +35,26 @@ export const PortfolioThemes = () => {
         ))}
       </div>
 
-      <div className="flex justify-center flex-wrap gap-4">
-        <div className="justify-center flex max-w-[530px] flex-col gap-4">
+      <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex max-w-[530px] flex-col justify-center gap-4">
           <p>{t("landing.ourPortfolio.requirements")}</p>
 
-          <h2 className="heading2">
+          <h2 className="font-accent text-qo-h3">
             {t("landing.ourPortfolio.wantToKnowMore")}
           </h2>
 
           <p>{t("landing.ourPortfolio.getAccess")}</p>
         </div>
 
-        
-        <div className="flex bg-[#f5f5f5] p-8 rounded-2xl flex-col items-center justify-center gap-2">
+        <div className="flex  md:w-auto flex-col items-center justify-center gap-2 rounded-2xl bg-[#f5f5f5] p-8">
           <img src={gmail3D} width={"200px"} />
           <p>{t("landing.ourPortfolio.gmailAccount")}</p>
         </div>
       </div>
 
-      <Button variant={"outline"}>{t("global.button.goToPortfolioSimulator")}</Button>
+      <Button variant={"outline"}>
+        {t("global.button.goToPortfolioSimulator")}
+      </Button>
     </div>
   );
 };

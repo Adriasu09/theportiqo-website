@@ -12,10 +12,9 @@
   }
 }
 
-.heading1 {
-  @apply font-accent text-7xl;
-}
-
-.heading2 {
-  @apply font-accent text-5xl;
+@layer utilities {
+  .font-accent {
+    font-family: var(--font-accent);
+    letter-spacing: var(--font-accent--letter-spacing);
+  }
 }

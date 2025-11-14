@@ -6,8 +6,8 @@ export const Partners = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex w-full flex-col px-2 items-center gap-6">
-      <h2 className="heading2 text-center">
+    <div className="flex w-full flex-col items-center gap-6 px-4">
+      <h2 className="text-center font-accent text-qo-h3">
         {t("landing.partners.title")}
       </h2>
 
@@ -22,11 +22,11 @@ export const Partners = () => {
         ))}
       </div>
 
-      <p className="text-center">
-        {t("landing.partners.comment")}
-      </p>
+      <p className="text-center">{t("landing.partners.comment")}</p>
 
-      <Button variant={"secondary"}>{t("global.button.startInvestingNow")}</Button>
+      <Button variant={"secondary"}>
+        {t("global.button.startInvestingNow")}
+      </Button>
     </div>
   );
 };

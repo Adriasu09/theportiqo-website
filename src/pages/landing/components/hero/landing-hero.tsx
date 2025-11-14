@@ -2,18 +2,17 @@ import { Button } from "@/components/ui/button";
 import { Carousel } from "./carousel";
 import { CAROUSEL_ITEMS } from "../../constants/landing.constants";
 import { useTranslation } from "react-i18next";
+import { Badge } from "@/components/ui/badge";
 
 export const LandingHero = () => {
   const { t } = useTranslation();
   return (
-    <div className="grid w-full grid-cols-1 gap-4 bg-[#f7efe4] px-6 py-20 transition-all xl:grid-cols-2">
+    <div className="grid w-full grid-cols-1 gap-4 bg-qo-surface-300 px-6 py-20 transition-all xl:grid-cols-2">
       <div className="flex w-full justify-center xl:justify-end">
         <div className="flex h-full max-w-xl flex-col items-start justify-center gap-4">
-          <p>From 10,000 eur</p>
+          <Badge variant={"outline"}>From 10,000 eur</Badge>
 
-          <h1 className="heading1">
-            {t("landing.hero.title")}
-          </h1>
+          <h1 className="font-accent text-qo-h1">{t("landing.hero.title")}</h1>
 
           <p className="w-full">
             {t("landing.hero.paragraph1")}

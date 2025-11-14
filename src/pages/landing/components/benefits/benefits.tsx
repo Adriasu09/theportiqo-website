@@ -4,7 +4,7 @@ import { BenefitsCard } from "./benefits-card";
 
 export const Benefits = () => {
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div className="grid grid-cols-1 gap-4 px-4 md:grid-cols-2">
       {BENEFITS_LIST.map((benefit: BenefitCard, index: number) => (
         <BenefitsCard
           key={benefit.titleKey}

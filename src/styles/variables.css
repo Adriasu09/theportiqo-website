@@ -1,11 +1,35 @@
 /* Portiqo brand colors and custom fonts */
 @theme {
+  /* breakpoints */
+  --breakpoint-xl: 120rem; /* 1920px */
+  --breakpoint-lg: 90rem; /* 1440px */
+  --breakpoint-md: 64rem; /* 1024px */
+  --breakpoint-sm: 48rem; /* 768px */
+  --breakpoint-xs: 36rem; /* 576px */
+
   /* Font families */
   --font-accent: clash-display-bold, sans-serif;
+  --font-accent--letter-spacing: -0.01em;
   --font-main: manrope-regular, sans-serif;
   --font-main-medium: manrope-medium, sans-serif;
   --font-main-bold: manrope-bold, sans-serif;
   --font-oswald: Oswald, sans-serif;
+
+  /* Font sizes */
+  --text-qo-base: 1.125rem; /* 18px */
+  --text-qo-base--line-height: 1.5rem; /* 24px */
+
+  --text-qo-h1: 5rem; /* 80px */
+  --text-qo-h1--line-height: 4rem; /* 64px */
+
+  --text-qo-h2: 4rem; /* 64px */
+  --text-qo-h2--line-height: 3rem; /* 48px */
+
+  --text-qo-h3: 3.25rem; /* 52px */
+  --text-qo-h3--line-height: 2.875rem; /* 46px */
+
+  --text-qo-h5: 1.375rem; /* 22px */
+  --text-qo-h5--line-height: 1.375rem; /* 22px */
 
   /* Colors */
   --color-qo-gray-25: #fcfcfd;
@@ -32,20 +56,23 @@
   --color-qo-brand-800: #8a3c37;
   --color-qo-brand-900: #5e2a26;
 
+  --color-qo-surface-100: #FFFBF6;
+  --color-qo-surface-300: #F7EFE3;
+
   --color-qo-success-100: #d1fadf;
   --color-qo-success-300: #6ce9a6;
   --color-qo-success-400: #32d583;
   --color-qo-success-500: #12b76a;
 
-  --color-qo-warning-100: #FEF0C7;
-  --color-qo-warning-300: #FEDF89;
-  --color-qo-warning-400: #FEC84B;
-  --color-qo-warning-500: #FDB022;
+  --color-qo-warning-100: #fef0c7;
+  --color-qo-warning-300: #fedf89;
+  --color-qo-warning-400: #fec84b;
+  --color-qo-warning-500: #fdb022;
 
-  --color-qo-error-100: #FEE4E2;
-  --color-qo-error-300: #F97066;
-  --color-qo-error-400: #F04438;
-  --color-qo-error-500: #D92D20;
+  --color-qo-error-100: #fee4e2;
+  --color-qo-error-300: #f97066;
+  --color-qo-error-400: #f04438;
+  --color-qo-error-500: #d92d20;
 
   --color-qo-icon-light: var(--color-qo-gray-25);
   --color-qo-icon-neutral: var(--color-qo-gray-500);
