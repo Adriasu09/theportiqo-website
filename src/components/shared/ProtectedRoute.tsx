@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { useAuth } from "../contexts/AuthContext";
-import { GoogleOneTap } from "../components/GoogleOneTap";
+import { GoogleOneTap } from "./GoogleOneTap";
+import { useAuth } from "@/src/contexts/AuthContext";
 
 export const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, isLoading } = useAuth();

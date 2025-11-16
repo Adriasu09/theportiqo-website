@@ -1,6 +1,6 @@
 import { Outlet, Link } from "@tanstack/react-router";
-import { useAuth } from "../contexts/AuthContext";
 import { GoogleOneTap } from "./GoogleOneTap";
+import { useAuth } from "@/src/contexts/AuthContext";
 
 export function RootLayout() {
   const { isAuthenticated, user, signOut } = useAuth();

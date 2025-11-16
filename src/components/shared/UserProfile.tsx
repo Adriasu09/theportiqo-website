@@ -1,4 +1,4 @@
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "@/src/contexts/AuthContext";
 
 export const UserProfile = () => {
   const { user, signOut } = useAuth();

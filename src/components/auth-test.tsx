@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
-import { GoogleOneTap } from "../components/GoogleOneTap";
+import { GoogleOneTap } from "../shared/GoogleOneTap";
 
 export const AuthTestPage = () => {
   const { user, signOut, isAuthenticated, signInWithOneTap } = useAuth();

@@ -1,5 +1,5 @@
 import { useAuth } from "../contexts/AuthContext";
-import { UserProfile } from "../components/UserProfile";
+import { UserProfile } from "../shared/UserProfile";
 
 export const DashboardPage = () => {
   const { user } = useAuth();

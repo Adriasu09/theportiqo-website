@@ -1,4 +1,4 @@
-import { ThreeStepsPage } from '@/src/pages/auth/three-steps'
+import { ThreeStepsPage } from '@/src/components/auth/three-steps'
 import { createLazyFileRoute } from '@tanstack/react-router'
 
 export const Route = createLazyFileRoute('/auth/three-steps')({
