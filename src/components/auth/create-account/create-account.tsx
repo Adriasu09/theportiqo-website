@@ -19,7 +19,7 @@ export const CreateAccountPage = () => {
   });
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-6">
+    <div className="flex h-full w-full flex-col items-center justify-center gap-20">
       <div className="flex w-full flex-col items-center gap-8">
         <Badge variant="pop">1/3</Badge>
         <h1 className="font-accent text-qo-h3">Create Account</h1>
@@ -30,7 +30,7 @@ export const CreateAccountPage = () => {
           e.preventDefault();
           createAccountForm.handleSubmit();
         }}
-        className="flex w-full flex-col items-center justify-center gap-4"
+        className="flex w-full flex-col items-center justify-center gap-8"
       >
         <FieldGroup>
           <createAccountForm.AppField
