@@ -1,15 +1,5 @@
 import * as z from "zod";
-import { AccountFormSchema } from "../schemas/account.schema";
-
-export const accountSchema = AccountFormSchema.pick({
-    name: true,
-    lastName: true,
-    email: true,
-    phone: true,
-    documentNumber: true,
-    acceptCommunication: true,
-    acceptTerms: true,
-  });
+import { accountSchema } from "../schemas/account.schema";
 
 type AccountFormValues = z.infer<typeof accountSchema>;
 

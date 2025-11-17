@@ -12,7 +12,17 @@ export const AccountFormSchema = z.object({
   province: z.string().min(1, "Province is required"),
   country: z.string().min(1, "Country is required"),
   acceptCommunication: z.boolean().optional(),
-  acceptTerms: z.boolean().refine(val => val === true, {
-    message: "You must accept the terms and conditions"
+  acceptTerms: z.boolean().refine((val) => val === true, {
+    message: "You must accept the terms and conditions",
   }),
+});
+
+export const accountSchema = AccountFormSchema.pick({
+  name: true,
+  lastName: true,
+  email: true,
+  phone: true,
+  documentNumber: true,
+  acceptCommunication: true,
+  acceptTerms: true,
 });

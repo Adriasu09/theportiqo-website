@@ -1,12 +1,10 @@
 import { Badge } from "@/components/ui/badge";
-import {
-  accountSchema,
-  CREATE_ACCOUNT_DEFAULT_VALUES,
-} from "../constants/create-acount.constants";
+import { CREATE_ACCOUNT_DEFAULT_VALUES } from "../constants/create-acount.constants";
 import { FieldGroup, FieldSet } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { useAppForm } from "../../shared/form/form-hooks";
 import { useTranslation } from "react-i18next";
+import { accountSchema } from "../schemas/account.schema";
 
 export const CreateAccountPage = () => {
   const { t } = useTranslation();
