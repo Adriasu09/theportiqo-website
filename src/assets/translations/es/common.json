@@ -1,5 +1,14 @@
 {
 	"auth": {
+		"address": {
+			"title": "Introduce tu domicilio"
+		},
+		"createAccount": {
+			"title": "Crear una cuenta"
+		},
+		"createPassword": {
+			"title": "Una contraseña memorable"
+		},
 		"threeSteps": {
 			"description": "En 5 minutos estarás listo para invertir tu dinero con Pórtiqo. Introduce tus datos, verifica tu correo electrónico y hazte un selfie (necesitarás tener tu DNI a mano).",
 			"title": "En 3 pasos tendrás tu cuenta en Pórtiqo."
@@ -38,11 +47,18 @@
 		"label": {
 			"acceptCommunication": "Acepto recibir comunicaciones comerciales y ofertas promocionales del grupo Huargo.",
 			"acceptTerms": "Acepto las condiciones legales y la política de privacidad de Portiqo.",
+			"address": "Dirección",
+			"city": "Ciudad",
+			"country": "País",
 			"documentNumber": "Número de documento",
 			"email": "Correo electrónico",
 			"lastName": "Apellidos",
 			"name": "Nombre",
+			"password": "Contraseña",
+			"passwordConfirmation": "Confirmar Contraseña",
 			"phone": "Teléfono",
+			"postalCode": "Código postal",
+			"province": "Provincia",
 			"realState": "Inmobiliario",
 			"renewableEnergies": "Energías renovables",
 			"technology": "Tecnología e inteligencia artificial"

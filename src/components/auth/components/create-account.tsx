@@ -1,19 +1,27 @@
 import { Badge } from "@/components/ui/badge";
-import { CREATE_ACCOUNT_DEFAULT_VALUES } from "../constants/create-acount.constants";
-import { FieldGroup, FieldSet } from "@/components/ui/field";
+import { ACCOUNT_DEFAULT_VALUES } from "../constants/create-acount.constants";
+import { FieldGroup } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { useAppForm } from "../../shared/form/form-hooks";
 import { useTranslation } from "react-i18next";
-import { accountSchema } from "../schemas/account.schema";
+import { AccountSchema } from "../schemas/account.schema";
+import { useAccountStore } from "@/src/store/account-store";
+import { useNavigate } from "@tanstack/react-router";
+import { getInitialFormValues } from "../utils/register-form.utils";
 
 export const CreateAccountPage = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const accountData = useAccountStore((state) => state);
+
   const accountForm = useAppForm({
-    defaultValues: CREATE_ACCOUNT_DEFAULT_VALUES,
+    defaultValues: getInitialFormValues(ACCOUNT_DEFAULT_VALUES),
     validators: {
-      onSubmit: accountSchema,
+      onSubmit: AccountSchema,
     },
     onSubmit: ({ value }) => {
+      accountData.setAccountData(value);
+      navigate({ to: "/auth/enter-address" });
       console.log("Form submitted with values:", value);
     },
   });
@@ -22,7 +30,9 @@ export const CreateAccountPage = () => {
     <div className="flex h-full w-full flex-col items-center justify-center gap-20">
       <div className="flex w-full flex-col items-center gap-8">
         <Badge variant="pop">1/3</Badge>
-        <h1 className="font-accent text-qo-h3">Create Account</h1>
+        <h1 className="text-center font-accent text-qo-h3">
+          {t("auth.createAccount.title")}
+        </h1>
       </div>
 
       <form
@@ -67,7 +77,7 @@ export const CreateAccountPage = () => {
           />
         </FieldGroup>
 
-        <FieldSet>
+        <div className="flex w-full flex-col gap-2">
           <accountForm.AppField
             name="acceptCommunication"
             children={(field) => (
@@ -81,7 +91,7 @@ export const CreateAccountPage = () => {
               <field.Checkbox label={t("global.label.acceptTerms")} />
             )}
           />
-        </FieldSet>
+        </div>
 
         <Button type="submit" variant={"secondary"} className="w-full">
           {t("global.button.continue")}

@@ -15,6 +15,8 @@ import { Route as LandingRouteImport } from './routes/landing'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LandingHomeRouteImport } from './routes/landing/home'
+import { Route as AuthEnterAddressRouteImport } from './routes/auth/enter-address'
+import { Route as AuthCreatePasswordRouteImport } from './routes/auth/create-password'
 import { Route as AuthCreateAccountRouteImport } from './routes/auth/create-account'
 
 const AuthLazyRouteImport = createFileRoute('/auth')()
@@ -68,6 +70,16 @@ const LandingHomeRoute = LandingHomeRouteImport.update({
   path: '/home',
   getParentRoute: () => LandingRoute,
 } as any)
+const AuthEnterAddressRoute = AuthEnterAddressRouteImport.update({
+  id: '/enter-address',
+  path: '/enter-address',
+  getParentRoute: () => AuthLazyRoute,
+} as any)
+const AuthCreatePasswordRoute = AuthCreatePasswordRouteImport.update({
+  id: '/create-password',
+  path: '/create-password',
+  getParentRoute: () => AuthLazyRoute,
+} as any)
 const AuthCreateAccountRoute = AuthCreateAccountRouteImport.update({
   id: '/create-account',
   path: '/create-account',
@@ -80,6 +92,8 @@ export interface FileRoutesByFullPath {
   '/landing': typeof LandingRouteWithChildren
   '/auth': typeof AuthLazyRouteWithChildren
   '/auth/create-account': typeof AuthCreateAccountRoute
+  '/auth/create-password': typeof AuthCreatePasswordRoute
+  '/auth/enter-address': typeof AuthEnterAddressRoute
   '/landing/home': typeof LandingHomeRoute
   '/auth/three-steps': typeof AuthThreeStepsLazyRoute
   '/landing/product': typeof LandingProductLazyRoute
@@ -91,6 +105,8 @@ export interface FileRoutesByTo {
   '/landing': typeof LandingRouteWithChildren
   '/auth': typeof AuthLazyRouteWithChildren
   '/auth/create-account': typeof AuthCreateAccountRoute
+  '/auth/create-password': typeof AuthCreatePasswordRoute
+  '/auth/enter-address': typeof AuthEnterAddressRoute
   '/landing/home': typeof LandingHomeRoute
   '/auth/three-steps': typeof AuthThreeStepsLazyRoute
   '/landing/product': typeof LandingProductLazyRoute
@@ -103,6 +119,8 @@ export interface FileRoutesById {
   '/landing': typeof LandingRouteWithChildren
   '/auth': typeof AuthLazyRouteWithChildren
   '/auth/create-account': typeof AuthCreateAccountRoute
+  '/auth/create-password': typeof AuthCreatePasswordRoute
+  '/auth/enter-address': typeof AuthEnterAddressRoute
   '/landing/home': typeof LandingHomeRoute
   '/auth/three-steps': typeof AuthThreeStepsLazyRoute
   '/landing/product': typeof LandingProductLazyRoute
@@ -116,6 +134,8 @@ export interface FileRouteTypes {
     | '/landing'
     | '/auth'
     | '/auth/create-account'
+    | '/auth/create-password'
+    | '/auth/enter-address'
     | '/landing/home'
     | '/auth/three-steps'
     | '/landing/product'
@@ -127,6 +147,8 @@ export interface FileRouteTypes {
     | '/landing'
     | '/auth'
     | '/auth/create-account'
+    | '/auth/create-password'
+    | '/auth/enter-address'
     | '/landing/home'
     | '/auth/three-steps'
     | '/landing/product'
@@ -138,6 +160,8 @@ export interface FileRouteTypes {
     | '/landing'
     | '/auth'
     | '/auth/create-account'
+    | '/auth/create-password'
+    | '/auth/enter-address'
     | '/landing/home'
     | '/auth/three-steps'
     | '/landing/product'
@@ -209,6 +233,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LandingHomeRouteImport
       parentRoute: typeof LandingRoute
     }
+    '/auth/enter-address': {
+      id: '/auth/enter-address'
+      path: '/enter-address'
+      fullPath: '/auth/enter-address'
+      preLoaderRoute: typeof AuthEnterAddressRouteImport
+      parentRoute: typeof AuthLazyRoute
+    }
+    '/auth/create-password': {
+      id: '/auth/create-password'
+      path: '/create-password'
+      fullPath: '/auth/create-password'
+      preLoaderRoute: typeof AuthCreatePasswordRouteImport
+      parentRoute: typeof AuthLazyRoute
+    }
     '/auth/create-account': {
       id: '/auth/create-account'
       path: '/create-account'
@@ -236,11 +274,15 @@ const LandingRouteWithChildren =
 
 interface AuthLazyRouteChildren {
   AuthCreateAccountRoute: typeof AuthCreateAccountRoute
+  AuthCreatePasswordRoute: typeof AuthCreatePasswordRoute
+  AuthEnterAddressRoute: typeof AuthEnterAddressRoute
   AuthThreeStepsLazyRoute: typeof AuthThreeStepsLazyRoute
 }
 
 const AuthLazyRouteChildren: AuthLazyRouteChildren = {
   AuthCreateAccountRoute: AuthCreateAccountRoute,
+  AuthCreatePasswordRoute: AuthCreatePasswordRoute,
+  AuthEnterAddressRoute: AuthEnterAddressRoute,
   AuthThreeStepsLazyRoute: AuthThreeStepsLazyRoute,
 }
 

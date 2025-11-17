@@ -1,9 +1,11 @@
 import * as z from "zod";
-import { accountSchema } from "../schemas/account.schema";
+import { AccountSchema, AddressSchema, PasswordSchema } from "../schemas/account.schema";
 
-type AccountFormValues = z.infer<typeof accountSchema>;
+type AccountFormValues = z.infer<typeof AccountSchema>;
+type AddressFormValues = z.infer<typeof AddressSchema>;
+type PasswordFormValues = z.infer<typeof PasswordSchema>;
 
-export const CREATE_ACCOUNT_DEFAULT_VALUES: AccountFormValues = {
+export const ACCOUNT_DEFAULT_VALUES: AccountFormValues = {
   name: "",
   lastName: "",
   email: "",
@@ -11,4 +13,17 @@ export const CREATE_ACCOUNT_DEFAULT_VALUES: AccountFormValues = {
   documentNumber: "",
   acceptCommunication: true,
   acceptTerms: true,
+};
+
+export const ADDRESS_DEFAULT_VALUES: AddressFormValues = {
+  address: "",
+  postalCode: "",
+  city: "",
+  province: "",
+  country: "",
+};
+
+export const PASSWORD_DEFAULT_VALUES: PasswordFormValues = {
+  password: "",
+  passwordConfirmation: "",
 };

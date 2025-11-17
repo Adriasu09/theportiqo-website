@@ -11,13 +11,23 @@ export const AccountFormSchema = z.object({
   city: z.string().min(1, "City is required"),
   province: z.string().min(1, "Province is required"),
   country: z.string().min(1, "Country is required"),
+  password: z
+    .string()
+    .min(8, "Password must be at least 8 characters")
+    .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
+    .regex(/[0-9]/, "Password must contain at least one number"),
+  passwordConfirmation: z
+    .string()
+    .min(8, "Password must be at least 8 characters")
+    .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
+    .regex(/[0-9]/, "Password must contain at least one number"),
   acceptCommunication: z.boolean().optional(),
   acceptTerms: z.boolean().refine((val) => val === true, {
     message: "You must accept the terms and conditions",
   }),
 });
 
-export const accountSchema = AccountFormSchema.pick({
+export const AccountSchema = AccountFormSchema.pick({
   name: true,
   lastName: true,
   email: true,
@@ -26,3 +36,20 @@ export const accountSchema = AccountFormSchema.pick({
   acceptCommunication: true,
   acceptTerms: true,
 });
+
+export const AddressSchema = AccountFormSchema.pick({
+  address: true,
+  postalCode: true,
+  city: true,
+  province: true,
+  country: true,
+});
+
+export const PasswordSchema = AccountFormSchema.pick({
+  password: true,
+  passwordConfirmation: true,
+}).refine((data) => data.password === data.passwordConfirmation, {
+  message: "Passwords do not match",
+});
+
+export type AccountFormType = z.infer<typeof AccountFormSchema>;
