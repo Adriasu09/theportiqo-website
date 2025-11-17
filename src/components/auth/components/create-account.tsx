@@ -1,6 +1,8 @@
 import { Badge } from "@/components/ui/badge";
-import { CREATE_ACCOUNT_DEFAULT_VALUES } from "../constants/create-acount.constants";
-import { AccountFormSchema } from "../schemas/account.schema";
+import {
+  accountSchema,
+  CREATE_ACCOUNT_DEFAULT_VALUES,
+} from "../constants/create-acount.constants";
 import { FieldGroup, FieldSet } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { useAppForm } from "../../shared/form/form-hooks";
@@ -8,16 +10,6 @@ import { useTranslation } from "react-i18next";
 
 export const CreateAccountPage = () => {
   const { t } = useTranslation();
-
-  const accountSchema = AccountFormSchema.pick({
-    name: true,
-    lastName: true,
-    email: true,
-    phone: true,
-    documentNumber: true,
-    acceptCommunication: true,
-    acceptTerms: true,
-  });
   const accountForm = useAppForm({
     defaultValues: CREATE_ACCOUNT_DEFAULT_VALUES,
     validators: {
@@ -50,22 +42,30 @@ export const CreateAccountPage = () => {
 
           <accountForm.AppField
             name="lastName"
-            children={(field) => <field.Input label={t("global.label.lastName")} />}
+            children={(field) => (
+              <field.Input label={t("global.label.lastName")} />
+            )}
           />
 
           <accountForm.AppField
             name="email"
-            children={(field) => <field.Input type="email" label={t("global.label.email")} />}
+            children={(field) => (
+              <field.Input type="email" label={t("global.label.email")} />
+            )}
           />
 
           <accountForm.AppField
             name="phone"
-            children={(field) => <field.Input type="number" label={t("global.label.phone")} />}
+            children={(field) => (
+              <field.Input type="number" label={t("global.label.phone")} />
+            )}
           />
 
           <accountForm.AppField
             name="documentNumber"
-            children={(field) => <field.Input label={t("global.label.documentNumber")} />}
+            children={(field) => (
+              <field.Input label={t("global.label.documentNumber")} />
+            )}
           />
         </FieldGroup>
 

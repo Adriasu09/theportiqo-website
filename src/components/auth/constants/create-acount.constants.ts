@@ -1,9 +1,19 @@
 import * as z from "zod";
-import { CreateAccountFormSchema } from "../schemas/account.schema";
+import { AccountFormSchema } from "../schemas/account.schema";
 
-type CreateAccountFormValues = z.infer<typeof CreateAccountFormSchema>;
+export const accountSchema = AccountFormSchema.pick({
+    name: true,
+    lastName: true,
+    email: true,
+    phone: true,
+    documentNumber: true,
+    acceptCommunication: true,
+    acceptTerms: true,
+  });
 
-export const CREATE_ACCOUNT_DEFAULT_VALUES: CreateAccountFormValues = {
+type AccountFormValues = z.infer<typeof accountSchema>;
+
+export const CREATE_ACCOUNT_DEFAULT_VALUES: AccountFormValues = {
   name: "",
   lastName: "",
   email: "",
