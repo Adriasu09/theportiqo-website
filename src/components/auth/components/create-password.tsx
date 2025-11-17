@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 export const CreatePasswordPage = () => {
   const { t } = useTranslation();
 
-  const accountData = useAccountStore((state) => state);
+  const { setAccountData, ...accountData } = useAccountStore((state) => state);
 
   const passwordForm = useAppForm({
     defaultValues: PASSWORD_DEFAULT_VALUES,
@@ -18,10 +18,7 @@ export const CreatePasswordPage = () => {
       onSubmit: PasswordSchema,
     },
     onSubmit: ({ value }) => {
-      // Handle password creation logic here
-      console.log("Password created with values:", value);
-      // You can access the accountData here if needed
-      console.log("Account data:", accountData);
+      console.log("register form to submit:", { ...accountData, ...value });
     },
   });
 
