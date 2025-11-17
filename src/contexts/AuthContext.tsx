@@ -1,7 +1,33 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
-const AuthContext = createContext();
+interface User {
+  id: string;
+  email: string;
+  name: string;
+  given_name?: string;
+  family_name?: string;
+  picture?: string;
+  role?: string;
+  token: string;
+  backendData?: any;
+}
+
+interface AuthContextType {
+  user: User | null;
+  isLoading: boolean;
+  login: (email: string, password: string) => Promise<User>;
+  register: (email: string, password: string, name: string) => Promise<any>;
+  signInWithGoogle: (googleCredential: string) => Promise<User>;
+  confirmEmail: (token: string) => Promise<any>;
+  forgotPassword: (email: string) => Promise<any>;
+  changePassword: (currentPassword: string, newPassword: string) => Promise<any>;
+  resetPassword: (token: string, newPassword: string) => Promise<any>;
+  signOut: () => void;
+  isAuthenticated: () => boolean;
+}
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -11,8 +37,12 @@ export const useAuth = () => {
   return context;
 };
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+interface AuthProviderProps {
+  children: ReactNode;
+}
+
+export const AuthProvider = ({ children }: AuthProviderProps) => {
+  const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -30,7 +60,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   // Login with email and password
-  const login = async (email, password) => {
+  const login = async (email: string, password: string): Promise<User> => {
     try {
       const backendUrl =
         import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
@@ -59,7 +89,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Register new user (returns success message, not user data)
-  const register = async (email, password, name) => {
+  const register = async (email: string, password: string, name: string) => {
     try {
       const backendUrl =
         import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
@@ -90,7 +120,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Confirm email verification
-  const confirmEmail = async (token) => {
+  const confirmEmail = async (token: string) => {
     try {
       const backendUrl =
         import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
@@ -124,7 +154,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Sign in with Google One Tap credential
-  const signInWithGoogle = async (googleCredential) => {
+  const signInWithGoogle = async (googleCredential: string): Promise<User> => {
     try {
       const backendUrl =
         import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
@@ -162,7 +192,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Forgot password - request reset
-  const forgotPassword = async (email) => {
+  const forgotPassword = async (email: string) => {
     try {
       const backendUrl =
         import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
@@ -191,7 +221,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Change password (when user is authenticated)
-  const changePassword = async (currentPassword, newPassword) => {
+  const changePassword = async (currentPassword: string, newPassword: string) => {
     try {
       if (!user?.token) {
         throw new Error("User not authenticated");
@@ -225,7 +255,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Reset password (with token from email)
-  const resetPassword = async (token, newPassword) => {
+  const resetPassword = async (token: string, newPassword: string) => {
     try {
       const backendUrl =
         import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
@@ -253,7 +283,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const processTokenFromBackend = async (tokenData) => {
+  const processTokenFromBackend = async (tokenData: any): Promise<User> => {
     try {
       const token = tokenData.access_token || tokenData.token || tokenData.jwt;
 
