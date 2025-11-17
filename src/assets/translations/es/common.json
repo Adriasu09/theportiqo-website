@@ -36,6 +36,13 @@
 			"tryPortiqo": "Quiero probar Portiqo"
 		},
 		"label": {
+			"acceptCommunication": "Acepto recibir comunicaciones comerciales y ofertas promocionales del grupo Huargo.",
+			"acceptTerms": "Acepto las condiciones legales y la política de privacidad de Portiqo.",
+			"documentNumber": "Número de documento",
+			"email": "Correo electrónico",
+			"lastName": "Apellidos",
+			"name": "Nombre",
+			"phone": "Teléfono",
 			"realState": "Inmobiliario",
 			"renewableEnergies": "Energías renovables",
 			"technology": "Tecnología e inteligencia artificial"

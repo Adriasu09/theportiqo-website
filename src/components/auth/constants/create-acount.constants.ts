@@ -1,5 +1,5 @@
-import { CreateAccountFormSchema } from "../schemas/create-account.schema";
 import * as z from "zod";
+import { CreateAccountFormSchema } from "../schemas/account.schema";
 
 type CreateAccountFormValues = z.infer<typeof CreateAccountFormSchema>;
 

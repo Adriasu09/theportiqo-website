@@ -12,6 +12,7 @@ export function FormBase({
   children,
   label,
   description,
+  controlFirst,
   horizontal,
 }: FormBaseProps) {
   const field = useFieldContext();
@@ -31,11 +32,23 @@ export function FormBase({
   return (
     <Field
       data-invalid={isInvalid}
-      data-horizontal={horizontal ? "horizontal" : undefined}
+      orientation={horizontal ? "horizontal" : undefined}
     >
-      <FieldContent>{labelElement}</FieldContent>
-      {children}
-      {errorElement}
+      {controlFirst ? (
+        <>
+          {children}
+          <FieldContent>
+            {labelElement}
+            {errorElement}
+          </FieldContent>
+        </>
+      ) : (
+        <>
+          <FieldContent>{labelElement}</FieldContent>
+          {children}
+          {errorElement}
+        </>
+      )}
     </Field>
   );
 }

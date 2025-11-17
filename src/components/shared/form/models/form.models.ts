@@ -8,4 +8,5 @@ export type FormControlProps = {
 export type FormBaseProps = FormControlProps & {
   children: ReactNode;
   horizontal?: boolean;
+  controlFirst?: boolean;
 };

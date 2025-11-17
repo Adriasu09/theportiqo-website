@@ -4,7 +4,6 @@ import { FormControlProps } from "./models/form.models";
 import { FormBase } from "./form-base";
 
 export function FormInput({
-  
   type = "text",
   ...props
 }: FormControlProps & { type?: string }) {
@@ -12,7 +11,7 @@ export function FormInput({
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
 
   return (
-    <FormBase {...props}>
+    <FormBase {...props} horizontal={false} controlFirst={false}>
       <Input
         type={type}
         id={field.name}
