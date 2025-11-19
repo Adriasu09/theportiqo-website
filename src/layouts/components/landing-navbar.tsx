@@ -60,13 +60,18 @@ export const LandingNavbar = () => {
       </div>
 
       <div className="flex gap-2">
-        <Button size={"default"} onClick={() => navigate({ to: "/auth/three-steps" })}>
+        <Button onClick={() => navigate({ to: "/auth/three-steps" })}>
           {t("global.button.becomeClient")}
           <ArrowRight />
         </Button>
 
         <div className="max-[480px]:hidden">
-          <Button variant="outline">{t("global.button.clients")}</Button>
+          <Button
+            variant="outline"
+            onClick={() => navigate({ to: "/auth/login" })}
+          >
+            {t("global.button.clients")}
+          </Button>
         </div>
       </div>
     </div>

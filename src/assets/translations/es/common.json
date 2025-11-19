@@ -13,6 +13,9 @@
 		"createPassword": {
 			"title": "Una contraseña memorable"
 		},
+		"login": {
+			"title": "Bienvenido a Portiqo"
+		},
 		"threeSteps": {
 			"description": "En 5 minutos estarás listo para invertir tu dinero con Pórtiqo. Introduce tus datos, verifica tu correo electrónico y hazte un selfie (necesitarás tener tu DNI a mano).",
 			"title": "En 3 pasos tendrás tu cuenta en Pórtiqo."
@@ -42,6 +45,10 @@
 			"becomeClient": "Hazte cliente",
 			"clients": "Clientes",
 			"continue": "Continuar",
+			"continueWithGoogle": "Continuar con Google",
+			"createAccount": "Abrir una cuenta",
+			"enter": "Entrar",
+			"forgotPassword": "He olvidado mi contraseña",
 			"goSimulator": "Ir al simulador de nuestras carteras",
 			"goToPortfolioSimulator": "Ir al simulador de nuestras carteras",
 			"resendCode": "Volver a enviar el código",
