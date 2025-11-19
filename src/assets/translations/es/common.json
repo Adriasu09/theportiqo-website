@@ -3,6 +3,10 @@
 		"address": {
 			"title": "Introduce tu domicilio"
 		},
+		"confirmEmail": {
+			"description": "Te hemos enviado un email para verificar tu cuenta. Si no lo encuentras, revisa tu carpeta de spam. \n\nPuedes hacerlo más tarde, pero este paso es necesario para activar tu cuenta.",
+			"title": "¡Casi listo! Sólo un paso más..."
+		},
 		"createAccount": {
 			"title": "Crear una cuenta"
 		},
@@ -40,6 +44,7 @@
 			"continue": "Continuar",
 			"goSimulator": "Ir al simulador de nuestras carteras",
 			"goToPortfolioSimulator": "Ir al simulador de nuestras carteras",
+			"resendCode": "Volver a enviar el código",
 			"startInvesting": "Empieza a invertir hoy",
 			"startInvestingNow": "Comience a invertir ahora mismo",
 			"tryPortiqo": "Quiero probar Portiqo"
@@ -52,8 +57,8 @@
 			"country": "País",
 			"documentNumber": "Número de documento",
 			"email": "Correo electrónico",
+			"firstName": "Nombre",
 			"lastName": "Apellidos",
-			"name": "Nombre",
 			"password": "Contraseña",
 			"passwordConfirmation": "Confirmar Contraseña",
 			"phone": "Teléfono",

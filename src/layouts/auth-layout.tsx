@@ -1,8 +1,19 @@
 import { Outlet, useRouter } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
+import { useEffect } from "react";
+import { useRegisterUserStore } from "../store/register-user-store";
 
 export const AuthLayout = () => {
   const router = useRouter();
+  const registerData = useRegisterUserStore((state) => state);
+
+  useEffect(() => {
+    return () => {
+      // reset register data on layout unmount
+      registerData.setRegisterData({});
+      localStorage.removeItem("register-storage");
+    }
+  }, []);
 
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-qo-surface-100 px-4">

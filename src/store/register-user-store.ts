@@ -3,17 +3,17 @@ import { createJSONStorage, persist } from "zustand/middleware";
 import { AccountFormType } from "../components/auth/schemas/account.schema";
 
 type AccountState = Partial<AccountFormType> & {
-  setAccountData: (data: Partial<AccountFormType>) => void;
+  setRegisterData: (data: Partial<AccountFormType>) => void;
 };
 
-export const useAccountStore = create<AccountState>()(
+export const useRegisterUserStore = create<AccountState>()(
   persist(
     (set) => ({
-      setAccountData: (data: Partial<AccountFormType>) =>
+      setRegisterData: (data: Partial<AccountFormType>) =>
         set((state) => ({ ...state, ...data })),
     }),
     {
-      name: "account-storage",
+      name: "register-storage",
       storage: createJSONStorage(() => localStorage),
     },
   ),

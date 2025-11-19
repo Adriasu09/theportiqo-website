@@ -2,23 +2,28 @@ import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "react-i18next";
 import { PASSWORD_DEFAULT_VALUES } from "../constants/create-acount.constants";
 import { useAppForm } from "../../shared/form/form-hooks";
-import { PasswordSchema } from "../schemas/account.schema";
+import { AccountFormType, PasswordSchema } from "../schemas/account.schema";
 import { FieldGroup } from "@/components/ui/field";
-import { useAccountStore } from "@/src/store/account-store";
+import { useRegisterUserStore } from "@/src/store/register-user-store";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/src/contexts/AuthContext";
+import { useNavigate } from "@tanstack/react-router";
 
 export const CreatePasswordPage = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
-  const { setAccountData, ...accountData } = useAccountStore((state) => state);
+  const registerData = useRegisterUserStore((state) => state);
+  const { register } = useAuth();
 
   const passwordForm = useAppForm({
     defaultValues: PASSWORD_DEFAULT_VALUES,
     validators: {
       onSubmit: PasswordSchema,
     },
-    onSubmit: ({ value }) => {
-      console.log("register form to submit:", { ...accountData, ...value });
+    onSubmit: async ({ value }) => {
+      await register({ ...registerData, ...value } as AccountFormType);
+      navigate({ to: "/auth/confirm-email" });
     },
   });
 

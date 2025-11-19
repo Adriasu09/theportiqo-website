@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { ADDRESS_DEFAULT_VALUES } from "../constants/create-acount.constants";
 import { AddressSchema } from "../schemas/account.schema";
 import { useAppForm } from "../../shared/form/form-hooks";
-import { useAccountStore } from "@/src/store/account-store";
+import { useRegisterUserStore } from "@/src/store/register-user-store";
 import { FieldGroup } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "@tanstack/react-router";
@@ -12,7 +12,7 @@ import { getInitialFormValues } from "../utils/register-form.utils";
 export const EnterAddressPage = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const setAccountData = useAccountStore((state) => state.setAccountData);
+  const registerData = useRegisterUserStore((state) => state);
 
   const addressForm = useAppForm({
     defaultValues: getInitialFormValues(ADDRESS_DEFAULT_VALUES),
@@ -20,7 +20,7 @@ export const EnterAddressPage = () => {
       onSubmit: AddressSchema,
     },
     onSubmit: ({ value }) => {
-      setAccountData(value);
+      registerData.setRegisterData(value);
       navigate({ to: "/auth/create-password" });
     },
   });

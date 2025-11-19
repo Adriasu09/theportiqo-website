@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { AccountFormType } from "../components/auth/schemas/account.schema";
 
 interface User {
   id: string;
@@ -17,7 +18,7 @@ interface AuthContextType {
   user: User | null;
   isLoading: boolean;
   login: (email: string, password: string) => Promise<User>;
-  register: (email: string, password: string, name: string) => Promise<any>;
+  register: (userData: AccountFormType) => Promise<any>;
   signInWithGoogle: (googleCredential: string) => Promise<User>;
   confirmEmail: (token: string) => Promise<any>;
   forgotPassword: (email: string) => Promise<any>;
@@ -89,7 +90,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   // Register new user (returns success message, not user data)
-  const register = async (email: string, password: string, name: string) => {
+  const register = async (userData: AccountFormType) => {
     try {
       const backendUrl =
         import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
@@ -99,7 +100,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password, name }),
+        body: JSON.stringify(userData),
       });
 
       if (!response.ok) {

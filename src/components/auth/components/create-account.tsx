@@ -5,14 +5,14 @@ import { Button } from "@/components/ui/button";
 import { useAppForm } from "../../shared/form/form-hooks";
 import { useTranslation } from "react-i18next";
 import { AccountSchema } from "../schemas/account.schema";
-import { useAccountStore } from "@/src/store/account-store";
+import { useRegisterUserStore } from "@/src/store/register-user-store";
 import { useNavigate } from "@tanstack/react-router";
 import { getInitialFormValues } from "../utils/register-form.utils";
 
 export const CreateAccountPage = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const accountData = useAccountStore((state) => state);
+  const registerData = useRegisterUserStore((state) => state);
 
   const accountForm = useAppForm({
     defaultValues: getInitialFormValues(ACCOUNT_DEFAULT_VALUES),
@@ -20,7 +20,7 @@ export const CreateAccountPage = () => {
       onSubmit: AccountSchema,
     },
     onSubmit: ({ value }) => {
-      accountData.setAccountData(value);
+      registerData.setRegisterData(value);
       navigate({ to: "/auth/enter-address" });
       console.log("Form submitted with values:", value);
     },
@@ -44,8 +44,8 @@ export const CreateAccountPage = () => {
       >
         <FieldGroup>
           <accountForm.AppField
-            name="name"
-            children={(field) => <field.Input label={t("global.label.name")} />}
+            name="firstName"
+            children={(field) => <field.Input label={t("global.label.firstName")} />}
           />
 
           <accountForm.AppField

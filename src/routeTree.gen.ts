@@ -18,6 +18,7 @@ import { Route as LandingHomeRouteImport } from './routes/landing/home'
 import { Route as AuthEnterAddressRouteImport } from './routes/auth/enter-address'
 import { Route as AuthCreatePasswordRouteImport } from './routes/auth/create-password'
 import { Route as AuthCreateAccountRouteImport } from './routes/auth/create-account'
+import { Route as AuthConfirmEmailRouteImport } from './routes/auth/confirm-email'
 
 const AuthLazyRouteImport = createFileRoute('/auth')()
 const LandingSimulatorLazyRouteImport = createFileRoute('/landing/simulator')()
@@ -85,12 +86,18 @@ const AuthCreateAccountRoute = AuthCreateAccountRouteImport.update({
   path: '/create-account',
   getParentRoute: () => AuthLazyRoute,
 } as any)
+const AuthConfirmEmailRoute = AuthConfirmEmailRouteImport.update({
+  id: '/confirm-email',
+  path: '/confirm-email',
+  getParentRoute: () => AuthLazyRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/app': typeof AppRoute
   '/landing': typeof LandingRouteWithChildren
   '/auth': typeof AuthLazyRouteWithChildren
+  '/auth/confirm-email': typeof AuthConfirmEmailRoute
   '/auth/create-account': typeof AuthCreateAccountRoute
   '/auth/create-password': typeof AuthCreatePasswordRoute
   '/auth/enter-address': typeof AuthEnterAddressRoute
@@ -104,6 +111,7 @@ export interface FileRoutesByTo {
   '/app': typeof AppRoute
   '/landing': typeof LandingRouteWithChildren
   '/auth': typeof AuthLazyRouteWithChildren
+  '/auth/confirm-email': typeof AuthConfirmEmailRoute
   '/auth/create-account': typeof AuthCreateAccountRoute
   '/auth/create-password': typeof AuthCreatePasswordRoute
   '/auth/enter-address': typeof AuthEnterAddressRoute
@@ -118,6 +126,7 @@ export interface FileRoutesById {
   '/app': typeof AppRoute
   '/landing': typeof LandingRouteWithChildren
   '/auth': typeof AuthLazyRouteWithChildren
+  '/auth/confirm-email': typeof AuthConfirmEmailRoute
   '/auth/create-account': typeof AuthCreateAccountRoute
   '/auth/create-password': typeof AuthCreatePasswordRoute
   '/auth/enter-address': typeof AuthEnterAddressRoute
@@ -133,6 +142,7 @@ export interface FileRouteTypes {
     | '/app'
     | '/landing'
     | '/auth'
+    | '/auth/confirm-email'
     | '/auth/create-account'
     | '/auth/create-password'
     | '/auth/enter-address'
@@ -146,6 +156,7 @@ export interface FileRouteTypes {
     | '/app'
     | '/landing'
     | '/auth'
+    | '/auth/confirm-email'
     | '/auth/create-account'
     | '/auth/create-password'
     | '/auth/enter-address'
@@ -159,6 +170,7 @@ export interface FileRouteTypes {
     | '/app'
     | '/landing'
     | '/auth'
+    | '/auth/confirm-email'
     | '/auth/create-account'
     | '/auth/create-password'
     | '/auth/enter-address'
@@ -254,6 +266,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthCreateAccountRouteImport
       parentRoute: typeof AuthLazyRoute
     }
+    '/auth/confirm-email': {
+      id: '/auth/confirm-email'
+      path: '/confirm-email'
+      fullPath: '/auth/confirm-email'
+      preLoaderRoute: typeof AuthConfirmEmailRouteImport
+      parentRoute: typeof AuthLazyRoute
+    }
   }
 }
 
@@ -273,6 +292,7 @@ const LandingRouteWithChildren =
   LandingRoute._addFileChildren(LandingRouteChildren)
 
 interface AuthLazyRouteChildren {
+  AuthConfirmEmailRoute: typeof AuthConfirmEmailRoute
   AuthCreateAccountRoute: typeof AuthCreateAccountRoute
   AuthCreatePasswordRoute: typeof AuthCreatePasswordRoute
   AuthEnterAddressRoute: typeof AuthEnterAddressRoute
@@ -280,6 +300,7 @@ interface AuthLazyRouteChildren {
 }
 
 const AuthLazyRouteChildren: AuthLazyRouteChildren = {
+  AuthConfirmEmailRoute: AuthConfirmEmailRoute,
   AuthCreateAccountRoute: AuthCreateAccountRoute,
   AuthCreatePasswordRoute: AuthCreatePasswordRoute,
   AuthEnterAddressRoute: AuthEnterAddressRoute,

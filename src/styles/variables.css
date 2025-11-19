@@ -16,6 +16,10 @@
   --font-oswald: Oswald, sans-serif;
 
   /* Font sizes */
+
+  --text-qo-xs: 0.875rem; /* 14px */
+  --text-qo-xs--line-height: 1.5rem; /* 24px */
+
   --text-qo-base: 1.125rem; /* 18px */
   --text-qo-base--line-height: 1.5rem; /* 24px */
 
@@ -56,8 +60,8 @@
   --color-qo-brand-800: #8a3c37;
   --color-qo-brand-900: #5e2a26;
 
-  --color-qo-surface-100: #FFFBF6;
-  --color-qo-surface-300: #F7EFE3;
+  --color-qo-surface-100: #fffbf6;
+  --color-qo-surface-300: #f7efe3;
 
   --color-qo-success-100: #d1fadf;
   --color-qo-success-300: #6ce9a6;
@@ -78,7 +82,7 @@
   --color-qo-icon-neutral: var(--color-qo-gray-500);
   --color-qo-icon-dark: var(--color-qo-gray-900);
 
-  --color-badge-yellow: #EDFD36;
-  --color-badge-purple: #D2BEFD;
-  --color-badge-orange: #FDB022;
+  --color-badge-yellow: #edfd36;
+  --color-badge-purple: #d2befd;
+  --color-badge-orange: #fdb022;
 }

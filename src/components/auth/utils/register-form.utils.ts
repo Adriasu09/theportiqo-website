@@ -1,10 +1,10 @@
-import { useAccountStore } from "@/src/store/account-store";
+import { useRegisterUserStore } from "@/src/store/register-user-store";
 import { AccountFormType } from "../schemas/account.schema";
 
 export const getInitialFormValues = (
   formDefaultValues: Partial<AccountFormType>,
 ): Partial<AccountFormType> => {
-  const accountData = useAccountStore((state) => state);
+  const accountData = useRegisterUserStore((state) => state);
   
   const keys = Object.keys(formDefaultValues);
   const savedValues: Record<string, any> = {};

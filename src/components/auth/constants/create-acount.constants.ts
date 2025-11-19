@@ -6,7 +6,7 @@ type AddressFormValues = z.infer<typeof AddressSchema>;
 type PasswordFormValues = z.infer<typeof PasswordSchema>;
 
 export const ACCOUNT_DEFAULT_VALUES: AccountFormValues = {
-  name: "",
+  firstName: "",
   lastName: "",
   email: "",
   phone: "",

@@ -1,7 +1,7 @@
 import * as z from "zod";
 
 export const AccountFormSchema = z.object({
-  name: z.string().min(1, "Name is required"),
+  firstName: z.string().min(1, "Name is required"),
   lastName: z.string().min(1, "Last name is required"),
   email: z.email("Invalid email address"),
   phone: z.string().min(1, "Phone number is required"),
@@ -28,7 +28,7 @@ export const AccountFormSchema = z.object({
 });
 
 export const AccountSchema = AccountFormSchema.pick({
-  name: true,
+  firstName: true,
   lastName: true,
   email: true,
   phone: true,
