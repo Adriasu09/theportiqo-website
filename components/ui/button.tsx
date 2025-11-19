@@ -17,11 +17,12 @@ const buttonVariants = cva(
         secondary:
           "bg-qo-gray-800 text-white hover:bg-qo-gray-700",
         ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+          "hover:bg-qo-gray-50 shadow-md dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: " px-6 py-4",
+        default: "px-6 py-4",
+        link: "px-2 py-1",
         sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
         lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
         icon: "size-9",
