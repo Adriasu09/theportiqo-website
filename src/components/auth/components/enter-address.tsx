@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { ADDRESS_DEFAULT_VALUES } from "../constants/create-acount.constants";
 import { AddressSchema } from "../schemas/account.schema";
 import { useAppForm } from "../../shared/form/form-hooks";
-import { useRegisterUserStore } from "@/src/store/register-user-store";
+import { useRegisterUserStore } from "@/src/store/register-user.store";
 import { FieldGroup } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "@tanstack/react-router";
