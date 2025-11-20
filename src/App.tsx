@@ -2,7 +2,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import { routeTree } from "./routeTree.gen";
-import "./App.css";
 
 const router = createRouter({ routeTree, context: { auth: undefined! } });
 
