@@ -1,0 +1,120 @@
+{
+	"auth": {
+		"address": {
+			"title": "Introduce tu domicilio"
+		},
+		"confirmEmail": {
+			"description": "Te hemos enviado un email para verificar tu cuenta. Si no lo encuentras, revisa tu carpeta de spam. \n\nPuedes hacerlo más tarde, pero este paso es necesario para activar tu cuenta.",
+			"title": "¡Casi listo! Sólo un paso más..."
+		},
+		"createAccount": {
+			"title": "Crear una cuenta"
+		},
+		"createPassword": {
+			"title": "Una contraseña memorable"
+		},
+		"login": {
+			"title": "Bienvenido a Portiqo"
+		},
+		"threeSteps": {
+			"description": "En 5 minutos estarás listo para invertir tu dinero con Pórtiqo. Introduce tus datos, verifica tu correo electrónico y hazte un selfie (necesitarás tener tu DNI a mano).",
+			"title": "En 3 pasos tendrás tu cuenta en Pórtiqo."
+		}
+	},
+	"footer": {
+		"company": {
+			"title": "Empresa",
+			"whoWeAre": "Quiénes somos"
+		},
+		"global": "Global",
+		"legal": {
+			"legalNotice": "Aviso legal",
+			"privacyPolicity": "Política de privacidad",
+			"terms": "Términos y condiciones",
+			"title": "Legal"
+		},
+		"spain": "España",
+		"support": {
+			"contact": "Contacto",
+			"faq": "Preguntas más frecuentes",
+			"title": "Ayuda"
+		}
+	},
+	"global": {
+		"button": {
+			"becomeClient": "Hazte cliente",
+			"clients": "Clientes",
+			"continue": "Continuar",
+			"continueWithGoogle": "Continuar con Google",
+			"createAccount": "Abrir una cuenta",
+			"enter": "Entrar",
+			"forgotPassword": "He olvidado mi contraseña",
+			"goSimulator": "Ir al simulador de nuestras carteras",
+			"goToPortfolioSimulator": "Ir al simulador de nuestras carteras",
+			"resendCode": "Volver a enviar el código",
+			"startInvesting": "Empieza a invertir hoy",
+			"startInvestingNow": "Comience a invertir ahora mismo",
+			"tryPortiqo": "Quiero probar Portiqo"
+		},
+		"label": {
+			"acceptCommunication": "Acepto recibir comunicaciones comerciales y ofertas promocionales del grupo Huargo.",
+			"acceptTerms": "Acepto las condiciones legales y la política de privacidad de Portiqo.",
+			"address": "Dirección",
+			"city": "Ciudad",
+			"country": "País",
+			"documentNumber": "Número de documento",
+			"email": "Correo electrónico",
+			"firstName": "Nombre",
+			"lastName": "Apellidos",
+			"password": "Contraseña",
+			"passwordConfirmation": "Confirmar Contraseña",
+			"phone": "Teléfono",
+			"postalCode": "Código postal",
+			"province": "Provincia",
+			"realState": "Inmobiliario",
+			"renewableEnergies": "Energías renovables",
+			"technology": "Tecnología e inteligencia artificial"
+		},
+		"menu": {
+			"company": "Compañía",
+			"product": "Producto",
+			"simulator": "Simulador"
+		},
+		"title": "Título de la prueba"
+	},
+	"landing": {
+		"benefits": {
+			"backedByExperts": "Con el respaldo de expertos",
+			"backedByExpertsDescription": "Inversiones seleccionadas por profesionales experimentados con la garantía de fondos de prestigio.",
+			"everythingClear": "Todo claro y accesible",
+			"everythingClearDescription": "Entienda cada paso, sin jerga ni tecnicismos. Elija sus inversiones en categorías que conozca y controle cada decisión.",
+			"experience": "15 años de experiencia",
+			"fees": "0,0 comisiones",
+			"maximumProfitability": "Máxima rentabilidad",
+			"maximumProfitabilityDescription": "Inversiones seleccionadas por profesionales experimentados con la garantía de fondos de prestigio.",
+			"profitability": "13.4%\n12.3%\n11.1%"
+		},
+		"faq": {
+			"canWithdrawAnytime": "¿Puedo retirar mi inversión en cualquier momento?",
+			"fees": "¿Qué comisiones cobra Portiqo?",
+			"isSafe": "¿Es seguro invertir en Portiqo?",
+			"minimumInvestment": "¿Cuál es la inversión mínima?"
+		},
+		"hero": {
+			"paragraph1": "Invierta en carteras exclusivas diseñadas para maximizar su rentabilidad. Con carteras claras,",
+			"paragraph2": "sin jerga ni complicaciones, hasta ahora reservadas para grandes inversores.",
+			"title": "Invierte como un experto, sin serlo."
+		},
+		"ourPortfolio": {
+			"getAccess": "Puede acceder a nuestra cartera completa, sólo con un correo electrónico",
+			"gmailAccount": "Cuenta de Gmail",
+			"requirements": "REQUISITOS",
+			"title": "Algunos temas de nuestras carteras",
+			"wantToKnowMore": "¿Quiere ver el resto de nuestras carteras?"
+		},
+		"partners": {
+			"comment": "\"Saber que mis inversiones están respaldadas por líderes mundiales me da total confianza para seguir creciendo\". - Ana M.",
+			"title": "Invierta con la tranquilidad de la banca mundial"
+		}
+	}
+}

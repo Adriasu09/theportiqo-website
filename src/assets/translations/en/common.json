@@ -1,0 +1,120 @@
+{
+	"auth": {
+		"address": {
+			"title": "Enter Address"
+		},
+		"confirmEmail": {
+			"description": "We have sent you an email to verify your account. If you cannot find it, check your spam folder. \n\nYou can do this later, but this step is necessary to activate your account.",
+			"title": "Almost done! Just one more step..."
+		},
+		"createAccount": {
+			"title": "Create account"
+		},
+		"createPassword": {
+			"title": "A memorable password"
+		},
+		"login": {
+			"title": "Welcome to Portiqo"
+		},
+		"threeSteps": {
+			"description": "In 5 minutes, you'll be ready to invest your money with Pórtiqo. Enter your details, verify your email, and take a selfie (you'll need to have your ID handy).",
+			"title": "In 3 steps you will have your account at Pórtiqo."
+		}
+	},
+	"footer": {
+		"company": {
+			"title": "Company",
+			"whoWeAre": "Who we are"
+		},
+		"global": "Global",
+		"legal": {
+			"legalNotice": "Legal notice",
+			"privacyPolicity": "Privacy policity",
+			"terms": "Terms and conditions",
+			"title": "Legal"
+		},
+		"spain": "Spain",
+		"support": {
+			"contact": "contact",
+			"faq": "Frequently asked questions",
+			"title": "Support"
+		}
+	},
+	"global": {
+		"button": {
+			"becomeClient": "Become a client",
+			"clients": "Clients",
+			"continue": "Continue",
+			"continueWithGoogle": "Continue with Google",
+			"createAccount": "Create account",
+			"enter": "Enter",
+			"forgotPassword": "I forgot my password",
+			"goSimulator": "Go to the simulator of our portfolios",
+			"goToPortfolioSimulator": "Go to the simulator of our portfolios",
+			"resendCode": "Resend the code",
+			"startInvesting": "Start investing today",
+			"startInvestingNow": "Start investing right now",
+			"tryPortiqo": "I want to try Portiqo"
+		},
+		"label": {
+			"acceptCommunication": "I agree to receive commercial communications and promotional offers from the Huargo group.",
+			"acceptTerms": "I accept Portiqo's legal terms and conditions and privacy policy.",
+			"address": "Address",
+			"city": "City",
+			"country": "Country",
+			"documentNumber": "Document number",
+			"email": "Email",
+			"firstName": "First name",
+			"lastName": "Last name",
+			"password": "Password",
+			"passwordConfirmation": "Confirm password",
+			"phone": "Phone",
+			"postalCode": "Postal code",
+			"province": "Province",
+			"realState": "Real state",
+			"renewableEnergies": "Renewable energies",
+			"technology": "Technology and Artificial Intelligence"
+		},
+		"menu": {
+			"company": "Company",
+			"product": "Product",
+			"simulator": "Simulator"
+		},
+		"title": "Test title"
+	},
+	"landing": {
+		"benefits": {
+			"backedByExperts": "Backed by experts",
+			"backedByExpertsDescription": "Investments selected by experienced professionals with the guarantee of prestigious funds.",
+			"everythingClear": "Everything clear and accessible",
+			"everythingClearDescription": "Understand every step, without jargon or technicalities. Choose your investments in categories you know and control every decision.",
+			"experience": "15 years of experience",
+			"fees": "0.0 fees",
+			"maximumProfitability": "Maximum profitability",
+			"maximumProfitabilityDescription": "Investments selected by experienced professionals with the guarantee of prestigious funds.",
+			"profitability": "13.4%\n12.3%\n11.1%"
+		},
+		"faq": {
+			"canWithdrawAnytime": "Can I withdraw my investment at any time?",
+			"fees": "What fees does Portiqo charge?",
+			"isSafe": "Is it safe to invest in Portiqo?",
+			"minimumInvestment": "What is the minimum investment?"
+		},
+		"hero": {
+			"paragraph1": "Invest in exclusive portfolios designed to maximise your returns. With clear portfolios,",
+			"paragraph2": "free from jargon and complications, previously reserved for large investors.",
+			"title": "Invest like an expert, without being one."
+		},
+		"ourPortfolio": {
+			"getAccess": "You can access our complete portfolio, just with an email",
+			"gmailAccount": "Gmail account",
+			"requirements": "REQUERIMENTS",
+			"title": "Some themes of our portfolios",
+			"wantToKnowMore": "Do you want to see the rest of our portfolios"
+		},
+		"partners": {
+			"comment": "\"Knowing that my investments are backed by global leaders gives me complete confidence to keep growing\". - Ana M.",
+			"title": "Invest with the peace of mind of global banking"
+		}
+	}
+}

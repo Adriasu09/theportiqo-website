@@ -1,0 +1,39 @@
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { FAQItem } from "../models/landing.models";
+import { FAQ_LIST } from "../constants/landing.constants";
+import { useTranslation } from "react-i18next";
+
+export const FAQ = () => {
+  const { t } = useTranslation();
+
+  return (
+    <div className="flex w-full max-w-[1000px] px-4 flex-col items-center gap-6">
+      <h2 className="text-qo-h2 font-accent">Frequently asked questions</h2>
+
+      <div className="w-full bg-white p-4">
+        <Accordion
+          type="single"
+          className="w-full"
+          defaultValue="item-1"
+          collapsible
+        >
+          {FAQ_LIST.map((faq: FAQItem, index: number) => (
+            <AccordionItem value={`${index}`} key={faq.questionKey}>
+              <AccordionTrigger>
+                <div className="text-qo-h5">{t(`landing.faq.${faq.questionKey}`)}</div>
+              </AccordionTrigger>
+              <AccordionContent>
+                {/* <p>{t(`landing.faq.${faq.answerKey}`)}</p> */}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
+    </div>
+  );
+};
