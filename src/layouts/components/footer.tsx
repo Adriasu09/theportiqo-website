@@ -4,7 +4,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { PortiqoLogo } from "@/src/assets/imgs/logos/portiqo";
+// import { PortiqoLogo } from "@/src/assets/imgs/logos/portiqo";
+import PortiqoLogo from "@/src/assets/imgs/logos/portiqo/portiqo-white.svg";
 import { Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { FOOTER_SECTIONS } from "../constants/footer.constants";
@@ -14,8 +15,8 @@ export const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-8 bg-qo-gray-900 px-4 pt-8 text-white">
-      <div className="flex w-full flex-col justify-between gap-8 min-[950px]:flex-row min-[950px]:gap-22 min-[950px]:px-32">
+    <div className="flex w-full flex-col items-center justify-center gap-18 bg-qo-gray-900 px-28 py-16 text-white">
+      <div className="flex w-full flex-col justify-between gap-8 min-[950px]:flex-row min-[950px]:gap-22 min-[1194px]:px-32">
         <div className="flex h-full flex-1 items-start justify-center gap-4 min-[950px]:justify-start">
           <div className="flex gap-2">
             <span className="fi fi-es"></span>
@@ -66,7 +67,7 @@ export const Footer = () => {
         </div>
       </div>
 
-      <PortiqoLogo className="w-full max-w-[1400px]" />
+      <img src={PortiqoLogo} alt="Portiqo Logo" className="w-full max-w-[1200px]" />
     </div>
   );
 };
