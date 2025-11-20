@@ -2,7 +2,13 @@ import { useEffect, useRef, useCallback } from "react";
 import { useLocation } from "@tanstack/react-router";
 import { useAuth } from "@/src/contexts/AuthContext";
 
-export const GoogleOneTap = ({ onSuccess, onError, disabled = false }) => {
+interface GoogleOneTapProps {
+  onSuccess?: (user: any) => void;
+  onError?: (error: any) => void;
+  disabled?: boolean;
+}
+
+export const GoogleOneTap = ({ onSuccess, onError, disabled = false }: GoogleOneTapProps) => {
   const { signInWithGoogle, isAuthenticated } = useAuth();
   const location = useLocation();
   const googleInitialized = useRef(false);

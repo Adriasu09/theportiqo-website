@@ -642,12 +642,6 @@ body {
   position: relative;
 }
 
-/* Style the Google One Tap iframe when it appears */
-iframe[src*="accounts.google.com"] {
-  border-radius: 8px !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .header-content,

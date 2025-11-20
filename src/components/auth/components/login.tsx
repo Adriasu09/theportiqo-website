@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "@tanstack/react-router";
 import googleLogo from "@assets/imgs/logos/googleLogo.png";
 import { useAuth } from "@/src/contexts/AuthContext";
+import { useEffect } from "react";
 
 export const LoginPage = () => {
   const { t } = useTranslation();
@@ -13,10 +14,11 @@ export const LoginPage = () => {
 
   const { login, isAuthenticated } = useAuth();
 
-  if (isAuthenticated()) {
-    navigate({ to: "/app/dashboard" });
-    return null;
-  }
+  useEffect(() => {
+    if (isAuthenticated()) {
+      navigate({ to: "/app/dashboard" });
+    }
+  }, [isAuthenticated, navigate]);
 
   const loginForm = useAppForm({
     defaultValues: {
@@ -28,10 +30,6 @@ export const LoginPage = () => {
     },
     onSubmit: async ({ value }) => {
       await login(value.email, value.password);
-      
-      if (isAuthenticated()) {
-        navigate({ to: "/app/dashboard" });
-      }
     },
   });
 
