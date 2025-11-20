@@ -22,8 +22,11 @@ export const LoginPage = () => {
       onSubmit: LoginFormSchema,
     },
     onSubmit: async ({ value }) => {
-      console.log("Login form submitted with values:", value);
       await login(value.email, value.password);
+      
+      if (isAuthenticated()) {
+        navigate({ to: "/app/dashboard" });
+      }
     },
   });
 

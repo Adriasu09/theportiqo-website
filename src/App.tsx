@@ -1,8 +1,16 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { RouterProvider } from "@tanstack/react-router";
-import { router } from "./router";
-import { AuthProvider } from "./contexts/AuthContext";
+import { createRouter, RouterProvider } from "@tanstack/react-router";
+import { AuthProvider, useAuth } from "./contexts/AuthContext";
+import { routeTree } from "./routeTree.gen";
 import "./App.css";
+
+const router = createRouter({ routeTree, context: { auth: undefined! } });
+
+declare module "@tanstack/react-router" {
+  interface Register {
+    router: typeof router;
+  }
+}
 
 // Create a client
 const queryClient = new QueryClient({
@@ -15,10 +23,11 @@ const queryClient = new QueryClient({
 });
 
 function App() {
+  const auth = useAuth();
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <RouterProvider router={router} />
+        <RouterProvider router={router} context={{ auth }} />
       </AuthProvider>
     </QueryClientProvider>
   );

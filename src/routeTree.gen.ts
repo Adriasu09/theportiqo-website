@@ -20,6 +20,7 @@ import { Route as AuthEnterAddressRouteImport } from './routes/auth/enter-addres
 import { Route as AuthCreatePasswordRouteImport } from './routes/auth/create-password'
 import { Route as AuthCreateAccountRouteImport } from './routes/auth/create-account'
 import { Route as AuthConfirmEmailRouteImport } from './routes/auth/confirm-email'
+import { Route as AppDashboardRouteImport } from './routes/app/dashboard'
 
 const AuthLazyRouteImport = createFileRoute('/auth')()
 const LandingSimulatorLazyRouteImport = createFileRoute('/landing/simulator')()
@@ -97,12 +98,18 @@ const AuthConfirmEmailRoute = AuthConfirmEmailRouteImport.update({
   path: '/confirm-email',
   getParentRoute: () => AuthLazyRoute,
 } as any)
+const AppDashboardRoute = AppDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/app': typeof AppRoute
+  '/app': typeof AppRouteWithChildren
   '/landing': typeof LandingRouteWithChildren
   '/auth': typeof AuthLazyRouteWithChildren
+  '/app/dashboard': typeof AppDashboardRoute
   '/auth/confirm-email': typeof AuthConfirmEmailRoute
   '/auth/create-account': typeof AuthCreateAccountRoute
   '/auth/create-password': typeof AuthCreatePasswordRoute
@@ -115,9 +122,10 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/app': typeof AppRoute
+  '/app': typeof AppRouteWithChildren
   '/landing': typeof LandingRouteWithChildren
   '/auth': typeof AuthLazyRouteWithChildren
+  '/app/dashboard': typeof AppDashboardRoute
   '/auth/confirm-email': typeof AuthConfirmEmailRoute
   '/auth/create-account': typeof AuthCreateAccountRoute
   '/auth/create-password': typeof AuthCreatePasswordRoute
@@ -131,9 +139,10 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/app': typeof AppRoute
+  '/app': typeof AppRouteWithChildren
   '/landing': typeof LandingRouteWithChildren
   '/auth': typeof AuthLazyRouteWithChildren
+  '/app/dashboard': typeof AppDashboardRoute
   '/auth/confirm-email': typeof AuthConfirmEmailRoute
   '/auth/create-account': typeof AuthCreateAccountRoute
   '/auth/create-password': typeof AuthCreatePasswordRoute
@@ -151,6 +160,7 @@ export interface FileRouteTypes {
     | '/app'
     | '/landing'
     | '/auth'
+    | '/app/dashboard'
     | '/auth/confirm-email'
     | '/auth/create-account'
     | '/auth/create-password'
@@ -166,6 +176,7 @@ export interface FileRouteTypes {
     | '/app'
     | '/landing'
     | '/auth'
+    | '/app/dashboard'
     | '/auth/confirm-email'
     | '/auth/create-account'
     | '/auth/create-password'
@@ -181,6 +192,7 @@ export interface FileRouteTypes {
     | '/app'
     | '/landing'
     | '/auth'
+    | '/app/dashboard'
     | '/auth/confirm-email'
     | '/auth/create-account'
     | '/auth/create-password'
@@ -194,7 +206,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AppRoute: typeof AppRoute
+  AppRoute: typeof AppRouteWithChildren
   LandingRoute: typeof LandingRouteWithChildren
   AuthLazyRoute: typeof AuthLazyRouteWithChildren
 }
@@ -292,8 +304,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthConfirmEmailRouteImport
       parentRoute: typeof AuthLazyRoute
     }
+    '/app/dashboard': {
+      id: '/app/dashboard'
+      path: '/dashboard'
+      fullPath: '/app/dashboard'
+      preLoaderRoute: typeof AppDashboardRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
+
+interface AppRouteChildren {
+  AppDashboardRoute: typeof AppDashboardRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppDashboardRoute: AppDashboardRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
 
 interface LandingRouteChildren {
   LandingHomeRoute: typeof LandingHomeRoute
@@ -334,7 +363,7 @@ const AuthLazyRouteWithChildren = AuthLazyRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AppRoute: AppRoute,
+  AppRoute: AppRouteWithChildren,
   LandingRoute: LandingRouteWithChildren,
   AuthLazyRoute: AuthLazyRouteWithChildren,
 }
