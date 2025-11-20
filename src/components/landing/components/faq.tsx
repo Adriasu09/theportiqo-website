@@ -15,7 +15,7 @@ export const FAQ = () => {
     <div className="flex w-full max-w-[1000px] px-4 flex-col items-center gap-6">
       <h2 className="text-qo-h2 font-accent">Frequently asked questions</h2>
 
-      <div className="w-full bg-white p-4">
+      <div className="w-full rounded-2xl bg-white p-6">
         <Accordion
           type="single"
           className="w-full"
@@ -28,7 +28,7 @@ export const FAQ = () => {
                 <div className="text-qo-h5">{t(`landing.faq.${faq.questionKey}`)}</div>
               </AccordionTrigger>
               <AccordionContent>
-                {/* <p>{t(`landing.faq.${faq.answerKey}`)}</p> */}
+                <p className="whitespace-pre-line">{t(`landing.faq.${faq.answerKey}`)}</p>
               </AccordionContent>
             </AccordionItem>
           ))}

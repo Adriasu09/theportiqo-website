@@ -95,10 +95,20 @@
 			"profitability": "13.4%\n12.3%\n11.1%"
 		},
 		"faq": {
-			"canWithdrawAnytime": "Can I withdraw my investment at any time?",
-			"fees": "What fees does Portiqo charge?",
-			"isSafe": "Is it safe to invest in Portiqo?",
-			"minimumInvestment": "What is the minimum investment?"
+			"commissions": "What fees do you charge?",
+			"commissionsRes": "Each fund has its own cost, which is stated in its terms and conditions and in the prospectus. Fees are charged by the management company in each case. ",
+			"howDoIJoin": "How do I join Pórtiqo?",
+			"howDoIJoinRes": "It's quick and easy! Registering with Pórtiqo takes less than 5 minutes. All you need is:\n\nTo be a resident of Europe (with your ID card, passport, or residence card).\nTo have a European bank account.\n\nThe process begins by clicking on “Become a customer.” During registration, we will ask you for some basic personal information, and then you will go through a quick identification process using your ID (you will need to have it handy).\n\nIn less than 5 minutes, your account will be ready, and you can start trading with ease.",
+			"howMuch": "How much money do I need to start investing?",
+			"howMuchRes": "You can invest from €1,000 in some of our funds. If you are still unsure and would like to simulate the returns you could obtain with our funds, you can access them through Google or Apple and view our entire portfolio.",
+			"investmentFund": "What is an investment fund and how does it work?",
+			"investmentFundRes": "An investment fund is a simple way to put your money to work alongside that of other investors. A team of experts manages it and invests it in different assets (such as stocks or bonds) to take advantage of market opportunities and reduce risk through diversification.\n\nYou buy shares, which represent your stake in the fund. Their value changes every day depending on how the investments perform.\n Profits or losses are distributed among all participants proportionally.\n\nThere are two main types:\n\n- Accumulation funds: dividends are automatically reinvested.\n\n- Distribution funds: dividends are distributed directly to investors.\n\nYou can enter or exit the fund whenever you want (subscribe, transfer to another fund, or redeem shares), although it may take a while for the money to become available, depending on the fund.",
+			"isEasyToTransferMoney": "Can I transfer the money I have invested in funds on other platforms to Pórtico?",
+			"isEasyToTransferMoneyRes": "Of course! When you sign up for the fund, you will have the option of making your contribution by bank transfer or by transferring funds from another fund. You will just need to tell us whether the contribution is partial or total and follow the steps we indicate.",
+			"whenCanIRecoverMyMoney": "When can I get my money back once I invest in Pórtiqo?",
+			"whenCanIRecoverMyMoneyRes": "Whenever you want! Just log in to your fund, select “Withdraw,” and enter the amount you want to withdraw and a deposit account.",
+			"whyIsItBetter": "Why do you offer better returns than other platforms?",
+			"whyIsItBetterRes": "At Portiqo, we specialize in selecting the best products on the market. Our experts select the best funds based on their profitability, risk, and commission costs. This allows us to offer you only those products that have historically outperformed their competitors. "
 		},
 		"hero": {
 			"paragraph1": "Invest in exclusive portfolios designed to maximise your returns. With clear portfolios,",
