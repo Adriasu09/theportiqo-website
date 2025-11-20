@@ -6,7 +6,7 @@ export const AppLayout = () => {
     <div className="flex min-h-screen w-full flex-col justify-between bg-qo-brand-25 font-main">
       <AppNavbar />
 
-      <div className="w-full flex-1">
+      <div className="w-full flex-1 p-6">
         <Outlet />
       </div>
 

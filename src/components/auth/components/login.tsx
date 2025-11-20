@@ -13,6 +13,11 @@ export const LoginPage = () => {
 
   const { login, isAuthenticated } = useAuth();
 
+  if (isAuthenticated()) {
+    navigate({ to: "/app/dashboard" });
+    return null;
+  }
+
   const loginForm = useAppForm({
     defaultValues: {
       email: "",
