@@ -64,6 +64,9 @@
 			"country": "País",
 			"documentNumber": "Número de documento",
 			"email": "Correo electrónico",
+			"en": "Inglés",
+			"english": "Inglés",
+			"es": "Español",
 			"firstName": "Nombre",
 			"lastName": "Apellidos",
 			"password": "Contraseña",
@@ -73,6 +76,7 @@
 			"province": "Provincia",
 			"realState": "Inmobiliario",
 			"renewableEnergies": "Energías renovables",
+			"spanish": "Español",
 			"technology": "Tecnología e inteligencia artificial"
 		},
 		"menu": {

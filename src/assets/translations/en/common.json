@@ -64,6 +64,9 @@
 			"country": "Country",
 			"documentNumber": "Document number",
 			"email": "Email",
+			"en": "English",
+			"english": "English",
+			"es": "Spanish",
 			"firstName": "First name",
 			"lastName": "Last name",
 			"password": "Password",
@@ -73,6 +76,7 @@
 			"province": "Province",
 			"realState": "Real state",
 			"renewableEnergies": "Renewable energies",
+			"spanish": "Spanish",
 			"technology": "Technology and Artificial Intelligence"
 		},
 		"menu": {
