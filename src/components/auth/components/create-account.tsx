@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useAppForm } from "../../shared/form/form-hooks";
 import { useTranslation } from "react-i18next";
 import { AccountSchema } from "../schemas/account.schema";
-import { useRegisterUserStore } from "@/src/store/register-user-store";
+import { useRegisterUserStore } from "@/src/store/register-user.store";
 import { useNavigate } from "@tanstack/react-router";
 import { getInitialFormValues } from "../utils/register-form.utils";
 

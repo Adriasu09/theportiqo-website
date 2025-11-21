@@ -12,10 +12,10 @@ export const FAQ = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex w-full max-w-[1000px] px-4 flex-col items-center gap-6">
-      <h2 className="text-qo-h2 font-accent">Frequently asked questions</h2>
+    <div className="flex w-full max-w-[1000px] flex-col items-center gap-6 px-4">
+      <h2 className="font-accent text-qo-h2">{t("landing.faq.title")}</h2>
 
-      <div className="w-full bg-white p-4">
+      <div className="w-full rounded-2xl bg-white p-6">
         <Accordion
           type="single"
           className="w-full"
@@ -25,10 +25,14 @@ export const FAQ = () => {
           {FAQ_LIST.map((faq: FAQItem, index: number) => (
             <AccordionItem value={`${index}`} key={faq.questionKey}>
               <AccordionTrigger>
-                <div className="text-qo-h5">{t(`landing.faq.${faq.questionKey}`)}</div>
+                <div className="text-qo-h5">
+                  {t(`landing.faq.${faq.questionKey}`)}
+                </div>
               </AccordionTrigger>
               <AccordionContent>
-                {/* <p>{t(`landing.faq.${faq.answerKey}`)}</p> */}
+                <p className="whitespace-pre-line">
+                  {t(`landing.faq.${faq.answerKey}`)}
+                </p>
               </AccordionContent>
             </AccordionItem>
           ))}

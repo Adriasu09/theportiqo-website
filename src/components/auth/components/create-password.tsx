@@ -4,7 +4,7 @@ import { PASSWORD_DEFAULT_VALUES } from "../constants/create-acount.constants";
 import { useAppForm } from "../../shared/form/form-hooks";
 import { AccountFormType, PasswordSchema } from "../schemas/account.schema";
 import { FieldGroup } from "@/components/ui/field";
-import { useRegisterUserStore } from "@/src/store/register-user-store";
+import { useRegisterUserStore } from "@/src/store/register-user.store";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/src/contexts/AuthContext";
 import { useNavigate } from "@tanstack/react-router";

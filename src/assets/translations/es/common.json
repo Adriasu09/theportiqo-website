@@ -64,6 +64,9 @@
 			"country": "País",
 			"documentNumber": "Número de documento",
 			"email": "Correo electrónico",
+			"en": "Inglés",
+			"english": "Inglés",
+			"es": "Español",
 			"firstName": "Nombre",
 			"lastName": "Apellidos",
 			"password": "Contraseña",
@@ -73,6 +76,7 @@
 			"province": "Provincia",
 			"realState": "Inmobiliario",
 			"renewableEnergies": "Energías renovables",
+			"spanish": "Español",
 			"technology": "Tecnología e inteligencia artificial"
 		},
 		"menu": {
@@ -95,22 +99,34 @@
 			"profitability": "13.4%\n12.3%\n11.1%"
 		},
 		"faq": {
-			"canWithdrawAnytime": "¿Puedo retirar mi inversión en cualquier momento?",
-			"fees": "¿Qué comisiones cobra Portiqo?",
-			"isSafe": "¿Es seguro invertir en Portiqo?",
-			"minimumInvestment": "¿Cuál es la inversión mínima?"
+			"commissions": "¿Qué comisiones cobráis?",
+			"commissionsRes": "Cada fondo tiene su coste y este aparece en sus condiciones y en el folleto. Las comisiones son cobradas por la entidad gestora en cada caso. ",
+			"howDoIJoin": "¿Cómo me uno a Pórtiqo?",
+			"howDoIJoinRes": "¡Es muy fácil y rápido! Registrarte en Pórtiqo te llevará menos de 5 minutos. Solo necesitas:\n\n- Ser residente en Europa (con tu DNI, pasaporte o tarjeta de residencia).\n- Tener una cuenta bancaria europea.\n\nEl proceso comienza haciendo clic en \"Hazte cliente\". Durante el registro, te pediremos algunos datos personales básicos y luego realizarás un proceso de identificación rápido usando tu documento de identidad (es necesario que lo tengas a mano).\n\nEn menos de 5 minutos tendrás tu cuenta lista y podrás empezar a operar con total facilidad.",
+			"howMuch": "¿Cuánto dinero necesito para empezar a invertir?",
+			"howMuchRes": "Puedes invertir desde 1.000€ en algunos de nuestros fondos. Si aún no lo tienes claro y quieres simular qué rentabilidad obtendrías con nuestros fondos, puedes acceder a través de Google o Apple y podrás ver toda la cartera que ofrecemos.",
+			"investmentFund": "¿Qué es un fondo de inversión y cómo funciona?",
+			"investmentFundRes": "Un fondo de inversión es una forma sencilla de poner tu dinero a trabajar junto al de otros inversores. Un equipo de expertos se encarga de gestionarlo e invertirlo en distintos activos (como acciones o bonos) para aprovechar las oportunidades del mercado y reducir riesgos gracias a la diversificación.\n\nTú compras participaciones, que representan tu parte dentro del fondo. Su valor cambia cada día según la evolución de las inversiones.\n Los beneficios o pérdidas se reparten entre todos los partícipes de forma proporcional.\n\nExisten dos tipos principales:\n\n- Fondos de acumulación: los dividendos se reinvierten automáticamente.\n\n- Fondos de distribución: los dividendos se reparten directamente entre los inversores.\n\nPuedes entrar o salir del fondo cuando quieras (suscribir, traspasar a otro fondo o reembolsar participaciones), aunque el dinero puede tardar un poco en hacerse efectivo según el fondo.\n",
+			"isEasyToTransferMoney": "¿Puedo traspasar a Pórtico el dinero que tengo invertido en fondos que tenga en otras plataformas?",
+			"isEasyToTransferMoneyRes": "¡Por supuesto!. Cuando contrates el fondo tendrás la opción de hacer tu aportación por transferencia bancaria, o bien, haciendo un traspaso desde otro fondo. Solo tendrás que indicarnos si la aportación es parcial o total y seguir los pasos que te indicamos.",
+			"title": "Preguntas más frecuentes",
+			"whenCanIRecoverMyMoney": "¿Cuándo puedo recuperar mi dinero una vez que invierta en Pórtiqo?",
+			"whenCanIRecoverMyMoneyRes": "¡Cuando tú quieras!. Tan solo tienes que acceder a tu fondo, seleccionar “Rescatar” e indicar el importe que quieres recuperar y una cuenta de abono.",
+			"whyIsItBetter": "¿Por qué ofrecéis mejor rentabilidad que en otras plataformas?",
+			"whyIsItBetterRes": "En Portiqo nos especializamos en seleccionar los mejores productos del mercado. Nuestros expertos seleccionan los mejores fondos atendiendo a su rentabilidad, su riesgo y su coste en comisiones. De esta forma, somos capaces de ofrecerte únicamente aquellos productos que lo han hecho mejor históricamente que sus competidores. "
 		},
 		"hero": {
+			"badge": "Desde 10.000 euros",
 			"paragraph1": "Invierta en carteras exclusivas diseñadas para maximizar su rentabilidad. Con carteras claras,",
 			"paragraph2": "sin jerga ni complicaciones, hasta ahora reservadas para grandes inversores.",
 			"title": "Invierte como un experto, sin serlo."
 		},
 		"ourPortfolio": {
-			"getAccess": "Puede acceder a nuestra cartera completa, sólo con un correo electrónico",
+			"getAccess": "Accede a todo el catálogo de Pórtiqo con tu cuenta de Google o Apple.",
 			"gmailAccount": "Cuenta de Gmail",
 			"requirements": "REQUISITOS",
-			"title": "Algunos temas de nuestras carteras",
-			"wantToKnowMore": "¿Quiere ver el resto de nuestras carteras?"
+			"title": "Algunas temáticas de nuestros productos",
+			"wantToKnowMore": "¿Quiere ver el resto de nuestros productos?"
 		},
 		"partners": {
 			"comment": "\"Saber que mis inversiones están respaldadas por líderes mundiales me da total confianza para seguir creciendo\". - Ana M.",

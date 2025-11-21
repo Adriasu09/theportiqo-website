@@ -45,22 +45,34 @@ export const BENEFITS_LIST: BenefitCard[] = [
   },
 ];
 
-//TODO: define answers
+
 export const FAQ_LIST: FAQItem[] = [
   {
-    questionKey: "isSafe",
-    answerKey: "",
+    questionKey: "howDoIJoin",
+    answerKey: "howDoIJoinRes",
   },
   {
-    questionKey: "canWithdrawAnytime",
-    answerKey: "",
+    questionKey: "investmentFund",
+    answerKey: "investmentFundRes",
   },
   {
-    questionKey: "minimumInvestment",
-    answerKey: "",
+    questionKey: "howMuch",
+    answerKey: "howMuchRes",
   },
   {
-    questionKey: "fees",
-    answerKey: "",
+    questionKey: "isEasyToTransferMoney",
+    answerKey: "isEasyToTransferMoneyRes",
+  },
+  {
+    questionKey: "whenCanIRecoverMyMoney",
+    answerKey: "whenCanIRecoverMyMoneyRes",
+  },
+  {
+    questionKey: "whyIsItBetter",
+    answerKey: "whyIsItBetterRes",
+  },
+  {
+    questionKey: "commissions",
+    answerKey: "commissionsRes",
   }
 ];

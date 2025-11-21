@@ -1,7 +1,7 @@
 import { Outlet, useRouter } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { useEffect } from "react";
-import { useRegisterUserStore } from "../store/register-user-store";
+import { useRegisterUserStore } from "../store/register-user.store";
 
 export const AuthLayout = () => {
   const router = useRouter();

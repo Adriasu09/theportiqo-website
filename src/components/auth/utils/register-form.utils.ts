@@ -1,4 +1,4 @@
-import { useRegisterUserStore } from "@/src/store/register-user-store";
+import { useRegisterUserStore } from "@/src/store/register-user.store";
 import { AccountFormType } from "../schemas/account.schema";
 
 export const getInitialFormValues = (

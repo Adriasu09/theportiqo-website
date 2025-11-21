@@ -1,4 +1,4 @@
-import { MenuItem } from "../models/menu.models";
+import { MenuItem } from "../models/navbar.models";
 
 export const LANDING_MENU: MenuItem[] = [
     { key: "product", route: "/landing/product" },
