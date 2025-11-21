@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { CarouselItem } from "../../models/landing.models";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -9,6 +9,10 @@ type Props = {
 
 export const Carousel = ({ items }: Props) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [dragDistance, setDragDistance] = useState(0);
 
   const { t } = useTranslation();
 
@@ -24,15 +28,85 @@ export const Carousel = ({ items }: Props) => {
     }
   };
 
+  // Touch events for mobile devices
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].clientX);
+    setDragDistance(0);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    const distance = e.touches[0].clientX - startX;
+    setDragDistance(distance);
+  };
+
+  const handleTouchEnd = () => {
+    if (!isDragging) return;
+
+    const threshold = 50; // minimum pixels to change slide
+
+    if (dragDistance > threshold) {
+      // Dragged to the right -> previous slide
+      goPreviousSlide();
+    } else if (dragDistance < -threshold) {
+      // Dragged to the left -> next slide
+      goNextSlide();
+    }
+
+    setIsDragging(false);
+    setDragDistance(0);
+  };
+
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      // Detect horizontal scroll (deltaX) or vertical scroll with shift
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || e.shiftKey) {
+        e.preventDefault();
+
+        const delta = e.deltaX !== 0 ? e.deltaX : e.deltaY;
+
+        if (delta > 0) {
+          // Scroll to the right -> next slide
+          goNextSlide();
+        } else if (delta < 0) {
+          // Scroll to the left -> previous slide
+          goPreviousSlide();
+        }
+      }
+    };
+
+    const carouselElement = carouselRef.current;
+    if (carouselElement) {
+      carouselElement.addEventListener("wheel", handleWheel, {
+        passive: false,
+      });
+    }
+
+    return () => {
+      if (carouselElement) {
+        carouselElement.removeEventListener("wheel", handleWheel);
+      }
+    };
+  }, [currentIndex, items.length]);
+
   return (
-    <div className="flex flex-col items-center justify-center gap-2">
+    <div
+      className="flex flex-col items-center justify-center gap-4"
+      ref={carouselRef}
+    >
       <div className="flex items-center justify-center gap-4">
         <ChevronLeft
-          className={`${currentIndex === 0 && "opacity-25"} cursor-pointer`}
+          className={`${currentIndex === 0 && "opacity-25"} hidden cursor-pointer lg:block`}
           onClick={goPreviousSlide}
         />
 
-        <div className="h-[300px] w-[300px] flex sm:h-[500px] sm:w-[500px] overflow-hidden">
+        <div
+          className="flex h-[300px] w-[300px] overflow-hidden sm:h-[500px] sm:w-[500px]"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           {items.map((item: CarouselItem) => (
             <video
               key={item.titleKey}
@@ -42,20 +116,31 @@ export const Carousel = ({ items }: Props) => {
               muted
               playsInline
               style={{
-                translate: `${-100 * currentIndex}%`,
-                transition: "translate 300ms ease-in-out",
+                translate: `${-100 * currentIndex + (isDragging ? dragDistance / 5 : 0)}%`,
+                transition: isDragging ? "none" : "translate 300ms ease-in-out",
+                pointerEvents: "none", // Prevenir que el video interfiera con el drag
               }}
             />
           ))}
         </div>
 
         <ChevronRight
-          className={`${currentIndex >= items.length - 1 && "opacity-25"} cursor-pointer`}
+          className={`${currentIndex >= items.length - 1 && "opacity-25"} hidden cursor-pointer lg:block`}
           onClick={goNextSlide}
         />
       </div>
 
-      <p>{t(`global.label.${items[currentIndex].titleKey}`)}</p>
+      <div className="flex w-full items-center justify-center gap-2 lg:hidden">
+        {items.map((_, index) => (
+          <div
+            key={index}
+            className={` ${index === currentIndex ? "w-6 bg-qo-gray-500" : "w-2 bg-qo-gray-300"} h-2 rounded-full transition-all`}
+          ></div>
+        ))}
+      </div>
+      <p className="hidden lg:block">
+        {t(`global.label.${items[currentIndex].titleKey}`)}
+      </p>
     </div>
   );
 };
