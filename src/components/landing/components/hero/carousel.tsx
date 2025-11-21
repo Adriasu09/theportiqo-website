@@ -118,7 +118,7 @@ export const Carousel = ({ items }: Props) => {
               style={{
                 translate: `${-100 * currentIndex + (isDragging ? dragDistance / 5 : 0)}%`,
                 transition: isDragging ? "none" : "translate 300ms ease-in-out",
-                pointerEvents: "none", // Prevenir que el video interfiera con el drag
+                pointerEvents: "none", // prevent video interaction during drag
               }}
             />
           ))}
