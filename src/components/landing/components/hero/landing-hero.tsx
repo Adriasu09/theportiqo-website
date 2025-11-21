@@ -10,9 +10,9 @@ export const LandingHero = () => {
     <div className="grid w-full grid-cols-1 gap-4 bg-qo-surface-300 px-6 py-20 transition-all lg:grid-cols-2">
       <div className="flex w-full justify-center lg:justify-end">
         <div className="flex h-full max-w-xl flex-col items-start justify-center gap-4">
-          <Badge variant={"outline"}>From 10,000 eur</Badge>
+          <Badge variant={"outline"}>{t("landing.hero.badge")}</Badge>
 
-          <h1 className="font-accent text-qo-h1">{t("landing.hero.title")}</h1>
+          <h1 className="font-accent text-qo-h2 lg:text-qo-h1">{t("landing.hero.title")}</h1>
 
           <p className="w-full">
             {t("landing.hero.paragraph1")}
