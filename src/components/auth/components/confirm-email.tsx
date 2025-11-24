@@ -31,12 +31,11 @@ export const ConfirmEmailPage = () => {
       <div className="flex w-full flex-col items-center justify-center gap-4">
         <p className="text-center">{t("auth.confirmEmail.description")}</p>
 
-        <Button variant={"ghost"} className="text-qo-xs">
+        <Button variant={"tertiary"} className="text-qo-xs">
           {t("global.button.resendCode")}
         </Button>
 
         <Button
-          variant={"secondary"}
           className="w-full"
           onClick={handleContinue}
         >

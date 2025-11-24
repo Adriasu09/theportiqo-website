@@ -63,11 +63,11 @@ export const LoginPage = () => {
         </FieldGroup>
         <div className="flex w-full flex-col gap-4">
           <div className="flex w-full flex-col gap-2">
-            <Button type="submit" variant={"secondary"} className="w-full">
+            <Button type="submit" className="w-full">
               {t("global.button.enter")}
             </Button>
 
-            <Button variant={"ghost"} className="w-full">
+            <Button variant={"secondary"} className="w-full">
               <img
                 src={googleLogo}
                 alt="Google Logo"
@@ -82,16 +82,14 @@ export const LoginPage = () => {
           <div className="flex w-full flex-col">
             <Button
               onClick={() => navigate({ to: "/auth/three-steps" })}
-              variant={"link"}
-              size={"link"}
+              variant={"tertiary"}
               className="w-full text-center"
             >
               {t("global.button.createAccount")}
             </Button>
 
             <Button
-              variant={"link"}
-              size={"link"}
+              variant={"tertiary"}
               className="w-full text-center"
             >
               {t("global.button.forgotPassword")}

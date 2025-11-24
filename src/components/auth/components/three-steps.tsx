@@ -19,7 +19,9 @@ export const ThreeStepsPage = () => {
 
       <p className="py-6">{t("auth.threeSteps.description")}</p>
 
-      <Button onClick={() => navigate({ to: "/auth/create-account" })} variant={"secondary"}>{t("global.button.continue")}</Button>
+      <Button onClick={() => navigate({ to: "/auth/create-account" })}>
+        {t("global.button.continue")}
+      </Button>
     </div>
   );
 };

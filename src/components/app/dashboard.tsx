@@ -15,7 +15,7 @@ export const DashboardPage = () => {
   return (
     <div className="w-full flex flex-col gap-4 justify-start">
       <h1 className="font-accent text-qo-h3">{`Welcome, ${user?.email}`}</h1>
-      <Button variant={"default"} className="w-32" onClick={handelSingOut}>
+      <Button variant={"brand"} className="w-32" onClick={handelSingOut}>
         Logout
         <LogOut />
       </Button>
