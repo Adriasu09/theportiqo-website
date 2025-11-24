@@ -52,7 +52,7 @@ export const PortfolioThemes = () => {
         </div>
       </div>
 
-      <Button variant={"outline"}>
+      <Button variant={"secondary"}>
         {t("global.button.goToPortfolioSimulator")}
       </Button>
     </div>

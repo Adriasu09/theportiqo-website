@@ -62,7 +62,7 @@ export const CreatePasswordPage = () => {
           />
         </FieldGroup>
 
-        <Button type="submit" variant={"secondary"} className="w-full">
+        <Button type="submit" className="w-full">
           {t("global.button.continue")}
         </Button>
       </form>

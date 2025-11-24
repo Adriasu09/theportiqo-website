@@ -20,11 +20,11 @@ export const LandingHero = () => {
             {t("landing.hero.paragraph2")}
           </p>
 
-          <div className="flex w-full flex-wrap items-center justify-start gap-2">
-            <Button variant={"secondary"}>
+          <div className="flex h- w-full flex-wrap items-center justify-start gap-2">
+            <Button variant={"primary"}>
               {t("global.button.startInvesting")}
             </Button>
-            <Button variant={"outline"}>{t("global.button.tryPortiqo")}</Button>
+            <Button variant={"secondary"}>{t("global.button.tryPortiqo")}</Button>
           </div>
         </div>
       </div>

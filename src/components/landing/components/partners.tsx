@@ -24,7 +24,7 @@ export const Partners = () => {
 
       <p className="text-center">{t("landing.partners.comment")}</p>
 
-      <Button variant={"secondary"}>
+      <Button variant={"primary"}>
         {t("global.button.startInvestingNow")}
       </Button>
     </div>
