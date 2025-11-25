@@ -14,6 +14,8 @@
 			"title": "Una contraseña memorable"
 		},
 		"login": {
+			"noAccount": "¿No tienes cuenta?",
+			"register": "Registrarme",
 			"title": "Bienvenido a Portiqo"
 		},
 		"threeSteps": {
@@ -69,6 +71,7 @@
 			"es": "Español",
 			"firstName": "Nombre",
 			"lastName": "Apellidos",
+			"or": "o",
 			"password": "Contraseña",
 			"passwordConfirmation": "Confirmar Contraseña",
 			"phone": "Teléfono",
