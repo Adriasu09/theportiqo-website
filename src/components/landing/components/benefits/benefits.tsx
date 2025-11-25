@@ -12,6 +12,7 @@ export const Benefits = () => {
           justify={index % 2 === 0 ? "end" : "start"}
           descriptionKey={benefit.descriptionKey}
           isAccented={benefit.isAccented}
+          className={benefit.className}
         />
       ))}
     </div>

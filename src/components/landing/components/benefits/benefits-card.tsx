@@ -8,6 +8,7 @@ export const BenefitsCard = ({
   justify = "end",
   descriptionKey,
   isAccented = false,
+  className = "",
 }: BenefitCard) => {
   const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
@@ -43,7 +44,7 @@ export const BenefitsCard = ({
   }, []);
 
   return (
-    <div className={`flex items-center justify-${justify}`}>
+    <div className={`flex items-center justify-${justify} ${className}`}>
       <div
         ref={cardRef}
         className={`flex w-full max-w-[380px] flex-col items-start justify-end gap-2 rounded-2xl p-4 md:min-h-96 ${isAccented && "min-h-96 bg-qo-brand-100"}`}

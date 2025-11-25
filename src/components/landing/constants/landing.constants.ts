@@ -22,26 +22,32 @@ export const BENEFITS_LIST: BenefitCard[] = [
   {
     titleKey: "backedByExperts",
     descriptionKey: "backedByExpertsDescription",
+    className: "order-1 md:order-none"
   },
   {
     titleKey: "experience",
     isAccented: true,
+    className: "order-2 md:order-none"
   },
   {
     titleKey: "profitability",
     isAccented: true,
+    className: "order-4 md:order-none"
   },
   {
     titleKey: "maximumProfitability",
     descriptionKey: "maximumProfitabilityDescription",
+    className: "order-3 md:order-none"
   },
   {
     titleKey: "everythingClear",
     descriptionKey: "everythingClearDescription",
+    className: "order-5 md:order-none"
   },
   {
     titleKey: "fees",
     isAccented: true,
+    className: "order-6 md:order-none"
   },
 ];
 
