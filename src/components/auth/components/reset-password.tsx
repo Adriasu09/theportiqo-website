@@ -28,7 +28,6 @@ export const ResetPasswordPage = ({ token }: ResetPasswordPageProps) => {
         try {
           await resetPassword(token, value.password);
           navigate({ to: "/auth/password-changed" });
-
         } catch (error) {
           console.error("Failed to reset password:", error);
         }

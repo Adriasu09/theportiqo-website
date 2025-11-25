@@ -84,7 +84,12 @@ export const LoginPage = () => {
           <p>{t("global.label.or")}</p>
 
           <div className="flex w-full items-center justify-center gap-4">
-            <Button type="button" variant={"oneTap"} size={"icon"} className="w-10">
+            <Button
+              type="button"
+              variant={"oneTap"}
+              size={"icon"}
+              className="w-10"
+            >
               <img
                 src={googleLogo}
                 alt="Google Logo"
@@ -93,7 +98,12 @@ export const LoginPage = () => {
               />
             </Button>
 
-            <Button type="button" variant={"oneTap"} size={"icon"} className="w-10">
+            <Button
+              type="button"
+              variant={"oneTap"}
+              size={"icon"}
+              className="w-10"
+            >
               <img
                 src={appleLogo}
                 alt="Apple Logo"

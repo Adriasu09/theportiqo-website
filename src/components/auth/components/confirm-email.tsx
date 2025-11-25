@@ -13,7 +13,6 @@ export const ConfirmEmailPage = () => {
     navigate({ to: "/landing/home" });
 
     // Reset account store and localStorage
-    
   };
 
   return (
@@ -35,10 +34,7 @@ export const ConfirmEmailPage = () => {
           {t("global.button.resendCode")}
         </Button>
 
-        <Button
-          className="onboarding-button"
-          onClick={handleContinue}
-        >
+        <Button className="onboarding-button" onClick={handleContinue}>
           {t("global.button.continue")}
         </Button>
       </div>

@@ -44,7 +44,9 @@ export const CreateAccountPage = () => {
         <FieldGroup>
           <accountForm.AppField
             name="firstName"
-            children={(field) => <field.Input label={t("global.label.firstName")} />}
+            children={(field) => (
+              <field.Input label={t("global.label.firstName")} />
+            )}
           />
 
           <accountForm.AppField
