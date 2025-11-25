@@ -36,7 +36,7 @@ export const ConfirmEmailPage = () => {
         </Button>
 
         <Button
-          className="w-full"
+          className="onboarding-button"
           onClick={handleContinue}
         >
           {t("global.button.continue")}

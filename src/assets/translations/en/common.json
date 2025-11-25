@@ -13,10 +13,25 @@
 		"createPassword": {
 			"title": "A memorable password"
 		},
+		"forgotPassword": {
+			"description": "Enter the email address you used to register and we will send you a link to reset your password.",
+			"title": "Forgot your password?"
+		},
 		"login": {
 			"noAccount": "Don't have an account?",
 			"register": "Register",
-			"title": "Welcome to Portiqo"
+			"title": "Welcome to Pórtiqo"
+		},
+		"mailSent": {
+			"description": "We have sent an email to {{email}}.\nCheck your inbox, and if you don't see our email within a few minutes, check your spam folder or contact us.",
+			"title": "Email sent"
+		},
+		"passwordChanged": {
+			"description": "Password successfully updated",
+			"title": "New password"
+		},
+		"resetPassword": {
+			"title": "New password"
 		},
 		"threeSteps": {
 			"description": "In 5 minutes, you'll be ready to invest your money with Pórtiqo. Enter your details, verify your email, and take a selfie (you'll need to have your ID handy).",
@@ -44,6 +59,7 @@
 	},
 	"global": {
 		"button": {
+			"backToLogin": "Back to login",
 			"becomeClient": "Become a client",
 			"clients": "Clients",
 			"continue": "Continue",

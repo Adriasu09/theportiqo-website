@@ -27,10 +27,11 @@ export const LoginPage = () => {
       password: "",
     },
     validators: {
-      onSubmit: LoginFormSchema,
+      onChange: LoginFormSchema,
     },
     onSubmit: async ({ value }) => {
       await login(value.email, value.password);
+      navigate({ to: "/app/dashboard" });
     },
   });
 
@@ -61,18 +62,29 @@ export const LoginPage = () => {
               <field.Input type="password" label={t("global.label.password")} />
             )}
           />
-          <Link to="/" className="font-bold cursor-pointer">{t("global.button.forgotPassword")}</Link>
+          <Link to="/auth/forgot-password" className="cursor-pointer font-bold">
+            {t("global.button.forgotPassword")}
+          </Link>
         </FieldGroup>
 
         <div className="flex w-full flex-col items-center gap-4">
-          <Button type="submit" className="w-[320px]">
-            {t("global.button.enter")}
-          </Button>
+          <loginForm.Subscribe
+            selector={(state) => [state.canSubmit, state.isDirty]}
+            children={([canSubmit, isDirty]) => (
+              <Button
+                type="submit"
+                className="onboarding-button"
+                disabled={!canSubmit || !isDirty}
+              >
+                {t("global.button.enter")}
+              </Button>
+            )}
+          />
 
           <p>{t("global.label.or")}</p>
 
           <div className="flex w-full items-center justify-center gap-4">
-            <Button variant={"oneTap"} size={"icon"} className="w-10">
+            <Button type="button" variant={"oneTap"} size={"icon"} className="w-10">
               <img
                 src={googleLogo}
                 alt="Google Logo"
@@ -81,7 +93,7 @@ export const LoginPage = () => {
               />
             </Button>
 
-            <Button variant={"oneTap"} size={"icon"} className="w-10">
+            <Button type="button" variant={"oneTap"} size={"icon"} className="w-10">
               <img
                 src={appleLogo}
                 alt="Apple Logo"
@@ -91,9 +103,12 @@ export const LoginPage = () => {
             </Button>
           </div>
 
-          <div className="flex gap-2 items-center">
+          <div className="flex items-center gap-2">
             <p>{t("auth.login.noAccount")}</p>
-            <Link to="/auth/three-steps" className="font-bold text-qo-brand-500 cursor-pointer">
+            <Link
+              to="/auth/three-steps"
+              className="cursor-pointer font-bold text-qo-brand-500"
+            >
               {t("auth.login.register")}
             </Link>
           </div>

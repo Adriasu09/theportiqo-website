@@ -22,7 +22,6 @@ export const CreateAccountPage = () => {
     onSubmit: ({ value }) => {
       registerData.setRegisterData(value);
       navigate({ to: "/auth/enter-address" });
-      console.log("Form submitted with values:", value);
     },
   });
 
@@ -93,7 +92,7 @@ export const CreateAccountPage = () => {
           />
         </div>
 
-        <Button type="submit" className="w-full">
+        <Button type="submit" className="onboarding-button">
           {t("global.button.continue")}
         </Button>
       </form>

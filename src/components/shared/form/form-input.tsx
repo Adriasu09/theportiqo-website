@@ -43,7 +43,10 @@ export function FormInput({
           />
           {type === "email" && (
             <InputGroupAddon align="inline-start">
-              <Mail size={76} className="text-qo-icon-neutral" />
+              <Mail
+                size={16}
+                className={`${isInvalid ? "text-qo-brand-500" : "text-qo-icon-neutral"}`}
+              />
             </InputGroupAddon>
           )}
 
