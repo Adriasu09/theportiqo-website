@@ -7,7 +7,7 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from "@/components/ui/input-group";
-import { CircleAlert, CircleQuestionMark, Mail } from "lucide-react";
+import { CircleAlert, Mail, CircleQuestionMark } from "lucide-react";
 
 export function FormInput({
   type = "text",

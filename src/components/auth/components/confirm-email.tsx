@@ -11,8 +11,6 @@ export const ConfirmEmailPage = () => {
   const handleContinue = () => {
     //* Temporarily redirect to home after confirming the registration flow
     navigate({ to: "/landing/home" });
-
-    // Reset account store and localStorage
   };
 
   return (

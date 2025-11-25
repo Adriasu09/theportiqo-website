@@ -7,7 +7,6 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
   const [showPassword, setShowPassword] = React.useState(false);
   const isPasswordType = type === "password";
   const inputType = isPasswordType && showPassword ? "text" : type;
-  const shouldHidePassword = isPasswordType && !showPassword;
 
   return (
     <div className="relative w-full">
@@ -19,7 +18,6 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
           "focus-visible:border-ring focus-visible:ring-1",
           "aria-invalid:border-qo-brand-500",
           "h-11",
-          shouldHidePassword && "qo-password",
           className,
         )}
         {...props}
@@ -28,6 +26,7 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
         <button
           type="button"
           onClick={() => setShowPassword(!showPassword)}
+          aria-label={showPassword ? "Hide password" : "Show password"}
           className="absolute top-1/2 right-3 -translate-y-1/2 text-gray-500 hover:text-gray-700 focus:outline-none"
           tabIndex={-1}
         >

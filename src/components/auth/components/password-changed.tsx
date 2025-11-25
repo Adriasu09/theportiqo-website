@@ -21,7 +21,7 @@ export const PasswordChangedPage = () => {
         </p>
 
         <Button
-          type="submit"
+          type="button"
           onClick={() => navigate({ to: "/auth/login" })}
           className="onboarding-button"
         >

@@ -84,6 +84,7 @@ export const LoginPage = () => {
           <p>{t("global.label.or")}</p>
 
           <div className="flex w-full items-center justify-center gap-4">
+            //TODO: Implement google login
             <Button
               type="button"
               variant={"oneTap"}
