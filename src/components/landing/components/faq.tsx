@@ -13,7 +13,7 @@ export const FAQ = () => {
 
   return (
     <div className="flex w-full max-w-[1000px] flex-col items-center gap-6 px-4">
-      <h2 className="font-accent text-qo-h2">{t("landing.faq.title")}</h2>
+      <h2 className="font-accent text-qo-h2 text-center">{t("landing.faq.title")}</h2>
 
       <div className="w-full rounded-2xl bg-white p-6">
         <Accordion
