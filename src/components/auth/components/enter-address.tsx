@@ -76,7 +76,7 @@ export const EnterAddressPage = () => {
           />
         </FieldGroup>
 
-        <Button type="submit" className="w-full">
+        <Button type="submit" className="onboarding-button">
           {t("global.button.continue")}
         </Button>
       </form>

@@ -3,10 +3,11 @@ import { useAppForm } from "../../shared/form/form-hooks";
 import { LoginFormSchema } from "../schemas/login.schema";
 import { FieldGroup } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "@tanstack/react-router";
-import googleLogo from "@assets/imgs/logos/googleLogo.png";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { useAuth } from "@/src/contexts/AuthContext";
 import { useEffect } from "react";
+import googleLogo from "@assets/imgs/logos/googleLogo.png";
+import appleLogo from "@assets/imgs/logos/appleLogo.svg";
 
 export const LoginPage = () => {
   const { t } = useTranslation();
@@ -26,10 +27,11 @@ export const LoginPage = () => {
       password: "",
     },
     validators: {
-      onSubmit: LoginFormSchema,
+      onChange: LoginFormSchema,
     },
     onSubmit: async ({ value }) => {
       await login(value.email, value.password);
+      navigate({ to: "/app/dashboard" });
     },
   });
 
@@ -60,40 +62,66 @@ export const LoginPage = () => {
               <field.Input type="password" label={t("global.label.password")} />
             )}
           />
+          <Link to="/auth/forgot-password" className="cursor-pointer font-bold">
+            {t("global.button.forgotPassword")}
+          </Link>
         </FieldGroup>
-        <div className="flex w-full flex-col gap-4">
-          <div className="flex w-full flex-col gap-2">
-            <Button type="submit" className="w-full">
-              {t("global.button.enter")}
-            </Button>
 
-            <Button variant={"secondary"} className="w-full">
+        <div className="flex w-full flex-col items-center gap-4">
+          <loginForm.Subscribe
+            selector={(state) => [state.canSubmit, state.isDirty]}
+            children={([canSubmit, isDirty]) => (
+              <Button
+                type="submit"
+                className="onboarding-button"
+                disabled={!canSubmit || !isDirty}
+              >
+                {t("global.button.enter")}
+              </Button>
+            )}
+          />
+
+          <p>{t("global.label.or")}</p>
+
+          <div className="flex w-full items-center justify-center gap-4">
+            //TODO: Implement google login
+            <Button
+              type="button"
+              variant={"oneTap"}
+              size={"icon"}
+              className="w-10"
+            >
               <img
                 src={googleLogo}
                 alt="Google Logo"
                 height="25px"
                 width="25px"
-                className="mr-2 inline-block"
               />
-              {t("global.button.continueWithGoogle")}
+            </Button>
+
+            <Button
+              type="button"
+              variant={"oneTap"}
+              size={"icon"}
+              className="w-10"
+            >
+              <img
+                src={appleLogo}
+                alt="Apple Logo"
+                height="16px"
+                width="16px"
+              />
             </Button>
           </div>
 
-          <div className="flex w-full flex-col">
-            <Button
-              onClick={() => navigate({ to: "/auth/three-steps" })}
-              variant={"tertiary"}
-              className="w-full text-center"
+          <div className="flex items-center gap-2">
+            <p>{t("auth.login.noAccount")}</p>
+            <Link
+              to="/auth/three-steps"
+              className="cursor-pointer font-bold text-qo-brand-500"
             >
-              {t("global.button.createAccount")}
-            </Button>
-
-            <Button
-              variant={"tertiary"}
-              className="w-full text-center"
-            >
-              {t("global.button.forgotPassword")}
-            </Button>
+              {t("auth.login.register")}
+            </Link>
           </div>
         </div>
       </form>

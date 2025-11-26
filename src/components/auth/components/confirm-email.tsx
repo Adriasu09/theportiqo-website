@@ -11,9 +11,6 @@ export const ConfirmEmailPage = () => {
   const handleContinue = () => {
     //* Temporarily redirect to home after confirming the registration flow
     navigate({ to: "/landing/home" });
-
-    // Reset account store and localStorage
-    
   };
 
   return (
@@ -35,10 +32,7 @@ export const ConfirmEmailPage = () => {
           {t("global.button.resendCode")}
         </Button>
 
-        <Button
-          className="w-full"
-          onClick={handleContinue}
-        >
+        <Button className="onboarding-button" onClick={handleContinue}>
           {t("global.button.continue")}
         </Button>
       </div>

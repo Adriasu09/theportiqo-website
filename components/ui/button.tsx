@@ -13,13 +13,15 @@ const buttonVariants = cva(
         brand: "bg-qo-brand-500 text-white hover:bg-qo-brand-400",
         secondary: "border-2 border-qo-gray-900",
         tertiary: "text-primary underline-offset-4 hover:underline",
+        oneTap:
+          "bg-white border border-qo-gray-300 hover:bg-gray-50 aspect-square rounded-full p-2",
       },
       size: {
         default: "px-6 py-4 min-w-[140px] rounded-md text-[16px] h-12",
         link: "px-2 py-1",
         sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
         lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
-        icon: "size-9",
+        icon: "size-10",
         "icon-sm": "size-8",
         "icon-lg": "size-10",
       },

@@ -13,12 +13,29 @@
 		"createPassword": {
 			"title": "Una contraseña memorable"
 		},
+		"forgotPassword": {
+			"description": "Introduce el correo electrónico con el que te registraste y te enviaremos un enlace para restablecer tu contraseña.",
+			"title": "¿Olvidaste tu contraseña?"
+		},
 		"login": {
-			"title": "Bienvenido a Portiqo"
+			"noAccount": "¿No tienes cuenta?",
+			"register": "Registrarme",
+			"title": "Bienvenido a Pórtiqo"
+		},
+		"mailSent": {
+			"description": "Hemos enviado un correo a {{email}}\nRevisa tu bandeja de entrada y, si no encuentras nuestro email en unos minutos, verifica tu carpeta de spam o ponte en contacto con nosotros.",
+			"title": "Email enviado"
+		},
+		"passwordChanged": {
+			"description": "Contraseña actualizada con éxito",
+			"title": "Nueva contraseña"
+		},
+		"resetPassword": {
+			"title": "Nueva contraseña"
 		},
 		"threeSteps": {
 			"description": "En 5 minutos estarás listo para invertir tu dinero con Pórtiqo. Introduce tus datos, verifica tu correo electrónico y hazte un selfie (necesitarás tener tu DNI a mano).",
-			"title": "En 3 pasos tendrás tu cuenta en Pórtiqo."
+			"title": "En 3 pasos tendrás tu cuenta"
 		}
 	},
 	"footer": {
@@ -42,6 +59,7 @@
 	},
 	"global": {
 		"button": {
+			"backToLogin": "Volver al login",
 			"becomeClient": "Hazte cliente",
 			"clients": "Clientes",
 			"continue": "Continuar",
@@ -54,7 +72,7 @@
 			"resendCode": "Volver a enviar el código",
 			"startInvesting": "Empieza a invertir hoy",
 			"startInvestingNow": "Comience a invertir ahora mismo",
-			"tryPortiqo": "Quiero probar Portiqo"
+			"tryPortiqo": "Quiero probar Pórtiqo"
 		},
 		"label": {
 			"acceptCommunication": "Acepto recibir comunicaciones comerciales y ofertas promocionales del grupo Huargo.",
@@ -69,6 +87,7 @@
 			"es": "Español",
 			"firstName": "Nombre",
 			"lastName": "Apellidos",
+			"or": "o",
 			"password": "Contraseña",
 			"passwordConfirmation": "Confirmar Contraseña",
 			"phone": "Teléfono",

@@ -22,7 +22,6 @@ export const CreateAccountPage = () => {
     onSubmit: ({ value }) => {
       registerData.setRegisterData(value);
       navigate({ to: "/auth/enter-address" });
-      console.log("Form submitted with values:", value);
     },
   });
 
@@ -45,7 +44,9 @@ export const CreateAccountPage = () => {
         <FieldGroup>
           <accountForm.AppField
             name="firstName"
-            children={(field) => <field.Input label={t("global.label.firstName")} />}
+            children={(field) => (
+              <field.Input label={t("global.label.firstName")} />
+            )}
           />
 
           <accountForm.AppField
@@ -93,7 +94,7 @@ export const CreateAccountPage = () => {
           />
         </div>
 
-        <Button type="submit" className="w-full">
+        <Button type="submit" className="onboarding-button">
           {t("global.button.continue")}
         </Button>
       </form>

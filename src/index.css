@@ -18,3 +18,7 @@
     letter-spacing: var(--font-accent--letter-spacing);
   }
 }
+
+.onboarding-button {
+  @apply w-[320px];
+}

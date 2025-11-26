@@ -8,6 +8,7 @@ export interface BenefitCard {
   justify?: "start" | "end";
   descriptionKey?: string;
   isAccented?: boolean;
+  className?: string;
 }
 
 export interface FAQItem {
