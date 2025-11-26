@@ -31,7 +31,6 @@ export const LoginPage = () => {
     },
     onSubmit: async ({ value }) => {
       await login(value.email, value.password);
-      navigate({ to: "/app/dashboard" });
     },
   });
 
