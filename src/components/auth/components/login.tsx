@@ -7,13 +7,21 @@ import { Link, useNavigate } from "@tanstack/react-router";
 import { useAuth } from "@/src/contexts/AuthContext";
 import { useEffect } from "react";
 import googleLogo from "@assets/imgs/logos/googleLogo.png";
-import appleLogo from "@assets/imgs/logos/appleLogo.svg";
+import { useGoogleLogin } from "@react-oauth/google";
 
 export const LoginPage = () => {
   const { t } = useTranslation();
+  const { login, isAuthenticated, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
 
-  const { login, isAuthenticated } = useAuth();
+  const loginGoogle = useGoogleLogin({
+    onSuccess: async (credentialResponse) => {
+      await signInWithGoogle(credentialResponse.access_token).catch((error) => {
+        console.error("Internal login Failed:", error);
+      });
+    },
+    onError: (error) => console.error("Google login Failed:", error),
+  });
 
   useEffect(() => {
     if (isAuthenticated()) {
@@ -85,6 +93,7 @@ export const LoginPage = () => {
           <div className="flex w-full items-center justify-center gap-4">
             {/* TODO: Implement google login */}
             <Button
+              onClick={() => loginGoogle()}
               type="button"
               variant={"oneTap"}
               size={"icon"}
@@ -95,20 +104,6 @@ export const LoginPage = () => {
                 alt="Google Logo"
                 height="25px"
                 width="25px"
-              />
-            </Button>
-
-            <Button
-              type="button"
-              variant={"oneTap"}
-              size={"icon"}
-              className="w-10"
-            >
-              <img
-                src={appleLogo}
-                alt="Apple Logo"
-                height="16px"
-                width="16px"
               />
             </Button>
           </div>
