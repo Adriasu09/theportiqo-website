@@ -8,6 +8,7 @@ import { useAuth } from "@/src/contexts/AuthContext";
 import { useEffect } from "react";
 import googleLogo from "@assets/imgs/logos/googleLogo.png";
 import { useGoogleLogin } from "@react-oauth/google";
+import { getFingerprint } from "../utils/fingerprint.utils";
 
 export const LoginPage = () => {
   const { t } = useTranslation();
@@ -38,6 +39,9 @@ export const LoginPage = () => {
       onChange: LoginFormSchema,
     },
     onSubmit: async ({ value }) => {
+      // TODO send device fingerprint along with login request
+      const deviceId = await getFingerprint();
+
       await login(value.email, value.password);
     },
   });
