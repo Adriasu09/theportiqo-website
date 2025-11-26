@@ -47,14 +47,14 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check if user is already signed in (from localStorage or session)
-    const savedUser = localStorage.getItem("user");
+    // Check if user is already signed in (from sessionStorage)
+    const savedUser = sessionStorage.getItem("user");
     if (savedUser) {
       try {
         setUser(JSON.parse(savedUser));
       } catch (error) {
         console.error("Error parsing saved user:", error);
-        localStorage.removeItem("user");
+        sessionStorage.removeItem("user");
       }
     }
     setIsLoading(false);
@@ -326,7 +326,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
       console.log("👤 Final User Info:", userInfo);
       setUser(userInfo);
-      localStorage.setItem("user", JSON.stringify(userInfo));
+      sessionStorage.setItem("user", JSON.stringify(userInfo));
       return userInfo;
     } catch (error) {
       console.error("Error processing token from backend:", error);
@@ -336,7 +336,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const signOut = () => {
     setUser(null);
-    localStorage.removeItem("user");
+    sessionStorage.removeItem("user");
   };
 
   const isAuthenticated = () => {
