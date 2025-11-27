@@ -13,6 +13,10 @@
 		"createPassword": {
 			"title": "A memorable password"
 		},
+		"enterCode": {
+			"description": "To access, enter the 4-digit login code we have sent to {{email}}",
+			"title": "Enter the code"
+		},
 		"forgotPassword": {
 			"description": "Enter the email address you used to register and we will send you a link to reset your password.",
 			"title": "Forgot your password?"
@@ -36,6 +40,10 @@
 		"threeSteps": {
 			"description": "In 5 minutes, you'll be ready to invest your money with Pórtiqo. Enter your details, verify your email, and take a selfie (you'll need to have your ID handy).",
 			"title": "In 3 steps you will have your account"
+		},
+		"twoStepsVerification": {
+			"description": "Two-step verification protects your account with an access code that you must enter when you log in from a device that you have not yet marked as secure.",
+			"title": "Two-step verification"
 		}
 	},
 	"footer": {

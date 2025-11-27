@@ -13,6 +13,10 @@
 		"createPassword": {
 			"title": "Una contraseña memorable"
 		},
+		"enterCode": {
+			"description": "Para acceder, ingresa el código de inicio de sesión de 4 dígitos que hemos enviado a {{email}}.",
+			"title": "Ingresa el código"
+		},
 		"forgotPassword": {
 			"description": "Introduce el correo electrónico con el que te registraste y te enviaremos un enlace para restablecer tu contraseña.",
 			"title": "¿Olvidaste tu contraseña?"
@@ -36,6 +40,10 @@
 		"threeSteps": {
 			"description": "En 5 minutos estarás listo para invertir tu dinero con Pórtiqo. Introduce tus datos, verifica tu correo electrónico y hazte un selfie (necesitarás tener tu DNI a mano).",
 			"title": "En 3 pasos tendrás tu cuenta"
+		},
+		"twoStepsVerification": {
+			"description": "La autenticación en dos pasos protege tu cuenta con un código de acceso que debes ingresar cuando inicias sesión desde un dispositivo que no has marcado aún como seguro.",
+			"title": "Identificación en dos pasos"
 		}
 	},
 	"footer": {

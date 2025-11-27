@@ -1,18 +1,17 @@
 import { useTranslation } from "react-i18next";
 import { useAppForm } from "../../shared/form/form-hooks";
-import { LoginFormSchema } from "../schemas/login.schema";
+import { loginSchema } from "../schemas/login.schema";
 import { FieldGroup } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useAuth } from "@/src/contexts/AuthContext";
-import { useEffect } from "react";
 import googleLogo from "@assets/imgs/logos/googleLogo.png";
 import { useGoogleLogin } from "@react-oauth/google";
 import { getFingerprint } from "../utils/fingerprint.utils";
 
 export const LoginPage = () => {
   const { t } = useTranslation();
-  const { login, isAuthenticated, signInWithGoogle } = useAuth();
+  const { login, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
 
   const loginGoogle = useGoogleLogin({
@@ -20,15 +19,10 @@ export const LoginPage = () => {
       await signInWithGoogle(credentialResponse.access_token).catch((error) => {
         console.error("Internal login Failed:", error);
       });
+      navigate({ to: "/auth/two-steps-verification" });
     },
     onError: (error) => console.error("Google login Failed:", error),
   });
-
-  useEffect(() => {
-    if (isAuthenticated()) {
-      navigate({ to: "/app/dashboard" });
-    }
-  }, [isAuthenticated, navigate]);
 
   const loginForm = useAppForm({
     defaultValues: {
@@ -36,13 +30,14 @@ export const LoginPage = () => {
       password: "",
     },
     validators: {
-      onChange: LoginFormSchema,
+      onChange: loginSchema,
     },
     onSubmit: async ({ value }) => {
       // TODO send device fingerprint along with login request
       const deviceId = await getFingerprint();
 
-      await login(value.email, value.password);
+      // await login(value.email, value.password);
+      navigate({ to: "/auth/two-steps-verification" });
     },
   });
 

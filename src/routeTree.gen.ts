@@ -15,11 +15,13 @@ import { Route as LandingRouteImport } from './routes/landing'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LandingHomeRouteImport } from './routes/landing/home'
+import { Route as AuthTwoStepsVerificationRouteImport } from './routes/auth/two-steps-verification'
 import { Route as AuthResetPasswordRouteImport } from './routes/auth/reset-password'
 import { Route as AuthPasswordChangedRouteImport } from './routes/auth/password-changed'
 import { Route as AuthMailSentRouteImport } from './routes/auth/mail-sent'
 import { Route as AuthLoginRouteImport } from './routes/auth/login'
 import { Route as AuthForgotPasswordRouteImport } from './routes/auth/forgot-password'
+import { Route as AuthEnterCodeRouteImport } from './routes/auth/enter-code'
 import { Route as AuthEnterAddressRouteImport } from './routes/auth/enter-address'
 import { Route as AuthCreatePasswordRouteImport } from './routes/auth/create-password'
 import { Route as AuthCreateAccountRouteImport } from './routes/auth/create-account'
@@ -77,6 +79,12 @@ const LandingHomeRoute = LandingHomeRouteImport.update({
   path: '/home',
   getParentRoute: () => LandingRoute,
 } as any)
+const AuthTwoStepsVerificationRoute =
+  AuthTwoStepsVerificationRouteImport.update({
+    id: '/two-steps-verification',
+    path: '/two-steps-verification',
+    getParentRoute: () => AuthLazyRoute,
+  } as any)
 const AuthResetPasswordRoute = AuthResetPasswordRouteImport.update({
   id: '/reset-password',
   path: '/reset-password',
@@ -100,6 +108,11 @@ const AuthLoginRoute = AuthLoginRouteImport.update({
 const AuthForgotPasswordRoute = AuthForgotPasswordRouteImport.update({
   id: '/forgot-password',
   path: '/forgot-password',
+  getParentRoute: () => AuthLazyRoute,
+} as any)
+const AuthEnterCodeRoute = AuthEnterCodeRouteImport.update({
+  id: '/enter-code',
+  path: '/enter-code',
   getParentRoute: () => AuthLazyRoute,
 } as any)
 const AuthEnterAddressRoute = AuthEnterAddressRouteImport.update({
@@ -138,11 +151,13 @@ export interface FileRoutesByFullPath {
   '/auth/create-account': typeof AuthCreateAccountRoute
   '/auth/create-password': typeof AuthCreatePasswordRoute
   '/auth/enter-address': typeof AuthEnterAddressRoute
+  '/auth/enter-code': typeof AuthEnterCodeRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/mail-sent': typeof AuthMailSentRoute
   '/auth/password-changed': typeof AuthPasswordChangedRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
+  '/auth/two-steps-verification': typeof AuthTwoStepsVerificationRoute
   '/landing/home': typeof LandingHomeRoute
   '/auth/three-steps': typeof AuthThreeStepsLazyRoute
   '/landing/product': typeof LandingProductLazyRoute
@@ -158,11 +173,13 @@ export interface FileRoutesByTo {
   '/auth/create-account': typeof AuthCreateAccountRoute
   '/auth/create-password': typeof AuthCreatePasswordRoute
   '/auth/enter-address': typeof AuthEnterAddressRoute
+  '/auth/enter-code': typeof AuthEnterCodeRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/mail-sent': typeof AuthMailSentRoute
   '/auth/password-changed': typeof AuthPasswordChangedRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
+  '/auth/two-steps-verification': typeof AuthTwoStepsVerificationRoute
   '/landing/home': typeof LandingHomeRoute
   '/auth/three-steps': typeof AuthThreeStepsLazyRoute
   '/landing/product': typeof LandingProductLazyRoute
@@ -179,11 +196,13 @@ export interface FileRoutesById {
   '/auth/create-account': typeof AuthCreateAccountRoute
   '/auth/create-password': typeof AuthCreatePasswordRoute
   '/auth/enter-address': typeof AuthEnterAddressRoute
+  '/auth/enter-code': typeof AuthEnterCodeRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/mail-sent': typeof AuthMailSentRoute
   '/auth/password-changed': typeof AuthPasswordChangedRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
+  '/auth/two-steps-verification': typeof AuthTwoStepsVerificationRoute
   '/landing/home': typeof LandingHomeRoute
   '/auth/three-steps': typeof AuthThreeStepsLazyRoute
   '/landing/product': typeof LandingProductLazyRoute
@@ -201,11 +220,13 @@ export interface FileRouteTypes {
     | '/auth/create-account'
     | '/auth/create-password'
     | '/auth/enter-address'
+    | '/auth/enter-code'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/mail-sent'
     | '/auth/password-changed'
     | '/auth/reset-password'
+    | '/auth/two-steps-verification'
     | '/landing/home'
     | '/auth/three-steps'
     | '/landing/product'
@@ -221,11 +242,13 @@ export interface FileRouteTypes {
     | '/auth/create-account'
     | '/auth/create-password'
     | '/auth/enter-address'
+    | '/auth/enter-code'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/mail-sent'
     | '/auth/password-changed'
     | '/auth/reset-password'
+    | '/auth/two-steps-verification'
     | '/landing/home'
     | '/auth/three-steps'
     | '/landing/product'
@@ -241,11 +264,13 @@ export interface FileRouteTypes {
     | '/auth/create-account'
     | '/auth/create-password'
     | '/auth/enter-address'
+    | '/auth/enter-code'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/mail-sent'
     | '/auth/password-changed'
     | '/auth/reset-password'
+    | '/auth/two-steps-verification'
     | '/landing/home'
     | '/auth/three-steps'
     | '/landing/product'
@@ -317,6 +342,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LandingHomeRouteImport
       parentRoute: typeof LandingRoute
     }
+    '/auth/two-steps-verification': {
+      id: '/auth/two-steps-verification'
+      path: '/two-steps-verification'
+      fullPath: '/auth/two-steps-verification'
+      preLoaderRoute: typeof AuthTwoStepsVerificationRouteImport
+      parentRoute: typeof AuthLazyRoute
+    }
     '/auth/reset-password': {
       id: '/auth/reset-password'
       path: '/reset-password'
@@ -350,6 +382,13 @@ declare module '@tanstack/react-router' {
       path: '/forgot-password'
       fullPath: '/auth/forgot-password'
       preLoaderRoute: typeof AuthForgotPasswordRouteImport
+      parentRoute: typeof AuthLazyRoute
+    }
+    '/auth/enter-code': {
+      id: '/auth/enter-code'
+      path: '/enter-code'
+      fullPath: '/auth/enter-code'
+      preLoaderRoute: typeof AuthEnterCodeRouteImport
       parentRoute: typeof AuthLazyRoute
     }
     '/auth/enter-address': {
@@ -420,11 +459,13 @@ interface AuthLazyRouteChildren {
   AuthCreateAccountRoute: typeof AuthCreateAccountRoute
   AuthCreatePasswordRoute: typeof AuthCreatePasswordRoute
   AuthEnterAddressRoute: typeof AuthEnterAddressRoute
+  AuthEnterCodeRoute: typeof AuthEnterCodeRoute
   AuthForgotPasswordRoute: typeof AuthForgotPasswordRoute
   AuthLoginRoute: typeof AuthLoginRoute
   AuthMailSentRoute: typeof AuthMailSentRoute
   AuthPasswordChangedRoute: typeof AuthPasswordChangedRoute
   AuthResetPasswordRoute: typeof AuthResetPasswordRoute
+  AuthTwoStepsVerificationRoute: typeof AuthTwoStepsVerificationRoute
   AuthThreeStepsLazyRoute: typeof AuthThreeStepsLazyRoute
 }
 
@@ -433,11 +474,13 @@ const AuthLazyRouteChildren: AuthLazyRouteChildren = {
   AuthCreateAccountRoute: AuthCreateAccountRoute,
   AuthCreatePasswordRoute: AuthCreatePasswordRoute,
   AuthEnterAddressRoute: AuthEnterAddressRoute,
+  AuthEnterCodeRoute: AuthEnterCodeRoute,
   AuthForgotPasswordRoute: AuthForgotPasswordRoute,
   AuthLoginRoute: AuthLoginRoute,
   AuthMailSentRoute: AuthMailSentRoute,
   AuthPasswordChangedRoute: AuthPasswordChangedRoute,
   AuthResetPasswordRoute: AuthResetPasswordRoute,
+  AuthTwoStepsVerificationRoute: AuthTwoStepsVerificationRoute,
   AuthThreeStepsLazyRoute: AuthThreeStepsLazyRoute,
 }
 
