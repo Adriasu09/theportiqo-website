@@ -1,25 +1,31 @@
 import { useTranslation } from "react-i18next";
 import { useAppForm } from "../../shared/form/form-hooks";
-import { loginSchema } from "../schemas/login.schema";
+import { LoginFormSchema, LoginFormType } from "../schemas/login.schema";
 import { FieldGroup } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "@tanstack/react-router";
-import { useAuth } from "@/src/contexts/AuthContext";
+import { LoginResponse, useAuth, User } from "@/src/contexts/AuthContext";
 import googleLogo from "@assets/imgs/logos/googleLogo.png";
 import { useGoogleLogin } from "@react-oauth/google";
 import { getFingerprint } from "../utils/fingerprint.utils";
+import { useEffect } from "react";
 
 export const LoginPage = () => {
   const { t } = useTranslation();
-  const { login, signInWithGoogle } = useAuth();
+  const { login, signInWithGoogle, isAuthenticated, user } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated()) {
+      navigate({ to: "/app/dashboard" });
+    }
+  }, [user]);
 
   const loginGoogle = useGoogleLogin({
     onSuccess: async (credentialResponse) => {
       await signInWithGoogle(credentialResponse.access_token).catch((error) => {
         console.error("Internal login Failed:", error);
       });
-      navigate({ to: "/auth/two-steps-verification" });
     },
     onError: (error) => console.error("Google login Failed:", error),
   });
@@ -28,16 +34,26 @@ export const LoginPage = () => {
     defaultValues: {
       email: "",
       password: "",
-    },
+      device_type: "web",
+      device_fingerprint: "",
+    } as LoginFormType,
     validators: {
-      onChange: loginSchema,
+      onChange: LoginFormSchema,
     },
     onSubmit: async ({ value }) => {
-      // TODO send device fingerprint along with login request
       const deviceId = await getFingerprint();
+      const res: LoginResponse | User = await login({
+        ...value,
+        device_fingerprint: deviceId,
+      });
 
-      // await login(value.email, value.password);
-      navigate({ to: "/auth/two-steps-verification" });
+      if ("requires_otp" in res && res.requires_otp) {
+        navigate({
+          to: "/auth/enter-code",
+          search: { email: value.email },
+        });
+        return;
+      }
     },
   });
 
@@ -90,7 +106,6 @@ export const LoginPage = () => {
           <p>{t("global.label.or")}</p>
 
           <div className="flex w-full items-center justify-center gap-4">
-            {/* TODO: Implement google login */}
             <Button
               onClick={() => loginGoogle()}
               type="button"

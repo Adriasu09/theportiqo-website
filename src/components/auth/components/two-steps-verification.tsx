@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 
 export const TwoStepsVerificationPage = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-16">
@@ -16,11 +14,7 @@ export const TwoStepsVerificationPage = () => {
         {t("auth.twoStepsVerification.description")}
       </p>
 
-      <Button
-        onClick={() => navigate({ to: "/auth/enter-code" })}
-        type="submit"
-        className="onboarding-button"
-      >
+      <Button type="submit" className="onboarding-button">
         {t("global.button.continue")}
       </Button>
     </div>

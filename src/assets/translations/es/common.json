@@ -77,7 +77,7 @@
 			"forgotPassword": "He olvidado mi contraseña",
 			"goSimulator": "Ir al simulador de nuestras carteras",
 			"goToPortfolioSimulator": "Ir al simulador de nuestras carteras",
-			"resendCode": "Volver a enviar el código",
+			"resendCode": "Reenviar código",
 			"startInvesting": "Empieza a invertir hoy",
 			"startInvestingNow": "Comience a invertir ahora mismo",
 			"tryPortiqo": "Quiero probar Pórtiqo"
@@ -96,12 +96,14 @@
 			"firstName": "Nombre",
 			"lastName": "Apellidos",
 			"or": "o",
+			"otpCode": "Código",
 			"password": "Contraseña",
 			"passwordConfirmation": "Confirmar Contraseña",
 			"phone": "Teléfono",
 			"postalCode": "Código postal",
 			"province": "Provincia",
 			"realState": "Inmobiliario",
+			"rememberDevice": "Marcar este dispositivo como seguro (y evitar este paso en próximos accesos)",
 			"renewableEnergies": "Energías renovables",
 			"spanish": "Español",
 			"technology": "Tecnología e inteligencia artificial"

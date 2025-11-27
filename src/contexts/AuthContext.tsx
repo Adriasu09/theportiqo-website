@@ -1,8 +1,18 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 import { AccountFormType } from "../components/auth/schemas/account.schema";
+import {
+  LoginFormType,
+  OtpFormType,
+} from "../components/auth/schemas/login.schema";
 
-interface User {
+export interface User {
   id: string;
   email: string;
   name: string;
@@ -14,15 +24,33 @@ interface User {
   backendData?: any;
 }
 
+export interface LoginResponse {
+  mensage?: string;
+  requires_otp?: boolean;
+  access_token?: string;
+  user?: User;
+}
+
+export interface VerifyOtpResponse {
+  access_token?: string;
+  token?: string;
+  jwt?: string;
+  user?: User;
+}
+
 export interface AuthContextType {
   user: User | null;
   isLoading: boolean;
-  login: (email: string, password: string) => Promise<User>;
+  login: (loginForm: LoginFormType) => Promise<LoginResponse | User>;
+  verifyOtp: (otpForm: OtpFormType) => Promise<User>;
   register: (userData: AccountFormType) => Promise<any>;
   signInWithGoogle: (googleCredential: string) => Promise<User>;
   confirmEmail: (token: string) => Promise<any>;
   forgotPassword: (email: string) => Promise<any>;
-  changePassword: (currentPassword: string, newPassword: string) => Promise<any>;
+  changePassword: (
+    currentPassword: string,
+    newPassword: string,
+  ) => Promise<any>;
   resetPassword: (token: string, newPassword: string) => Promise<any>;
   signOut: () => void;
   isAuthenticated: () => boolean;
@@ -61,7 +89,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }, []);
 
   // Login with email and password
-  const login = async (email: string, password: string): Promise<User> => {
+  const login = async (loginForm: LoginFormType): Promise<LoginResponse | User> => {
     try {
       const backendUrl =
         import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
@@ -71,7 +99,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify(loginForm),
       });
 
       if (!response.ok) {
@@ -81,10 +109,42 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         );
       }
 
-      const data = await response.json();
-      return await processTokenFromBackend(data);
+      const responseData = await response.json();
+
+      if (!responseData.requires_otp) {
+        return await processTokenFromBackend(responseData);
+      }
+
+      return responseData;
     } catch (error) {
       console.error("Login error:", error);
+      throw error;
+    }
+  };
+
+  const verifyOtp = async (otpForm: OtpFormType): Promise<User> => {
+    const backendUrl =
+      import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+    try {
+      const response = await fetch(`${backendUrl}/api/users/verify-otp`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(otpForm),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(
+          errorData.message || `Login failed: ${response.status}`,
+        );
+      }
+
+      const responseData = await response.json();
+      return await processTokenFromBackend(responseData);
+    } catch (error) {
+      console.error("OTP verification error:", error);
       throw error;
     }
   };
@@ -222,7 +282,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   // Change password (when user is authenticated)
-  const changePassword = async (currentPassword: string, newPassword: string) => {
+  const changePassword = async (
+    currentPassword: string,
+    newPassword: string,
+  ) => {
     try {
       if (!user?.token) {
         throw new Error("User not authenticated");
@@ -347,6 +410,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     user,
     isLoading,
     login,
+    verifyOtp,
     register,
     signInWithGoogle,
     confirmEmail,
