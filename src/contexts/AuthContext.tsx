@@ -43,6 +43,7 @@ export interface AuthContextType {
   isLoading: boolean;
   login: (loginForm: LoginFormType) => Promise<LoginResponse | User>;
   verifyOtp: (otpForm: OtpFormType) => Promise<User>;
+  resendOtp: (email: string, device_fingerprint: string) => Promise<unknown>;
   register: (userData: AccountFormType) => Promise<any>;
   signInWithGoogle: (googleCredential: string) => Promise<User>;
   confirmEmail: (token: string) => Promise<any>;
@@ -89,7 +90,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }, []);
 
   // Login with email and password
-  const login = async (loginForm: LoginFormType): Promise<LoginResponse | User> => {
+  const login = async (
+    loginForm: LoginFormType,
+  ): Promise<LoginResponse | User> => {
     try {
       const backendUrl =
         import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
@@ -145,6 +148,39 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       return await processTokenFromBackend(responseData);
     } catch (error) {
       console.error("OTP verification error:", error);
+      throw error;
+    }
+  };
+
+  const resendOtp = async (
+    email: string,
+    device_fingerprint: string,
+  ): Promise<unknown> => {
+    const backendUrl =
+      import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+    try {
+      const response = await fetch(`${backendUrl}/api/users/resend-otp`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          device_fingerprint,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(
+          errorData.message || `Resend OTP failed: ${response.status}`,
+        );
+      }
+
+      const responseData = await response.json();
+      return responseData;
+    } catch (error) {
+      console.error("Resend OTP error:", error);
       throw error;
     }
   };
@@ -411,6 +447,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     isLoading,
     login,
     verifyOtp,
+    resendOtp,
     register,
     signInWithGoogle,
     confirmEmail,
