@@ -7,12 +7,13 @@ import { Link, useNavigate } from "@tanstack/react-router";
 import { LoginResponse, useAuth, User } from "@/src/contexts/AuthContext";
 import googleLogo from "@assets/imgs/logos/googleLogo.png";
 import { useGoogleLogin } from "@react-oauth/google";
-import { getFingerprint } from "../utils/fingerprint.utils";
 import { useEffect } from "react";
+import { useFingerprintStore } from "@/src/store/fingerprint.store";
 
 export const LoginPage = () => {
   const { t } = useTranslation();
   const { login, signInWithGoogle, isAuthenticated, user } = useAuth();
+  const deviceId = useFingerprintStore((state) => state.deviceId);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,7 +42,6 @@ export const LoginPage = () => {
       onChange: LoginFormSchema,
     },
     onSubmit: async ({ value }) => {
-      const deviceId = await getFingerprint();
       const res: LoginResponse | User = await login({
         ...value,
         device_fingerprint: deviceId,

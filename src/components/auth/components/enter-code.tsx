@@ -5,8 +5,8 @@ import { useTranslation } from "react-i18next";
 import { useAppForm } from "../../shared/form/form-hooks";
 import { OtpFormSchema, OtpFormType } from "../schemas/login.schema";
 import { FieldGroup } from "@/components/ui/field";
-import { getFingerprint } from "../utils/fingerprint.utils";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useFingerprintStore } from "@/src/store/fingerprint.store";
 
 type Props = {
   email?: string;
@@ -16,15 +16,7 @@ export const EnterCodePage = ({ email }: Props) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { verifyOtp, isAuthenticated, user, resendOtp } = useAuth();
-  const [deviceFingerprint, setDeviceFingerprint] = useState<string>("");
-
-  useEffect(() => {
-    const getDeviceFingerprint = async () => {
-      const deviceId = await getFingerprint();
-      setDeviceFingerprint(deviceId);
-    };
-    getDeviceFingerprint();
-  }, []);
+  const deviceId = useFingerprintStore((state) => state.deviceId);
 
   useEffect(() => {
     if (isAuthenticated()) {
@@ -43,7 +35,7 @@ export const EnterCodePage = ({ email }: Props) => {
       onChange: OtpFormSchema,
     },
     onSubmit: async ({ value }) => {
-      await verifyOtp({ ...value, device_fingerprint: deviceFingerprint });
+      await verifyOtp({ ...value, device_fingerprint: deviceId });
     },
   });
 
@@ -82,7 +74,7 @@ export const EnterCodePage = ({ email }: Props) => {
 
         <div className="flex w-full flex-col items-center gap-6">
           <Button
-            onClick={() => resendOtp(email!, deviceFingerprint)}
+            onClick={() => resendOtp(email!, deviceId)}
             type="button"
             variant={"tertiary"}
             className="onboarding-button"
