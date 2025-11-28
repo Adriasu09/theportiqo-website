@@ -33,6 +33,7 @@ export function FormBase({
     <Field
       data-invalid={isInvalid}
       orientation={horizontal ? "horizontal" : undefined}
+      className="gap-2"
     >
       {controlFirst ? (
         <>

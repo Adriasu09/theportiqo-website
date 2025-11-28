@@ -1,37 +1,71 @@
 import { useTranslation } from "react-i18next";
 import { useAppForm } from "../../shared/form/form-hooks";
-import { LoginFormSchema } from "../schemas/login.schema";
+import { LoginFormSchema, LoginFormType, SignInWithGoogleData } from "../schemas/login.schema";
 import { FieldGroup } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "@tanstack/react-router";
-import { useAuth } from "@/src/contexts/AuthContext";
-import { useEffect } from "react";
+import { LoginResponse, useAuth, User } from "@/src/contexts/AuthContext";
 import googleLogo from "@assets/imgs/logos/googleLogo.png";
-import appleLogo from "@assets/imgs/logos/appleLogo.svg";
+import { useGoogleLogin } from "@react-oauth/google";
+import { useEffect } from "react";
+import { useFingerprintStore } from "@/src/store/fingerprint.store";
 
 export const LoginPage = () => {
   const { t } = useTranslation();
+  const { login, signInWithGoogle, isAuthenticated, user } = useAuth();
+  const deviceId = useFingerprintStore((state) => state.deviceId);
   const navigate = useNavigate();
-
-  const { login, isAuthenticated } = useAuth();
 
   useEffect(() => {
     if (isAuthenticated()) {
       navigate({ to: "/app/dashboard" });
     }
-  }, [isAuthenticated, navigate]);
+  }, [user]);
+
+  const loginGoogle = useGoogleLogin({
+    onSuccess: async (credentialResponse) => {
+      console.log("Google login Success:", credentialResponse);
+      const signInWithGoogleData: SignInWithGoogleData = {
+        token: credentialResponse.access_token,
+        device_type: "web",
+        device_fingerprint: deviceId,
+      }
+      const res = await signInWithGoogle(signInWithGoogleData);
+
+      if ("requires_otp" in res && res.requires_otp) {
+        navigate({
+          to: "/auth/enter-code",
+          search: { email: res.email || "-" },
+        });
+        return;
+      }
+    },
+    onError: (error) => console.error("Google login Failed:", error),
+  });
 
   const loginForm = useAppForm({
     defaultValues: {
       email: "",
       password: "",
-    },
+      device_type: "web",
+      device_fingerprint: "",
+    } as LoginFormType,
     validators: {
       onChange: LoginFormSchema,
     },
     onSubmit: async ({ value }) => {
-      await login(value.email, value.password);
-      navigate({ to: "/app/dashboard" });
+      const res: LoginResponse | User = await login({
+        ...value,
+        device_fingerprint: deviceId,
+      });
+
+      if ("requires_otp" in res && res.requires_otp) {
+        navigate({
+          to: "/auth/enter-code",
+          search: { email: value.email },
+        });
+        return;
+      }
     },
   });
 
@@ -84,8 +118,8 @@ export const LoginPage = () => {
           <p>{t("global.label.or")}</p>
 
           <div className="flex w-full items-center justify-center gap-4">
-            {/* TODO: Implement google login */}
             <Button
+              onClick={() => loginGoogle()}
               type="button"
               variant={"oneTap"}
               size={"icon"}
@@ -96,20 +130,6 @@ export const LoginPage = () => {
                 alt="Google Logo"
                 height="25px"
                 width="25px"
-              />
-            </Button>
-
-            <Button
-              type="button"
-              variant={"oneTap"}
-              size={"icon"}
-              className="w-10"
-            >
-              <img
-                src={appleLogo}
-                alt="Apple Logo"
-                height="16px"
-                width="16px"
               />
             </Button>
           </div>

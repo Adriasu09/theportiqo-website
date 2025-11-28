@@ -1,7 +1,9 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
-import { AuthProvider, useAuth } from "./contexts/AuthContext";
+import { useAuth } from "./contexts/AuthContext";
 import { routeTree } from "./routeTree.gen";
+import { useFingerprintStore } from "./store/fingerprint.store";
+import { useEffect } from "react";
+import { getFingerprint } from "./components/shared/utils/fingerprint.utils";
 
 const router = createRouter({ routeTree, context: { auth: undefined! } });
 
@@ -11,25 +13,20 @@ declare module "@tanstack/react-router" {
   }
 }
 
-// Create a client
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 60 * 1000, // 1 minute
-      refetchOnWindowFocus: false,
-    },
-  },
-});
-
 function App() {
   const auth = useAuth();
-  return (
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <RouterProvider router={router} context={{ auth }} />
-      </AuthProvider>
-    </QueryClientProvider>
-  );
+  const setDeviceId = useFingerprintStore((state) => state.setDeviceId);
+
+  useEffect(() => {
+    const getDeviceFingerprint = async () => {
+      const deviceId = await getFingerprint();
+      setDeviceId(deviceId);
+    };
+    
+    getDeviceFingerprint();
+  }, []);
+
+  return <RouterProvider router={router} context={{ auth }} />;
 }
 
 export default App;

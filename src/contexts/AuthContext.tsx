@@ -1,8 +1,19 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 import { AccountFormType } from "../components/auth/schemas/account.schema";
+import {
+  LoginFormType,
+  OtpFormType,
+  SignInWithGoogleData,
+} from "../components/auth/schemas/login.schema";
 
-interface User {
+export interface User {
   id: string;
   email: string;
   name: string;
@@ -14,15 +25,35 @@ interface User {
   backendData?: any;
 }
 
+export interface LoginResponse {
+  mensage?: string;
+  email?: string;
+  requires_otp?: boolean;
+  access_token?: string;
+  user?: User;
+}
+
+export interface VerifyOtpResponse {
+  access_token?: string;
+  token?: string;
+  jwt?: string;
+  user?: User;
+}
+
 export interface AuthContextType {
   user: User | null;
   isLoading: boolean;
-  login: (email: string, password: string) => Promise<User>;
+  login: (loginForm: LoginFormType) => Promise<LoginResponse | User>;
+  verifyOtp: (otpForm: OtpFormType) => Promise<User>;
+  resendOtp: (email: string, device_fingerprint: string) => Promise<unknown>;
   register: (userData: AccountFormType) => Promise<any>;
-  signInWithGoogle: (googleCredential: string) => Promise<User>;
+  signInWithGoogle: (signInWithGoogleData: SignInWithGoogleData) => Promise<LoginResponse | User>;
   confirmEmail: (token: string) => Promise<any>;
   forgotPassword: (email: string) => Promise<any>;
-  changePassword: (currentPassword: string, newPassword: string) => Promise<any>;
+  changePassword: (
+    currentPassword: string,
+    newPassword: string,
+  ) => Promise<any>;
   resetPassword: (token: string, newPassword: string) => Promise<any>;
   signOut: () => void;
   isAuthenticated: () => boolean;
@@ -47,21 +78,23 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check if user is already signed in (from localStorage or session)
-    const savedUser = localStorage.getItem("user");
+    // Check if user is already signed in (from sessionStorage)
+    const savedUser = sessionStorage.getItem("user");
     if (savedUser) {
       try {
         setUser(JSON.parse(savedUser));
       } catch (error) {
         console.error("Error parsing saved user:", error);
-        localStorage.removeItem("user");
+        sessionStorage.removeItem("user");
       }
     }
     setIsLoading(false);
   }, []);
 
   // Login with email and password
-  const login = async (email: string, password: string): Promise<User> => {
+  const login = async (
+    loginForm: LoginFormType,
+  ): Promise<LoginResponse | User> => {
     try {
       const backendUrl =
         import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
@@ -71,7 +104,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify(loginForm),
       });
 
       if (!response.ok) {
@@ -81,10 +114,75 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         );
       }
 
-      const data = await response.json();
-      return await processTokenFromBackend(data);
+      const responseData = await response.json();
+
+      if (!responseData.requires_otp) {
+        return await processTokenFromBackend(responseData);
+      }
+
+      return responseData;
     } catch (error) {
       console.error("Login error:", error);
+      throw error;
+    }
+  };
+
+  const verifyOtp = async (otpForm: OtpFormType): Promise<User> => {
+    const backendUrl =
+      import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+    try {
+      const response = await fetch(`${backendUrl}/api/users/verify-otp`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(otpForm),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(
+          errorData.message || `Login failed: ${response.status}`,
+        );
+      }
+
+      const responseData = await response.json();
+      return await processTokenFromBackend(responseData);
+    } catch (error) {
+      console.error("OTP verification error:", error);
+      throw error;
+    }
+  };
+
+  const resendOtp = async (
+    email: string,
+    device_fingerprint: string,
+  ): Promise<unknown> => {
+    const backendUrl =
+      import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+    try {
+      const response = await fetch(`${backendUrl}/api/users/resend-otp`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          device_fingerprint,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(
+          errorData.message || `Resend OTP failed: ${response.status}`,
+        );
+      }
+
+      const responseData = await response.json();
+      return responseData;
+    } catch (error) {
+      console.error("Resend OTP error:", error);
       throw error;
     }
   };
@@ -155,7 +253,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   // Sign in with Google One Tap credential
-  const signInWithGoogle = async (googleCredential: string): Promise<User> => {
+  const signInWithGoogle = async (signInWithGoogleData: SignInWithGoogleData): Promise<LoginResponse | User> => {
     try {
       const backendUrl =
         import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
@@ -168,9 +266,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            token: googleCredential,
-          }),
+          body: JSON.stringify(signInWithGoogleData),
         },
       );
 
@@ -182,10 +278,13 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         );
       }
 
-      const data = await response.json();
+      const responseData = await response.json();
 
-      // Process the new JWT token from backend and login user
-      return await processTokenFromBackend(data);
+      if (!responseData.requires_otp) {
+        return await processTokenFromBackend(responseData);
+      }
+
+      return responseData;
     } catch (error) {
       console.error("Google sign-in error:", error);
       throw error;
@@ -222,7 +321,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   // Change password (when user is authenticated)
-  const changePassword = async (currentPassword: string, newPassword: string) => {
+  const changePassword = async (
+    currentPassword: string,
+    newPassword: string,
+  ) => {
     try {
       if (!user?.token) {
         throw new Error("User not authenticated");
@@ -326,7 +428,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
       console.log("👤 Final User Info:", userInfo);
       setUser(userInfo);
-      localStorage.setItem("user", JSON.stringify(userInfo));
+      sessionStorage.setItem("user", JSON.stringify(userInfo));
       return userInfo;
     } catch (error) {
       console.error("Error processing token from backend:", error);
@@ -336,7 +438,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const signOut = () => {
     setUser(null);
-    localStorage.removeItem("user");
+    sessionStorage.removeItem("user");
   };
 
   const isAuthenticated = () => {
@@ -347,6 +449,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     user,
     isLoading,
     login,
+    verifyOtp,
+    resendOtp,
     register,
     signInWithGoogle,
     confirmEmail,
