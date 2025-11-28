@@ -26,6 +26,7 @@ import { Route as AuthForgotPasswordRouteImport } from './routes/auth/forgot-pas
 import { Route as AuthEnterCodeRouteImport } from './routes/auth/enter-code'
 import { Route as AuthEnterAddressRouteImport } from './routes/auth/enter-address'
 import { Route as AuthCreatePasswordRouteImport } from './routes/auth/create-password'
+import { Route as AuthContinueLaterRouteImport } from './routes/auth/continue-later'
 import { Route as AuthConfirmEmailRouteImport } from './routes/auth/confirm-email'
 import { Route as AuthBestFaceRouteImport } from './routes/auth/best-face'
 import { Route as AppDashboardRouteImport } from './routes/app/dashboard'
@@ -137,6 +138,11 @@ const AuthCreatePasswordRoute = AuthCreatePasswordRouteImport.update({
   path: '/create-password',
   getParentRoute: () => AuthLazyRoute,
 } as any)
+const AuthContinueLaterRoute = AuthContinueLaterRouteImport.update({
+  id: '/continue-later',
+  path: '/continue-later',
+  getParentRoute: () => AuthLazyRoute,
+} as any)
 const AuthConfirmEmailRoute = AuthConfirmEmailRouteImport.update({
   id: '/confirm-email',
   path: '/confirm-email',
@@ -161,6 +167,7 @@ export interface FileRoutesByFullPath {
   '/app/dashboard': typeof AppDashboardRoute
   '/auth/best-face': typeof AuthBestFaceRoute
   '/auth/confirm-email': typeof AuthConfirmEmailRoute
+  '/auth/continue-later': typeof AuthContinueLaterRoute
   '/auth/create-password': typeof AuthCreatePasswordRoute
   '/auth/enter-address': typeof AuthEnterAddressRoute
   '/auth/enter-code': typeof AuthEnterCodeRoute
@@ -185,6 +192,7 @@ export interface FileRoutesByTo {
   '/app/dashboard': typeof AppDashboardRoute
   '/auth/best-face': typeof AuthBestFaceRoute
   '/auth/confirm-email': typeof AuthConfirmEmailRoute
+  '/auth/continue-later': typeof AuthContinueLaterRoute
   '/auth/create-password': typeof AuthCreatePasswordRoute
   '/auth/enter-address': typeof AuthEnterAddressRoute
   '/auth/enter-code': typeof AuthEnterCodeRoute
@@ -210,6 +218,7 @@ export interface FileRoutesById {
   '/app/dashboard': typeof AppDashboardRoute
   '/auth/best-face': typeof AuthBestFaceRoute
   '/auth/confirm-email': typeof AuthConfirmEmailRoute
+  '/auth/continue-later': typeof AuthContinueLaterRoute
   '/auth/create-password': typeof AuthCreatePasswordRoute
   '/auth/enter-address': typeof AuthEnterAddressRoute
   '/auth/enter-code': typeof AuthEnterCodeRoute
@@ -236,6 +245,7 @@ export interface FileRouteTypes {
     | '/app/dashboard'
     | '/auth/best-face'
     | '/auth/confirm-email'
+    | '/auth/continue-later'
     | '/auth/create-password'
     | '/auth/enter-address'
     | '/auth/enter-code'
@@ -260,6 +270,7 @@ export interface FileRouteTypes {
     | '/app/dashboard'
     | '/auth/best-face'
     | '/auth/confirm-email'
+    | '/auth/continue-later'
     | '/auth/create-password'
     | '/auth/enter-address'
     | '/auth/enter-code'
@@ -284,6 +295,7 @@ export interface FileRouteTypes {
     | '/app/dashboard'
     | '/auth/best-face'
     | '/auth/confirm-email'
+    | '/auth/continue-later'
     | '/auth/create-password'
     | '/auth/enter-address'
     | '/auth/enter-code'
@@ -443,6 +455,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthCreatePasswordRouteImport
       parentRoute: typeof AuthLazyRoute
     }
+    '/auth/continue-later': {
+      id: '/auth/continue-later'
+      path: '/continue-later'
+      fullPath: '/auth/continue-later'
+      preLoaderRoute: typeof AuthContinueLaterRouteImport
+      parentRoute: typeof AuthLazyRoute
+    }
     '/auth/confirm-email': {
       id: '/auth/confirm-email'
       path: '/confirm-email'
@@ -495,6 +514,7 @@ const LandingRouteWithChildren =
 interface AuthLazyRouteChildren {
   AuthBestFaceRoute: typeof AuthBestFaceRoute
   AuthConfirmEmailRoute: typeof AuthConfirmEmailRoute
+  AuthContinueLaterRoute: typeof AuthContinueLaterRoute
   AuthCreatePasswordRoute: typeof AuthCreatePasswordRoute
   AuthEnterAddressRoute: typeof AuthEnterAddressRoute
   AuthEnterCodeRoute: typeof AuthEnterCodeRoute
@@ -512,6 +532,7 @@ interface AuthLazyRouteChildren {
 const AuthLazyRouteChildren: AuthLazyRouteChildren = {
   AuthBestFaceRoute: AuthBestFaceRoute,
   AuthConfirmEmailRoute: AuthConfirmEmailRoute,
+  AuthContinueLaterRoute: AuthContinueLaterRoute,
   AuthCreatePasswordRoute: AuthCreatePasswordRoute,
   AuthEnterAddressRoute: AuthEnterAddressRoute,
   AuthEnterCodeRoute: AuthEnterCodeRoute,

@@ -11,6 +11,10 @@
 			"description": "¡Perfecto! Hemos podido comprobar tu cuenta de correo sin problema. Puedes contiuar con la creación de tu cuenta.",
 			"title": "Mail verificado"
 		},
+		"continueLater": {
+			"description": "¿Cansado de esperar? ¿Quieres ir directamente a ver nuestros productos?",
+			"title": "¿Lo dejamos para más tarde?"
+		},
 		"createPassword": {
 			"title": "Una contraseña memorable"
 		},
@@ -74,6 +78,7 @@
 	},
 	"global": {
 		"button": {
+			"accessPortiqo": "Acceder a Pórtiqo",
 			"backToLogin": "Volver al login",
 			"becomeClient": "Hazte cliente",
 			"clients": "Clientes",

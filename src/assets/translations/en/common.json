@@ -11,6 +11,10 @@
 			"description": "Perfect! We have successfully verified your email account. You can now continue creating your account.",
 			"title": "Verified email"
 		},
+		"continueLater": {
+			"description": "Tired of waiting? Want to go straight to our products?",
+			"title": "Shall we leave it for later?"
+		},
 		"createPassword": {
 			"title": "A memorable password"
 		},
@@ -74,6 +78,7 @@
 	},
 	"global": {
 		"button": {
+			"accessPortiqo": "Access Pórtico",
 			"backToLogin": "Back to login",
 			"becomeClient": "Become a client",
 			"clients": "Clients",

@@ -4,7 +4,7 @@ import { FieldGroup } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "@tanstack/react-router";
 import { getInitialFormValues } from "../utils/register-form.utils";
-import { AddressSchema } from "../schemas/register.schema";
+import { AddressFormType, AddressSchema } from "../schemas/register.schema";
 import { ADDRESS_DEFAULT_VALUES } from "../constants/register.constants";
 import { useAuth } from "@/src/contexts/AuthContext";
 
@@ -19,7 +19,7 @@ export const EnterAddressPage = () => {
       onChange: AddressSchema,
     },
     onSubmit: async ({ value }) => {
-      await updateAddress(value)
+      await updateAddress(value as AddressFormType)
         .then(() => {
           navigate({ to: "/auth/best-face" });
         })
