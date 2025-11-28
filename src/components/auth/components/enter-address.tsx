@@ -1,38 +1,39 @@
-import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "react-i18next";
-import { ADDRESS_DEFAULT_VALUES } from "../constants/create-acount.constants";
-import { AddressSchema } from "../schemas/account.schema";
 import { useAppForm } from "../../shared/form/form-hooks";
-import { useRegisterUserStore } from "@/src/store/register-user.store";
 import { FieldGroup } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "@tanstack/react-router";
 import { getInitialFormValues } from "../utils/register-form.utils";
+import { AddressFormType, AddressSchema } from "../schemas/register.schema";
+import { ADDRESS_DEFAULT_VALUES } from "../constants/register.constants";
+import { useAuth } from "@/src/contexts/AuthContext";
 
 export const EnterAddressPage = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const registerData = useRegisterUserStore((state) => state);
+  const { updateAddress } = useAuth();
 
   const addressForm = useAppForm({
     defaultValues: getInitialFormValues(ADDRESS_DEFAULT_VALUES),
     validators: {
-      onSubmit: AddressSchema,
+      onChange: AddressSchema,
     },
-    onSubmit: ({ value }) => {
-      registerData.setRegisterData(value);
-      navigate({ to: "/auth/create-password" });
+    onSubmit: async ({ value }) => {
+      await updateAddress(value as AddressFormType)
+        .then(() => {
+          navigate({ to: "/auth/best-face" });
+        })
+        .catch((error) => {
+          console.error("Saving address failed:", error);
+        });
     },
   });
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-20">
-      <div className="flex w-full flex-col items-center gap-8">
-        <Badge variant="pop">2/3</Badge>
-        <h1 className="text-center font-accent text-qo-h3">
-          {t("auth.address.title")}
-        </h1>
-      </div>
+      <h1 className="text-center font-accent text-qo-h3">
+        {t("auth.address.title")}
+      </h1>
 
       <form
         onSubmit={(e) => {
@@ -76,9 +77,18 @@ export const EnterAddressPage = () => {
           />
         </FieldGroup>
 
-        <Button type="submit" className="onboarding-button">
-          {t("global.button.continue")}
-        </Button>
+        <addressForm.Subscribe
+          selector={(state) => [state.canSubmit, state.isDirty]}
+          children={([canSubmit, isDirty]) => (
+            <Button
+              type="submit"
+              className="onboarding-button"
+              disabled={!canSubmit || !isDirty}
+            >
+              {t("global.button.continue")}
+            </Button>
+          )}
+        />
       </form>
     </div>
   );

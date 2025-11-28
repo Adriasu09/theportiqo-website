@@ -1,18 +1,19 @@
 import { useTranslation } from "react-i18next";
 import { useAppForm } from "../../shared/form/form-hooks";
-import { LoginFormSchema, LoginFormType, SignInWithGoogleData } from "../schemas/login.schema";
+import { LoginFormSchema, LoginFormType } from "../schemas/login.schema";
 import { FieldGroup } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { LoginResponse, useAuth, User } from "@/src/contexts/AuthContext";
-import googleLogo from "@assets/imgs/logos/googleLogo.png";
-import { useGoogleLogin } from "@react-oauth/google";
 import { useEffect } from "react";
 import { useFingerprintStore } from "@/src/store/fingerprint.store";
+import googleLogo from "@assets/imgs/logos/googleLogo.png";
+import { useGoogleAuth } from "../hooks/useGoogleAuth";
 
 export const LoginPage = () => {
   const { t } = useTranslation();
-  const { login, signInWithGoogle, isAuthenticated, user } = useAuth();
+  const { login, isAuthenticated, user } = useAuth();
+  const { loginGoogle } = useGoogleAuth();
   const deviceId = useFingerprintStore((state) => state.deviceId);
   const navigate = useNavigate();
 
@@ -21,27 +22,6 @@ export const LoginPage = () => {
       navigate({ to: "/app/dashboard" });
     }
   }, [user]);
-
-  const loginGoogle = useGoogleLogin({
-    onSuccess: async (credentialResponse) => {
-      console.log("Google login Success:", credentialResponse);
-      const signInWithGoogleData: SignInWithGoogleData = {
-        token: credentialResponse.access_token,
-        device_type: "web",
-        device_fingerprint: deviceId,
-      }
-      const res = await signInWithGoogle(signInWithGoogleData);
-
-      if ("requires_otp" in res && res.requires_otp) {
-        navigate({
-          to: "/auth/enter-code",
-          search: { email: res.email || "-" },
-        });
-        return;
-      }
-    },
-    onError: (error) => console.error("Google login Failed:", error),
-  });
 
   const loginForm = useAppForm({
     defaultValues: {

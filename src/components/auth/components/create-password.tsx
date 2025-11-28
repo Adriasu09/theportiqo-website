@@ -1,8 +1,7 @@
-import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "react-i18next";
-import { PASSWORD_DEFAULT_VALUES } from "../constants/create-acount.constants";
+import { PASSWORD_DEFAULT_VALUES } from "../constants/register.constants";
 import { useAppForm } from "../../shared/form/form-hooks";
-import { AccountFormType, PasswordSchema } from "../schemas/account.schema";
+import { PasswordSchema, RegisterFormType } from "../schemas/register.schema";
 import { FieldGroup } from "@/components/ui/field";
 import { useRegisterUserStore } from "@/src/store/register-user.store";
 import { Button } from "@/components/ui/button";
@@ -19,22 +18,24 @@ export const CreatePasswordPage = () => {
   const passwordForm = useAppForm({
     defaultValues: PASSWORD_DEFAULT_VALUES,
     validators: {
-      onSubmit: PasswordSchema,
+      onChange: PasswordSchema,
     },
     onSubmit: async ({ value }) => {
-      await register({ ...registerData, ...value } as AccountFormType);
-      navigate({ to: "/auth/confirm-email" });
+      await register({ ...registerData, password: value.password } as RegisterFormType)
+        .then(() => {
+          navigate({ to: "/auth/mail-sent" });
+        })
+        .catch((error) => {
+          console.error("Registration failed:", error);
+        });
     },
   });
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-20">
-      <div className="flex w-full flex-col items-center gap-8">
-        <Badge variant="pop">3/3</Badge>
-        <h1 className="text-center font-accent text-qo-h3">
-          {t("auth.createPassword.title")}
-        </h1>
-      </div>
+      <h1 className="text-center font-accent text-qo-h3">
+        {t("auth.createPassword.title")}
+      </h1>
 
       <form
         onSubmit={(e) => {
@@ -62,9 +63,18 @@ export const CreatePasswordPage = () => {
           />
         </FieldGroup>
 
-        <Button type="submit" className="onboarding-button">
-          {t("global.button.continue")}
-        </Button>
+        <passwordForm.Subscribe
+          selector={(state) => [state.canSubmit, state.isDirty]}
+          children={([canSubmit, isDirty]) => (
+            <Button
+              type="submit"
+              className="onboarding-button"
+              disabled={!canSubmit || !isDirty}
+            >
+              {t("global.button.continue")}
+            </Button>
+          )}
+        />
       </form>
     </div>
   );

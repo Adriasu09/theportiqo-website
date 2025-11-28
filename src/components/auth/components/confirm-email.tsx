@@ -1,41 +1,57 @@
-import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "react-i18next";
-import gmail3D from "@assets/imgs/3d/gmail.png";
+import tick3D from "@assets/imgs/3d/tick.png";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { useAuth } from "@/src/contexts/AuthContext";
 
-export const ConfirmEmailPage = () => {
+type Props = {
+  token: string;
+};
+
+export const ConfirmEmailPage = ({ token }: Props) => {
   const { t } = useTranslation();
+  const { confirmEmail, processTokenFromBackend } = useAuth();
   const navigate = useNavigate();
 
+  const [emailConfirmed, setEmailConfirmed] = useState(false);
+
+  useEffect(() => {
+    const validateEmail = async (token: string) => {
+      await confirmEmail(token)
+        .then(() => {
+          setEmailConfirmed(true);
+          processTokenFromBackend({ token });
+        })
+        .catch((error) => {
+          console.error("Email confirmation failed:", error);
+        });
+    };
+
+    validateEmail(token);
+  }, [token]);
+
   const handleContinue = () => {
-    //* Temporarily redirect to home after confirming the registration flow
-    navigate({ to: "/landing/home" });
+    if (emailConfirmed) {
+      navigate({ to: "/auth/personal-data" });
+    }
   };
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-20">
+    <div className="flex h-full w-full flex-col items-center justify-center gap-16">
       <div className="flex w-full flex-col items-center gap-6">
-        <Badge variant="pop">3/3</Badge>
-
-        <img src={gmail3D} width={"200px"} />
+        <img src={tick3D} width={"200px"} />
 
         <h1 className="text-center font-accent text-qo-h3">
           {t("auth.confirmEmail.title")}
         </h1>
       </div>
 
-      <div className="flex w-full flex-col items-center justify-center gap-4">
-        <p className="text-center">{t("auth.confirmEmail.description")}</p>
+      <p className="w-full text-center">{t("auth.confirmEmail.description")}</p>
 
-        <Button variant={"tertiary"} className="text-qo-xs">
-          {t("global.button.resendCode")}
-        </Button>
-
-        <Button className="onboarding-button" onClick={handleContinue}>
-          {t("global.button.continue")}
-        </Button>
-      </div>
+      <Button onClick={handleContinue} className="onboarding-button">
+        {t("global.button.continue")}
+      </Button>
     </div>
   );
 };

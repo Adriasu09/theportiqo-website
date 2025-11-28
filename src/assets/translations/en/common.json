@@ -3,12 +3,17 @@
 		"address": {
 			"title": "Enter Address"
 		},
-		"confirmEmail": {
-			"description": "We have sent you an email to verify your account. If you cannot find it, check your spam folder. \n\nYou can do this later, but this step is necessary to activate your account.",
-			"title": "Almost done! Just one more step..."
+		"bestFace": {
+			"description": "To protect your account, we need to verify your identity with a quick photo. It will only take a few seconds, and your data will be processed securely and automatically, with no one seeing your image.\nHave your ID document ready to complete the process in the blink of an eye.",
+			"title": "Put on your best face"
 		},
-		"createAccount": {
-			"title": "Create account"
+		"confirmEmail": {
+			"description": "Perfect! We have successfully verified your email account. You can now continue creating your account.",
+			"title": "Verified email"
+		},
+		"continueLater": {
+			"description": "Tired of waiting? Want to go straight to our products?",
+			"title": "Shall we leave it for later?"
 		},
 		"createPassword": {
 			"title": "A memorable password"
@@ -27,12 +32,18 @@
 			"title": "Welcome to Pórtiqo"
 		},
 		"mailSent": {
-			"description": "We have sent an email to {{email}}.\nCheck your inbox, and if you don't see our email within a few minutes, check your spam folder or contact us.",
-			"title": "Email sent"
+			"description": "We have sent you an email to verify your account. If you cannot find it, check your spam folder. \n\nYou can do this later, but this step is necessary to activate your account.",
+			"title": "Almost done! Just one more step..."
+		},
+		"nameEmail": {
+			"title": "Let's get started, name and email"
 		},
 		"passwordChanged": {
 			"description": "Password successfully updated",
 			"title": "New password"
+		},
+		"personalData": {
+			"title": "Personal data"
 		},
 		"resetPassword": {
 			"title": "New password"
@@ -67,6 +78,7 @@
 	},
 	"global": {
 		"button": {
+			"accessPortiqo": "Access Pórtico",
 			"backToLogin": "Back to login",
 			"becomeClient": "Become a client",
 			"clients": "Clients",
