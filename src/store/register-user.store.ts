@@ -1,15 +1,15 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-import { AccountFormType } from "../components/auth/schemas/account.schema";
+import { RegisterFormType } from "../components/auth/schemas/register.schema";
 
-type AccountState = Partial<AccountFormType> & {
-  setRegisterData: (data: Partial<AccountFormType>) => void;
+type AccountState = Partial<RegisterFormType> & {
+  setRegisterData: (data: Partial<RegisterFormType>) => void;
 };
 
 export const useRegisterUserStore = create<AccountState>()(
   persist(
     (set) => ({
-      setRegisterData: (data: Partial<AccountFormType>) =>
+      setRegisterData: (data: Partial<RegisterFormType>) =>
         set((state) => ({ ...state, ...data })),
     }),
     {

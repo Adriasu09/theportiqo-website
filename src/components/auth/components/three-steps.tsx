@@ -33,7 +33,7 @@ export const ThreeStepsPage = () => {
 
       <Button
         className="onboarding-button"
-        onClick={() => navigate({ to: "/auth/create-account" })}
+        onClick={() => navigate({ to: "/auth/name-email" })}
       >
         {t("global.button.continue")}
       </Button>

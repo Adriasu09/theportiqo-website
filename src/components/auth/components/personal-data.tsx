@@ -1,73 +1,70 @@
+import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import { useAppForm } from "../../shared/form/form-hooks";
-import { PasswordSchema } from "../schemas/register.schema";
+import { PERSONAL_DATA_DEFAULT_VALUES } from "../constants/register.constants";
+import { PersonalDataSchema } from "../schemas/register.schema";
 import { FieldGroup } from "@/components/ui/field";
-import { Button } from "@/components/ui/button";
 import { useAuth } from "@/src/contexts/AuthContext";
 import { useNavigate } from "@tanstack/react-router";
 
-interface ResetPasswordPageProps {
-  token?: string;
-}
-
-export const ResetPasswordPage = ({ token }: ResetPasswordPageProps) => {
+export const PersonalDataPage = () => {
   const { t } = useTranslation();
-  const { resetPassword } = useAuth();
+  const { updatePersonalInfo } = useAuth();
   const navigate = useNavigate();
 
-  const resetPasswordForm = useAppForm({
-    defaultValues: {
-      password: "",
-      passwordConfirmation: "",
-    },
+  const personalDataForm = useAppForm({
+    defaultValues: PERSONAL_DATA_DEFAULT_VALUES,
     validators: {
-      onChange: PasswordSchema,
+      onChange: PersonalDataSchema,
     },
     onSubmit: async ({ value }) => {
-      if (token) {
-        try {
-          await resetPassword(token, value.password);
-          navigate({ to: "/auth/password-changed" });
-        } catch (error) {
-          console.error("Failed to reset password:", error);
-        }
-      }
+      await updatePersonalInfo(value)
+        .then(() => {
+          navigate({ to: "/auth/enter-address" });
+        })
+        .catch((error) => {
+          console.error("Saving personal data failed:", error);
+        });
     },
   });
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-16">
       <h1 className="text-center font-accent text-qo-h3">
-        {t("auth.resetPassword.title")}
+        {t("auth.personalData.title")}
       </h1>
 
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          resetPasswordForm.handleSubmit();
+          personalDataForm.handleSubmit();
         }}
         className="flex w-full flex-col items-center justify-center gap-8"
       >
         <FieldGroup>
-          <resetPasswordForm.AppField
-            name="password"
+          <personalDataForm.AppField
+            name="phone"
             children={(field) => (
-              <field.Input type="password" label={t("global.label.password")} />
+              <field.Input label={t("global.label.phone")} />
             )}
           />
 
-          <resetPasswordForm.AppField
-            name="passwordConfirmation"
+          <personalDataForm.AppField
+            name="documentType"
             children={(field) => (
-              <field.Input
-                type="password"
-                label={t("global.label.passwordConfirmation")}
-              />
+              <field.Input label={t("global.label.documentType")} />
+            )}
+          />
+
+          <personalDataForm.AppField
+            name="documentNumber"
+            children={(field) => (
+              <field.Input label={t("global.label.documentNumber")} />
             )}
           />
         </FieldGroup>
 
-        <resetPasswordForm.Subscribe
+        <personalDataForm.Subscribe
           selector={(state) => [state.canSubmit, state.isDirty]}
           children={([canSubmit, isDirty]) => (
             <Button

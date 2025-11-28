@@ -3,12 +3,13 @@
 		"address": {
 			"title": "Introduce tu domicilio"
 		},
-		"confirmEmail": {
-			"description": "Te hemos enviado un email para verificar tu cuenta. Si no lo encuentras, revisa tu carpeta de spam. \n\nPuedes hacerlo más tarde, pero este paso es necesario para activar tu cuenta.",
-			"title": "¡Casi listo! Sólo un paso más..."
+		"bestFace": {
+			"description": "Para proteger tu cuenta, necesitamos verificar tu identidad con una foto rápida. Solo te llevará unos segundos y tus datos serán procesados de forma segura y automática, sin que nadie vea tu imagen.\nTen a mano tu documento de identidad para completar el proceso en un abrir y cerrar de ojos.",
+			"title": "Pon tu mejor cara"
 		},
-		"createAccount": {
-			"title": "Crear una cuenta"
+		"confirmEmail": {
+			"description": "¡Perfecto! Hemos podido comprobar tu cuenta de correo sin problema. Puedes contiuar con la creación de tu cuenta.",
+			"title": "Mail verificado"
 		},
 		"createPassword": {
 			"title": "Una contraseña memorable"
@@ -27,12 +28,18 @@
 			"title": "Bienvenido a Pórtiqo"
 		},
 		"mailSent": {
-			"description": "Hemos enviado un correo a {{email}}\nRevisa tu bandeja de entrada y, si no encuentras nuestro email en unos minutos, verifica tu carpeta de spam o ponte en contacto con nosotros.",
-			"title": "Email enviado"
+			"description": "Te hemos enviado un email para verificar tu cuenta. Si no lo encuentras, revisa tu carpeta de spam. \n\nPuedes hacerlo más tarde, pero este paso es necesario para activar tu cuenta.",
+			"title": "¡Casi listo! Sólo un paso más..."
+		},
+		"nameEmail": {
+			"title": "Comenzamos, nombre y mail"
 		},
 		"passwordChanged": {
 			"description": "Contraseña actualizada con éxito",
 			"title": "Nueva contraseña"
+		},
+		"personalData": {
+			"title": "Datos personales"
 		},
 		"resetPassword": {
 			"title": "Nueva contraseña"

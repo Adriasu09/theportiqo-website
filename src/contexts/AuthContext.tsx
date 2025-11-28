@@ -6,7 +6,11 @@ import {
   useEffect,
   ReactNode,
 } from "react";
-import { AccountFormType } from "../components/auth/schemas/account.schema";
+import {
+  AddressFormType,
+  NameEmailFormType,
+  PersonalDataFormType,
+} from "../components/auth/schemas/register.schema";
 import {
   LoginFormType,
   OtpFormType,
@@ -46,8 +50,10 @@ export interface AuthContextType {
   login: (loginForm: LoginFormType) => Promise<LoginResponse | User>;
   verifyOtp: (otpForm: OtpFormType) => Promise<User>;
   resendOtp: (email: string, device_fingerprint: string) => Promise<unknown>;
-  register: (userData: AccountFormType) => Promise<any>;
-  signInWithGoogle: (signInWithGoogleData: SignInWithGoogleData) => Promise<LoginResponse | User>;
+  register: (userData: NameEmailFormType) => Promise<any>;
+  signInWithGoogle: (
+    signInWithGoogleData: SignInWithGoogleData,
+  ) => Promise<LoginResponse | User>;
   confirmEmail: (token: string) => Promise<any>;
   forgotPassword: (email: string) => Promise<any>;
   changePassword: (
@@ -57,6 +63,9 @@ export interface AuthContextType {
   resetPassword: (token: string, newPassword: string) => Promise<any>;
   signOut: () => void;
   isAuthenticated: () => boolean;
+  processTokenFromBackend: (tokenData: any) => Promise<User>;
+  updatePersonalInfo: (personalData: PersonalDataFormType) => Promise<unknown>;
+  updateAddress: (addressData: AddressFormType) => Promise<unknown>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -188,7 +197,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   // Register new user (returns success message, not user data)
-  const register = async (userData: AccountFormType) => {
+  const register = async (userData: NameEmailFormType) => {
     try {
       const backendUrl =
         import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
@@ -252,8 +261,85 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   };
 
+  const updatePersonalInfo = async (
+    personalData: PersonalDataFormType,
+  ): Promise<any> => {
+    try {
+      if (!user?.token) {
+        throw new Error("User not authenticated");
+      }
+
+      const backendUrl =
+        import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+
+      const response = await fetch(
+        `${backendUrl}/api/users/${user.id}/personal-info`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+          body: JSON.stringify(personalData),
+        },
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(
+          errorData.message || `Save personal info failed: ${response.status}`,
+        );
+      }
+
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Save personal info error:", error);
+      throw error;
+    }
+  };
+
+
+  const updateAddress = async (addressData: AddressFormType): Promise<unknown> => {
+    try {
+      if (!user?.token) {
+        throw new Error("User not authenticated");
+      }
+
+      const backendUrl =
+        import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+
+      const response = await fetch(
+        `${backendUrl}/api/users/${user.id}/address`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+          body: JSON.stringify(addressData),
+        },
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(
+          errorData.message || `Save personal info failed: ${response.status}`,
+        );
+      }
+
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Save personal info error:", error);
+      throw error;
+    }
+  };
+
   // Sign in with Google One Tap credential
-  const signInWithGoogle = async (signInWithGoogleData: SignInWithGoogleData): Promise<LoginResponse | User> => {
+  const signInWithGoogle = async (
+    signInWithGoogleData: SignInWithGoogleData,
+  ): Promise<LoginResponse | User> => {
     try {
       const backendUrl =
         import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
@@ -459,6 +545,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     resetPassword,
     signOut,
     isAuthenticated,
+    processTokenFromBackend,
+    updatePersonalInfo,
+    updateAddress
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
