@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useAppForm } from "../../shared/form/form-hooks";
-import { LoginFormSchema, LoginFormType } from "../schemas/login.schema";
+import { LoginFormSchema, LoginFormType, SignInWithGoogleData } from "../schemas/login.schema";
 import { FieldGroup } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "@tanstack/react-router";
@@ -24,9 +24,21 @@ export const LoginPage = () => {
 
   const loginGoogle = useGoogleLogin({
     onSuccess: async (credentialResponse) => {
-      await signInWithGoogle(credentialResponse.access_token).catch((error) => {
-        console.error("Internal login Failed:", error);
-      });
+      console.log("Google login Success:", credentialResponse);
+      const signInWithGoogleData: SignInWithGoogleData = {
+        token: credentialResponse.access_token,
+        device_type: "web",
+        device_fingerprint: deviceId,
+      }
+      const res = await signInWithGoogle(signInWithGoogleData);
+
+      if ("requires_otp" in res && res.requires_otp) {
+        navigate({
+          to: "/auth/enter-code",
+          search: { email: res.email || "-" },
+        });
+        return;
+      }
     },
     onError: (error) => console.error("Google login Failed:", error),
   });

@@ -10,6 +10,7 @@ import { AccountFormType } from "../components/auth/schemas/account.schema";
 import {
   LoginFormType,
   OtpFormType,
+  SignInWithGoogleData,
 } from "../components/auth/schemas/login.schema";
 
 export interface User {
@@ -26,6 +27,7 @@ export interface User {
 
 export interface LoginResponse {
   mensage?: string;
+  email?: string;
   requires_otp?: boolean;
   access_token?: string;
   user?: User;
@@ -45,7 +47,7 @@ export interface AuthContextType {
   verifyOtp: (otpForm: OtpFormType) => Promise<User>;
   resendOtp: (email: string, device_fingerprint: string) => Promise<unknown>;
   register: (userData: AccountFormType) => Promise<any>;
-  signInWithGoogle: (googleCredential: string) => Promise<User>;
+  signInWithGoogle: (signInWithGoogleData: SignInWithGoogleData) => Promise<LoginResponse | User>;
   confirmEmail: (token: string) => Promise<any>;
   forgotPassword: (email: string) => Promise<any>;
   changePassword: (
@@ -251,7 +253,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   // Sign in with Google One Tap credential
-  const signInWithGoogle = async (googleCredential: string): Promise<User> => {
+  const signInWithGoogle = async (signInWithGoogleData: SignInWithGoogleData): Promise<LoginResponse | User> => {
     try {
       const backendUrl =
         import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
@@ -264,9 +266,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            token: googleCredential,
-          }),
+          body: JSON.stringify(signInWithGoogleData),
         },
       );
 
@@ -278,10 +278,13 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         );
       }
 
-      const data = await response.json();
+      const responseData = await response.json();
 
-      // Process the new JWT token from backend and login user
-      return await processTokenFromBackend(data);
+      if (!responseData.requires_otp) {
+        return await processTokenFromBackend(responseData);
+      }
+
+      return responseData;
     } catch (error) {
       console.error("Google sign-in error:", error);
       throw error;
