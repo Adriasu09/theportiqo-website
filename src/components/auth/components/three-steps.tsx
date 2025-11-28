@@ -2,10 +2,22 @@ import { Button } from "@/components/ui/button";
 import rocket from "@assets/imgs/3d/rocket.png";
 import { useNavigate } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
+import googleLogo from "@assets/imgs/logos/googleLogo.png";
+import { useGoogleAuth } from "../hooks/useGoogleAuth";
+import { useEffect } from "react";
+import { useAuth } from "@/src/contexts/AuthContext";
 
 export const ThreeStepsPage = () => {
   const { t } = useTranslation();
+  const { loginGoogle } = useGoogleAuth();
+  const { isAuthenticated, user } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated()) {
+      navigate({ to: "/app/dashboard" });
+    }
+  }, [user]);
 
   return (
     <div className="flex w-full max-w-[520px] flex-col items-center justify-center gap-4">
@@ -25,6 +37,18 @@ export const ThreeStepsPage = () => {
       >
         {t("global.button.continue")}
       </Button>
+
+      <div className="flex w-full items-center justify-center gap-4">
+        <Button
+          onClick={() => loginGoogle()}
+          type="button"
+          variant={"oneTap"}
+          size={"icon"}
+          className="w-10"
+        >
+          <img src={googleLogo} alt="Google Logo" height="25px" width="25px" />
+        </Button>
+      </div>
     </div>
   );
 };
