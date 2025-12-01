@@ -1,11 +1,13 @@
-import { useNavigate } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import gmail3D from "@assets/imgs/3d/gmail.png";
 import { Button } from "@/components/ui/button";
+import { useRegisterUserStore } from "@/src/store/register-user.store";
+import { useAuth } from "@/src/contexts/AuthContext";
 
 export const MailSentPage = () => {
-
   const { t } = useTranslation();
+  const registerData = useRegisterUserStore((state) => state);
+  const { resendConfirmationEmail } = useAuth();
 
 
   return (
@@ -21,7 +23,11 @@ export const MailSentPage = () => {
       <div className="flex w-full flex-col items-center justify-center gap-4">
         <p className="text-center">{t("auth.mailSent.description")}</p>
 
-        <Button variant={"tertiary"} className="text-qo-xs">
+        <Button
+          onClick={() => resendConfirmationEmail(registerData.email ?? "")}
+          variant={"tertiary"}
+          className="text-qo-xs"
+        >
           {t("global.button.resendCode")}
         </Button>
       </div>

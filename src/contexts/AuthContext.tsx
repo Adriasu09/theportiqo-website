@@ -55,6 +55,7 @@ export interface AuthContextType {
     signInWithGoogleData: SignInWithGoogleData,
   ) => Promise<LoginResponse | User>;
   confirmEmail: (token: string) => Promise<any>;
+  resendConfirmationEmail: (email: string) => Promise<unknown>;
   forgotPassword: (email: string) => Promise<any>;
   changePassword: (
     currentPassword: string,
@@ -261,6 +262,24 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   };
 
+  const resendConfirmationEmail = async (email: string) => {
+    try {
+      const backendUrl =
+        import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+
+      await fetch(`${backendUrl}/api/users/resend-confirmation`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+    } catch (error) {
+      console.error("Resend confirmation email error:", error);
+      throw error;
+    }
+  };
+
   const updatePersonalInfo = async (
     personalData: PersonalDataFormType,
   ): Promise<any> => {
@@ -299,8 +318,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   };
 
-
-  const updateAddress = async (addressData: AddressFormType): Promise<unknown> => {
+  const updateAddress = async (
+    addressData: AddressFormType,
+  ): Promise<unknown> => {
     try {
       if (!user?.token) {
         throw new Error("User not authenticated");
@@ -540,6 +560,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     register,
     signInWithGoogle,
     confirmEmail,
+    resendConfirmationEmail,
     forgotPassword,
     changePassword,
     resetPassword,
@@ -547,7 +568,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     isAuthenticated,
     processTokenFromBackend,
     updatePersonalInfo,
-    updateAddress
+    updateAddress,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
