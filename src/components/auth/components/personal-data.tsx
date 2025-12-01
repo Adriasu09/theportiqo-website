@@ -45,7 +45,7 @@ export const PersonalDataPage = () => {
           <personalDataForm.AppField
             name="phone"
             children={(field) => (
-              <field.Input label={t("global.label.phone")} />
+              <field.PhoneSelector label={t("global.label.phone")} />
             )}
           />
 

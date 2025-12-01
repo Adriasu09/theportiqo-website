@@ -18,7 +18,7 @@ export const RegisterFormSchema = z.object({
   acceptTerms: z.boolean().refine((val) => val === true, {
     message: "You must accept the terms and conditions",
   }),
-  phone: z.string().min(9, "Phone number is required"),
+  phone: z.string().min(9, "Enter a valid phone number"),
   documentType: z.enum(["DNI", "NIE", "PASSPORT"]),
   documentNumber: z.string().min(1, "Document number is required"),
   address: z.string().min(1, "Address is required"),

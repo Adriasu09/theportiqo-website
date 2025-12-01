@@ -10,3 +10,8 @@ export type FormBaseProps = FormControlProps & {
   horizontal?: boolean;
   controlFirst?: boolean;
 };
+
+export interface SelectOption {
+  label: string;
+  value: string;
+}
