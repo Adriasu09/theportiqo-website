@@ -16,7 +16,13 @@
 			"title": "¿Lo dejamos para más tarde?"
 		},
 		"createPassword": {
-			"title": "Una contraseña memorable"
+			"title": "Una contraseña memorable",
+			"validation": {
+				"case": "una letra mayúscula",
+				"length": "Al menos 8 caracteres",
+				"match": "Las contraseñas coinciden",
+				"number": "un número"
+			}
 		},
 		"enterCode": {
 			"description": "Para acceder, ingresa el código de inicio de sesión de 4 dígitos que hemos enviado a {{email}}.",

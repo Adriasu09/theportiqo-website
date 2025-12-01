@@ -9,6 +9,7 @@ export type FormBaseProps = FormControlProps & {
   children: ReactNode;
   horizontal?: boolean;
   controlFirst?: boolean;
+  showErrorMessage?: boolean;
 };
 
 export interface SelectOption {

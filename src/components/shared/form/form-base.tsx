@@ -14,6 +14,7 @@ export function FormBase({
   description,
   controlFirst,
   horizontal,
+  showErrorMessage = true,
 }: FormBaseProps) {
   const field = useFieldContext();
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
@@ -40,14 +41,14 @@ export function FormBase({
           {children}
           <FieldContent>
             {labelElement}
-            {errorElement}
+            {showErrorMessage && errorElement}
           </FieldContent>
         </>
       ) : (
         <>
           <FieldContent>{labelElement}</FieldContent>
           {children}
-          {errorElement}
+          {showErrorMessage && errorElement}
         </>
       )}
     </Field>

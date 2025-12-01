@@ -16,7 +16,13 @@
 			"title": "Shall we leave it for later?"
 		},
 		"createPassword": {
-			"title": "A memorable password"
+			"title": "A memorable password",
+			"validation": {
+				"case": "a capital letter",
+				"length": "at least 8 characters",
+				"match": "Passwords match",
+				"number": "one number"
+			}
 		},
 		"enterCode": {
 			"description": "To access, enter the 4-digit login code we have sent to {{email}}",
