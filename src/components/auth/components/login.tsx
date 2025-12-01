@@ -5,15 +5,19 @@ import { FieldGroup } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { LoginResponse, useAuth, User } from "@/src/contexts/AuthContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useFingerprintStore } from "@/src/store/fingerprint.store";
 import googleLogo from "@assets/imgs/logos/googleLogo.png";
 import { useGoogleAuth } from "../hooks/useGoogleAuth";
+import { ERROR_CODES } from "../../shared/constants/error.constants";
 
 export const LoginPage = () => {
   const { t } = useTranslation();
   const { login, isAuthenticated, user } = useAuth();
   const { loginGoogle } = useGoogleAuth();
+
+  const [loginError, setLoginError] = useState<string | null>(null);
+
   const deviceId = useFingerprintStore((state) => state.deviceId);
   const navigate = useNavigate();
 
@@ -34,12 +38,19 @@ export const LoginPage = () => {
       onChange: LoginFormSchema,
     },
     onSubmit: async ({ value }) => {
-      const res: LoginResponse | User = await login({
+      const res: LoginResponse | User | void = await login({
         ...value,
         device_fingerprint: deviceId,
+      }).catch((error) => {
+        if (
+          error.message.toLowerCase() ===
+          ERROR_CODES.INVALID_CREDENTIALS.toLowerCase()
+        ) {
+          setLoginError("invalidCredentials");
+        }
       });
 
-      if ("requires_otp" in res && res.requires_otp) {
+      if (res && "requires_otp" in res && res.requires_otp) {
         navigate({
           to: "/auth/enter-code",
           search: { email: value.email },
@@ -76,6 +87,7 @@ export const LoginPage = () => {
               <field.Input type="password" label={t("global.label.password")} />
             )}
           />
+
           <Link to="/auth/forgot-password" className="cursor-pointer font-bold">
             {t("global.button.forgotPassword")}
           </Link>
@@ -85,13 +97,16 @@ export const LoginPage = () => {
           <loginForm.Subscribe
             selector={(state) => [state.canSubmit, state.isDirty]}
             children={([canSubmit, isDirty]) => (
-              <Button
-                type="submit"
-                className="onboarding-button"
-                disabled={!canSubmit || !isDirty}
-              >
-                {t("global.button.enter")}
-              </Button>
+              <div className="w-full flex flex-col gap-2 justify-center items-center">
+                <Button
+                  type="submit"
+                  className="onboarding-button"
+                  disabled={!canSubmit || !isDirty}
+                >
+                  {t("global.button.enter")}
+                </Button>
+                {loginError !== null && <p className="font-semibold text-qo-error-400">{t(`global.error.${loginError}`)}</p>}
+              </div>
             )}
           />
 

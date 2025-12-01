@@ -100,6 +100,9 @@
 			"startInvestingNow": "Comience a invertir ahora mismo",
 			"tryPortiqo": "Quiero probar Pórtiqo"
 		},
+		"error": {
+			"invalidCredentials": "Credenciales inválidas"
+		},
 		"label": {
 			"acceptCommunication": "Acepto recibir comunicaciones comerciales y ofertas promocionales del grupo Huargo.",
 			"acceptTerms": "Acepto las condiciones legales y la política de privacidad de Portiqo.",
