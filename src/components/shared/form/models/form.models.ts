@@ -16,3 +16,9 @@ export interface SelectOption {
   label: string;
   value: string;
 }
+
+export interface Country {
+  name: string;
+  isoCode: string;
+  prefix: string;
+}

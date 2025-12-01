@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/input-group";
 import { FormBase } from "./form-base";
 import { useFieldContext } from "./form-hooks";
-import { FormControlProps, SelectOption } from "./models/form.models";
+import { Country, FormControlProps } from "./models/form.models";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,21 +14,21 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
-import { COUNTRY_PHONE_PREFIXES } from "./constants/form.constants";
+import { EU_COUNTRIES } from "./constants/form.constants";
 import { useState } from "react";
 
 export function FormPhoneSelect({ ...props }: FormControlProps) {
   const field = useFieldContext<string>();
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
-  const [countrySelected, setCountrySelected] = useState<SelectOption>(
-    COUNTRY_PHONE_PREFIXES[0],
+  const [countrySelected, setCountrySelected] = useState<Country>(
+    EU_COUNTRIES[0],
   );
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleCountrySelect = (country: SelectOption) => {
+  const handleCountrySelect = (country: Country) => {
     setCountrySelected(country);
     const currentInputValue: string = field.state.value.split(" ")[1] || "";
-    field.handleChange(country.value + " " + currentInputValue);
+    field.handleChange(country.prefix + " " + currentInputValue);
   };
 
   return (
@@ -38,7 +38,7 @@ export function FormPhoneSelect({ ...props }: FormControlProps) {
           <DropdownMenu onOpenChange={setIsOpen}>
             <DropdownMenuTrigger asChild>
               <InputGroupButton variant="tertiaryInputAddon" size="sm">
-                {countrySelected.label} ({countrySelected.value})
+                {countrySelected.isoCode} ({countrySelected.prefix})
                 {isOpen ? (
                   <ChevronUpIcon className="size-5" />
                 ) : (
@@ -48,13 +48,13 @@ export function FormPhoneSelect({ ...props }: FormControlProps) {
             </DropdownMenuTrigger>
 
             <DropdownMenuContent className="max-h-32 max-w-8">
-              {COUNTRY_PHONE_PREFIXES.map((country: SelectOption) => (
+              {EU_COUNTRIES.map((country: Country) => (
                 <DropdownMenuItem
-                  key={country.value}
+                  key={country.isoCode}
                   onClick={() => handleCountrySelect(country)}
                   className="cursor-pointer hover:bg-qo-gray-100"
                 >
-                  {country.label}
+                  {country.isoCode}
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
@@ -67,7 +67,7 @@ export function FormPhoneSelect({ ...props }: FormControlProps) {
           value={(field.state.value || "").split(" ")[1] || ""}
           onBlur={field.handleBlur}
           onChange={(e) =>
-            field.handleChange(`${countrySelected.value} ${e.target.value}`)
+            field.handleChange(`${countrySelected.prefix} ${e.target.value}`)
           }
           aria-invalid={isInvalid}
           autoComplete="off"
