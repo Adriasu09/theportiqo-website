@@ -17,7 +17,7 @@ import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 import { COUNTRY_PHONE_PREFIXES } from "./constants/form.constants";
 import { useState } from "react";
 
-export function FormPhoneSelector({ ...props }: FormControlProps) {
+export function FormPhoneSelect({ ...props }: FormControlProps) {
   const field = useFieldContext<string>();
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
   const [countrySelected, setCountrySelected] = useState<SelectOption>(

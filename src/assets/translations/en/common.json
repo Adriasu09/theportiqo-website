@@ -101,6 +101,7 @@
 			"city": "City",
 			"country": "Country",
 			"documentNumber": "Document number",
+			"documentType": "Document type",
 			"email": "Email",
 			"en": "English",
 			"english": "English",

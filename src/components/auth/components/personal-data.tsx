@@ -6,6 +6,9 @@ import { PersonalDataSchema } from "../schemas/register.schema";
 import { FieldGroup } from "@/components/ui/field";
 import { useAuth } from "@/src/contexts/AuthContext";
 import { useNavigate } from "@tanstack/react-router";
+import { DOCUMENT_TYPE_OPTIONS } from "../../shared/form/constants/form.constants";
+import { SelectOption } from "../../shared/form/models/form.models";
+import { SelectItem } from "@/components/ui/select";
 
 export const PersonalDataPage = () => {
   const { t } = useTranslation();
@@ -45,14 +48,20 @@ export const PersonalDataPage = () => {
           <personalDataForm.AppField
             name="phone"
             children={(field) => (
-              <field.PhoneSelector label={t("global.label.phone")} />
+              <field.PhoneSelect label={t("global.label.phone")} />
             )}
           />
 
           <personalDataForm.AppField
             name="documentType"
             children={(field) => (
-              <field.Input label={t("global.label.documentType")} />
+              <field.Select label={t("global.label.documentType")}>
+                {DOCUMENT_TYPE_OPTIONS.map((option: SelectOption) => (
+                  <SelectItem key={option.value} value={option.value}>
+                    {option.label}
+                  </SelectItem>
+                ))}
+              </field.Select>
             )}
           />
 

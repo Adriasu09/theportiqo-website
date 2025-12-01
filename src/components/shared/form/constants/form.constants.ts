@@ -29,3 +29,9 @@ export const COUNTRY_PHONE_PREFIXES: SelectOption[] = [
   { label: "SI", value: "+386" },
   { label: "SK", value: "+421" },
 ];
+
+export const DOCUMENT_TYPE_OPTIONS: SelectOption[] = [
+  { label: "DNI", value: "DNI" },
+  { label: "NIE", value: "NIE" },
+  { label: "Passport", value: "PASSPORT" },
+];
