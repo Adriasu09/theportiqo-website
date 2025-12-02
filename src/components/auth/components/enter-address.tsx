@@ -7,7 +7,7 @@ import { getInitialFormValues } from "../utils/register-form.utils";
 import { AddressFormType, AddressSchema } from "../schemas/register.schema";
 import { ADDRESS_DEFAULT_VALUES } from "../constants/register.constants";
 import { useAuth } from "@/src/contexts/AuthContext";
-import { EU_COUNTRIES } from "../../shared/form/constants/form.constants";
+import { COUNTRIES } from "../../shared/form/constants/form.constants";
 import { Country } from "../../shared/form/models/form.models";
 import { SelectItem } from "@/components/ui/select";
 
@@ -76,9 +76,9 @@ export const EnterAddressPage = () => {
             name="country"
             children={(field) => (
               <field.Select label={t("global.label.country")}>
-                {EU_COUNTRIES.map((country: Country) => (
+                {COUNTRIES.map((country: Country) => (
                   <SelectItem key={country.isoCode} value={country.isoCode}>
-                    {country.name}
+                    {t(`global.country.${country.name}`)}
                   </SelectItem>
                 ))}
               </field.Select>
