@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { BenefitCard } from "../../models/landing.models";
+import { BenefitCard } from "../../types/landing.types";
 import "./benefits-card.css";
 
 export const BenefitsCard = ({

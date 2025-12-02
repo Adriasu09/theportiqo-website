@@ -11,13 +11,19 @@ import { CircleAlert, Mail, CircleQuestionMark } from "lucide-react";
 
 export function FormInput({
   type = "text",
+  showErrorMessage = true,
   ...props
-}: FormControlProps & { type?: string }) {
+}: FormControlProps & { type?: string; showErrorMessage?: boolean }) {
   const field = useFieldContext<string>();
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
 
   return (
-    <FormBase {...props} horizontal={false} controlFirst={false}>
+    <FormBase
+      {...props}
+      horizontal={false}
+      controlFirst={false}
+      showErrorMessage={showErrorMessage}
+    >
       {type === "password" ? (
         <Input
           type={type}

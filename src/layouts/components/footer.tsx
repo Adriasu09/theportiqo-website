@@ -8,7 +8,7 @@ import PortiqoLogo from "@/src/assets/imgs/logos/portiqo/portiqo-white.svg";
 import { Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { FOOTER_SECTIONS } from "../constants/footer.constants";
-import { FooterSection } from "../models/footer.models";
+import { FooterSection } from "../types/footer.types";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,7 +17,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useUserPreferencesStore } from "@/src/store/user-preferences.store";
-import { MenuItem } from "@/src/components/shared/models/menu.models";
+import { MenuItem } from "@/src/components/shared/types/menu.types";
 
 export const Footer = () => {
   const { t, i18n } = useTranslation();

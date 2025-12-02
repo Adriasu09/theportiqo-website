@@ -1,5 +1,9 @@
 {
 	"auth": {
+		"accountBlocked": {
+			"description": "Tu cuenta ha sido restringida temporalmente. \n\nSi necesitas ayuda, contáctanos y veremos cómo podemos ayudarte.",
+			"title": "Cuenta bloqueada"
+		},
 		"address": {
 			"title": "Introduce tu domicilio"
 		},
@@ -16,7 +20,13 @@
 			"title": "¿Lo dejamos para más tarde?"
 		},
 		"createPassword": {
-			"title": "Una contraseña memorable"
+			"title": "Una contraseña memorable",
+			"validation": {
+				"case": "una letra mayúscula",
+				"length": "Al menos 8 caracteres",
+				"match": "Las contraseñas coinciden",
+				"number": "un número"
+			}
 		},
 		"enterCode": {
 			"description": "Para acceder, ingresa el código de inicio de sesión de 4 dígitos que hemos enviado a {{email}}.",
@@ -55,6 +65,10 @@
 		"twoStepsVerification": {
 			"description": "La autenticación en dos pasos protege tu cuenta con un código de acceso que debes ingresar cuando inicias sesión desde un dispositivo que no has marcado aún como seguro.",
 			"title": "Identificación en dos pasos"
+		},
+		"unverifiedEmail": {
+			"description": "Para poder acceder, necesitamos que verifiques tu email. \nDurante el proceso de registro, enviamos un correo con un link. Por favor, revisa tu bandeja de entrada y, si no lo encuentras, verifica tu carpeta de spam o ponte en contacto con nosotros.",
+			"title": "Verifica tu email"
 		}
 	},
 	"footer": {
@@ -79,6 +93,7 @@
 	"global": {
 		"button": {
 			"accessPortiqo": "Acceder a Pórtiqo",
+			"back": "Volver",
 			"backToLogin": "Volver al login",
 			"becomeClient": "Hazte cliente",
 			"clients": "Clientes",
@@ -94,6 +109,9 @@
 			"startInvestingNow": "Comience a invertir ahora mismo",
 			"tryPortiqo": "Quiero probar Pórtiqo"
 		},
+		"error": {
+			"invalidCredentials": "Credenciales inválidas"
+		},
 		"label": {
 			"acceptCommunication": "Acepto recibir comunicaciones comerciales y ofertas promocionales del grupo Huargo.",
 			"acceptTerms": "Acepto las condiciones legales y la política de privacidad de Portiqo.",
@@ -101,6 +119,7 @@
 			"city": "Ciudad",
 			"country": "País",
 			"documentNumber": "Número de documento",
+			"documentType": "Tipo de documento",
 			"email": "Correo electrónico",
 			"en": "Inglés",
 			"english": "Inglés",
