@@ -5,6 +5,7 @@ import { FieldGroup } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/src/contexts/AuthContext";
 import { useNavigate } from "@tanstack/react-router";
+import { PasswordValidationIndicator } from "../../shared/form/passwordValidationIndicator";
 
 interface ResetPasswordPageProps {
   token?: string;
@@ -52,7 +53,11 @@ export const ResetPasswordPage = ({ token }: ResetPasswordPageProps) => {
           <resetPasswordForm.AppField
             name="password"
             children={(field) => (
-              <field.Input type="password" label={t("global.label.password")} />
+              <field.Input
+                type="password"
+                label={t("global.label.password")}
+                showErrorMessage={false}
+              />
             )}
           />
 
@@ -62,10 +67,19 @@ export const ResetPasswordPage = ({ token }: ResetPasswordPageProps) => {
               <field.Input
                 type="password"
                 label={t("global.label.passwordConfirmation")}
+                showErrorMessage={false}
               />
             )}
           />
         </FieldGroup>
+
+        <resetPasswordForm.Subscribe
+          selector={(state) => [state.values.password]}
+        >
+          {([password]) => (
+            <PasswordValidationIndicator password={password ?? ""} />
+          )}
+        </resetPasswordForm.Subscribe>
 
         <resetPasswordForm.Subscribe
           selector={(state) => [state.canSubmit, state.isDirty]}

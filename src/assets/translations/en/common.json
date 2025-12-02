@@ -32,6 +32,10 @@
 			"description": "To access, enter the 4-digit login code we have sent to {{email}}",
 			"title": "Enter the code"
 		},
+		"existingAccount": {
+			"description": "It appears that this email address is already registered with us. You can log in, or if you forgot your password, no problem, you can easily recover it at the link.",
+			"title": "Account already registered"
+		},
 		"forgotPassword": {
 			"description": "Enter the email address you used to register and we will send you a link to reset your password.",
 			"title": "Forgot your password?"
@@ -104,6 +108,7 @@
 			"forgotPassword": "I forgot my password",
 			"goSimulator": "Go to the simulator of our portfolios",
 			"goToPortfolioSimulator": "Go to the simulator of our portfolios",
+			"login": "Log in",
 			"resendCode": "Resend code",
 			"startInvesting": "Start investing today",
 			"startInvestingNow": "Start investing right now",
