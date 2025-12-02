@@ -14,14 +14,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
-import { EU_COUNTRIES } from "./constants/form.constants";
+import { COUNTRIES } from "./constants/form.constants";
 import { useState } from "react";
 
 export function FormPhoneSelect({ ...props }: FormControlProps) {
   const field = useFieldContext<string>();
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
   const [countrySelected, setCountrySelected] = useState<Country>(
-    EU_COUNTRIES[0],
+    COUNTRIES[0],
   );
   const [isOpen, setIsOpen] = useState(false);
 
@@ -48,7 +48,7 @@ export function FormPhoneSelect({ ...props }: FormControlProps) {
             </DropdownMenuTrigger>
 
             <DropdownMenuContent className="max-h-32 max-w-8">
-              {EU_COUNTRIES.map((country: Country) => (
+              {COUNTRIES.map((country: Country) => (
                 <DropdownMenuItem
                   key={country.isoCode}
                   onClick={() => handleCountrySelect(country)}

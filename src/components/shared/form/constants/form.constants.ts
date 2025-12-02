@@ -1,6 +1,7 @@
 import { Country, SelectOption } from "../models/form.models";
 
-export const EU_COUNTRIES: Country[] = [
+export const COUNTRIES: Country[] = [
+  { name: "spain", isoCode: "ES", prefix: "+34" },
   { name: "austria", isoCode: "AT", prefix: "+43" },
   { name: "belgium", isoCode: "BE", prefix: "+32" },
   { name: "bulgaria", isoCode: "BG", prefix: "+359" },
@@ -26,8 +27,26 @@ export const EU_COUNTRIES: Country[] = [
   { name: "romania", isoCode: "RO", prefix: "+40" },
   { name: "slovakia", isoCode: "SK", prefix: "+421" },
   { name: "slovenia", isoCode: "SI", prefix: "+386" },
-  { name: "spain", isoCode: "ES", prefix: "+34" },
   { name: "sweden", isoCode: "SE", prefix: "+46" },
+  { name: "mexico", isoCode: "MX", prefix: "+52" },
+  { name: "morocco", isoCode: "MA", prefix: "+212" },
+  { name: "turkey", isoCode: "TR", prefix: "+90" },
+  { name: "colombia", isoCode: "CO", prefix: "+57" },
+  { name: "argentina", isoCode: "AR", prefix: "+54" },
+  { name: "ecuador", isoCode: "EC", prefix: "+593" },
+  { name: "dominicanRepublic", isoCode: "DO", prefix: "+1" },
+  { name: "peru", isoCode: "PE", prefix: "+51" },
+  { name: "honduras", isoCode: "HN", prefix: "+504" },
+  { name: "unitedKingdom", isoCode: "GB", prefix: "+44" },
+  { name: "norway", isoCode: "NO", prefix: "+47" },
+  { name: "switzerland", isoCode: "CH", prefix: "+41" },
+  { name: "albania", isoCode: "AL", prefix: "+355" },
+  { name: "sanMarino", isoCode: "SM", prefix: "+378" },
+  { name: "montenegro", isoCode: "ME", prefix: "+382" },
+  { name: "northMacedonia", isoCode: "MK", prefix: "+389" },
+  { name: "armenia", isoCode: "AM", prefix: "+374" },
+  { name: "georgia", isoCode: "GE", prefix: "+995" },
+  { name: "serbia", isoCode: "RS", prefix: "+381" }
 ];
 
 
