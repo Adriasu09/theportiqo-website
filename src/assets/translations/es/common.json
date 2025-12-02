@@ -32,6 +32,10 @@
 			"description": "Para acceder, ingresa el código de inicio de sesión de 4 dígitos que hemos enviado a {{email}}.",
 			"title": "Ingresa el código"
 		},
+		"existingAccount": {
+			"description": "Parece que este correo ya tiene un lugar con nosotros. Puedes iniciar sesión o, si olvidaste tu contraseña, no hay problema, recupérala fácilmente en el enlace.",
+			"title": "Cuenta ya registrada"
+		},
 		"forgotPassword": {
 			"description": "Introduce el correo electrónico con el que te registraste y te enviaremos un enlace para restablecer tu contraseña.",
 			"title": "¿Olvidaste tu contraseña?"
@@ -104,6 +108,7 @@
 			"forgotPassword": "He olvidado mi contraseña",
 			"goSimulator": "Ir al simulador de nuestras carteras",
 			"goToPortfolioSimulator": "Ir al simulador de nuestras carteras",
+			"login": "Iniciar sesión",
 			"resendCode": "Reenviar código",
 			"startInvesting": "Empieza a invertir hoy",
 			"startInvestingNow": "Comience a invertir ahora mismo",

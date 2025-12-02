@@ -6,8 +6,8 @@ import { useAuth } from "@/src/contexts/AuthContext";
 
 export const MailSentPage = () => {
   const { t } = useTranslation();
-  const registerData = useRegisterUserStore((state) => state);
   const { resendConfirmationEmail } = useAuth();
+  const registerData = useRegisterUserStore((state) => state);
 
 
   return (

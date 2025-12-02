@@ -5,9 +5,10 @@ import { PasswordSchema, RegisterFormType } from "../schemas/register.schema";
 import { FieldGroup } from "@/components/ui/field";
 import { useRegisterUserStore } from "@/src/store/register-user.store";
 import { Button } from "@/components/ui/button";
-import { useAuth } from "@/src/contexts/AuthContext";
+import { ApiError, useAuth } from "@/src/contexts/AuthContext";
 import { useNavigate } from "@tanstack/react-router";
-import { Check } from "lucide-react";
+import { ERROR_CODES } from "../../shared/constants/error.constants";
+import { PasswordValidationIndicator } from "../../shared/form/passwordValidationIndicator";
 
 export const CreatePasswordPage = () => {
   const { t } = useTranslation();
@@ -15,12 +16,6 @@ export const CreatePasswordPage = () => {
 
   const registerData = useRegisterUserStore((state) => state);
   const { register } = useAuth();
-
-  const passwordValidations = {
-    length: (pw: string) => pw.length >= 8,
-    uppercase: (pw: string) => /[A-Z]/.test(pw),
-    number: (pw: string) => /[0-9]/.test(pw),
-  };
 
   const passwordForm = useAppForm({
     defaultValues: PASSWORD_DEFAULT_VALUES,
@@ -36,6 +31,11 @@ export const CreatePasswordPage = () => {
           navigate({ to: "/auth/mail-sent" });
         })
         .catch((error) => {
+          if (error instanceof ApiError) {
+            error.code === ERROR_CODES.USER_EMAIL_ALREADY_EXISTS &&
+              navigate({ to: "/auth/existing-account" });
+            return;
+          }
           console.error("Registration failed:", error);
         });
     },
@@ -79,55 +79,9 @@ export const CreatePasswordPage = () => {
         </FieldGroup>
 
         <passwordForm.Subscribe selector={(state) => [state.values.password]}>
-          {([password]) => {
-            const isLengthValid = passwordValidations.length(password ?? "");
-            const hasUppercase = passwordValidations.uppercase(password ?? "");
-            const hasNumber = passwordValidations.number(password ?? "");
-
-            const getColor = (valid: boolean) =>
-              valid ? "text-qo-success-500" : "text-qo-gray-400";
-
-            const getCircleColor = (valid: boolean) =>
-              valid ? "bg-qo-success-500" : "bg-qo-gray-300";
-
-            return (
-              <div className="flex w-full flex-col gap-4">
-                {/* Length */}
-                <p
-                  className={`flex items-center gap-2 ${getColor(isLengthValid)}`}
-                >
-                  <span
-                    className={`flex items-center justify-center rounded-full p-1 ${getCircleColor(isLengthValid)}`}
-                  >
-                    <Check className="size-4 text-white" />
-                  </span>
-                  {t("auth.createPassword.validation.length")}
-                </p>
-
-                {/* Uppercase */}
-                <p
-                  className={`flex items-center gap-2 ${getColor(hasUppercase)}`}
-                >
-                  <span
-                    className={`flex items-center justify-center rounded-full p-1 ${getCircleColor(hasUppercase)}`}
-                  >
-                    <Check className="size-4 text-white" />
-                  </span>
-                  {t("auth.createPassword.validation.case")}
-                </p>
-
-                {/* Number */}
-                <p className={`flex items-center gap-2 ${getColor(hasNumber)}`}>
-                  <span
-                    className={`flex items-center justify-center rounded-full p-1 ${getCircleColor(hasNumber)}`}
-                  >
-                    <Check className="size-4 text-white" />
-                  </span>
-                  {t("auth.createPassword.validation.number")}
-                </p>
-              </div>
-            );
-          }}
+          {([password]) => (
+            <PasswordValidationIndicator password={password ?? ""} />
+          )}
         </passwordForm.Subscribe>
 
         <passwordForm.Subscribe

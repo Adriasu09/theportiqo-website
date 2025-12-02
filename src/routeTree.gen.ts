@@ -24,6 +24,7 @@ import { Route as AuthNameEmailRouteImport } from './routes/auth/name-email'
 import { Route as AuthMailSentRouteImport } from './routes/auth/mail-sent'
 import { Route as AuthLoginRouteImport } from './routes/auth/login'
 import { Route as AuthForgotPasswordRouteImport } from './routes/auth/forgot-password'
+import { Route as AuthExistingAccountRouteImport } from './routes/auth/existing-account'
 import { Route as AuthEnterCodeRouteImport } from './routes/auth/enter-code'
 import { Route as AuthEnterAddressRouteImport } from './routes/auth/enter-address'
 import { Route as AuthCreatePasswordRouteImport } from './routes/auth/create-password'
@@ -130,6 +131,11 @@ const AuthForgotPasswordRoute = AuthForgotPasswordRouteImport.update({
   path: '/forgot-password',
   getParentRoute: () => AuthLazyRoute,
 } as any)
+const AuthExistingAccountRoute = AuthExistingAccountRouteImport.update({
+  id: '/existing-account',
+  path: '/existing-account',
+  getParentRoute: () => AuthLazyRoute,
+} as any)
 const AuthEnterCodeRoute = AuthEnterCodeRouteImport.update({
   id: '/enter-code',
   path: '/enter-code',
@@ -184,6 +190,7 @@ export interface FileRoutesByFullPath {
   '/auth/create-password': typeof AuthCreatePasswordRoute
   '/auth/enter-address': typeof AuthEnterAddressRoute
   '/auth/enter-code': typeof AuthEnterCodeRoute
+  '/auth/existing-account': typeof AuthExistingAccountRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/mail-sent': typeof AuthMailSentRoute
@@ -211,6 +218,7 @@ export interface FileRoutesByTo {
   '/auth/create-password': typeof AuthCreatePasswordRoute
   '/auth/enter-address': typeof AuthEnterAddressRoute
   '/auth/enter-code': typeof AuthEnterCodeRoute
+  '/auth/existing-account': typeof AuthExistingAccountRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/mail-sent': typeof AuthMailSentRoute
@@ -239,6 +247,7 @@ export interface FileRoutesById {
   '/auth/create-password': typeof AuthCreatePasswordRoute
   '/auth/enter-address': typeof AuthEnterAddressRoute
   '/auth/enter-code': typeof AuthEnterCodeRoute
+  '/auth/existing-account': typeof AuthExistingAccountRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/mail-sent': typeof AuthMailSentRoute
@@ -268,6 +277,7 @@ export interface FileRouteTypes {
     | '/auth/create-password'
     | '/auth/enter-address'
     | '/auth/enter-code'
+    | '/auth/existing-account'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/mail-sent'
@@ -295,6 +305,7 @@ export interface FileRouteTypes {
     | '/auth/create-password'
     | '/auth/enter-address'
     | '/auth/enter-code'
+    | '/auth/existing-account'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/mail-sent'
@@ -322,6 +333,7 @@ export interface FileRouteTypes {
     | '/auth/create-password'
     | '/auth/enter-address'
     | '/auth/enter-code'
+    | '/auth/existing-account'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/mail-sent'
@@ -465,6 +477,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthForgotPasswordRouteImport
       parentRoute: typeof AuthLazyRoute
     }
+    '/auth/existing-account': {
+      id: '/auth/existing-account'
+      path: '/existing-account'
+      fullPath: '/auth/existing-account'
+      preLoaderRoute: typeof AuthExistingAccountRouteImport
+      parentRoute: typeof AuthLazyRoute
+    }
     '/auth/enter-code': {
       id: '/auth/enter-code'
       path: '/enter-code'
@@ -557,6 +576,7 @@ interface AuthLazyRouteChildren {
   AuthCreatePasswordRoute: typeof AuthCreatePasswordRoute
   AuthEnterAddressRoute: typeof AuthEnterAddressRoute
   AuthEnterCodeRoute: typeof AuthEnterCodeRoute
+  AuthExistingAccountRoute: typeof AuthExistingAccountRoute
   AuthForgotPasswordRoute: typeof AuthForgotPasswordRoute
   AuthLoginRoute: typeof AuthLoginRoute
   AuthMailSentRoute: typeof AuthMailSentRoute
@@ -577,6 +597,7 @@ const AuthLazyRouteChildren: AuthLazyRouteChildren = {
   AuthCreatePasswordRoute: AuthCreatePasswordRoute,
   AuthEnterAddressRoute: AuthEnterAddressRoute,
   AuthEnterCodeRoute: AuthEnterCodeRoute,
+  AuthExistingAccountRoute: AuthExistingAccountRoute,
   AuthForgotPasswordRoute: AuthForgotPasswordRoute,
   AuthLoginRoute: AuthLoginRoute,
   AuthMailSentRoute: AuthMailSentRoute,
