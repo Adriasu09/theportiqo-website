@@ -78,7 +78,7 @@ export const EnterAddressPage = () => {
               <field.Select label={t("global.label.country")}>
                 {EU_COUNTRIES.map((country: Country) => (
                   <SelectItem key={country.isoCode} value={country.isoCode}>
-                    {country.name}
+                    {t(`global.country.${country.name}`)}
                   </SelectItem>
                 ))}
               </field.Select>
