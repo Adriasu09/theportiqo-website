@@ -15,6 +15,7 @@ import { Route as LandingRouteImport } from './routes/landing'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LandingHomeRouteImport } from './routes/landing/home'
+import { Route as AuthUnverifiedEmailRouteImport } from './routes/auth/unverified-email'
 import { Route as AuthTwoStepsVerificationRouteImport } from './routes/auth/two-steps-verification'
 import { Route as AuthResetPasswordRouteImport } from './routes/auth/reset-password'
 import { Route as AuthPersonalDataRouteImport } from './routes/auth/personal-data'
@@ -29,6 +30,7 @@ import { Route as AuthCreatePasswordRouteImport } from './routes/auth/create-pas
 import { Route as AuthContinueLaterRouteImport } from './routes/auth/continue-later'
 import { Route as AuthConfirmEmailRouteImport } from './routes/auth/confirm-email'
 import { Route as AuthBestFaceRouteImport } from './routes/auth/best-face'
+import { Route as AuthAccountBlockedRouteImport } from './routes/auth/account-blocked'
 import { Route as AppDashboardRouteImport } from './routes/app/dashboard'
 
 const AuthLazyRouteImport = createFileRoute('/auth')()
@@ -81,6 +83,11 @@ const LandingHomeRoute = LandingHomeRouteImport.update({
   id: '/home',
   path: '/home',
   getParentRoute: () => LandingRoute,
+} as any)
+const AuthUnverifiedEmailRoute = AuthUnverifiedEmailRouteImport.update({
+  id: '/unverified-email',
+  path: '/unverified-email',
+  getParentRoute: () => AuthLazyRoute,
 } as any)
 const AuthTwoStepsVerificationRoute =
   AuthTwoStepsVerificationRouteImport.update({
@@ -153,6 +160,11 @@ const AuthBestFaceRoute = AuthBestFaceRouteImport.update({
   path: '/best-face',
   getParentRoute: () => AuthLazyRoute,
 } as any)
+const AuthAccountBlockedRoute = AuthAccountBlockedRouteImport.update({
+  id: '/account-blocked',
+  path: '/account-blocked',
+  getParentRoute: () => AuthLazyRoute,
+} as any)
 const AppDashboardRoute = AppDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -165,6 +177,7 @@ export interface FileRoutesByFullPath {
   '/landing': typeof LandingRouteWithChildren
   '/auth': typeof AuthLazyRouteWithChildren
   '/app/dashboard': typeof AppDashboardRoute
+  '/auth/account-blocked': typeof AuthAccountBlockedRoute
   '/auth/best-face': typeof AuthBestFaceRoute
   '/auth/confirm-email': typeof AuthConfirmEmailRoute
   '/auth/continue-later': typeof AuthContinueLaterRoute
@@ -179,6 +192,7 @@ export interface FileRoutesByFullPath {
   '/auth/personal-data': typeof AuthPersonalDataRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
   '/auth/two-steps-verification': typeof AuthTwoStepsVerificationRoute
+  '/auth/unverified-email': typeof AuthUnverifiedEmailRoute
   '/landing/home': typeof LandingHomeRoute
   '/auth/three-steps': typeof AuthThreeStepsLazyRoute
   '/landing/product': typeof LandingProductLazyRoute
@@ -190,6 +204,7 @@ export interface FileRoutesByTo {
   '/landing': typeof LandingRouteWithChildren
   '/auth': typeof AuthLazyRouteWithChildren
   '/app/dashboard': typeof AppDashboardRoute
+  '/auth/account-blocked': typeof AuthAccountBlockedRoute
   '/auth/best-face': typeof AuthBestFaceRoute
   '/auth/confirm-email': typeof AuthConfirmEmailRoute
   '/auth/continue-later': typeof AuthContinueLaterRoute
@@ -204,6 +219,7 @@ export interface FileRoutesByTo {
   '/auth/personal-data': typeof AuthPersonalDataRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
   '/auth/two-steps-verification': typeof AuthTwoStepsVerificationRoute
+  '/auth/unverified-email': typeof AuthUnverifiedEmailRoute
   '/landing/home': typeof LandingHomeRoute
   '/auth/three-steps': typeof AuthThreeStepsLazyRoute
   '/landing/product': typeof LandingProductLazyRoute
@@ -216,6 +232,7 @@ export interface FileRoutesById {
   '/landing': typeof LandingRouteWithChildren
   '/auth': typeof AuthLazyRouteWithChildren
   '/app/dashboard': typeof AppDashboardRoute
+  '/auth/account-blocked': typeof AuthAccountBlockedRoute
   '/auth/best-face': typeof AuthBestFaceRoute
   '/auth/confirm-email': typeof AuthConfirmEmailRoute
   '/auth/continue-later': typeof AuthContinueLaterRoute
@@ -230,6 +247,7 @@ export interface FileRoutesById {
   '/auth/personal-data': typeof AuthPersonalDataRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
   '/auth/two-steps-verification': typeof AuthTwoStepsVerificationRoute
+  '/auth/unverified-email': typeof AuthUnverifiedEmailRoute
   '/landing/home': typeof LandingHomeRoute
   '/auth/three-steps': typeof AuthThreeStepsLazyRoute
   '/landing/product': typeof LandingProductLazyRoute
@@ -243,6 +261,7 @@ export interface FileRouteTypes {
     | '/landing'
     | '/auth'
     | '/app/dashboard'
+    | '/auth/account-blocked'
     | '/auth/best-face'
     | '/auth/confirm-email'
     | '/auth/continue-later'
@@ -257,6 +276,7 @@ export interface FileRouteTypes {
     | '/auth/personal-data'
     | '/auth/reset-password'
     | '/auth/two-steps-verification'
+    | '/auth/unverified-email'
     | '/landing/home'
     | '/auth/three-steps'
     | '/landing/product'
@@ -268,6 +288,7 @@ export interface FileRouteTypes {
     | '/landing'
     | '/auth'
     | '/app/dashboard'
+    | '/auth/account-blocked'
     | '/auth/best-face'
     | '/auth/confirm-email'
     | '/auth/continue-later'
@@ -282,6 +303,7 @@ export interface FileRouteTypes {
     | '/auth/personal-data'
     | '/auth/reset-password'
     | '/auth/two-steps-verification'
+    | '/auth/unverified-email'
     | '/landing/home'
     | '/auth/three-steps'
     | '/landing/product'
@@ -293,6 +315,7 @@ export interface FileRouteTypes {
     | '/landing'
     | '/auth'
     | '/app/dashboard'
+    | '/auth/account-blocked'
     | '/auth/best-face'
     | '/auth/confirm-email'
     | '/auth/continue-later'
@@ -307,6 +330,7 @@ export interface FileRouteTypes {
     | '/auth/personal-data'
     | '/auth/reset-password'
     | '/auth/two-steps-verification'
+    | '/auth/unverified-email'
     | '/landing/home'
     | '/auth/three-steps'
     | '/landing/product'
@@ -377,6 +401,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/landing/home'
       preLoaderRoute: typeof LandingHomeRouteImport
       parentRoute: typeof LandingRoute
+    }
+    '/auth/unverified-email': {
+      id: '/auth/unverified-email'
+      path: '/unverified-email'
+      fullPath: '/auth/unverified-email'
+      preLoaderRoute: typeof AuthUnverifiedEmailRouteImport
+      parentRoute: typeof AuthLazyRoute
     }
     '/auth/two-steps-verification': {
       id: '/auth/two-steps-verification'
@@ -476,6 +507,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthBestFaceRouteImport
       parentRoute: typeof AuthLazyRoute
     }
+    '/auth/account-blocked': {
+      id: '/auth/account-blocked'
+      path: '/account-blocked'
+      fullPath: '/auth/account-blocked'
+      preLoaderRoute: typeof AuthAccountBlockedRouteImport
+      parentRoute: typeof AuthLazyRoute
+    }
     '/app/dashboard': {
       id: '/app/dashboard'
       path: '/dashboard'
@@ -512,6 +550,7 @@ const LandingRouteWithChildren =
   LandingRoute._addFileChildren(LandingRouteChildren)
 
 interface AuthLazyRouteChildren {
+  AuthAccountBlockedRoute: typeof AuthAccountBlockedRoute
   AuthBestFaceRoute: typeof AuthBestFaceRoute
   AuthConfirmEmailRoute: typeof AuthConfirmEmailRoute
   AuthContinueLaterRoute: typeof AuthContinueLaterRoute
@@ -526,10 +565,12 @@ interface AuthLazyRouteChildren {
   AuthPersonalDataRoute: typeof AuthPersonalDataRoute
   AuthResetPasswordRoute: typeof AuthResetPasswordRoute
   AuthTwoStepsVerificationRoute: typeof AuthTwoStepsVerificationRoute
+  AuthUnverifiedEmailRoute: typeof AuthUnverifiedEmailRoute
   AuthThreeStepsLazyRoute: typeof AuthThreeStepsLazyRoute
 }
 
 const AuthLazyRouteChildren: AuthLazyRouteChildren = {
+  AuthAccountBlockedRoute: AuthAccountBlockedRoute,
   AuthBestFaceRoute: AuthBestFaceRoute,
   AuthConfirmEmailRoute: AuthConfirmEmailRoute,
   AuthContinueLaterRoute: AuthContinueLaterRoute,
@@ -544,6 +585,7 @@ const AuthLazyRouteChildren: AuthLazyRouteChildren = {
   AuthPersonalDataRoute: AuthPersonalDataRoute,
   AuthResetPasswordRoute: AuthResetPasswordRoute,
   AuthTwoStepsVerificationRoute: AuthTwoStepsVerificationRoute,
+  AuthUnverifiedEmailRoute: AuthUnverifiedEmailRoute,
   AuthThreeStepsLazyRoute: AuthThreeStepsLazyRoute,
 }
 

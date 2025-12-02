@@ -1,5 +1,9 @@
 {
 	"auth": {
+		"accountBlocked": {
+			"description": "Your account has been temporarily restricted.\n\nIf you need assistance, please contact us and we will see how we can help you.",
+			"title": "Account blocked"
+		},
 		"address": {
 			"title": "Enter Address"
 		},
@@ -61,6 +65,10 @@
 		"twoStepsVerification": {
 			"description": "Two-step verification protects your account with an access code that you must enter when you log in from a device that you have not yet marked as secure.",
 			"title": "Two-step verification"
+		},
+		"unverifiedEmail": {
+			"description": "In order to access, we need you to verify your email address. \nDuring the registration process, we sent you an email with a link. Please check your inbox, and if you can't find it, check your spam folder or contact us.",
+			"title": "Verify your email"
 		}
 	},
 	"footer": {
@@ -85,6 +93,7 @@
 	"global": {
 		"button": {
 			"accessPortiqo": "Access Pórtico",
+			"back": "Back",
 			"backToLogin": "Back to login",
 			"becomeClient": "Become a client",
 			"clients": "Clients",

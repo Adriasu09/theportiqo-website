@@ -47,11 +47,15 @@ export const LoginPage = () => {
         ...value,
         device_fingerprint: deviceId,
       }).catch((error) => {
-        if (
-          error instanceof ApiError &&
-          error.code === ERROR_CODES.INVALID_CREDENTIALS
-        ) {
-          setLoginError("invalidCredentials");
+        if (error instanceof ApiError) {
+          error.code === ERROR_CODES.INVALID_CREDENTIALS &&
+            setLoginError("invalidCredentials");
+
+          error.code === ERROR_CODES.ACCOUNT_BLOCKED &&
+            navigate({ to: "/auth/account-blocked" });
+
+          error.code === ERROR_CODES.EMAIL_NOT_VERIFIED &&
+            navigate({ to: "/auth/unverified-email" });
         }
       });
 
