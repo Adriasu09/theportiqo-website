@@ -1,5 +1,5 @@
 import { BENEFITS_LIST } from "../../constants/landing.constants";
-import { BenefitCard } from "../../models/landing.models";
+import { BenefitCard } from "../../types/landing.types";
 import { BenefitsCard } from "./benefits-card";
 
 export const Benefits = () => {

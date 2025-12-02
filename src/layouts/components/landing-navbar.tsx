@@ -9,7 +9,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Link, useNavigate } from "@tanstack/react-router";
-import { MenuItem } from "../models/navbar.models";
+import { MenuItem } from "../types/navbar.types";
 import { LANDING_MENU } from "../constants/menu.constants";
 
 export const LandingNavbar = () => {

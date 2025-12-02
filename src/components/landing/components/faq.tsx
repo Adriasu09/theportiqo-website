@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FAQItem } from "../models/landing.models";
+import { FAQItem } from "../types/landing.types";
 import { FAQ_LIST } from "../constants/landing.constants";
 import { useTranslation } from "react-i18next";
 

@@ -1,4 +1,8 @@
 /* eslint-disable react-refresh/only-export-components */
+/**
+ * Manages authentication state and delegates API calls to services
+ */
+
 import {
   createContext,
   useContext,
@@ -16,33 +20,14 @@ import {
   OtpFormType,
   SignInWithGoogleData,
 } from "../components/auth/schemas/login.schema";
+import { User, LoginResponse, ApiError } from "../types/auth.types";
+import { AuthService } from "../services/auth.service";
+import { TokenService } from "../services/token.service";
+import { StorageService } from "../services/storage.service";
 
-export interface User {
-  id: string;
-  email: string;
-  name: string;
-  given_name?: string;
-  family_name?: string;
-  picture?: string;
-  role?: string;
-  token: string;
-  backendData?: any;
-}
-
-export interface LoginResponse {
-  mensage?: string;
-  email?: string;
-  requires_otp?: boolean;
-  access_token?: string;
-  user?: User;
-}
-
-export interface VerifyOtpResponse {
-  access_token?: string;
-  token?: string;
-  jwt?: string;
-  user?: User;
-}
+// Re-export for backward compatibility
+export type { User, LoginResponse };
+export { ApiError };
 
 export interface AuthContextType {
   user: User | null;
@@ -87,44 +72,39 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Initialize user from storage on mount
   useEffect(() => {
-    // Check if user is already signed in (from sessionStorage)
-    const savedUser = sessionStorage.getItem("user");
+    const savedUser = StorageService.getUser();
     if (savedUser) {
-      try {
-        setUser(JSON.parse(savedUser));
-      } catch (error) {
-        console.error("Error parsing saved user:", error);
-        sessionStorage.removeItem("user");
-      }
+      setUser(savedUser);
     }
     setIsLoading(false);
   }, []);
+
+  // Helper to save user and update state
+  const saveUserSession = (userData: User): User => {
+    setUser(userData);
+    StorageService.saveUser(userData);
+    return userData;
+  };
+
+  // Process token response and save user session
+  const processTokenFromBackend = async (tokenData: any): Promise<User> => {
+    try {
+      const userInfo = TokenService.processTokenResponse(tokenData);
+      return saveUserSession(userInfo);
+    } catch (error) {
+      console.error("Error processing token from backend:", error);
+      throw error;
+    }
+  };
 
   // Login with email and password
   const login = async (
     loginForm: LoginFormType,
   ): Promise<LoginResponse | User> => {
     try {
-      const backendUrl =
-        import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
-
-      const response = await fetch(`${backendUrl}/api/users/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(loginForm),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(
-          errorData.message || `Login failed: ${response.status}`,
-        );
-      }
-
-      const responseData = await response.json();
+      const responseData = await AuthService.login(loginForm);
 
       if (!responseData.requires_otp) {
         return await processTokenFromBackend(responseData);
@@ -137,26 +117,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   };
 
+  // Verify OTP
   const verifyOtp = async (otpForm: OtpFormType): Promise<User> => {
-    const backendUrl =
-      import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
     try {
-      const response = await fetch(`${backendUrl}/api/users/verify-otp`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(otpForm),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(
-          errorData.message || `Login failed: ${response.status}`,
-        );
-      }
-
-      const responseData = await response.json();
+      const responseData = await AuthService.verifyOtp(otpForm);
       return await processTokenFromBackend(responseData);
     } catch (error) {
       console.error("OTP verification error:", error);
@@ -164,92 +128,34 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   };
 
+  // Resend OTP
   const resendOtp = async (
     email: string,
     device_fingerprint: string,
   ): Promise<unknown> => {
-    const backendUrl =
-      import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
     try {
-      const response = await fetch(`${backendUrl}/api/users/resend-otp`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          device_fingerprint,
-        }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(
-          errorData.message || `Resend OTP failed: ${response.status}`,
-        );
-      }
-
-      const responseData = await response.json();
-      return responseData;
+      return await AuthService.resendOtp(email, device_fingerprint);
     } catch (error) {
       console.error("Resend OTP error:", error);
       throw error;
     }
   };
 
-  // Register new user (returns success message, not user data)
+  // Register new user
   const register = async (userData: NameEmailFormType) => {
     try {
-      const backendUrl =
-        import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
-
-      const response = await fetch(`${backendUrl}/api/users/register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(
-          errorData.message || `Registration failed: ${response.status}`,
-        );
-      }
-
-      const data = await response.json();
-      // Return the response data (should contain confirmation message)
-      // Do not log the user in automatically
-      return data;
+      return await AuthService.register(userData);
     } catch (error) {
       console.error("Registration error:", error);
       throw error;
     }
   };
 
-  // Confirm email verification
+  // Confirm email
   const confirmEmail = async (token: string) => {
     try {
-      const backendUrl =
-        import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
-
-      const response = await fetch(`${backendUrl}/api/users/confirm-email`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ token }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(
-          errorData.message || `Email confirmation failed: ${response.status}`,
-        );
-      }
-
-      const data = await response.json();
+      const data = await AuthService.confirmEmail(token);
+      
       // If verification includes login token, process it
       if (data.access_token || data.token || data.jwt) {
         return await processTokenFromBackend(data);
@@ -262,129 +168,24 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   };
 
+  // Resend confirmation email
   const resendConfirmationEmail = async (email: string) => {
     try {
-      const backendUrl =
-        import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
-
-      await fetch(`${backendUrl}/api/users/resend-confirmation`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
+      return await AuthService.resendConfirmationEmail(email);
     } catch (error) {
       console.error("Resend confirmation email error:", error);
       throw error;
     }
   };
 
-  const updatePersonalInfo = async (
-    personalData: PersonalDataFormType,
-  ): Promise<any> => {
-    try {
-      if (!user?.token) {
-        throw new Error("User not authenticated");
-      }
-
-      const backendUrl =
-        import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
-
-      const response = await fetch(
-        `${backendUrl}/api/users/${user.id}/personal-info`,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${user.token}`,
-          },
-          body: JSON.stringify(personalData),
-        },
-      );
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(
-          errorData.message || `Save personal info failed: ${response.status}`,
-        );
-      }
-
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Save personal info error:", error);
-      throw error;
-    }
-  };
-
-  const updateAddress = async (
-    addressData: AddressFormType,
-  ): Promise<unknown> => {
-    try {
-      if (!user?.token) {
-        throw new Error("User not authenticated");
-      }
-
-      const backendUrl =
-        import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
-
-      const response = await fetch(
-        `${backendUrl}/api/users/${user.id}/address`,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${user.token}`,
-          },
-          body: JSON.stringify(addressData),
-        },
-      );
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(
-          errorData.message || `Save personal info failed: ${response.status}`,
-        );
-      }
-
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Save personal info error:", error);
-      throw error;
-    }
-  };
-
-  // Sign in with Google One Tap credential
+  // Sign in with Google
   const signInWithGoogle = async (
     signInWithGoogleData: SignInWithGoogleData,
   ): Promise<LoginResponse | User> => {
     try {
-      const backendUrl =
-        import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
-
-      // Send the Google JWT credential to backend for verification
-      const response = await fetch(
-        `${backendUrl}/api/users/google/verify-token`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(signInWithGoogleData),
-        },
+      const responseData = await AuthService.signInWithGoogle(
+        signInWithGoogleData,
       );
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(
-          errorData.message ||
-            `Google token verification failed: ${response.status}`,
-        );
-      }
-
-      const responseData = await response.json();
 
       if (!responseData.requires_otp) {
         return await processTokenFromBackend(responseData);
@@ -397,36 +198,17 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   };
 
-  // Forgot password - request reset
+  // Forgot password
   const forgotPassword = async (email: string) => {
     try {
-      const backendUrl =
-        import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
-
-      const response = await fetch(`${backendUrl}/api/users/forgot-password`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(
-          errorData.message || `Request failed: ${response.status}`,
-        );
-      }
-
-      const data = await response.json();
-      return data;
+      return await AuthService.forgotPassword(email);
     } catch (error) {
       console.error("Forgot password error:", error);
       throw error;
     }
   };
 
-  // Change password (when user is authenticated)
+  // Change password
   const changePassword = async (
     currentPassword: string,
     newPassword: string,
@@ -436,117 +218,70 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         throw new Error("User not authenticated");
       }
 
-      const backendUrl =
-        import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
-
-      const response = await fetch(`${backendUrl}/api/users/change-password`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${user.token}`,
-        },
-        body: JSON.stringify({ currentPassword, newPassword }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(
-          errorData.message || `Password change failed: ${response.status}`,
-        );
-      }
-
-      const data = await response.json();
-      return data;
+      return await AuthService.changePassword(
+        currentPassword,
+        newPassword,
+        user.token,
+      );
     } catch (error) {
       console.error("Change password error:", error);
       throw error;
     }
   };
 
-  // Reset password (with token from email)
+  // Reset password
   const resetPassword = async (token: string, newPassword: string) => {
     try {
-      const backendUrl =
-        import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
-
-      const response = await fetch(`${backendUrl}/api/users/reset-password`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ token, newPassword }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(
-          errorData.message || `Password reset failed: ${response.status}`,
-        );
-      }
-
-      const data = await response.json();
-      return data;
+      return await AuthService.resetPassword(token, newPassword);
     } catch (error) {
       console.error("Reset password error:", error);
       throw error;
     }
   };
 
-  const processTokenFromBackend = async (tokenData: any): Promise<User> => {
+  // Update personal info
+  const updatePersonalInfo = async (
+    personalData: PersonalDataFormType,
+  ): Promise<any> => {
     try {
-      const token = tokenData.access_token || tokenData.token || tokenData.jwt;
-
-      if (!token) {
-        throw new Error("No access token found in response");
+      if (!user?.token) {
+        throw new Error("User not authenticated");
       }
 
-      // Try to decode JWT token to get user information
-      let userInfo;
-      try {
-        const payload = JSON.parse(atob(token.split(".")[1]));
-        console.log("🔍 JWT Payload:", payload);
-        console.log("🔍 Backend Response:", tokenData);
-
-        userInfo = {
-          id: payload.sub || payload.id || payload.user_id,
-          email: payload.email || tokenData.user?.email,
-          name: payload.name || payload.full_name || tokenData.user?.name,
-          given_name: payload.given_name || tokenData.user?.given_name,
-          family_name: payload.family_name || tokenData.user?.family_name,
-          picture: payload.picture || payload.avatar || tokenData.user?.picture,
-          role: payload.role || tokenData.user?.role,
-          token: token,
-          backendData: tokenData,
-        };
-      } catch {
-        // If JWT decoding fails, use backend response data directly
-        console.log("🔍 Using backend data directly:", tokenData);
-        userInfo = {
-          token: token,
-          backendData: tokenData,
-          id: tokenData.user?.id || tokenData.id,
-          email: tokenData.user?.email || tokenData.email || "Unknown",
-          name: tokenData.user?.name || tokenData.name || "User",
-          given_name: tokenData.user?.given_name || tokenData.given_name,
-          picture: tokenData.user?.picture || tokenData.picture,
-        };
-      }
-
-      console.log("👤 Final User Info:", userInfo);
-      setUser(userInfo);
-      sessionStorage.setItem("user", JSON.stringify(userInfo));
-      return userInfo;
+      return await AuthService.updatePersonalInfo(
+        user.id,
+        personalData,
+        user.token,
+      );
     } catch (error) {
-      console.error("Error processing token from backend:", error);
+      console.error("Save personal info error:", error);
       throw error;
     }
   };
 
-  const signOut = () => {
-    setUser(null);
-    sessionStorage.removeItem("user");
+  // Update address
+  const updateAddress = async (
+    addressData: AddressFormType,
+  ): Promise<unknown> => {
+    try {
+      if (!user?.token) {
+        throw new Error("User not authenticated");
+      }
+
+      return await AuthService.updateAddress(user.id, addressData, user.token);
+    } catch (error) {
+      console.error("Save address error:", error);
+      throw error;
+    }
   };
 
+  // Sign out
+  const signOut = () => {
+    setUser(null);
+    StorageService.removeUser();
+  };
+
+  // Check authentication
   const isAuthenticated = () => {
     return !!user;
   };

@@ -4,7 +4,12 @@ import { LoginFormSchema, LoginFormType } from "../schemas/login.schema";
 import { FieldGroup } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "@tanstack/react-router";
-import { LoginResponse, useAuth, User } from "@/src/contexts/AuthContext";
+import {
+  LoginResponse,
+  useAuth,
+  User,
+  ApiError,
+} from "@/src/contexts/AuthContext";
 import { useEffect, useState } from "react";
 import { useFingerprintStore } from "@/src/store/fingerprint.store";
 import googleLogo from "@assets/imgs/logos/googleLogo.png";
@@ -43,8 +48,8 @@ export const LoginPage = () => {
         device_fingerprint: deviceId,
       }).catch((error) => {
         if (
-          error.message.toLowerCase() ===
-          ERROR_CODES.INVALID_CREDENTIALS.toLowerCase()
+          error instanceof ApiError &&
+          error.code === ERROR_CODES.INVALID_CREDENTIALS
         ) {
           setLoginError("invalidCredentials");
         }
@@ -97,7 +102,7 @@ export const LoginPage = () => {
           <loginForm.Subscribe
             selector={(state) => [state.canSubmit, state.isDirty]}
             children={([canSubmit, isDirty]) => (
-              <div className="w-full flex flex-col gap-2 justify-center items-center">
+              <div className="flex w-full flex-col items-center justify-center gap-2">
                 <Button
                   type="submit"
                   className="onboarding-button"
@@ -105,7 +110,11 @@ export const LoginPage = () => {
                 >
                   {t("global.button.enter")}
                 </Button>
-                {loginError !== null && <p className="font-semibold text-qo-error-400">{t(`global.error.${loginError}`)}</p>}
+                {loginError !== null && (
+                  <p className="font-semibold text-qo-error-400">
+                    {t(`global.error.${loginError}`)}
+                  </p>
+                )}
               </div>
             )}
           />
