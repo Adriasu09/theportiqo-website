@@ -12,7 +12,7 @@
 			"title": "Pon tu mejor cara"
 		},
 		"confirmEmail": {
-			"description": "¡Perfecto! Hemos podido comprobar tu cuenta de correo sin problema. Puedes contiuar con la creación de tu cuenta.",
+			"description": "¡Perfecto! Hemos podido comprobar tu cuenta de correo sin problema. Puedes continuar con la creación de tu cuenta.",
 			"title": "Mail verificado"
 		},
 		"continueLater": {
@@ -109,6 +109,7 @@
 			"goSimulator": "Ir al simulador de nuestras carteras",
 			"goToPortfolioSimulator": "Ir al simulador de nuestras carteras",
 			"login": "Iniciar sesión",
+			"openEmail": "Abrir email",
 			"resendCode": "Reenviar código",
 			"startInvesting": "Empieza a invertir hoy",
 			"startInvestingNow": "Comience a invertir ahora mismo",
@@ -171,6 +172,7 @@
 			"address": "Dirección",
 			"city": "Ciudad",
 			"country": "País",
+			"DNI": "DNI",
 			"documentNumber": "Número de documento",
 			"documentType": "Tipo de documento",
 			"email": "Correo electrónico",
@@ -179,8 +181,10 @@
 			"es": "Español",
 			"firstName": "Nombre",
 			"lastName": "Apellidos",
+			"NIE": "NIE",
 			"or": "o",
 			"otpCode": "Código",
+			"Passport": "Pasaporte",
 			"password": "Contraseña",
 			"passwordConfirmation": "Confirmar Contraseña",
 			"phone": "Teléfono",

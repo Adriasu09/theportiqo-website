@@ -22,3 +22,7 @@
 .onboarding-button {
   @apply w-[320px];
 }
+
+.auth-container {
+  @apply flex h-full w-full flex-col items-center justify-start gap-16;
+}

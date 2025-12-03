@@ -70,7 +70,7 @@ export const LoginPage = () => {
   });
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-20">
+    <div className="auth-container">
       <h1 className="text-center font-accent text-qo-h3">
         {t("auth.login.title")}
       </h1>
