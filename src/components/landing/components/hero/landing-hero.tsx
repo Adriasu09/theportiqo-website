@@ -22,9 +22,8 @@ export const LandingHero = () => {
 
           <div className="flex h- w-full flex-wrap items-center justify-start gap-2">
             <Button variant={"primary"}>
-              {t("global.button.startInvesting")}
+              {t("global.button.beTheFirst")}
             </Button>
-            <Button variant={"secondary"}>{t("global.button.tryPortiqo")}</Button>
           </div>
         </div>
       </div>

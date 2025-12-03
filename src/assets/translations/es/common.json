@@ -95,11 +95,15 @@
 		}
 	},
 	"global": {
+		"badge": {
+			"waitingList": "Waiting list"
+		},
 		"button": {
 			"accessPortiqo": "Acceder a Pórtiqo",
 			"back": "Volver",
 			"backToLogin": "Volver al login",
 			"becomeClient": "Hazte cliente",
+			"beTheFirst": "Quiero ser el primero",
 			"clients": "Clientes",
 			"continue": "Continuar",
 			"continueWithGoogle": "Continuar con Google",
@@ -108,10 +112,12 @@
 			"forgotPassword": "He olvidado mi contraseña",
 			"goSimulator": "Ir al simulador de nuestras carteras",
 			"goToPortfolioSimulator": "Ir al simulador de nuestras carteras",
+			"joinTheWaitList": "Quiero apuntarme a la lista",
 			"login": "Iniciar sesión",
 			"resendCode": "Reenviar código",
 			"startInvesting": "Empieza a invertir hoy",
 			"startInvestingNow": "Comience a invertir ahora mismo",
+			"submit": "Enviar",
 			"tryPortiqo": "Quiero probar Pórtiqo"
 		},
 		"country": {
@@ -244,6 +250,10 @@
 		"partners": {
 			"comment": "\"Saber que mis inversiones están respaldadas por líderes mundiales me da total confianza para seguir creciendo\". - Ana M.",
 			"title": "Invierta con la tranquilidad de la banca mundial"
+		},
+		"waitingList": {
+			"description": "Déjanos tus datos y te avisaremos en cuanto Pórtiqo esté disponible.",
+			"title": "Apúntate para ser de los primeros en usar Portiqo."
 		}
 	}
 }

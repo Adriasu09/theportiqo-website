@@ -95,11 +95,15 @@
 		}
 	},
 	"global": {
+		"badge": {
+			"waitingList": "Waiting list"
+		},
 		"button": {
 			"accessPortiqo": "Access Pórtico",
 			"back": "Back",
 			"backToLogin": "Back to login",
 			"becomeClient": "Become a client",
+			"beTheFirst": "I want to be the first",
 			"clients": "Clients",
 			"continue": "Continue",
 			"continueWithGoogle": "Continue with Google",
@@ -108,10 +112,12 @@
 			"forgotPassword": "I forgot my password",
 			"goSimulator": "Go to the simulator of our portfolios",
 			"goToPortfolioSimulator": "Go to the simulator of our portfolios",
+			"joinTheWaitList": "I want to sign up for the list",
 			"login": "Log in",
 			"resendCode": "Resend code",
 			"startInvesting": "Start investing today",
 			"startInvestingNow": "Start investing right now",
+			"submit": "Submit",
 			"tryPortiqo": "I want to try Pórtiqo"
 		},
 		"country": {
@@ -244,6 +250,10 @@
 		"partners": {
 			"comment": "\"Knowing that my investments are backed by global leaders gives me complete confidence to keep growing\". - Ana M.",
 			"title": "Invest with the peace of mind of global banking"
+		},
+		"waitingList": {
+			"description": "Leave us your details and we will notify you as soon as Pórtiqo is available.",
+			"title": "Sign up to be one of the first to use Portiqo."
 		}
 	}
 }
