@@ -1,31 +1,31 @@
 import * as z from "zod";
 
 export const RegisterFormSchema = z.object({
-  firstName: z.string().min(1, "Name is required"),
-  lastName: z.string().min(1, "Last name is required"),
-  email: z.email("Invalid email address"),
+  firstName: z.string().min(1, "required"),
+  lastName: z.string().min(1, "required"),
+  email: z.email("invalidEmail"),
   password: z
     .string()
-    .min(8, "Password must be at least 8 characters")
-    .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
-    .regex(/[0-9]/, "Password must contain at least one number"),
+    .min(8, "atLeast8Chars")
+    .regex(/[A-Z]/, "atLeastOneUppercase")
+    .regex(/[0-9]/, "atLeastOneNumber"),
   passwordConfirmation: z
     .string()
-    .min(8, "Password must be at least 8 characters")
-    .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
-    .regex(/[0-9]/, "Password must contain at least one number"),
+    .min(8, "atLeast8Chars")
+    .regex(/[A-Z]/, "atLeastOneUppercase")
+    .regex(/[0-9]/, "atLeastOneNumber"),
   acceptCommunication: z.boolean().optional(),
   acceptTerms: z.boolean().refine((val) => val === true, {
-    message: "You must accept the terms and conditions",
+    message: "acceptTerms",
   }),
-  phone: z.string().min(9, "Enter a valid phone number"),
+  phone: z.string().min(9, "validPhone"),
   documentType: z.enum(["DNI", "NIE", "PASSPORT"]),
-  documentNumber: z.string().min(1, "Document number is required"),
-  address: z.string().min(1, "Address is required"),
-  postalCode: z.string().min(1, "Postal code is required"),
-  city: z.string().min(1, "City is required"),
-  province: z.string().min(1, "Province is required"),
-  country: z.string().min(1, "Country is required"),
+  documentNumber: z.string().min(1, "required"),
+  address: z.string().min(1, "required"),
+  postalCode: z.string().min(1, "required"),
+  city: z.string().min(1, "required"),
+  province: z.string().min(1, "required"),
+  country: z.string().min(1, "required"),
 });
 
 export const NameEmailSchema = RegisterFormSchema.pick({

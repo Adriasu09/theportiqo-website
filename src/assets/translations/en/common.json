@@ -164,7 +164,16 @@
 			"unitedKingdom": "United Kingdom"
 		},
 		"error": {
-			"invalidCredentials": "Invalid credentials"
+			"invalidCredentials": "Invalid credentials",
+			"validation": {
+				"acceptTerms": "you must accept the terms and conditions",
+				"atLeast8Chars": "password must contain at least 8 characters",
+				"atLeastOneNumber": "Password must contain at least one number",
+				"atLeastOneUpperCase": "Password must contain at least one upper case",
+				"invalidEmail": "Invalid email address",
+				"required": "This field is required",
+				"validPhone": "Enter a valid phone number"
+			}
 		},
 		"label": {
 			"acceptCommunication": "I agree to receive commercial communications and promotional offers from the Huargo group.",
