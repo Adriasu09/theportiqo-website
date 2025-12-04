@@ -67,3 +67,10 @@ export interface JWTPayload {
   role?: string;
   [key: string]: any;
 }
+
+export type WaitingListData = {
+  email: string;
+  name: string;
+  lists: number[];
+  attribs?: Record<string, any>;
+}

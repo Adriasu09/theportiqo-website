@@ -3,6 +3,7 @@ import { Carousel } from "./carousel";
 import { CAROUSEL_ITEMS } from "../../constants/landing.constants";
 import { useTranslation } from "react-i18next";
 import { Badge } from "@/components/ui/badge";
+import { WaitingListDialog } from "../waiting-list-dialog";
 
 export const LandingHero = () => {
   const { t } = useTranslation();
@@ -21,9 +22,7 @@ export const LandingHero = () => {
           </p>
 
           <div className="flex h- w-full flex-wrap items-center justify-start gap-2">
-            <Button variant={"primary"}>
-              {t("global.button.beTheFirst")}
-            </Button>
+            <WaitingListDialog type="primary" labelKey="beTheFirst" />
           </div>
         </div>
       </div>

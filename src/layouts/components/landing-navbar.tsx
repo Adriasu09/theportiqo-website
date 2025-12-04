@@ -10,7 +10,7 @@ export const LandingNavbar = () => {
         </div>
       </div>
 
-      <WaitingListDialog type="navbar" />
+      <WaitingListDialog type="brand" labelKey="joinTheWaitList" />
     </div>
   );
 };

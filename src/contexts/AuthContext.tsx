@@ -51,6 +51,7 @@ export interface AuthContextType {
   processTokenFromBackend: (tokenData: any) => Promise<User>;
   updatePersonalInfo: (personalData: PersonalDataFormType) => Promise<unknown>;
   updateAddress: (addressData: AddressFormType) => Promise<unknown>;
+  waitingList: (data: unknown) => Promise<unknown>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -154,7 +155,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const confirmEmail = async (token: string) => {
     try {
       const data = await AuthService.confirmEmail(token);
-      
+
       // If verification includes login token, process it
       if (data.access_token || data.token || data.jwt) {
         return await processTokenFromBackend(data);
@@ -182,9 +183,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     signInWithGoogleData: SignInWithGoogleData,
   ): Promise<LoginResponse | User> => {
     try {
-      const responseData = await AuthService.signInWithGoogle(
-        signInWithGoogleData,
-      );
+      const responseData =
+        await AuthService.signInWithGoogle(signInWithGoogleData);
 
       if (!responseData.requires_otp) {
         return await processTokenFromBackend(responseData);
@@ -274,6 +274,15 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   };
 
+  const waitingList = async (data: unknown): Promise<unknown> => {
+    try {
+      return await AuthService.waitingList(data);
+    } catch (error) {
+      console.error("Waiting list error:", error);
+      throw error;
+    }
+  };
+
   // Sign out
   const signOut = () => {
     setUser(null);
@@ -303,6 +312,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     processTokenFromBackend,
     updatePersonalInfo,
     updateAddress,
+    waitingList,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

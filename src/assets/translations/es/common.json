@@ -105,6 +105,7 @@
 			"becomeClient": "Hazte cliente",
 			"beTheFirst": "Quiero ser el primero",
 			"clients": "Clientes",
+			"close": "Cerrar",
 			"continue": "Continuar",
 			"continueWithGoogle": "Continuar con Google",
 			"createAccount": "Abrir una cuenta",
@@ -114,6 +115,7 @@
 			"goToPortfolioSimulator": "Ir al simulador de nuestras carteras",
 			"joinTheWaitList": "Quiero apuntarme a la lista",
 			"login": "Iniciar sesión",
+			"notifyMe": "Avísame cuando esté disponible",
 			"openEmail": "Abrir email",
 			"resendCode": "Reenviar código",
 			"startInvesting": "Empieza a invertir hoy",
@@ -172,6 +174,7 @@
 		"error": {
 			"invalidCredentials": "Credenciales inválidas",
 			"validation": {
+				"acceptCommunication": "Debe aceptar recibir comunicaciones comerciales del Grupo Huargo.",
 				"acceptTerms": "Debe aceptar las condiciones",
 				"atLeast8Chars": "La contraseña debe contener al menos 8 caracteres",
 				"atLeastOneNumber": "La contraseña debe contener al menos un número",
@@ -265,8 +268,14 @@
 			"title": "Invierta con la tranquilidad de la banca mundial"
 		},
 		"waitingList": {
-			"description": "Déjanos tus datos y te avisaremos en cuanto Pórtiqo esté disponible.",
-			"title": "Apúntate para ser de los primeros en usar Portiqo."
+			"default": {
+				"description": "Déjanos tus datos y te avisaremos en cuanto Pórtiqo esté disponible.",
+				"title": "Apúntate para ser de los primeros en usar Portiqo."
+			},
+			"success": {
+				"description": "Gracias por apuntarte a nuestra lista. En cuanto tengamos todo preparado, serás el primero en enterarte.",
+				"title": "¡Estás dentro!"
+			}
 		}
 	}
 }

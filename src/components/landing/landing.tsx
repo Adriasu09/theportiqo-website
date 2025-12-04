@@ -26,8 +26,6 @@ export const LandingPage = () => {
       <PortfolioThemes />
 
       <Benefits />
-
-      <FAQ />
     </div>
   );
 };

@@ -91,4 +91,8 @@ export class AuthService {
       { token }
     );
   }
+
+  static async waitingList(data: unknown): Promise<unknown> {
+    return httpClient.post("/api/users/wishlist", data);
+  }
 }

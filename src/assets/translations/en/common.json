@@ -105,6 +105,7 @@
 			"becomeClient": "Become a client",
 			"beTheFirst": "I want to be the first",
 			"clients": "Clients",
+			"close": "Close",
 			"continue": "Continue",
 			"continueWithGoogle": "Continue with Google",
 			"createAccount": "Create account",
@@ -114,6 +115,7 @@
 			"goToPortfolioSimulator": "Go to the simulator of our portfolios",
 			"joinTheWaitList": "I want to sign up for the list",
 			"login": "Log in",
+			"notifyMe": "Let me know when it's available",
 			"openEmail": "Open email",
 			"resendCode": "Resend code",
 			"startInvesting": "Start investing today",
@@ -172,6 +174,7 @@
 		"error": {
 			"invalidCredentials": "Invalid credentials",
 			"validation": {
+				"acceptCommunication": "You must agree to receive commercial communications from the Huargo Group.",
 				"acceptTerms": "you must accept the terms and conditions",
 				"atLeast8Chars": "password must contain at least 8 characters",
 				"atLeastOneNumber": "Password must contain at least one number",
@@ -265,8 +268,14 @@
 			"title": "Invest with the peace of mind of global banking"
 		},
 		"waitingList": {
-			"description": "Leave us your details and we will notify you as soon as Pórtiqo is available.",
-			"title": "Sign up to be one of the first to use Portiqo."
+			"default": {
+				"description": "Leave us your details and we will notify you as soon as Pórtiqo is available.",
+				"title": "Sign up to be one of the first to use Portiqo."
+			},
+			"success": {
+				"description": "Thank you for joining our mailing list. As soon as we have everything ready, you will be the first to know.",
+				"title": "You're in!"
+			}
 		}
 	}
 }

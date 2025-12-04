@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button";
 import { PARTNERS_LOGOS } from "../constants/landing.constants";
 import { useTranslation } from "react-i18next";
+import { WaitingListDialog } from "./waiting-list-dialog";
 
 export const Partners = () => {
   const { t } = useTranslation();
@@ -24,9 +24,7 @@ export const Partners = () => {
 
       <p className="text-center">{t("landing.partners.comment")}</p>
 
-      <Button variant={"primary"}>
-        {t("global.button.startInvestingNow")}
-      </Button>
+      <WaitingListDialog type="primary" labelKey="notifyMe" />
     </div>
   );
 };
