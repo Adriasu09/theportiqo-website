@@ -52,10 +52,8 @@ export const WaitingListDialog = ({ type }: Props) => {
               </h1>
             </div>
           </DialogTitle>
-          <DialogDescription>
-            <p className="font-main text-qo-md">
-              {t("landing.waitingList.description")}
-            </p>
+          <DialogDescription className="font-main text-qo-md">
+            {t("landing.waitingList.description")}
           </DialogDescription>
         </DialogHeader>
 
