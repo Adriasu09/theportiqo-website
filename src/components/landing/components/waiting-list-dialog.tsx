@@ -53,66 +53,64 @@ export const WaitingListDialog = ({ type }: Props) => {
             </div>
           </DialogTitle>
           <DialogDescription>
-            <div className="flex w-full flex-col items-start justify-center">
-              <p className="font-main text-qo-md">
-                {t("landing.waitingList.description")}
-              </p>
-
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  waitingListForm.handleSubmit();
-                }}
-                className="flex w-full flex-col items-start justify-center gap-8 pt-4"
-              >
-                <FieldGroup className="max-w-[320px]">
-                  <waitingListForm.AppField
-                    name="firstName"
-                    children={(field) => (
-                      <field.Input label={t("global.label.firstName")} />
-                    )}
-                  />
-
-                  <waitingListForm.AppField
-                    name="lastName"
-                    children={(field) => (
-                      <field.Input label={t("global.label.lastName")} />
-                    )}
-                  />
-
-                  <waitingListForm.AppField
-                    name="email"
-                    children={(field) => (
-                      <field.Input label={t("global.label.email")} />
-                    )}
-                  />
-                </FieldGroup>
-
-                <waitingListForm.Subscribe
-                  selector={(state) => [state.canSubmit, state.isDirty]}
-                  children={([canSubmit, isDirty]) => (
-                    <Button
-                      type="submit"
-                      className="onboarding-button"
-                      disabled={!canSubmit || !isDirty}
-                    >
-                      {t("global.button.submit")}
-                    </Button>
-                  )}
-                />
-
-                <waitingListForm.AppField
-                  name="acceptCommunication"
-                  children={(field) => (
-                    <field.Checkbox
-                      label={t("global.label.acceptCommunication")}
-                    />
-                  )}
-                />
-              </form>
-            </div>
+            <p className="font-main text-qo-md">
+              {t("landing.waitingList.description")}
+            </p>
           </DialogDescription>
         </DialogHeader>
+
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            waitingListForm.handleSubmit();
+          }}
+          className="flex w-full flex-col items-start justify-start gap-8"
+        >
+          <FieldGroup className="max-w-[320px]">
+            <waitingListForm.AppField
+              name="firstName"
+              children={(field) => (
+                <field.Input label={t("global.label.firstName")} />
+              )}
+            />
+
+            <waitingListForm.AppField
+              name="lastName"
+              children={(field) => (
+                <field.Input label={t("global.label.lastName")} />
+              )}
+            />
+
+            <waitingListForm.AppField
+              name="email"
+              children={(field) => (
+                <field.Input label={t("global.label.email")} />
+              )}
+            />
+          </FieldGroup>
+
+          <waitingListForm.Subscribe
+            selector={(state) => [state.canSubmit, state.isDirty]}
+            children={([canSubmit, isDirty]) => (
+              <Button
+                type="submit"
+                className="onboarding-button"
+                disabled={!canSubmit || !isDirty}
+              >
+                {t("global.button.submit")}
+              </Button>
+            )}
+          />
+
+          <waitingListForm.AppField
+            name="acceptCommunication"
+            children={(field) => (
+              <field.Checkbox
+                label={t("global.label.acceptCommunication")}
+              />
+            )}
+          />
+        </form>
       </DialogContent>
     </Dialog>
   );
