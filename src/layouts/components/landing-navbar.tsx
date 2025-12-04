@@ -1,5 +1,5 @@
+import { WaitingListDialog } from "@/src/components/landing/components/home/components/waiting-list-dialog";
 import { Link } from "@tanstack/react-router";
-import { WaitingListDialog } from "@/src/components/landing/components/waiting-list-dialog";
 
 export const LandingNavbar = () => {
   return (

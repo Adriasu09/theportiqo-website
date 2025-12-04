@@ -1,9 +1,8 @@
-import { Button } from "@/components/ui/button";
 import { Carousel } from "./carousel";
-import { CAROUSEL_ITEMS } from "../../constants/landing.constants";
 import { useTranslation } from "react-i18next";
 import { Badge } from "@/components/ui/badge";
 import { WaitingListDialog } from "../waiting-list-dialog";
+import { CAROUSEL_ITEMS } from "@/src/components/landing/constants/landing.constants";
 
 export const LandingHero = () => {
   const { t } = useTranslation();

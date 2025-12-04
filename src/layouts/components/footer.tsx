@@ -8,7 +8,7 @@ import PortiqoLogo from "@/src/assets/imgs/logos/portiqo/portiqo-white.svg";
 import { Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { FOOTER_SECTIONS } from "../constants/footer.constants";
-import { FooterSection } from "../types/footer.types";
+import { FooterSection, SectionChild } from "../types/footer.types";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,10 +18,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useUserPreferencesStore } from "@/src/store/user-preferences.store";
 import { MenuItem } from "@/src/components/shared/types/menu.types";
+import { useNavigate } from "@tanstack/react-router";
 
 export const Footer = () => {
   const { t, i18n } = useTranslation();
   const { language, setLanguage } = useUserPreferencesStore();
+  const navigate = useNavigate();
 
   const languageOptions: MenuItem<"en" | "es">[] = [
     { labelKey: "english", value: "en" },
@@ -31,7 +33,15 @@ export const Footer = () => {
   const handleLanguageChange = (lang: "en" | "es") => {
     setLanguage(lang);
     i18n.changeLanguage(lang);
-  }
+  };
+
+  const handleFooterItemClick = (item: SectionChild) => {
+    if (item.action) {
+      item.action();
+    } else if (item.url) {
+      navigate({ to: item.url });
+    }
+  };
 
   return (
     <div className="flex w-full flex-col items-center justify-center gap-18 bg-qo-gray-900 px-28 py-16 text-white">
@@ -86,9 +96,13 @@ export const Footer = () => {
               <h5 className="text-white/60">
                 {t(`footer.${section.titleKey}.title`)}
               </h5>
-              {section.linkKeys.map((linkKey: string) => (
-                <p key={linkKey}>
-                  {t(`footer.${section.titleKey}.${linkKey}`)}
+              {section.children.map((child: SectionChild) => (
+                <p
+                  key={child.labelKey}
+                  onClick={() => handleFooterItemClick(child)}
+                  className="cursor-pointer hover:underline"
+                >
+                  {t(`footer.${section.titleKey}.${child.labelKey}`)}
                 </p>
               ))}
             </div>
@@ -103,9 +117,12 @@ export const Footer = () => {
                   {t(`footer.${section.titleKey}.title`)}
                 </AccordionTrigger>
                 <AccordionContent className="flex flex-col gap-4">
-                  {section.linkKeys.map((linkKey: string) => (
-                    <p key={linkKey}>
-                      {t(`footer.${section.titleKey}.${linkKey}`)}
+                  {section.children.map((child: SectionChild) => (
+                    <p
+                      key={child.labelKey}
+                      className="cursor-pointer hover:underline"
+                    >
+                      {t(`footer.${section.titleKey}.${child.labelKey}`)}
                     </p>
                   ))}
                 </AccordionContent>

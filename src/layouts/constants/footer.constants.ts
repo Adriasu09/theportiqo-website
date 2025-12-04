@@ -3,14 +3,20 @@ import { FooterSection } from "../types/footer.types";
 export const FOOTER_SECTIONS: FooterSection[] = [
   {
     titleKey: "support",
-    linkKeys: ["faq", "contact"],
+    children: [
+      {
+        labelKey: "contact",
+        action: () => {
+          window.location.href = "mailto:alguien@example.com";
+        }
+      },
+    ],
   },
   {
     titleKey: "legal",
-    linkKeys: ["privacyPolicity", "terms", "legalNotice"],
-  },
-  {
-    titleKey: "company",
-    linkKeys: ["whoWeAre"],
+    children: [
+      { labelKey: "terms", url: "/landing/terms" },
+      { labelKey: "commercialCommunication", url: "/landing/commercials" },
+    ],
   },
 ];

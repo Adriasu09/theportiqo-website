@@ -1,6 +1,6 @@
-import { PARTNERS_LOGOS } from "../constants/landing.constants";
 import { useTranslation } from "react-i18next";
 import { WaitingListDialog } from "./waiting-list-dialog";
+import { PARTNERS_LOGOS } from "../../../constants/landing.constants";
 
 export const Partners = () => {
   const { t } = useTranslation();

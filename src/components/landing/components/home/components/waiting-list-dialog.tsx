@@ -11,14 +11,14 @@ import {
 } from "@/components/ui/dialog";
 import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useAppForm } from "../../shared/form/form-hooks";
-import { WAITING_LIST_DEFAULT_VALUES } from "../constants/waiting-list.constants";
-import { WaitingListFormSchema } from "../schemas/waiting-list.schema";
 import { FieldGroup } from "@/components/ui/field";
 import { WaitingListData } from "@/src/types/auth.types";
 import { useAuth } from "@/src/contexts/AuthContext";
 import { ReactElement, useState } from "react";
 import rocket3D from "@assets/imgs/3d/rocket.png";
+import { WAITING_LIST_DEFAULT_VALUES } from "../../../constants/waiting-list.constants";
+import { WaitingListFormSchema } from "../../../schemas/waiting-list.schema";
+import { useAppForm } from "@/src/components/shared/form/form-hooks";
 
 type Props = {
   type: "brand" | "primary";

@@ -14,7 +14,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as LandingRouteImport } from './routes/landing'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LandingTermsRouteImport } from './routes/landing/terms'
 import { Route as LandingHomeRouteImport } from './routes/landing/home'
+import { Route as LandingCommercialsRouteImport } from './routes/landing/commercials'
 import { Route as AuthUnverifiedEmailRouteImport } from './routes/auth/unverified-email'
 import { Route as AuthTwoStepsVerificationRouteImport } from './routes/auth/two-steps-verification'
 import { Route as AuthResetPasswordRouteImport } from './routes/auth/reset-password'
@@ -80,9 +82,19 @@ const AuthThreeStepsLazyRoute = AuthThreeStepsLazyRouteImport.update({
 } as any).lazy(() =>
   import('./routes/auth/three-steps.lazy').then((d) => d.Route),
 )
+const LandingTermsRoute = LandingTermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => LandingRoute,
+} as any)
 const LandingHomeRoute = LandingHomeRouteImport.update({
   id: '/home',
   path: '/home',
+  getParentRoute: () => LandingRoute,
+} as any)
+const LandingCommercialsRoute = LandingCommercialsRouteImport.update({
+  id: '/commercials',
+  path: '/commercials',
   getParentRoute: () => LandingRoute,
 } as any)
 const AuthUnverifiedEmailRoute = AuthUnverifiedEmailRouteImport.update({
@@ -200,7 +212,9 @@ export interface FileRoutesByFullPath {
   '/auth/reset-password': typeof AuthResetPasswordRoute
   '/auth/two-steps-verification': typeof AuthTwoStepsVerificationRoute
   '/auth/unverified-email': typeof AuthUnverifiedEmailRoute
+  '/landing/commercials': typeof LandingCommercialsRoute
   '/landing/home': typeof LandingHomeRoute
+  '/landing/terms': typeof LandingTermsRoute
   '/auth/three-steps': typeof AuthThreeStepsLazyRoute
   '/landing/product': typeof LandingProductLazyRoute
   '/landing/simulator': typeof LandingSimulatorLazyRoute
@@ -228,7 +242,9 @@ export interface FileRoutesByTo {
   '/auth/reset-password': typeof AuthResetPasswordRoute
   '/auth/two-steps-verification': typeof AuthTwoStepsVerificationRoute
   '/auth/unverified-email': typeof AuthUnverifiedEmailRoute
+  '/landing/commercials': typeof LandingCommercialsRoute
   '/landing/home': typeof LandingHomeRoute
+  '/landing/terms': typeof LandingTermsRoute
   '/auth/three-steps': typeof AuthThreeStepsLazyRoute
   '/landing/product': typeof LandingProductLazyRoute
   '/landing/simulator': typeof LandingSimulatorLazyRoute
@@ -257,7 +273,9 @@ export interface FileRoutesById {
   '/auth/reset-password': typeof AuthResetPasswordRoute
   '/auth/two-steps-verification': typeof AuthTwoStepsVerificationRoute
   '/auth/unverified-email': typeof AuthUnverifiedEmailRoute
+  '/landing/commercials': typeof LandingCommercialsRoute
   '/landing/home': typeof LandingHomeRoute
+  '/landing/terms': typeof LandingTermsRoute
   '/auth/three-steps': typeof AuthThreeStepsLazyRoute
   '/landing/product': typeof LandingProductLazyRoute
   '/landing/simulator': typeof LandingSimulatorLazyRoute
@@ -287,7 +305,9 @@ export interface FileRouteTypes {
     | '/auth/reset-password'
     | '/auth/two-steps-verification'
     | '/auth/unverified-email'
+    | '/landing/commercials'
     | '/landing/home'
+    | '/landing/terms'
     | '/auth/three-steps'
     | '/landing/product'
     | '/landing/simulator'
@@ -315,7 +335,9 @@ export interface FileRouteTypes {
     | '/auth/reset-password'
     | '/auth/two-steps-verification'
     | '/auth/unverified-email'
+    | '/landing/commercials'
     | '/landing/home'
+    | '/landing/terms'
     | '/auth/three-steps'
     | '/landing/product'
     | '/landing/simulator'
@@ -343,7 +365,9 @@ export interface FileRouteTypes {
     | '/auth/reset-password'
     | '/auth/two-steps-verification'
     | '/auth/unverified-email'
+    | '/landing/commercials'
     | '/landing/home'
+    | '/landing/terms'
     | '/auth/three-steps'
     | '/landing/product'
     | '/landing/simulator'
@@ -407,11 +431,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthThreeStepsLazyRouteImport
       parentRoute: typeof AuthLazyRoute
     }
+    '/landing/terms': {
+      id: '/landing/terms'
+      path: '/terms'
+      fullPath: '/landing/terms'
+      preLoaderRoute: typeof LandingTermsRouteImport
+      parentRoute: typeof LandingRoute
+    }
     '/landing/home': {
       id: '/landing/home'
       path: '/home'
       fullPath: '/landing/home'
       preLoaderRoute: typeof LandingHomeRouteImport
+      parentRoute: typeof LandingRoute
+    }
+    '/landing/commercials': {
+      id: '/landing/commercials'
+      path: '/commercials'
+      fullPath: '/landing/commercials'
+      preLoaderRoute: typeof LandingCommercialsRouteImport
       parentRoute: typeof LandingRoute
     }
     '/auth/unverified-email': {
@@ -554,13 +592,17 @@ const AppRouteChildren: AppRouteChildren = {
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
 
 interface LandingRouteChildren {
+  LandingCommercialsRoute: typeof LandingCommercialsRoute
   LandingHomeRoute: typeof LandingHomeRoute
+  LandingTermsRoute: typeof LandingTermsRoute
   LandingProductLazyRoute: typeof LandingProductLazyRoute
   LandingSimulatorLazyRoute: typeof LandingSimulatorLazyRoute
 }
 
 const LandingRouteChildren: LandingRouteChildren = {
+  LandingCommercialsRoute: LandingCommercialsRoute,
   LandingHomeRoute: LandingHomeRoute,
+  LandingTermsRoute: LandingTermsRoute,
   LandingProductLazyRoute: LandingProductLazyRoute,
   LandingSimulatorLazyRoute: LandingSimulatorLazyRoute,
 }

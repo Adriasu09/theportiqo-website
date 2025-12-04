@@ -1,13 +1,12 @@
 import { Benefits } from "./components/benefits/benefits";
 import { LandingHero } from "./components/hero/landing-hero";
-import { Partners } from "./components/partners";
-import { PortfolioThemes } from "./components/portfolio-themes";
-import { FAQ } from "./components/faq";
 import { useAuth } from "@/src/contexts/AuthContext";
 import { useNavigate } from "@tanstack/react-router";
 import { useEffect } from "react";
+import { Partners } from "./components/partners";
+import { PortfolioThemes } from "./components/portfolio-themes";
 
-export const LandingPage = () => {
+export const LandingHomePage = () => {
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
