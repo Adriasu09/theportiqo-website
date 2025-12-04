@@ -109,6 +109,7 @@
 			"goSimulator": "Go to the simulator of our portfolios",
 			"goToPortfolioSimulator": "Go to the simulator of our portfolios",
 			"login": "Log in",
+			"openEmail": "Open email",
 			"resendCode": "Resend code",
 			"startInvesting": "Start investing today",
 			"startInvestingNow": "Start investing right now",
@@ -163,7 +164,16 @@
 			"unitedKingdom": "United Kingdom"
 		},
 		"error": {
-			"invalidCredentials": "Invalid credentials"
+			"invalidCredentials": "Invalid credentials",
+			"validation": {
+				"acceptTerms": "you must accept the terms and conditions",
+				"atLeast8Chars": "password must contain at least 8 characters",
+				"atLeastOneNumber": "Password must contain at least one number",
+				"atLeastOneUpperCase": "Password must contain at least one upper case",
+				"invalidEmail": "Invalid email address",
+				"required": "This field is required",
+				"validPhone": "Enter a valid phone number"
+			}
 		},
 		"label": {
 			"acceptCommunication": "I agree to receive commercial communications and promotional offers from the Huargo group.",
@@ -171,6 +181,7 @@
 			"address": "Address",
 			"city": "City",
 			"country": "Country",
+			"DNI": "DNI",
 			"documentNumber": "Document number",
 			"documentType": "Document type",
 			"email": "Email",
@@ -179,8 +190,10 @@
 			"es": "Spanish",
 			"firstName": "First name",
 			"lastName": "Last name",
+			"NIE": "NIE",
 			"or": "or",
 			"otpCode": "Code",
+			"Passport": "Passport",
 			"password": "Password",
 			"passwordConfirmation": "Confirm password",
 			"phone": "Phone",

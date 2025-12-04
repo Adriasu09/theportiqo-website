@@ -38,7 +38,7 @@ export const ConfirmEmailPage = ({ token }: Props) => {
   };
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-16">
+    <div className="auth-container">
       <div className="flex w-full flex-col items-center gap-6">
         <img src={tick3D} width={"200px"} />
 

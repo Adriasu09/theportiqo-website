@@ -9,7 +9,7 @@ export const ACCOUNT_DEFAULT_VALUES: NameEmailFormType = {
   firstName: "",
   lastName: "",
   email: "",
-  acceptCommunication: true,
+  acceptCommunication: false,
   acceptTerms: false,
 };
 

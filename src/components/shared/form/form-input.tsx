@@ -12,8 +12,9 @@ import { CircleAlert, Mail, CircleQuestionMark } from "lucide-react";
 export function FormInput({
   type = "text",
   showErrorMessage = true,
+  showTipIcon = false,
   ...props
-}: FormControlProps & { type?: string; showErrorMessage?: boolean }) {
+}: FormControlProps & { type?: string; showErrorMessage?: boolean; showTipIcon?: boolean }) {
   const field = useFieldContext<string>();
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
 
@@ -56,9 +57,11 @@ export function FormInput({
             </InputGroupAddon>
           )}
 
-          <InputGroupAddon align="inline-end" className="text-qo-icon-neutral">
-            {isInvalid ? <CircleAlert /> : <CircleQuestionMark />}
-          </InputGroupAddon>
+          {showTipIcon && (
+            <InputGroupAddon align="inline-end" className="text-qo-icon-neutral">
+              {isInvalid ? <CircleAlert /> : <CircleQuestionMark />}
+            </InputGroupAddon>
+          )}
         </InputGroup>
       )}
     </FormBase>

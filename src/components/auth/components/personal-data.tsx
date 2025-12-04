@@ -32,7 +32,7 @@ export const PersonalDataPage = () => {
   });
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-16">
+    <div className="auth-container">
       <h1 className="text-center font-accent text-qo-h3">
         {t("auth.personalData.title")}
       </h1>
@@ -58,7 +58,7 @@ export const PersonalDataPage = () => {
               <field.Select label={t("global.label.documentType")}>
                 {DOCUMENT_TYPE_OPTIONS.map((option: SelectOption) => (
                   <SelectItem key={option.value} value={option.value}>
-                    {option.label}
+                    {t(`global.label.${option.label}`)}
                   </SelectItem>
                 ))}
               </field.Select>

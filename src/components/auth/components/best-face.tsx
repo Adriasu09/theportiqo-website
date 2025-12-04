@@ -9,7 +9,7 @@ export const BestFacePage = () => {
   // TODO: Temporaly redirecting to dashboard, implement Sumsub pages
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-16">
+    <div className="auth-container">
       <div className="flex w-full flex-col items-center gap-6">
         <img src={camera3D} width={"200px"} />
 

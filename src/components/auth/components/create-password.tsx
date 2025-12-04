@@ -42,7 +42,7 @@ export const CreatePasswordPage = () => {
   });
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-20">
+    <div className="auth-container">
       <h1 className="text-center font-accent text-qo-h3">
         {t("auth.createPassword.title")}
       </h1>
@@ -52,7 +52,7 @@ export const CreatePasswordPage = () => {
           e.preventDefault();
           passwordForm.handleSubmit();
         }}
-        className="flex w-full max-w-[400px] flex-col items-center justify-center gap-8"
+        className="flex w-full flex-col items-center justify-center gap-8"
       >
         <FieldGroup>
           <passwordForm.AppField

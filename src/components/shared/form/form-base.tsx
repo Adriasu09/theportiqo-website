@@ -7,6 +7,7 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { FormBaseProps } from "./models/form.models";
+import { useTranslation } from "react-i18next";
 
 export function FormBase({
   children,
@@ -16,6 +17,7 @@ export function FormBase({
   horizontal,
   showErrorMessage = true,
 }: FormBaseProps) {
+  const { t } = useTranslation();
   const field = useFieldContext();
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
 
