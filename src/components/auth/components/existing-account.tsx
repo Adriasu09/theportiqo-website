@@ -8,7 +8,7 @@ export const ExistingAccountPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-20">
+    <div className="auth-container">
       <div className="flex w-full flex-col items-center gap-6">
         <img src={atSign3D} width={"200px"} />
 

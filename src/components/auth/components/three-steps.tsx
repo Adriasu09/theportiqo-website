@@ -20,34 +20,41 @@ export const ThreeStepsPage = () => {
   }, [user]);
 
   return (
-    <div className="flex w-full max-w-[520px] flex-col items-center justify-center gap-4">
+    <div className="auth-container">
       <div className="flex w-full items-center justify-center">
         <img src={rocket} width={"160px"} />
       </div>
 
-      <h1 className="w-full text-center font-accent text-qo-h3">
-        {t("auth.threeSteps.title")}
-      </h1>
+      <div className="flex h-full w-full flex-col justify-center gap-6">
+        <h1 className="w-full text-center font-accent text-qo-h3">
+          {t("auth.threeSteps.title")}
+        </h1>
 
-      <p className="py-6 text-center">{t("auth.threeSteps.description")}</p>
+        <p className="py-6 text-center">{t("auth.threeSteps.description")}</p>
 
-      <Button
-        className="onboarding-button"
-        onClick={() => navigate({ to: "/auth/name-email" })}
-      >
-        {t("global.button.continue")}
-      </Button>
+        <div className="w-full flex flex-col items-center justify-center gap-4">
+          <Button
+            className="onboarding-button"
+            onClick={() => navigate({ to: "/auth/name-email" })}
+          >
+            {t("global.button.continue")}
+          </Button>
 
-      <div className="flex w-full items-center justify-center gap-4">
-        <Button
-          onClick={() => loginGoogle()}
-          type="button"
-          variant={"oneTap"}
-          size={"icon"}
-          className="w-10"
-        >
-          <img src={googleLogo} alt="Google Logo" height="25px" width="25px" />
-        </Button>
+          <Button
+            onClick={() => loginGoogle()}
+            type="button"
+            variant={"oneTap"}
+            size={"icon"}
+            className="w-10"
+          >
+            <img
+              src={googleLogo}
+              alt="Google Logo"
+              height="25px"
+              width="25px"
+            />
+          </Button>
+        </div>
       </div>
     </div>
   );

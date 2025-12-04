@@ -1,11 +1,11 @@
 import * as z from "zod";
 
 export const LoginSchema = z.object({
-  email: z.email("Invalid email address"),
-  password: z.string().min(1, "Password is required"),
+  email: z.email("invalidEmail"),
+  password: z.string().min(1, "required"),
   device_type: z.enum(["web", "ios", "android", "backoffice"]),
   device_fingerprint: z.string(),
-  otp_code: z.string().min(1, "OTP code is required"),
+  otp_code: z.string().min(1, "required"),
   remember_device: z.boolean().optional(),
   token: z.string(),
 });

@@ -9,7 +9,6 @@ export const MailSentPage = () => {
   const { resendConfirmationEmail } = useAuth();
   const registerData = useRegisterUserStore((state) => state);
 
-
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-20">
       <div className="flex w-full flex-col items-center gap-6">
@@ -29,6 +28,13 @@ export const MailSentPage = () => {
           className="text-qo-xs"
         >
           {t("global.button.resendCode")}
+        </Button>
+        {/* TODO:  open email */}
+        <Button
+          onClick={() => {}}
+          className="onboarding-button"
+        >
+          {t("global.button.openEmail")}
         </Button>
       </div>
     </div>
