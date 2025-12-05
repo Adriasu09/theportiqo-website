@@ -4,9 +4,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FAQItem } from "../types/landing.types";
-import { FAQ_LIST } from "../constants/landing.constants";
 import { useTranslation } from "react-i18next";
+import { FAQItem } from "../../../types/landing.types";
+import { FAQ_LIST } from "../../../constants/landing.constants";
 
 export const FAQ = () => {
   const { t } = useTranslation();

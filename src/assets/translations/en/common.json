@@ -257,6 +257,54 @@
 			"paragraph2": "free from jargon and complications, previously reserved for large investors.",
 			"title": "Invest like an expert, without being one."
 		},
+		"legal": {
+			"commercials": {
+				"marketing": {
+					"description": "VERSION: FEBRUARY 2025\n\nBy ticking the box, you authorize the personal data you have provided to be processed by HUARGO CAPITAL, S.L. and by the companies within the Group (which can be consulted at www.huargo.com)\n\n for commercial purposes, so that you may be informed about products, services, offers, and marketing news that may be of interest to you through telephone, postal, and/or electronic means (SMS and/or PUSH notifications, email, instant messaging, and any other electronic means suitable according to current technology). You also authorize the sending of personalized offers based on profiling, either through telecommunications terminal equipment or through automatic calling systems, in order to tailor such offers as closely as possible to your needs.\n\nYou may withdraw your consent—ceasing to receive information about products and services, offers, and news—through your profile on our website, by using the link at the bottom of each marketing email, and in accordance with the methods set out in the Privacy Policy and those established in the “Rights” section indicated below.\n\nYou guarantee that the data provided are your own, true, accurate, complete, and up to date, and you accept responsibility for any direct or indirect damage or harm that may arise as a result of failing to comply with this obligation. You also agree to notify us of any updates to your data as soon as possible.\n\nPlease remember to review our Privacy Policy to consult all information regarding the processing of your personal data and the Data Controller.",
+					"title": "Data marketing and communication"
+				},
+				"title": "Commercial communications"
+			},
+			"terms": {
+				"accessAndSecurity": {
+					"description": "Access to transactional services and those involving the capture of personal data is conducted in a secure environment using 128-bit SSL (Secure Sockets Layer) protocol. The secure server establishes a connection so that the information is transmitted in encrypted form. This ensures that the transmitted content is only intelligible to the User’s computer and Pórtiqo’s server.\n\nThe User can verify that they are in a secure environment if a closed padlock appears in the status bar of their browser. The security of our servers is supported by a certificate issued by COMODO RSA Domain Validation Secure Server CA. This certificate guarantees that the client is communicating their data to a Pórtiqo server and not to a third party attempting to impersonate it.",
+					"title": "Access and security"
+				},
+				"content": {
+					"description": "Pórtiqo makes every effort to prevent any errors in the content that may appear on the Website. However, Pórtiqo does not guarantee, nor is it responsible for, any consequences that may arise from errors in the content that may appear on the Website.",
+					"title": "Content"
+				},
+				"hyperlinks": {
+					"description": "The Website may include access links (hyperlinks) to other websites not owned by Pórtiqo. Under no circumstances does this imply the existence of a relationship between Pórtiqo and the owner of the website to which the hyperlink redirects, nor its approval or acceptance. Pórtiqo shall also not be responsible for the legality of the content published on such websites.\n\nNo other website may incorporate a hyperlink to Pórtiqo’s Website without its express authorization. In any case, such authorization implies that the hyperlink must not be made in a way that harms the public image or brand of Pórtiqo, the Website itself, or any third parties referenced therein.\n\nPórtiqo will remove any link as soon as it becomes aware, by any means, of the illegality of its content or that it infringes the rights or property of a third party.",
+					"title": "Hyperlinks"
+				},
+				"identifyingData": {
+					"description": "Corporate Name: HUARGO CAPITAL, S.L. (hereinafter, “Pórtiqo”)\n\nAddress: Calle Ferraz 114, 28008, Madrid, Madrid, SPAIN\n\nNIF: B-88466776\n\nRegistered in the Madrid Commercial Registry.",
+					"title": "Identifying information of the service provider"
+				},
+				"intellectualProperty": {
+					"description": "This Website, its source code, and the content it contains are protected by Intellectual Property Law. They may not be exploited, reproduced, distributed, modified, publicly communicated, transferred, or transformed without the express authorization of the rights holders.\n\nThe design, images, labels, distinctive signs, trade name, trademarks, logos, products, and services contained on this Website are protected under Industrial Property law.\n\nAccess to the Website does not grant Users any rights or ownership over the intellectual or industrial property rights or the content it hosts. Users accessing this Website may not copy, modify, distribute, transmit, reproduce, publish, transfer, or sell the aforementioned elements, nor create new products or services derived from the information obtained, without the express written authorization of the rights holders.",
+					"title": "Intellectual and industrial propert"
+				},
+				"legalNotice": {
+					"description": "VERSION: FEBRUARY 2025\n\nThis Legal Notice sets out the terms of use for the Website, https://www.portiqo.com\n (hereinafter, the “Website”).\n\nUse of the Website grants the visitor the status of User, which implies acceptance of and commitment to comply with each and every one of the conditions contained in this Legal Notice, in the version published at the time of access. Therefore, the User is advised to read this Legal Notice carefully each time they access the Website.\n\nThese Terms shall apply regardless of the existence of any other specific conditions applicable to certain services provided on the Website.",
+					"title": "Legal notice"
+				},
+				"navigation": {
+					"description": "Pórtiqo does not guarantee nor is it responsible for uninterrupted access to the Website or that it will be error-free. It also does not guarantee or assume responsibility for the content or software accessible through the Website being free of errors or causing damage. Under no circumstances shall Pórtiqo be liable for any losses, damages, or harm of any kind arising from access to or use of the Website, including but not limited to damages to computer systems or those caused by the introduction of viruses.\n\nPórtiqo shall not be responsible for any damage that may occur to Users as a result of improper use of the Website. In particular, it shall not be liable in any way for outages, interruptions, deficiencies, or faults in telecommunications that may occur while the User navigates the Website.",
+					"title": "Navigation"
+				},
+				"termsAndConditionsUse": {
+					"description": "The terms and conditions set out in this Legal Notice shall apply to all pages included in the Site Map, which are the only pages encompassed within this Website.\n\nAccess to this Website is the sole responsibility of the Users and implies acceptance of these terms and conditions of use.\nThe User must make lawful use of this Website and its services in accordance with these terms and conditions of use and with the applicable legislation.\n\nPórtiqo may unilaterally modify the terms and conditions of use of this Website by publishing such changes in this Legal Notice, and they shall take effect from the moment of their publication.",
+					"title": "Terms and conditions of use"
+				},
+				"title": "Legal terms and conditions",
+				"websiteUpdates": {
+					"description": "The information on the Website is current as of the date of its last update. Pórtiqo is not responsible for the accuracy or suitability of the information contained therein.\n\nUsers may not alter, change, modify, or adapt the Website. Pórtiqo reserves the right to make any updates, changes, or modifications it deems appropriate, and may exercise this right at any time without prior notice.\n\nPórtiqo reserves the right to unilaterally modify the terms and conditions of use of the Website, including this Legal Notice.",
+					"title": "News and changes on the website"
+				}
+			}
+		},
 		"ourPortfolio": {
 			"getAccess": "Access the entire Pórtiqo catalog with your Google or Apple account.",
 			"gmailAccount": "Gmail account",

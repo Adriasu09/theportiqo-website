@@ -26,14 +26,20 @@
   --text-qo-base: 1.125rem; /* 18px */
   --text-qo-base--line-height: 1.5rem; /* 24px */
 
+  --text-qo-lg: 1.225rem; /* 20px */
+  --text-qo-lg--line-height: 1.75rem; /* 28px */
+
   --text-qo-h1: 5rem; /* 80px */
-  --text-qo-h1--line-height: 4rem; /* 64px */
+  --text-qo-h1--line-height: 5.5rem; /* 88px */
 
   --text-qo-h2: 4rem; /* 64px */
   --text-qo-h2--line-height: 3rem; /* 48px */
 
   --text-qo-h3: 3.25rem; /* 52px */
   --text-qo-h3--line-height: 2.875rem; /* 46px */
+
+  --text-qo-h4: 2.5rem; /* 40px */
+  --text-qo-h4--line-height: 3rem; /* 48px */
 
   --text-qo-h5: 1.375rem; /* 22px */
   --text-qo-h5--line-height: 1.375rem; /* 22px */
