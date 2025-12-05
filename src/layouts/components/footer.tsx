@@ -49,7 +49,7 @@ export const Footer = () => {
         <div className="flex h-full flex-1 items-start justify-center gap-4 min-[950px]:justify-start">
           <div className="flex gap-2">
             <span className="fi fi-es"></span>
-            <p>Spain</p>
+            <p>{t(`global.country.spain`)}</p>
           </div>
 
           <DropdownMenu>
