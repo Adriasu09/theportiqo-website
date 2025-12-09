@@ -4,5 +4,6 @@ export const WAITING_LIST_DEFAULT_VALUES: WaitingListFormType = {
   firstName: "",
   lastName: "",
   email: "",
-  acceptCommunication: true,
+  acceptCommunication: false,
+  acceptPrivacyPolicity: false,
 };

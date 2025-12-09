@@ -7,6 +7,9 @@ export const WaitingListFormSchema = z.object({
   acceptCommunication: z.boolean().refine((val) => val === true, {
     message: "acceptCommunication",
   }),
+  acceptPrivacyPolicity: z.boolean().refine((val) => val === true, {
+    message: "acceptPrivacyPolicy",
+  }),
 });
 
 export type WaitingListFormType = z.infer<typeof WaitingListFormSchema>;

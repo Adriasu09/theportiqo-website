@@ -150,6 +150,13 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
                 <field.Checkbox label={t("global.label.acceptCommunication")} />
               )}
             />
+
+            <waitingListForm.AppField
+              name="acceptPrivacyPolicity"
+              children={(field) => (
+                <field.Checkbox label={t("global.label.acceptPrivacyPolicity")} />
+              )}
+            />
           </form>
         ) : (
           <DialogClose asChild>

@@ -187,6 +187,7 @@
 		},
 		"label": {
 			"acceptCommunication": "Acepto recibir comunicaciones comerciales y ofertas promocionales del grupo Huargo.",
+			"acceptPrivacyPolicity": "Acepto la política de privacidad del grupo Huargo.",
 			"acceptTerms": "Acepto las condiciones legales y la política de privacidad de Portiqo.",
 			"address": "Dirección",
 			"city": "Ciudad",
