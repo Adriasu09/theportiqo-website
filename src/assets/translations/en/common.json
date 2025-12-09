@@ -253,8 +253,7 @@
 		},
 		"hero": {
 			"badge": "From 10,000 eur",
-			"paragraph1": "Invest in exclusive portfolios designed to maximise your returns. With clear portfolios,",
-			"paragraph2": "free from jargon and complications, previously reserved for large investors.",
+			"description": "Invest in exclusive portfolios designed to maximise your returns. With clear portfolios, free from jargon and complications, previously reserved for large investors.",
 			"title": "Invest like an expert, without being one."
 		},
 		"legal": {

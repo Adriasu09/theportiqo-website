@@ -34,27 +34,6 @@ export const PortfolioThemes = () => {
           </div>
         ))}
       </div>
-
-      <div className="flex flex-wrap justify-center gap-4">
-        <div className="flex max-w-[530px] flex-col justify-center gap-4">
-          <p>{t("landing.ourPortfolio.requirements")}</p>
-
-          <h2 className="font-accent text-qo-h3">
-            {t("landing.ourPortfolio.wantToKnowMore")}
-          </h2>
-
-          <p>{t("landing.ourPortfolio.getAccess")}</p>
-        </div>
-
-        <div className="flex  md:w-auto flex-col items-center justify-center gap-2 rounded-2xl bg-[#f5f5f5] p-8">
-          <img src={gmail3D} width={"200px"} />
-          <p>{t("landing.ourPortfolio.gmailAccount")}</p>
-        </div>
-      </div>
-
-      <Button variant={"secondary"}>
-        {t("global.button.goToPortfolioSimulator")}
-      </Button>
     </div>
   );
 };

@@ -227,7 +227,7 @@
 			"backedByExperts": "Con el respaldo de expertos",
 			"backedByExpertsDescription": "Inversiones seleccionadas por profesionales experimentados con la garantía de fondos de prestigio.",
 			"everythingClear": "Todo claro y accesible",
-			"everythingClearDescription": "Entienda cada paso, sin jerga ni tecnicismos. Elija sus inversiones en categorías que conozca y controle cada decisión.",
+			"everythingClearDescription": "Entiende cada paso, sin jerga ni tecnicismos. Elige sus inversiones en categorías que conozca y controle cada decisión.",
 			"experience": "15 años de experiencia",
 			"fees": "0,0 comisiones",
 			"maximumProfitability": "Máxima rentabilidad",
@@ -253,8 +253,7 @@
 		},
 		"hero": {
 			"badge": "Desde 10.000 euros",
-			"paragraph1": "Invierta en carteras exclusivas diseñadas para maximizar su rentabilidad. Con carteras claras,",
-			"paragraph2": "sin jerga ni complicaciones, hasta ahora reservadas para grandes inversores.",
+			"description": "Invierte en productos exclusivos diseñados para maximizar tu rentabilidad. Con productos claros, sin jerga ni complicaciones, hasta ahora reservados para grandes inversores.",
 			"title": "Invierte como un experto, sin serlo."
 		},
 		"legal": {
@@ -314,7 +313,7 @@
 		},
 		"partners": {
 			"comment": "\"Saber que mis inversiones están respaldadas por líderes mundiales me da total confianza para seguir creciendo\". - Ana M.",
-			"title": "Invierta con la tranquilidad de la banca mundial"
+			"title": "Invierte con la tranquilidad del respaldo global"
 		},
 		"waitingList": {
 			"default": {

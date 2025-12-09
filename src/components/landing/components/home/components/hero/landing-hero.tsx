@@ -12,15 +12,13 @@ export const LandingHero = () => {
         <div className="flex h-full max-w-xl flex-col items-start justify-center gap-4">
           <Badge variant={"outline"}>{t("landing.hero.badge")}</Badge>
 
-          <h1 className="font-accent text-qo-h2 lg:text-qo-h1">{t("landing.hero.title")}</h1>
+          <h1 className="font-accent text-qo-h2 lg:text-qo-h1">
+            {t("landing.hero.title")}
+          </h1>
 
-          <p className="w-full">
-            {t("landing.hero.paragraph1")}
-            <br />
-            {t("landing.hero.paragraph2")}
-          </p>
+          <p className="w-full">{t("landing.hero.description")}</p>
 
-          <div className="flex h- w-full flex-wrap items-center justify-start gap-2">
+          <div className="h- flex w-full flex-wrap items-center justify-start gap-2">
             <WaitingListDialog type="primary" labelKey="beTheFirst" />
           </div>
         </div>
