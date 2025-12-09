@@ -212,7 +212,11 @@ function FieldError({
       <ul className="ml-4 flex list-disc flex-col gap-1">
         {uniqueErrors.map(
           (error, index) =>
-            error?.message && <li key={index}>{t(`global.error.validation.${error.message}`)}</li>,
+            error?.message && (
+              <li key={index}>
+                {t(`global.error.validation.${error.message}`)}
+              </li>
+            ),
         )}
       </ul>
     );
@@ -226,7 +230,7 @@ function FieldError({
     <div
       role="alert"
       data-slot="field-error"
-      className={cn("text-qo-brand-500 text-sm font-semibold", className)}
+      className={cn("text-sm font-semibold text-qo-brand-500", className)}
       {...props}
     >
       {content}

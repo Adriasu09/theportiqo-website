@@ -186,8 +186,17 @@
 			}
 		},
 		"label": {
-			"acceptCommunication": "I agree to receive commercial communications and promotional offers from the Huargo group.",
+			"acceptCommunication": {
+				"1": "I agree to receive",
+				"2": "commercial communications",
+				"3": "and promotional offers from the Huargo group."
+			},
 			"acceptPrivacyPolicity": "I accept the Huargo Group's privacy policy.",
+			"acceptPrivacyPolicity1": {
+				"1": "I accept the Huargo Group's",
+				"2": "privacy policy.",
+				"3": " "
+			},
 			"acceptTerms": "I accept Portiqo's legal terms and conditions and privacy policy.",
 			"address": "Address",
 			"city": "City",
