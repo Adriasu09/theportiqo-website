@@ -192,16 +192,16 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
                   <field.Checkbox
                     customLabel={
                       <p className="flex-1 text-base">
-                        <span>{t("global.label.acceptCommunication.1")}</span>
+                        <span>{t("global.label.acceptPrivacyPolicity.1")}</span>
                         <span
                           onClick={() =>
-                            window.open("/landing/commercials", "_blank")
+                            window.open("/landing/privacy-policity", "_blank")
                           }
                           className="mx-1 cursor-pointer underline"
                         >
-                          {t("global.label.acceptCommunication.2")}
+                          {t("global.label.acceptPrivacyPolicity.2")}
                         </span>
-                        <span>{t("global.label.acceptCommunication.3")}</span>
+                        <span>{t("global.label.acceptPrivacyPolicity.3")}</span>
                       </p>
                     }
                   />
