@@ -15,7 +15,7 @@ export const FOOTER_SECTIONS: FooterSection[] = [
   {
     titleKey: "legal",
     children: [
-      { labelKey: "privacyPolicity", url: "/landing/privacy-policity" },
+      { labelKey: "privacyPolicity", url: "/landing/privacy-policy" },
       { labelKey: "commercialCommunication", url: "/landing/commercials" },
     ],
   },

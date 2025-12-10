@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
 type Props = {
-  page: "terms" | "commercials" | "privacyPolicity";
+  page: "terms" | "commercials" | "privacyPolicy";
   sectionKeys: string[];
 };
 

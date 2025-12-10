@@ -14,7 +14,7 @@ export const LEGAL_TERMS_SECTION_KEYS: string[] = [
   "hyperlinks",   
 ];
 
-export const PRIVACY_POLICITY_SECTION_KEYS: string[] = [
+export const PRIVACY_POLICY_SECTION_KEYS: string[] = [
   "ownership",
   "contact",
   "personalData",

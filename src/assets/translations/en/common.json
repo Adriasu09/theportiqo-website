@@ -192,7 +192,7 @@
 				"2": "commercial communications",
 				"3": "and promotional offers from the Huargo group."
 			},
-			"acceptPrivacyPolicity": {
+			"acceptPrivacyPolicy": {
 				"1": "I accept the Huargo Group's",
 				"2": "privacy policy.",
 				"3": " "
@@ -274,7 +274,7 @@
 				},
 				"title": "Commercial communications"
 			},
-			"privacyPolicity": {
+			"privacyPolicy": {
 				"accessControl": {
 					"description": "<p>Data collected through video surveillance cameras or, where applicable, provided for access control to the buildings of any Pórtiqo company:</p>\n<ul style=\"list-style-type: disc; padding-left: 20px;\">\n    <li><strong>Data collected:</strong> first name, last name, identity document, and images.</li>\n    <li><strong>Purpose:</strong> to control access and manage the internal security of Pórtiqo’s facilities.</li>\n    <li><strong>Legal basis:</strong> legitimate interest in ensuring security within the facilities by their owner, which justifies the recording of data in access control and the capturing of images necessarily when accessing these facilities.</li>\n    <li><strong>Retention period:</strong> data will be kept for no longer than 30 days, unless it is necessary to retain them for a longer period to clarify any detected infringement or unlawful act, and therefore they will remain available to public administrations, courts, and tribunals for the legally established periods to address and defend any potential liabilities arising from the processing.</li>\n</ul>\n",
 					"title": "ACCESS CONTROL AND SECURITY"

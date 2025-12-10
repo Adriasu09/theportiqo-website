@@ -192,7 +192,7 @@
 				"2": "comunicaciones comerciales",
 				"3": " y ofertas promocionales del grupo Huargo."
 			},
-			"acceptPrivacyPolicity": {
+			"acceptPrivacyPolicy": {
 				"1": "Acepto la",
 				"2": "política de privacidad",
 				"3": "del grupo Huargo."
@@ -274,7 +274,7 @@
 				},
 				"title": "Comunicaciones comerciales"
 			},
-			"privacyPolicity": {
+			"privacyPolicy": {
 				"accessControl": {
 					"description": "<p>Datos recabados por cámaras de Videovigilancia o en su caso facilitados para el control de acceso a los edificios de alguna de las empresas de Pórtiqo:</p>\n<ul style=\"list-style-type: disc; padding-left: 20px;\">\n    <li><strong>Datos recabados:</strong> nombre, apellidos, documento de identidad e imágenes.</li>\n    <li><strong>Finalidad:</strong> controlar el acceso y la gestión de la seguridad interna de las instalaciones de Pórtiqo.</li>\n    <li><strong>Legitimación:</strong> interés legítimo en garantizar la seguridad en las instalaciones por parte de su titular, lo que justifica el registro de datos en el control de acceso, y que las imágenes sean captadas necesariamente al acceder a estas instalaciones.</li>\n    <li><strong>Plazos de conservación:</strong> los datos serán conservados por un plazo no superior a 30 días, salvo que fuese necesario conservarlos durante más tiempo por ser conveniente para esclarecer alguna infracción o hecho ilícito detectado, y por tanto se mantendrán a disposición de la administración pública, jueces y tribunales, por los plazos legales establecidos para la atención y defensa de las posibles responsabilidades nacidas del tratamiento.</li>\n</ul>",
 					"title": "CONTROL DE ACCESO Y SEGURIDAD"
