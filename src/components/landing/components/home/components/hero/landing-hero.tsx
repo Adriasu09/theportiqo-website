@@ -7,8 +7,8 @@ import { CAROUSEL_ITEMS } from "@/src/components/landing/constants/landing.const
 export const LandingHero = () => {
   const { t } = useTranslation();
   return (
-    <div className="grid w-full grid-cols-1 gap-4 bg-qo-surface-300 px-6 py-20 transition-all lg:grid-cols-2">
-      <div className="order-2 lg:order-1 flex w-full justify-center lg:justify-end">
+    <div className="grid w-full grid-cols-1 gap-4 bg-qo-surface-300 px-6 py-20 transition-all md:grid-cols-2">
+      <div className="order-2 md:order-1 flex w-full justify-center md:justify-end">
         <div className="flex h-full max-w-xl flex-col items-start justify-center gap-4">
           <Badge variant={"outline"}>{t("landing.hero.badge")}</Badge>
 
@@ -24,7 +24,7 @@ export const LandingHero = () => {
         </div>
       </div>
 
-      <div className="order-1 lg:order-2 flex flex-col items-center justify-center gap-2 lg:items-start">
+      <div className="order-1 md:order-2 flex flex-col items-center justify-center gap-2 md:items-start">
         <Carousel items={CAROUSEL_ITEMS} />
       </div>
     </div>

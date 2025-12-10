@@ -24,7 +24,7 @@ export const Footer = () => {
   };
 
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-18 bg-qo-gray-900 px-28 py-16 text-white">
+    <div className="flex w-full flex-col items-center justify-center gap-18 bg-qo-gray-900 px-10 py-16 text-white md:px-28">
       <div className="flex w-full flex-col justify-between gap-8 min-[950px]:flex-row min-[950px]:gap-22 min-[1194px]:px-32">
         <div className="flex h-full flex-1 items-start justify-center gap-4 min-[950px]:justify-start">
           <div className="flex gap-2">
