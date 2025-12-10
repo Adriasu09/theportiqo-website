@@ -59,13 +59,6 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
     },
   });
 
-  const handleNavigateToCommercials = () => {
-    setIsOpen(false);
-    setTimeout(() => {
-      navigate({ to: "/landing/commercials" });
-    }, 150);
-  };
-
   const handleDialogOpenChange = () => {
     setIsOpen(!isOpen);
 
@@ -151,7 +144,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
               />
 
               {showError && (
-                <p className="mt-2 text-sm text-qo-brand-500 font-bold">
+                <p className="mt-2 text-sm font-bold text-qo-brand-500">
                   {t("global.error.registeredEmail")}
                 </p>
               )}
@@ -179,7 +172,9 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
                       <p className="flex-1 text-base">
                         <span>{t("global.label.acceptCommunication.1")}</span>
                         <span
-                          onClick={handleNavigateToCommercials}
+                          onClick={() =>
+                            window.open("/landing/commercials", "_blank")
+                          }
                           className="mx-1 cursor-pointer underline"
                         >
                           {t("global.label.acceptCommunication.2")}
@@ -199,7 +194,9 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
                       <p className="flex-1 text-base">
                         <span>{t("global.label.acceptCommunication.1")}</span>
                         <span
-                          onClick={handleNavigateToCommercials}
+                          onClick={() =>
+                            window.open("/landing/commercials", "_blank")
+                          }
                           className="mx-1 cursor-pointer underline"
                         >
                           {t("global.label.acceptCommunication.2")}
