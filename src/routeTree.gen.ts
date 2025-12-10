@@ -41,6 +41,9 @@ const AuthThreeStepsLazyRouteImport = createFileRoute('/auth/three-steps')()
 const LandingLegalTermsLazyRouteImport = createFileRoute(
   '/landing/_legal/terms',
 )()
+const LandingLegalPrivacyPolicyLazyRouteImport = createFileRoute(
+  '/landing/_legal/privacy-policy',
+)()
 const LandingLegalCommercialsLazyRouteImport = createFileRoute(
   '/landing/_legal/commercials',
 )()
@@ -189,6 +192,14 @@ const LandingLegalTermsLazyRoute = LandingLegalTermsLazyRouteImport.update({
 } as any).lazy(() =>
   import('./routes/landing/_legal/terms.lazy').then((d) => d.Route),
 )
+const LandingLegalPrivacyPolicyLazyRoute =
+  LandingLegalPrivacyPolicyLazyRouteImport.update({
+    id: '/_legal/privacy-policy',
+    path: '/privacy-policy',
+    getParentRoute: () => LandingRoute,
+  } as any).lazy(() =>
+    import('./routes/landing/_legal/privacy-policy.lazy').then((d) => d.Route),
+  )
 const LandingLegalCommercialsLazyRoute =
   LandingLegalCommercialsLazyRouteImport.update({
     id: '/_legal/commercials',
@@ -226,6 +237,7 @@ export interface FileRoutesByFullPath {
   '/landing/product': typeof LandingProductLazyRoute
   '/landing/simulator': typeof LandingSimulatorLazyRoute
   '/landing/commercials': typeof LandingLegalCommercialsLazyRoute
+  '/landing/privacy-policy': typeof LandingLegalPrivacyPolicyLazyRoute
   '/landing/terms': typeof LandingLegalTermsLazyRoute
 }
 export interface FileRoutesByTo {
@@ -256,6 +268,7 @@ export interface FileRoutesByTo {
   '/landing/product': typeof LandingProductLazyRoute
   '/landing/simulator': typeof LandingSimulatorLazyRoute
   '/landing/commercials': typeof LandingLegalCommercialsLazyRoute
+  '/landing/privacy-policy': typeof LandingLegalPrivacyPolicyLazyRoute
   '/landing/terms': typeof LandingLegalTermsLazyRoute
 }
 export interface FileRoutesById {
@@ -287,6 +300,7 @@ export interface FileRoutesById {
   '/landing/product': typeof LandingProductLazyRoute
   '/landing/simulator': typeof LandingSimulatorLazyRoute
   '/landing/_legal/commercials': typeof LandingLegalCommercialsLazyRoute
+  '/landing/_legal/privacy-policy': typeof LandingLegalPrivacyPolicyLazyRoute
   '/landing/_legal/terms': typeof LandingLegalTermsLazyRoute
 }
 export interface FileRouteTypes {
@@ -319,6 +333,7 @@ export interface FileRouteTypes {
     | '/landing/product'
     | '/landing/simulator'
     | '/landing/commercials'
+    | '/landing/privacy-policy'
     | '/landing/terms'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -349,6 +364,7 @@ export interface FileRouteTypes {
     | '/landing/product'
     | '/landing/simulator'
     | '/landing/commercials'
+    | '/landing/privacy-policy'
     | '/landing/terms'
   id:
     | '__root__'
@@ -379,6 +395,7 @@ export interface FileRouteTypes {
     | '/landing/product'
     | '/landing/simulator'
     | '/landing/_legal/commercials'
+    | '/landing/_legal/privacy-policy'
     | '/landing/_legal/terms'
   fileRoutesById: FileRoutesById
 }
@@ -580,6 +597,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LandingLegalTermsLazyRouteImport
       parentRoute: typeof LandingRoute
     }
+    '/landing/_legal/privacy-policy': {
+      id: '/landing/_legal/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/landing/privacy-policy'
+      preLoaderRoute: typeof LandingLegalPrivacyPolicyLazyRouteImport
+      parentRoute: typeof LandingRoute
+    }
     '/landing/_legal/commercials': {
       id: '/landing/_legal/commercials'
       path: '/commercials'
@@ -605,6 +629,7 @@ interface LandingRouteChildren {
   LandingProductLazyRoute: typeof LandingProductLazyRoute
   LandingSimulatorLazyRoute: typeof LandingSimulatorLazyRoute
   LandingLegalCommercialsLazyRoute: typeof LandingLegalCommercialsLazyRoute
+  LandingLegalPrivacyPolicyLazyRoute: typeof LandingLegalPrivacyPolicyLazyRoute
   LandingLegalTermsLazyRoute: typeof LandingLegalTermsLazyRoute
 }
 
@@ -613,6 +638,7 @@ const LandingRouteChildren: LandingRouteChildren = {
   LandingProductLazyRoute: LandingProductLazyRoute,
   LandingSimulatorLazyRoute: LandingSimulatorLazyRoute,
   LandingLegalCommercialsLazyRoute: LandingLegalCommercialsLazyRoute,
+  LandingLegalPrivacyPolicyLazyRoute: LandingLegalPrivacyPolicyLazyRoute,
   LandingLegalTermsLazyRoute: LandingLegalTermsLazyRoute,
 }
 

@@ -30,6 +30,8 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
   const { waitingList } = useAuth();
 
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   const waitingListForm = useAppForm({
     defaultValues: WAITING_LIST_DEFAULT_VALUES,
@@ -49,10 +51,21 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
         })
         .catch((err) => {
           console.error("Error submitting to waiting list", err);
+          setShowError(true);
           setShowConfirmation(false);
         });
     },
   });
+
+  const handleDialogOpenChange = () => {
+    setIsOpen(!isOpen);
+
+    setTimeout(() => {
+      setShowConfirmation(false);
+      setShowError(false);
+      waitingListForm.reset(WAITING_LIST_DEFAULT_VALUES);
+    }, 200);
+  };
 
   const defaultHeader: ReactElement = (
     <DialogHeader>
@@ -73,7 +86,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
   const successHeader: ReactElement = (
     <DialogHeader>
       <DialogTitle>
-        <div className="flex w-full flex-col items-start gap-4">
+        <div className="flex w-full flex-col items-center gap-4">
           <Badge variant={"outline"}>{t("global.badge.waitingList")}</Badge>
           <img src={rocket3D} width={"200px"} />
           <h1 className="font-accent text-[40px]">
@@ -81,23 +94,21 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
           </h1>
         </div>
       </DialogTitle>
-      <DialogDescription className="mt-8 font-main text-qo-base">
+      <DialogDescription className="mt-8 w-full text-center font-main text-qo-base">
         {t("landing.waitingList.success.description")}
       </DialogDescription>
     </DialogHeader>
   );
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={handleDialogOpenChange}>
       <DialogTrigger asChild>
         <Button variant={type === "brand" ? "brand" : "primary"}>
-          {t(
-            `global.button.${labelKey}`,
-          )}
+          {t(`global.button.${labelKey}`)}
           {type === "brand" && <ArrowRight />}
         </Button>
       </DialogTrigger>
-      <DialogContent className="h-[800px] p-12">
+      <DialogContent className="min-h-[800px] p-12">
         {showConfirmation ? successHeader : defaultHeader}
 
         {!showConfirmation ? (
@@ -129,6 +140,12 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
                   <field.Input label={t("global.label.email")} />
                 )}
               />
+
+              {showError && (
+                <p className="mt-2 text-sm font-bold text-qo-brand-500">
+                  {t("global.error.registeredEmail")}
+                </p>
+              )}
             </FieldGroup>
 
             <waitingListForm.Subscribe
@@ -144,19 +161,60 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
               )}
             />
 
-            <waitingListForm.AppField
-              name="acceptCommunication"
-              children={(field) => (
-                <field.Checkbox label={t("global.label.acceptCommunication")} />
-              )}
-            />
+            <div className="flex w-full flex-col items-center justify-center gap-4">
+              <waitingListForm.AppField
+                name="acceptCommunication"
+                children={(field) => (
+                  <field.Checkbox
+                    customLabel={
+                      <p className="flex-1 text-base">
+                        <span>{t("global.label.acceptCommunication.1")}</span>
+                        <span
+                          onClick={() =>
+                            window.open("/landing/commercials", "_blank")
+                          }
+                          className="mx-1 cursor-pointer underline"
+                        >
+                          {t("global.label.acceptCommunication.2")}
+                        </span>
+                        <span>{t("global.label.acceptCommunication.3")}</span>
+                      </p>
+                    }
+                  />
+                )}
+              />
+
+              <waitingListForm.AppField
+                name="acceptPrivacyPolicy"
+                children={(field) => (
+                  <field.Checkbox
+                    customLabel={
+                      <p className="flex-1 text-base">
+                        <span>{t("global.label.acceptPrivacyPolicy.1")}</span>
+                        <span
+                          onClick={() =>
+                            window.open("/landing/privacy-policy", "_blank")
+                          }
+                          className="mx-1 cursor-pointer underline"
+                        >
+                          {t("global.label.acceptPrivacyPolicy.2")}
+                        </span>
+                        <span>{t("global.label.acceptPrivacyPolicy.3")}</span>
+                      </p>
+                    }
+                  />
+                )}
+              />
+            </div>
           </form>
         ) : (
           <DialogClose asChild>
-            <Button variant={"brand"} className="onboarding-button">
-              {t("global.button.close")}
-              <ArrowRight />
-            </Button>
+            <div className="flex w-full justify-center">
+              <Button variant={"brand"} className="onboarding-button">
+                {t("global.button.close")}
+                <ArrowRight />
+              </Button>
+            </div>
           </DialogClose>
         )}
       </DialogContent>

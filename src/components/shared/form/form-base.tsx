@@ -7,7 +7,6 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { FormBaseProps } from "./models/form.models";
-import { useTranslation } from "react-i18next";
 
 export function FormBase({
   children,
@@ -16,8 +15,8 @@ export function FormBase({
   controlFirst,
   horizontal,
   showErrorMessage = true,
+  customLabel = undefined,
 }: FormBaseProps) {
-  const { t } = useTranslation();
   const field = useFieldContext();
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
 
@@ -36,19 +35,19 @@ export function FormBase({
     <Field
       data-invalid={isInvalid}
       orientation={horizontal ? "horizontal" : undefined}
-      className="gap-2"
+      className="gap-2 font-main"
     >
       {controlFirst ? (
         <>
           {children}
           <FieldContent>
-            {labelElement}
+            {customLabel ?? labelElement}
             {showErrorMessage && errorElement}
           </FieldContent>
         </>
       ) : (
         <>
-          <FieldContent>{labelElement}</FieldContent>
+          <FieldContent>{customLabel ?? labelElement}</FieldContent>
           {children}
           {showErrorMessage && errorElement}
         </>

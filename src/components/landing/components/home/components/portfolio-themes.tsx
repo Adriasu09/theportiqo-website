@@ -1,6 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { Button } from "@/components/ui/button";
-import gmail3D from "@assets/imgs/3d/gmail.png";
 import { CAROUSEL_ITEMS } from "../../../constants/landing.constants";
 
 export const PortfolioThemes = () => {
@@ -8,11 +6,11 @@ export const PortfolioThemes = () => {
 
   return (
     <div className="flex w-full flex-col items-center justify-center gap-8 px-4">
-      <h2 className="text-center font-accent text-qo-h3">
+      <h2 className="text-center font-accent text-qo-h5 md:text-qo-h3">
         {t("landing.ourPortfolio.title")}
       </h2>
 
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         {CAROUSEL_ITEMS.map((item) => (
           <div
             key={item.url}
@@ -34,27 +32,6 @@ export const PortfolioThemes = () => {
           </div>
         ))}
       </div>
-
-      <div className="flex flex-wrap justify-center gap-4">
-        <div className="flex max-w-[530px] flex-col justify-center gap-4">
-          <p>{t("landing.ourPortfolio.requirements")}</p>
-
-          <h2 className="font-accent text-qo-h3">
-            {t("landing.ourPortfolio.wantToKnowMore")}
-          </h2>
-
-          <p>{t("landing.ourPortfolio.getAccess")}</p>
-        </div>
-
-        <div className="flex  md:w-auto flex-col items-center justify-center gap-2 rounded-2xl bg-[#f5f5f5] p-8">
-          <img src={gmail3D} width={"200px"} />
-          <p>{t("landing.ourPortfolio.gmailAccount")}</p>
-        </div>
-      </div>
-
-      <Button variant={"secondary"}>
-        {t("global.button.goToPortfolioSimulator")}
-      </Button>
     </div>
   );
 };

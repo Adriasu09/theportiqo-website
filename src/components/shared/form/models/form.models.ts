@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
+import { ReactElement, ReactNode } from "react";
 
 export type FormControlProps = {
-  label: string;
+  label?: string | ReactNode;
   description?: string;
 };
 
@@ -10,6 +10,7 @@ export type FormBaseProps = FormControlProps & {
   horizontal?: boolean;
   controlFirst?: boolean;
   showErrorMessage?: boolean;
+  customLabel?: ReactElement;
 };
 
 export interface SelectOption {

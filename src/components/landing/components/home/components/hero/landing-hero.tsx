@@ -7,26 +7,24 @@ import { CAROUSEL_ITEMS } from "@/src/components/landing/constants/landing.const
 export const LandingHero = () => {
   const { t } = useTranslation();
   return (
-    <div className="grid w-full grid-cols-1 gap-4 bg-qo-surface-300 px-6 py-20 transition-all lg:grid-cols-2">
-      <div className="flex w-full justify-center lg:justify-end">
+    <div className="grid w-full grid-cols-1 gap-4 bg-qo-surface-300 px-6 py-20 transition-all md:grid-cols-2">
+      <div className="order-2 md:order-1 flex w-full justify-center md:justify-end">
         <div className="flex h-full max-w-xl flex-col items-start justify-center gap-4">
           <Badge variant={"outline"}>{t("landing.hero.badge")}</Badge>
 
-          <h1 className="font-accent text-qo-h2 lg:text-qo-h1">{t("landing.hero.title")}</h1>
+          <h1 className="font-accent text-qo-h2 lg:text-qo-h1">
+            {t("landing.hero.title")}
+          </h1>
 
-          <p className="w-full">
-            {t("landing.hero.paragraph1")}
-            <br />
-            {t("landing.hero.paragraph2")}
-          </p>
+          <p className="w-full">{t("landing.hero.description")}</p>
 
-          <div className="flex h- w-full flex-wrap items-center justify-start gap-2">
+          <div className="h- flex w-full flex-wrap items-center justify-start gap-2">
             <WaitingListDialog type="primary" labelKey="beTheFirst" />
           </div>
         </div>
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-2 lg:items-start">
+      <div className="order-1 md:order-2 flex flex-col items-center justify-center gap-2 md:items-start">
         <Carousel items={CAROUSEL_ITEMS} />
       </div>
     </div>

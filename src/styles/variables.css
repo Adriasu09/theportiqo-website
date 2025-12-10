@@ -41,8 +41,11 @@
   --text-qo-h4: 2.5rem; /* 40px */
   --text-qo-h4--line-height: 3rem; /* 48px */
 
-  --text-qo-h5: 1.375rem; /* 22px */
-  --text-qo-h5--line-height: 1.375rem; /* 22px */
+  --text-qo-h5: 2.375rem; /* 38px */
+  --text-qo-h5--line-height: 2.875rem; /* 46px */
+
+  --text-qo-h6: 1.375rem; /* 22px */
+  --text-qo-h6--line-height: 1.375rem; /* 22px */
 
   /* Colors */
   --color-qo-gray-25: #fcfcfd;

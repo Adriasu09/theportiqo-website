@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { BenefitCard } from "../../types/landing.types";
 import "./benefits-card.css";
+import { BenefitCard } from "@/src/components/landing/types/landing.types";
 
 export const BenefitsCard = ({
   titleKey,
@@ -52,7 +52,7 @@ export const BenefitsCard = ({
         className={`flex w-full max-w-[380px] flex-col items-start justify-end gap-2 rounded-2xl p-4 md:min-h-96 ${isAccented && "min-h-96 bg-qo-brand-100"}`}
       >
         <h2
-          className={`font-accent text-qo-h3 whitespace-pre-line ${isAccented && "text-qo-brand-500"}`}
+          className={`font-accent whitespace-pre-line ${isAccented ? "text-qo-h3 text-qo-brand-500" : "text-qo-h5 md:text-qo-h3"}`}
         >
           {isAccented
             ? words.map((word, index) => (
