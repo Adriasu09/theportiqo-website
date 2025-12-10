@@ -32,6 +32,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
 
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [showError, setShowError] = useState(false);
   const navigate = useNavigate();
 
   const waitingListForm = useAppForm({
@@ -52,6 +53,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
         })
         .catch((err) => {
           console.error("Error submitting to waiting list", err);
+          setShowError(true);
           setShowConfirmation(false);
         });
     },
@@ -69,6 +71,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
 
     setTimeout(() => {
       setShowConfirmation(false);
+      setShowError(false);
       waitingListForm.reset(WAITING_LIST_DEFAULT_VALUES);
     }, 100);
   };
@@ -146,6 +149,12 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
                   <field.Input label={t("global.label.email")} />
                 )}
               />
+
+              {showError && (
+                <p className="mt-2 text-sm text-qo-brand-500 font-bold">
+                  {t("global.error.registeredEmail")}
+                </p>
+              )}
             </FieldGroup>
 
             <waitingListForm.Subscribe
