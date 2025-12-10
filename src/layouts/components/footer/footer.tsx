@@ -67,6 +67,7 @@ export const Footer = () => {
                 <AccordionContent className="flex flex-col gap-4">
                   {section.children.map((child: SectionChild) => (
                     <p
+                      onClick={() => handleFooterItemClick(child)}
                       key={child.labelKey}
                       className="cursor-pointer hover:underline"
                     >
