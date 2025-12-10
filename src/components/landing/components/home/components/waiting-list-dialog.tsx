@@ -19,7 +19,6 @@ import rocket3D from "@assets/imgs/3d/rocket.png";
 import { WAITING_LIST_DEFAULT_VALUES } from "../../../constants/waiting-list.constants";
 import { WaitingListFormSchema } from "../../../schemas/waiting-list.schema";
 import { useAppForm } from "@/src/components/shared/form/form-hooks";
-import { useNavigate } from "@tanstack/react-router";
 
 type Props = {
   type: "brand" | "primary";
@@ -33,7 +32,6 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [showError, setShowError] = useState(false);
-  const navigate = useNavigate();
 
   const waitingListForm = useAppForm({
     defaultValues: WAITING_LIST_DEFAULT_VALUES,
@@ -66,7 +64,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
       setShowConfirmation(false);
       setShowError(false);
       waitingListForm.reset(WAITING_LIST_DEFAULT_VALUES);
-    }, 100);
+    }, 200);
   };
 
   const defaultHeader: ReactElement = (
@@ -187,7 +185,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
               />
 
               <waitingListForm.AppField
-                name="acceptPrivacyPolicity"
+                name="acceptPrivacyPolicy"
                 children={(field) => (
                   <field.Checkbox
                     customLabel={
