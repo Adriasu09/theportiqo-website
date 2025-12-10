@@ -34,13 +34,6 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handleNavigateToCommercials = () => {
-    setIsOpen(false);
-    setTimeout(() => {
-      navigate({ to: "/landing/commercials" });
-    }, 150);
-  };
-
   const waitingListForm = useAppForm({
     defaultValues: WAITING_LIST_DEFAULT_VALUES,
     validators: {
@@ -64,6 +57,22 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
     },
   });
 
+  const handleNavigateToCommercials = () => {
+    setIsOpen(false);
+    setTimeout(() => {
+      navigate({ to: "/landing/commercials" });
+    }, 150);
+  };
+
+  const handleDialogOpenChange = () => {
+    setIsOpen(!isOpen);
+
+    setTimeout(() => {
+      setShowConfirmation(false);
+      waitingListForm.reset(WAITING_LIST_DEFAULT_VALUES);
+    }, 100);
+  };
+
   const defaultHeader: ReactElement = (
     <DialogHeader>
       <DialogTitle>
@@ -83,7 +92,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
   const successHeader: ReactElement = (
     <DialogHeader>
       <DialogTitle>
-        <div className="flex w-full flex-col items-start gap-4">
+        <div className="flex w-full flex-col items-center gap-4">
           <Badge variant={"outline"}>{t("global.badge.waitingList")}</Badge>
           <img src={rocket3D} width={"200px"} />
           <h1 className="font-accent text-[40px]">
@@ -91,14 +100,14 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
           </h1>
         </div>
       </DialogTitle>
-      <DialogDescription className="mt-8 font-main text-qo-base">
+      <DialogDescription className="mt-8 w-full text-center font-main text-qo-base">
         {t("landing.waitingList.success.description")}
       </DialogDescription>
     </DialogHeader>
   );
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={handleDialogOpenChange}>
       <DialogTrigger asChild>
         <Button variant={type === "brand" ? "brand" : "primary"}>
           {t(`global.button.${labelKey}`)}
@@ -196,10 +205,12 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
           </form>
         ) : (
           <DialogClose asChild>
-            <Button variant={"brand"} className="onboarding-button">
-              {t("global.button.close")}
-              <ArrowRight />
-            </Button>
+            <div className="flex w-full justify-center">
+              <Button variant={"brand"} className="onboarding-button">
+                {t("global.button.close")}
+                <ArrowRight />
+              </Button>
+            </div>
           </DialogClose>
         )}
       </DialogContent>
