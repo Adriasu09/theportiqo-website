@@ -108,7 +108,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
           {type === "brand" && <ArrowRight />}
         </Button>
       </DialogTrigger>
-      <DialogContent className="min-h-[800px] p-12">
+      <DialogContent className="max-h-[90vh] overflow-y-auto p-6 md:p-12 sm:min-h-[800px]">
         {showConfirmation ? successHeader : defaultHeader}
 
         {!showConfirmation ? (
@@ -153,7 +153,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
               children={([canSubmit, isDirty]) => (
                 <Button
                   type="submit"
-                  className="onboarding-button"
+                  className="w-full sm:w-[320px]"
                   disabled={!canSubmit || !isDirty}
                 >
                   {t("global.button.submit")}
@@ -210,7 +210,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
         ) : (
           <DialogClose asChild>
             <div className="flex w-full justify-center">
-              <Button variant={"brand"} className="onboarding-button">
+              <Button variant={"brand"} className="md:onboarding-button">
                 {t("global.button.close")}
                 <ArrowRight />
               </Button>
