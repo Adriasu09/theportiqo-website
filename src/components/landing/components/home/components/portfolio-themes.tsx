@@ -1,6 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { Button } from "@/components/ui/button";
-import gmail3D from "@assets/imgs/3d/gmail.png";
 import { CAROUSEL_ITEMS } from "../../../constants/landing.constants";
 
 export const PortfolioThemes = () => {
@@ -8,7 +6,7 @@ export const PortfolioThemes = () => {
 
   return (
     <div className="flex w-full flex-col items-center justify-center gap-8 px-4">
-      <h2 className="text-center font-accent text-qo-h3">
+      <h2 className="text-center font-accent text-qo-h5 lg:text-qo-h3">
         {t("landing.ourPortfolio.title")}
       </h2>
 

@@ -17,7 +17,7 @@ export const LandingHomePage = () => {
   }, [isAuthenticated, navigate]);
 
   return (
-    <div className="flex w-full flex-col items-center gap-28 pb-28">
+    <div className="flex w-full flex-col items-center gap-4 lg:gap-20 pb-28">
       <LandingHero />
 
       <Partners />

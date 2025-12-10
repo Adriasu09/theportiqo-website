@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import { CarouselItem } from "../../types/landing.types";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { CarouselItem } from "@/src/components/landing/types/landing.types";
 
 type Props = {
   items: CarouselItem[];
@@ -102,7 +102,7 @@ export const Carousel = ({ items }: Props) => {
         />
 
         <div
-          className="flex h-[300px] w-[300px] overflow-hidden sm:h-[500px] sm:w-[500px]"
+          className="flex aspect-square w-full max-w-[500px] overflow-hidden"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}

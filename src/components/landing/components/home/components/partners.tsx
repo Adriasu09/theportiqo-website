@@ -7,7 +7,7 @@ export const Partners = () => {
 
   return (
     <div className="flex w-full flex-col items-center gap-6 px-4">
-      <h2 className="text-center font-accent text-qo-h3">
+      <h2 className="text-center font-accent text-qo-h5 lg:text-qo-h3">
         {t("landing.partners.title")}
       </h2>
 

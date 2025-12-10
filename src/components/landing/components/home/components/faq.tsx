@@ -25,7 +25,7 @@ export const FAQ = () => {
           {FAQ_LIST.map((faq: FAQItem, index: number) => (
             <AccordionItem value={`${index}`} key={faq.questionKey}>
               <AccordionTrigger>
-                <div className="text-qo-h5">
+                <div className="text-qo-h6">
                   {t(`landing.faq.${faq.questionKey}`)}
                 </div>
               </AccordionTrigger>
