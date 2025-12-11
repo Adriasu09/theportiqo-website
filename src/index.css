@@ -5,6 +5,74 @@
 @import "tw-animate-css";
 @import "flag-icons/css/flag-icons.min.css";
 
+/* DESKTOP (>=1024px) */
+
+@media (min-width: 64rem) {
+  :root {
+    /* Font sizes desktop main */
+    --text-main-xxs: 0.750rem; /* 12px */
+    --text-main-xxs--line-height: 1rem; /* 16px */
+
+    --text-main-xs: 0.875rem; /* 14px */
+    --text-main-xs--line-height: 1.250rem; /* 20px */
+
+    --text-main-sm: 1rem; /* 16px */
+    --text-main-sm--line-height: 1.5rem; /* 24px */
+
+    --text-main-md: 1.125rem; /* 18px */
+    --text-main-md--line-height: 1.625rem; /* 26px */
+
+    --text-main-lg: 1.375rem; /* 22px */
+    --text-main-lg--line-height: 1.875rem; /* 30px */
+
+    --text-main-xl: 1.625rem; /* 26px */
+    --text-main-xl--line-height: 2.125rem; /* 34px */
+
+    --text-main-2xl: 2rem; /* 32px */
+    --text-main-2xl--line-height: 2.5rem; /* 40px */
+
+    --text-main-3xl: 2.5rem; /* 40px */
+    --text-main-3xl--line-height: 3rem; /* 48px */
+
+    --: 3rem; /* 48px */
+    --text-main-4xl--line-height: 3.5rem; /* 56px */
+
+    --text-main-5xl: 3.5rem; /* 56px */
+    --text-main-5xl--line-height: 4rem; /* 64px */
+
+    --text-main-6xl: 4.5rem; /* 72px */
+    --text-main-6xl--line-height: 5rem; /* 80px */
+
+    /* Font sizes desktop accent */
+    --text-accent-sm: 1rem; /* 16px */
+    --text-accent-sm--line-height: 1.125rem; /* 18px */
+
+    --text-accent-md: 1.25rem; /* 20px */
+    --text-accent-md--line-height: 1.750rem; /* 28px */
+
+    --text-accent-lg: 2rem; /* 32px */
+    --text-accent-lg--line-height: 2.375rem; /* 38px */
+
+    --text-accent-xl: 2.5rem; /* 40px */
+    --text-accent-xl--line-height: 3rem; /* 48px */
+
+    --text-accent-2xl: 3.25rem; /* 52px */
+    --text-accent-2xl--line-height: 3.750rem; /* 60px */
+
+    --text-accent-3xl: 4rem; /* 64px */
+    --text-accent-3xl--line-height: 4.5rem; /* 72px */
+
+    --text-accent-4xl: 5rem; /* 80px */
+    --text-accent-4xl--line-height: 5.5rem; /* 88px */
+
+    --text-accent-5xl: 6rem; /* 96px */
+    --text-accent-5xl--line-height: 6.5rem; /* 104px */
+
+    --text-accent-6xl: 7.5rem; /* 120px */
+    --text-accent-6xl--line-height: 8.250rem; /* 132px */
+  }
+}
+
 @layer base {
   button:not(:disabled),
   [role="button"]:not(:disabled) {
