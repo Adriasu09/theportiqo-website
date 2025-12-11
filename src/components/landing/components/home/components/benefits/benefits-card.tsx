@@ -11,35 +11,45 @@ export const BenefitsCard = ({
   className = "",
 }: BenefitCard) => {
   const { t } = useTranslation();
-  const [isVisible, setIsVisible] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const cardRef = useRef<HTMLDivElement>(null);
 
   const title = t(`landing.benefits.${titleKey}`);
-  const words = title.split(" ");
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          // Stop observing after the first animation
-          observer.unobserve(entry.target);
-        }
-      },
-      {
-        threshold: 0.7, // Triggers when 70% of the component is visible
-        rootMargin: "0px 0px -50px 0px", // Adjust to trigger slightly earlier
-      },
-    );
+    const handleScroll = () => {
+      if (!cardRef.current) return;
 
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
+      const rect = cardRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      // Calculate when card enters viewport (starts at bottom of screen)
+      const startTrigger = windowHeight;
+      const endTrigger = windowHeight * 0.3; // Ends when card is 30% from top
+
+      // Progress from 0 to 1 as card moves up
+      const scrollRange = startTrigger - endTrigger;
+      const currentPosition = rect.bottom;
+      const rawProgress = Math.max(
+        0,
+        Math.min(1, (startTrigger - currentPosition) / scrollRange)
+      );
+
+      // Speed up the animation by multiplying the progress
+      const progress = Math.min(1, rawProgress * 1.7);
+
+      setScrollProgress(progress);
+    };
+
+    // Initial check
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
 
     return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
-      }
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
     };
   }, []);
 
@@ -49,25 +59,21 @@ export const BenefitsCard = ({
     >
       <div
         ref={cardRef}
-        className={`flex w-full max-w-[380px] flex-col items-start justify-end gap-2 rounded-2xl p-4 md:min-h-96 ${isAccented && "min-h-96 bg-qo-brand-100"}`}
+        className={`flex w-full max-w-[380px] flex-col items-start justify-end gap-2 rounded-2xl p-4 md:min-h-96 ${isAccented && "min-h-96 bg-qo-brand-100"} ${isAccented && "relative overflow-hidden"}`}
       >
         <h2
           className={`font-accent whitespace-pre-line ${isAccented ? "text-qo-h3 text-qo-brand-500" : "text-qo-h5 md:text-qo-h3"}`}
+          style={
+            isAccented
+              ? {
+                  transform: `translateY(${-360 * (1 - scrollProgress)}px)`,
+                  opacity: scrollProgress,
+                  transition: "none",
+                }
+              : undefined
+          }
         >
-          {isAccented
-            ? words.map((word, index) => (
-                <span
-                  key={index}
-                  className={`mr-[0.25em] inline-block ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
-                  style={{
-                    animationDelay: isVisible ? `${index * 0.1}s` : "0s",
-                    animationFillMode: "both",
-                  }}
-                >
-                  {word}
-                </span>
-              ))
-            : title}
+          {title}
         </h2>
         {descriptionKey && <p>{t(`landing.benefits.${descriptionKey}`)}</p>}
       </div>
