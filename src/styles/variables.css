@@ -15,37 +15,69 @@
   --font-main-bold: manrope-bold, sans-serif;
   --font-oswald: Oswald, sans-serif;
 
-  /* Font sizes */
+  /* Font sizes mobile main */
 
-  --text-qo-xs: 0.875rem; /* 14px */
-  --text-qo-xs--line-height: 1.5rem; /* 24px */
+  --text-main-xxs: 0.688rem; /* 11px */
+  --text-main-xxs--line-height: 0.875rem; /* 14px */
 
-  --text-qo-md: 1rem; /* 16px */
-  --text-qo-md--line-height: 1.5rem; /* 24px */
+  --text-main-xs: 0.75rem; /* 12px */
+  --text-main-xs--line-height: 1rem; /* 16px */
 
-  --text-qo-base: 1.125rem; /* 18px */
-  --text-qo-base--line-height: 1.5rem; /* 24px */
+  --text-main-sm: 0.813rem; /* 13px */
+  --text-main-sm--line-height: 1.125rem; /* 18px */
 
-  --text-qo-lg: 1.225rem; /* 20px */
-  --text-qo-lg--line-height: 1.75rem; /* 28px */
+  --text-main-md: 0.875rem; /* 14px */
+  --text-main-md--line-height: 1.25rem; /* 20px */
 
-  --text-qo-h1: 5rem; /* 80px */
-  --text-qo-h1--line-height: 5.5rem; /* 88px */
+  --text-main-lg: 1rem; /* 16px */
+  --text-main-lg--line-height: 1.375rem; /* 22px */
 
-  --text-qo-h2: 4rem; /* 64px */
-  --text-qo-h2--line-height: 3rem; /* 48px */
+  --text-main-xl: 1.125rem; /* 18px */
+  --text-main-xl--line-height: 1.5rem; /* 24px */
 
-  --text-qo-h3: 3.25rem; /* 52px */
-  --text-qo-h3--line-height: 2.875rem; /* 46px */
+  --text-main-2xl: 1.375rem; /* 22px */
+  --text-main-2xl--line-height: 1.75rem; /* 28px */
 
-  --text-qo-h4: 2.5rem; /* 40px */
-  --text-qo-h4--line-height: 3rem; /* 48px */
+  --text-main-3xl: 1.625rem; /* 26px */
+  --text-main-3xl--line-height: 2rem; /* 32px */
 
-  --text-qo-h5: 2.375rem; /* 38px */
-  --text-qo-h5--line-height: 2.875rem; /* 46px */
+  --text-main-4xl: 2rem; /* 32px */
+  --text-main-4xl--line-height: 2.5rem; /* 40px */
 
-  --text-qo-h6: 1.375rem; /* 22px */
-  --text-qo-h6--line-height: 1.375rem; /* 22px */
+  --text-main-5xl: 2.5rem; /* 40px */
+  --text-main-5xl--line-height: 3rem; /* 48px */
+
+  --text-main-6xl: 3rem; /* 48px */
+  --text-main-6xl--line-height: 3.5rem; /* 56px */
+
+  /* Font sizes mobile accent */
+
+  --text-accent-sm: 0.75rem; /* 12px */
+  --text-accent-sm--line-height: 1rem; /* 16px */
+
+  --text-accent-md: 1rem; /* 16px */
+  --text-accent-md--line-height: 1.375rem; /* 22px */
+
+  --text-accent-lg: 1.5rem; /* 24px */
+  --text-accent-lg--line-height: 2rem; /* 32px */
+
+  --text-accent-xl: 2rem; /* 32px */
+  --text-accent-xl--line-height: 2.5rem; /* 40px */
+
+  --text-accent-2xl: 2.375rem; /* 38px */
+  --text-accent-2xl--line-height: 2.875rem; /* 46px */
+
+  --text-accent-3xl: 3rem; /* 48px */
+  --text-accent-3xl--line-height: 3.5rem; /* 56px */
+
+  --text-accent-4xl: 3.5rem; /* 56px */
+  --text-accent-4xl--line-height: 4rem; /* 64px */
+
+  --text-accent-5xl: 4.25rem; /* 68px */
+  --text-accent-5xl--line-height: 4.75rem; /* 76px */
+
+  --text-accent-6xl: 5.25rem; /* 84px */
+  --text-accent-6xl--line-height: 5.75rem; /* 92px */
 
   /* Colors */
   --color-qo-gray-25: #fcfcfd;
@@ -73,9 +105,9 @@
   --color-qo-brand-900: #5e2a26;
 
   --color-qo-surface-100: #fffbf6;
-  --color-qo-surface-200: #F9F6F1;
+  --color-qo-surface-200: #f9f6f1;
   --color-qo-surface-300: #f7efe3;
-  --color-qo-surface-400: #BFAE99;
+  --color-qo-surface-400: #bfae99;
 
   --color-qo-success-100: #d1fadf;
   --color-qo-success-300: #6ce9a6;

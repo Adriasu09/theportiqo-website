@@ -9,7 +9,7 @@ export const LegalHero = ({ titlekey }: Props) => {
 
   return (
     <div className="flex h-[760px] w-full items-center justify-start bg-qo-surface-300 px-2 py-20 md:px-32">
-      <h1 className="max-w-[720px] font-accent text-qo-h3 md:text-qo-h1">
+      <h1 className="max-w-[720px] font-accent text-accent-3xl sm:text-accent-4xl">
         {t(`landing.legal.${titlekey}`)}
       </h1>
     </div>

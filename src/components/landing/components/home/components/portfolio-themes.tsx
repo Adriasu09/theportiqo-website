@@ -6,7 +6,7 @@ export const PortfolioThemes = () => {
 
   return (
     <div className="flex w-full flex-col items-center justify-center gap-8 px-4">
-      <h2 className="text-center font-accent text-qo-h5 md:text-qo-h3">
+      <h2 className="text-center font-accent text-accent-2xl">
         {t("landing.ourPortfolio.title")}
       </h2>
 

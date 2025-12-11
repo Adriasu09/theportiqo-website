@@ -94,7 +94,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
           </h1>
         </div>
       </DialogTitle>
-      <DialogDescription className="mt-8 w-full text-center font-main text-qo-base">
+      <DialogDescription className="mt-8 w-full text-center font-main">
         {t("landing.waitingList.success.description")}
       </DialogDescription>
     </DialogHeader>
@@ -108,7 +108,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
           {type === "brand" && <ArrowRight />}
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-h-[90vh] overflow-y-auto p-6 md:p-12 sm:min-h-[800px]">
+      <DialogContent className="max-h-[90vh] overflow-y-auto p-6 sx:p-12 xs:min-h-[800px]">
         {showConfirmation ? successHeader : defaultHeader}
 
         {!showConfirmation ? (
@@ -117,7 +117,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
               e.preventDefault();
               waitingListForm.handleSubmit();
             }}
-            className="flex w-full flex-col items-start justify-start gap-8"
+            className="flex w-full flex-col items-center justify-start gap-8"
           >
             <FieldGroup className="max-w-[320px]">
               <waitingListForm.AppField
@@ -153,7 +153,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
               children={([canSubmit, isDirty]) => (
                 <Button
                   type="submit"
-                  className="w-full sm:w-[320px]"
+                  className="w-full max-w-[320px]"
                   disabled={!canSubmit || !isDirty}
                 >
                   {t("global.button.submit")}
@@ -210,7 +210,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
         ) : (
           <DialogClose asChild>
             <div className="flex w-full justify-center">
-              <Button variant={"brand"} className="md:onboarding-button">
+              <Button variant={"brand"} className="w-full max-w-[320px]">
                 {t("global.button.close")}
                 <ArrowRight />
               </Button>

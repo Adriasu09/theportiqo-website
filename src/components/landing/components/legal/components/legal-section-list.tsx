@@ -13,7 +13,7 @@ export const LegalSectionList = ({ page, sectionKeys }: Props) => {
       {sectionKeys.map((key: string) => (
         <section key={key} className="flex w-full justify-center">
           <div className="flex w-[800px] flex-col gap-4">
-            <h2 className="font-accent text-qo-h6 uppercase sm:text-qo-h4">
+            <h2 className="font-accent text-accent-xl uppercase">
               {t(`landing.legal.${page}.${key}.title`)}
             </h2>
             <p
