@@ -15,7 +15,6 @@ import { Route as LandingRouteImport } from './routes/landing'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LandingHomeRouteImport } from './routes/landing/home'
-import { Route as AppDashboardRouteImport } from './routes/app/dashboard'
 
 const LandingSimulatorLazyRouteImport = createFileRoute('/landing/simulator')()
 const LandingProductLazyRouteImport = createFileRoute('/landing/product')()
@@ -63,11 +62,6 @@ const LandingHomeRoute = LandingHomeRouteImport.update({
   path: '/home',
   getParentRoute: () => LandingRoute,
 } as any)
-const AppDashboardRoute = AppDashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => AppRoute,
-} as any)
 const LandingLegalTermsLazyRoute = LandingLegalTermsLazyRouteImport.update({
   id: '/_legal/terms',
   path: '/terms',
@@ -94,9 +88,8 @@ const LandingLegalCommercialsLazyRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/app': typeof AppRouteWithChildren
+  '/app': typeof AppRoute
   '/landing': typeof LandingRouteWithChildren
-  '/app/dashboard': typeof AppDashboardRoute
   '/landing/home': typeof LandingHomeRoute
   '/landing/product': typeof LandingProductLazyRoute
   '/landing/simulator': typeof LandingSimulatorLazyRoute
@@ -106,9 +99,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/app': typeof AppRouteWithChildren
+  '/app': typeof AppRoute
   '/landing': typeof LandingRouteWithChildren
-  '/app/dashboard': typeof AppDashboardRoute
   '/landing/home': typeof LandingHomeRoute
   '/landing/product': typeof LandingProductLazyRoute
   '/landing/simulator': typeof LandingSimulatorLazyRoute
@@ -119,9 +111,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/app': typeof AppRouteWithChildren
+  '/app': typeof AppRoute
   '/landing': typeof LandingRouteWithChildren
-  '/app/dashboard': typeof AppDashboardRoute
   '/landing/home': typeof LandingHomeRoute
   '/landing/product': typeof LandingProductLazyRoute
   '/landing/simulator': typeof LandingSimulatorLazyRoute
@@ -135,7 +126,6 @@ export interface FileRouteTypes {
     | '/'
     | '/app'
     | '/landing'
-    | '/app/dashboard'
     | '/landing/home'
     | '/landing/product'
     | '/landing/simulator'
@@ -147,7 +137,6 @@ export interface FileRouteTypes {
     | '/'
     | '/app'
     | '/landing'
-    | '/app/dashboard'
     | '/landing/home'
     | '/landing/product'
     | '/landing/simulator'
@@ -159,7 +148,6 @@ export interface FileRouteTypes {
     | '/'
     | '/app'
     | '/landing'
-    | '/app/dashboard'
     | '/landing/home'
     | '/landing/product'
     | '/landing/simulator'
@@ -170,7 +158,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AppRoute: typeof AppRouteWithChildren
+  AppRoute: typeof AppRoute
   LandingRoute: typeof LandingRouteWithChildren
 }
 
@@ -218,13 +206,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LandingHomeRouteImport
       parentRoute: typeof LandingRoute
     }
-    '/app/dashboard': {
-      id: '/app/dashboard'
-      path: '/dashboard'
-      fullPath: '/app/dashboard'
-      preLoaderRoute: typeof AppDashboardRouteImport
-      parentRoute: typeof AppRoute
-    }
     '/landing/_legal/terms': {
       id: '/landing/_legal/terms'
       path: '/terms'
@@ -249,16 +230,6 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface AppRouteChildren {
-  AppDashboardRoute: typeof AppDashboardRoute
-}
-
-const AppRouteChildren: AppRouteChildren = {
-  AppDashboardRoute: AppDashboardRoute,
-}
-
-const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
-
 interface LandingRouteChildren {
   LandingHomeRoute: typeof LandingHomeRoute
   LandingProductLazyRoute: typeof LandingProductLazyRoute
@@ -282,7 +253,7 @@ const LandingRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AppRoute: AppRouteWithChildren,
+  AppRoute: AppRoute,
   LandingRoute: LandingRouteWithChildren,
 }
 export const routeTree = rootRouteImport
