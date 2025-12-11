@@ -10,7 +10,7 @@ export const LandingHero = () => {
     <div className="grid w-full grid-cols-1 gap-4 bg-qo-surface-300 px-0 py-20 transition-all md:grid-cols-2 md:px-6">
       <div className="order-2 flex w-full justify-center px-6 md:order-1 md:justify-end md:px-0">
         <div className="flex h-full max-w-xl flex-col items-start justify-center gap-4">
-          <Badge variant={"outline"}>{t("landing.hero.badge")}</Badge>
+          <Badge className="hidden md:block" variant={"outline"}>{t("landing.hero.badge")}</Badge>
 
           <h1 className="text-center font-accent text-accent-3xl md:text-left lg:text-accent-4xl">
             {t("landing.hero.title")}
