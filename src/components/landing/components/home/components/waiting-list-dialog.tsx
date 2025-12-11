@@ -94,7 +94,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
           </h1>
         </div>
       </DialogTitle>
-      <DialogDescription className="mt-8 w-full text-center font-main text-qo-base">
+      <DialogDescription className="mt-8 w-full text-center font-main">
         {t("landing.waitingList.success.description")}
       </DialogDescription>
     </DialogHeader>
