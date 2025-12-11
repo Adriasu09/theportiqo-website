@@ -20,6 +20,7 @@ export const Footer = () => {
       item.action();
     } else if (item.url) {
       navigate({ to: item.url });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
