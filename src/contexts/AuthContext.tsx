@@ -19,7 +19,7 @@ import {
   OtpFormType,
   SignInWithGoogleData,
 } from "../components/auth/schemas/login.schema";
-import { User, LoginResponse, ApiError } from "../types/auth.types";
+import { User, LoginResponse, ApiError, WaitingListData } from "../types/auth.types";
 import { AuthService } from "../services/auth.service";
 import { TokenService } from "../services/token.service";
 import { StorageService } from "../services/storage.service";
@@ -274,7 +274,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   };
 
-  const waitingList = async (data: unknown): Promise<unknown> => {
+  const waitingList = async (data: WaitingListData): Promise<unknown> => {
     try {
       return await AuthService.waitingList(data);
     } catch (error) {

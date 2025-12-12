@@ -176,7 +176,8 @@
 			"invalidCredentials": "Credenciales inválidas",
 			"registeredEmail": "Este correo ya está registrado.",
 			"validation": {
-				"acceptCommunication": "Debe aceptar recibir comunicaciones comerciales del Grupo Huargo.",
+				"acceptCommunication": "Debes aceptar recibir comunicaciones comerciales del Grupo Huargo.",
+				"acceptPrivacyPolicy": "Debes aceptar la política de privacidad del Grupo Huargo",
 				"acceptTerms": "Debe aceptar las condiciones",
 				"atLeast8Chars": "La contraseña debe contener al menos 8 caracteres",
 				"atLeastOneNumber": "La contraseña debe contener al menos un número",
@@ -206,8 +207,10 @@
 			"documentType": "Tipo de documento",
 			"email": "Correo electrónico",
 			"en": "Inglés",
+			"en-US": "Inglés",
 			"english": "Inglés",
 			"es": "Español",
+			"es-ES": "Español",
 			"firstName": "Nombre",
 			"lastName": "Apellidos",
 			"NIE": "NIE",
@@ -375,7 +378,7 @@
 					"title": "Propiedad intelectual e industrial"
 				},
 				"legalNotice": {
-					"description": "VERSIÓN: FEBRERO 2025\n\nEl presente Aviso Legal establece las condiciones de uso del Sitio Web, https://www.portiqo.com, (en adelante el Sitio Web).\n\nLa utilización de la misma atribuye al navegante la condición de Usuario, lo que implica la adhesión y compromiso de cumplimiento de todas y cada una de las condiciones contenidas en este Aviso Legal, en la versión publicada en el momento en que se acceda al mismo, por lo que se recomienda al Usuario leer este Aviso Legal atentamente cada vez que acceda al Sitio Web.\n\nEstas Condiciones serán aplicables con independencia de la existencia de otras condiciones específicas aplicables a determinados servicios que se presten en el Sitio Web.",
+					"description": "VERSIÓN: FEBRERO 2025\n\nEl presente Aviso Legal establece las condiciones de uso del Sitio Web, https://www.theportiqo.com, (en adelante el Sitio Web).\n\nLa utilización de la misma atribuye al navegante la condición de Usuario, lo que implica la adhesión y compromiso de cumplimiento de todas y cada una de las condiciones contenidas en este Aviso Legal, en la versión publicada en el momento en que se acceda al mismo, por lo que se recomienda al Usuario leer este Aviso Legal atentamente cada vez que acceda al Sitio Web.\n\nEstas Condiciones serán aplicables con independencia de la existencia de otras condiciones específicas aplicables a determinados servicios que se presten en el Sitio Web.",
 					"title": "Aviso legal"
 				},
 				"navigation": {

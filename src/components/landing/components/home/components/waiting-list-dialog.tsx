@@ -19,6 +19,7 @@ import rocket3D from "@assets/imgs/3d/rocket.png";
 import { WAITING_LIST_DEFAULT_VALUES } from "../../../constants/waiting-list.constants";
 import { WaitingListFormSchema } from "../../../schemas/waiting-list.schema";
 import { useAppForm } from "@/src/components/shared/form/form-hooks";
+import { useDeviceStore } from "@/src/store/device.store";
 
 type Props = {
   type: "brand" | "primary";
@@ -28,6 +29,7 @@ type Props = {
 export const WaitingListDialog = ({ type, labelKey }: Props) => {
   const { t } = useTranslation();
   const { waitingList } = useAuth();
+  const { deviceLanguage } = useDeviceStore();
 
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -40,9 +42,10 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
     },
     onSubmit: async ({ value }) => {
       const waitingListData: WaitingListData = {
-        name: `${value.firstName} ${value.lastName}`,
+        firstName: value.firstName,
+        lastName: value.lastName,
+        lang: deviceLanguage && deviceLanguage.includes("es") ? "es" : "en",
         email: value.email,
-        lists: [9], //* Testing list ID
       };
 
       await waitingList(waitingListData)
@@ -68,7 +71,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
   };
 
   const defaultHeader: ReactElement = (
-    <DialogHeader>
+    <DialogHeader className="h-auto">
       <DialogTitle>
         <div className="flex w-full flex-col items-start gap-4">
           <Badge variant={"outline"}>{t("global.badge.waitingList")}</Badge>
@@ -108,7 +111,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
           {type === "brand" && <ArrowRight />}
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-h-[90vh] overflow-y-auto p-6 sx:p-12 xs:min-h-[800px]">
+      <DialogContent className="max-h-[90vh] overflow-y-auto p-6 sx:p-12 xs:min-h-[775px]">
         {showConfirmation ? successHeader : defaultHeader}
 
         {!showConfirmation ? (

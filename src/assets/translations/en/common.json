@@ -177,6 +177,7 @@
 			"registeredEmail": "This email address is already registered.",
 			"validation": {
 				"acceptCommunication": "You must agree to receive commercial communications from the Huargo Group.",
+				"acceptPrivacyPolicy": "You must accept Grupo Huargo's privacy policy.",
 				"acceptTerms": "you must accept the terms and conditions",
 				"atLeast8Chars": "password must contain at least 8 characters",
 				"atLeastOneNumber": "Password must contain at least one number",
@@ -206,8 +207,10 @@
 			"documentType": "Document type",
 			"email": "Email",
 			"en": "English",
+			"en-US": "English",
 			"english": "English",
 			"es": "Spanish",
+			"es-ES": "Spanish",
 			"firstName": "First name",
 			"lastName": "Last name",
 			"NIE": "NIE",
@@ -372,10 +375,10 @@
 				},
 				"intellectualProperty": {
 					"description": "This Website, its source code, and the content it contains are protected by Intellectual Property Law. They may not be exploited, reproduced, distributed, modified, publicly communicated, transferred, or transformed without the express authorization of the rights holders.\n\nThe design, images, labels, distinctive signs, trade name, trademarks, logos, products, and services contained on this Website are protected under Industrial Property law.\n\nAccess to the Website does not grant Users any rights or ownership over the intellectual or industrial property rights or the content it hosts. Users accessing this Website may not copy, modify, distribute, transmit, reproduce, publish, transfer, or sell the aforementioned elements, nor create new products or services derived from the information obtained, without the express written authorization of the rights holders.",
-					"title": "Intellectual and industrial propert"
+					"title": "Intellectual and industrial property"
 				},
 				"legalNotice": {
-					"description": "VERSION: FEBRUARY 2025\n\nThis Legal Notice sets out the terms of use for the Website, https://www.portiqo.com\n (hereinafter, the “Website”).\n\nUse of the Website grants the visitor the status of User, which implies acceptance of and commitment to comply with each and every one of the conditions contained in this Legal Notice, in the version published at the time of access. Therefore, the User is advised to read this Legal Notice carefully each time they access the Website.\n\nThese Terms shall apply regardless of the existence of any other specific conditions applicable to certain services provided on the Website.",
+					"description": "VERSION: FEBRUARY 2025\n\nThis Legal Notice sets out the terms of use for the Website, https://www.theportiqo.com\n (hereinafter, the “Website”).\n\nUse of the Website grants the visitor the status of User, which implies acceptance of and commitment to comply with each and every one of the conditions contained in this Legal Notice, in the version published at the time of access. Therefore, the User is advised to read this Legal Notice carefully each time they access the Website.\n\nThese Terms shall apply regardless of the existence of any other specific conditions applicable to certain services provided on the Website.",
 					"title": "Legal notice"
 				},
 				"navigation": {
