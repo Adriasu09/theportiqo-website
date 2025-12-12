@@ -68,7 +68,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
   };
 
   const defaultHeader: ReactElement = (
-    <DialogHeader>
+    <DialogHeader className="h-auto">
       <DialogTitle>
         <div className="flex w-full flex-col items-start gap-4">
           <Badge variant={"outline"}>{t("global.badge.waitingList")}</Badge>
@@ -108,7 +108,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
           {type === "brand" && <ArrowRight />}
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-h-[90vh] overflow-y-auto p-6 sx:p-12 xs:min-h-[800px]">
+      <DialogContent className="max-h-[90vh] overflow-y-auto p-6 sx:p-12 xs:min-h-[775px]">
         {showConfirmation ? successHeader : defaultHeader}
 
         {!showConfirmation ? (

@@ -177,6 +177,7 @@
 			"registeredEmail": "This email address is already registered.",
 			"validation": {
 				"acceptCommunication": "You must agree to receive commercial communications from the Huargo Group.",
+				"acceptPrivacyPolicy": "You must accept Grupo Huargo's privacy policy.",
 				"acceptTerms": "you must accept the terms and conditions",
 				"atLeast8Chars": "password must contain at least 8 characters",
 				"atLeastOneNumber": "Password must contain at least one number",

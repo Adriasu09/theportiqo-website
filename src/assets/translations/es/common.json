@@ -176,7 +176,8 @@
 			"invalidCredentials": "Credenciales inválidas",
 			"registeredEmail": "Este correo ya está registrado.",
 			"validation": {
-				"acceptCommunication": "Debe aceptar recibir comunicaciones comerciales del Grupo Huargo.",
+				"acceptCommunication": "Debes aceptar recibir comunicaciones comerciales del Grupo Huargo.",
+				"acceptPrivacyPolicy": "Debes aceptar la política de privacidad del Grupo Huargo",
 				"acceptTerms": "Debe aceptar las condiciones",
 				"atLeast8Chars": "La contraseña debe contener al menos 8 caracteres",
 				"atLeastOneNumber": "La contraseña debe contener al menos un número",
