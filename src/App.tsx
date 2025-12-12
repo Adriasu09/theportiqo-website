@@ -1,7 +1,7 @@
 import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { useAuth } from "./contexts/AuthContext";
 import { routeTree } from "./routeTree.gen";
-import { useFingerprintStore } from "./store/fingerprint.store";
+import { useDeviceStore } from "./store/device.store";
 import { useEffect } from "react";
 import { getFingerprint } from "./components/shared/utils/fingerprint.utils";
 
@@ -15,12 +15,17 @@ declare module "@tanstack/react-router" {
 
 function App() {
   const auth = useAuth();
-  const setDeviceId = useFingerprintStore((state) => state.setDeviceId);
+  const deviceStore = useDeviceStore((state) => state);
 
   useEffect(() => {
     const getDeviceFingerprint = async () => {
       const deviceId = await getFingerprint();
-      setDeviceId(deviceId);
+      deviceStore.setDeviceId(deviceId);
+      
+      // Only set the device language if the user hasn't manually selected one
+      if (!deviceStore.hasManuallySelectedLanguage) {
+        deviceStore.setDeviceLanguage(navigator.language);
+      }
     };
     
     getDeviceFingerprint();
