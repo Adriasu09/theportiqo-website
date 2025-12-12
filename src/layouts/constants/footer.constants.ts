@@ -7,7 +7,7 @@ export const FOOTER_SECTIONS: FooterSection[] = [
       {
         labelKey: "contact",
         action: () => {
-          window.location.href = "mailto:alguien@example.com";
+          window.location.href = "mailto:info@theportiqo.com";
         }
       },
     ],
