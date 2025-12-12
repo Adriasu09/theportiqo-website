@@ -44,7 +44,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
       const waitingListData: WaitingListData = {
         firstName: value.firstName,
         lastName: value.lastName,
-        lang: deviceLanguage?.includes("es") ? "es" : "en",
+        lang: deviceLanguage && deviceLanguage.includes("es") ? "es" : "en",
         email: value.email,
       };
 
