@@ -21,7 +21,7 @@ i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     resources,
-    fallbackLng: "es", // use en if detected lng is not available
+    fallbackLng: "es-ES", // use en if detected lng is not available
     lng:
       language && JSON.parse(language).state.deviceLanguage.includes("es")
         ? "es-ES"
