@@ -19,6 +19,7 @@ import rocket3D from "@assets/imgs/3d/rocket.png";
 import { WAITING_LIST_DEFAULT_VALUES } from "../../../constants/waiting-list.constants";
 import { WaitingListFormSchema } from "../../../schemas/waiting-list.schema";
 import { useAppForm } from "@/src/components/shared/form/form-hooks";
+import { useDeviceStore } from "@/src/store/device.store";
 
 type Props = {
   type: "brand" | "primary";
@@ -28,6 +29,7 @@ type Props = {
 export const WaitingListDialog = ({ type, labelKey }: Props) => {
   const { t } = useTranslation();
   const { waitingList } = useAuth();
+  const { deviceLanguage } = useDeviceStore();
 
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -40,9 +42,10 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
     },
     onSubmit: async ({ value }) => {
       const waitingListData: WaitingListData = {
-        name: `${value.firstName} ${value.lastName}`,
+        firstName: value.firstName,
+        lastName: value.lastName,
+        lang: deviceLanguage?.includes("es") ? "es" : "en",
         email: value.email,
-        lists: [9], //* Testing list ID
       };
 
       await waitingList(waitingListData)
