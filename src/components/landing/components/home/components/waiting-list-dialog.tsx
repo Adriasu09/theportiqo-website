@@ -80,7 +80,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
           </h1>
         </div>
       </DialogTitle>
-      <DialogDescription className="font-main text-qo-md">
+      <DialogDescription className="text-qo-md font-main">
         {t("landing.waitingList.default.description")}
       </DialogDescription>
     </DialogHeader>
@@ -106,12 +106,23 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
   return (
     <Dialog open={isOpen} onOpenChange={handleDialogOpenChange}>
       <DialogTrigger asChild>
-        <Button variant={type === "brand" ? "brand" : "primary"}>
-          {t(`global.button.${labelKey}`)}
+        <Button variant={type === "brand" ? "brand" : type}>
+          {type === "brand" ? (
+            <>
+              <span className="max-xs:hidden">
+                {t(`global.button.joinTheWaitList`)}
+              </span>
+              <span className="xs:hidden">
+                {t(`global.button.joinTheWaitListReduced`)}
+              </span>
+            </>
+          ) : (
+            t(`global.button.${labelKey}`)
+          )}
           {type === "brand" && <ArrowRight />}
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-h-[90vh] overflow-y-auto p-6 sx:p-12 xs:min-h-[775px]">
+      <DialogContent className="sx:p-12 max-h-[90vh] overflow-y-auto p-6 xs:min-h-[775px]">
         {showConfirmation ? successHeader : defaultHeader}
 
         {!showConfirmation ? (
