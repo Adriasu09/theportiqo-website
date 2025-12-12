@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
-type FingerprintStore = {
+type DeviceStore = {
   deviceId: string;
   deviceLanguage?: string;
   hasManuallySelectedLanguage: boolean;
@@ -9,7 +9,7 @@ type FingerprintStore = {
   setDeviceLanguage: (language: string, isManual?: boolean) => void;
 };
 
-export const useDeviceStore = create<FingerprintStore>()(
+export const useDeviceStore = create<DeviceStore>()(
   persist(
     (set) => ({
       deviceId: "",
