@@ -90,7 +90,7 @@
 		},
 		"spain": "Spain",
 		"support": {
-			"contact": "contact",
+			"contact": "Contact",
 			"faq": "Frequently asked questions",
 			"title": "Support"
 		}
@@ -411,7 +411,7 @@
 		"waitingList": {
 			"default": {
 				"description": "Leave us your details and we will notify you as soon as Pórtiqo is available.",
-				"title": "Sign up to be one of the first to use Portiqo."
+				"title": "Sign up to be one of the first to use Pórtiqo."
 			},
 			"success": {
 				"description": "Thank you for joining our mailing list. As soon as we have everything ready, you will be the first to know.",

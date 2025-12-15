@@ -411,7 +411,7 @@
 		"waitingList": {
 			"default": {
 				"description": "Déjanos tus datos y te avisaremos en cuanto Pórtiqo esté disponible.",
-				"title": "Apúntate para ser de los primeros en usar Portiqo."
+				"title": "Apúntate para ser de los primeros en usar Pórtiqo."
 			},
 			"success": {
 				"description": "Gracias por apuntarte a nuestra lista. En cuanto tengamos todo preparado, serás el primero en enterarte.",
