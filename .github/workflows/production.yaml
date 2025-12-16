@@ -68,9 +68,9 @@ jobs:
           git clone https://x-access-token:${GITHUB_TOKEN}@github.com/Tubuntu-Technologies/argocd.git
           cd argocd
           pip install yq
-          yq -i -y '.image.tag = "${{ steps.tag.outputs.tag }}"' apps/theportiqo/website/config/prod/values.yaml
+          yq -i -y '.image.tag = "${{ steps.tag.outputs.tag }}"' apps/theportiqo/website/config/pro/values.yaml
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          git add apps/theportiqo/website/config/prod/values.yaml
+          git add apps/theportiqo/website/config/pro/values.yaml
           git commit -m "Update theportiqo-website image tag to ${{ steps.tag.outputs.tag }} [skip ci]"
           git push
