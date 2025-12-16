@@ -16,13 +16,9 @@ export const PortfolioThemes = () => {
             key={item.url}
             className="flex flex-col gap-2 rounded-2xl bg-[#f7efe4] p-6"
           >
-            <video
+            <img
               key={item.titleKey}
               src={item.url}
-              autoPlay
-              loop
-              muted
-              playsInline
               style={{
                 height: "300px",
               }}

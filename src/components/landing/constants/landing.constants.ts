@@ -1,7 +1,7 @@
 import { BenefitCard, CarouselItem, FAQItem } from "../types/landing.types";
-import houseAnimation from "@assets/videos/house-animated.webm";
-import robotAnimation from "@assets/videos/robot-animated.webm";
-import windmillAnimation from "@assets/videos/windmill-animated.webm";
+import houseAnimation from "@assets/videos/house-animated.gif";
+import robotAnimation from "@assets/videos/robot-animated.gif";
+import windmillAnimation from "@assets/videos/windmill-animated.gif";
 import blackrockLogo from "@assets/imgs/logos/blackrock.png";
 import fidelityLogo from "@assets/imgs/logos/fidelity.png";
 import vanguardLogo from "@assets/imgs/logos/vanguard.png";
