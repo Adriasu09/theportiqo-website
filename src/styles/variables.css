@@ -10,6 +10,7 @@
   /* Font families */
   --font-accent: clash-display-bold, sans-serif;
   --font-accent--letter-spacing: -0.01em;
+  --font-accent-regular: clash-display-regular, sans-serif;
   --font-main: manrope-regular, sans-serif;
   --font-main-medium: manrope-medium, sans-serif;
   --font-main-bold: manrope-bold, sans-serif;
@@ -78,6 +79,15 @@
 
   --text-accent-6xl: 5.25rem; /* 84px */
   --text-accent-6xl--line-height: 5.75rem; /* 92px */
+
+  /* Gapping mobile */
+
+  --gap-qo-xs: 0.250rem; /* 4px */
+  --gap-qo-sm: 0.500rem; /* 8px */
+  --gap-qo-md: 1rem; /* 16px */
+  --gap-qo-lg: 1.5rem; /* 24px */
+  --gap-qo-xl: 2rem; /* 32px */
+  --gap-qo-xl: 3rem; /* 48px */
 
   /* Colors */
   --color-qo-gray-25: #fcfcfd;

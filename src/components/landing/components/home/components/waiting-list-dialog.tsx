@@ -75,12 +75,12 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
       <DialogTitle>
         <div className="flex w-full flex-col items-start gap-4">
           <Badge variant={"outline"}>{t("global.badge.waitingList")}</Badge>
-          <h1 className="font-accent text-[40px]">
+          <h1 className="font-accent text-accent-xl">
             {t("landing.waitingList.default.title")}
           </h1>
         </div>
       </DialogTitle>
-      <DialogDescription className="text-qo-md font-main">
+      <DialogDescription className="font-accent-regular text-accent-md">
         {t("landing.waitingList.default.description")}
       </DialogDescription>
     </DialogHeader>
@@ -122,7 +122,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
           {type === "brand" && <ArrowRight />}
         </Button>
       </DialogTrigger>
-      <DialogContent className="sx:p-12 max-h-[90vh] overflow-y-auto p-6 xs:min-h-[775px]">
+      <DialogContent className="max-h-[90vh] overflow-y-auto min-h-[688px]">
         {showConfirmation ? successHeader : defaultHeader}
 
         {!showConfirmation ? (
@@ -131,7 +131,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
               e.preventDefault();
               waitingListForm.handleSubmit();
             }}
-            className="flex w-full flex-col items-center justify-start gap-8"
+            className="flex w-full flex-col items-center justify-start gap-qo-lg"
           >
             <FieldGroup className="max-w-[320px]">
               <waitingListForm.AppField
@@ -175,7 +175,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
               )}
             />
 
-            <div className="flex w-full flex-col items-center justify-center gap-4">
+            <div className="flex w-full flex-col items-center justify-center gap-qo-lg">
               <waitingListForm.AppField
                 name="acceptCommunication"
                 children={(field) => (
@@ -224,8 +224,12 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
         ) : (
           <DialogClose asChild>
             <div className="flex w-full justify-center">
-              <Button variant={"brand"} className="w-full max-w-[320px]">
-                {t("global.button.close")}
+              <Button
+                variant={"brand"}
+                className="flex w-full max-w-[320px] justify-between"
+              >
+                <p className="w-56 text-center">{t("global.button.close")}</p>
+
                 <ArrowRight />
               </Button>
             </div>
