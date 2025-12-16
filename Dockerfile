@@ -13,9 +13,13 @@ RUN npm ci --only=production=false
 # Copy application source
 COPY . .
 
-# Build argument for API URL
-ARG NEXT_PUBLIC_API_URL
-ENV VITE_API_URL=${NEXT_PUBLIC_API_URL}
+# Build arguments for environment variables
+ARG VITE_GOOGLE_CLIENT_ID
+ARG VITE_BACKEND_URL
+
+# Set environment variables for Vite build
+ENV VITE_GOOGLE_CLIENT_ID=${VITE_GOOGLE_CLIENT_ID}
+ENV VITE_BACKEND_URL=${VITE_BACKEND_URL}
 
 # Build the application
 RUN npm run build

@@ -1,0 +1,422 @@
+{
+	"auth": {
+		"accountBlocked": {
+			"description": "Tu cuenta ha sido restringida temporalmente. \n\nSi necesitas ayuda, contáctanos y veremos cómo podemos ayudarte.",
+			"title": "Cuenta bloqueada"
+		},
+		"address": {
+			"title": "Introduce tu domicilio"
+		},
+		"bestFace": {
+			"description": "Para proteger tu cuenta, necesitamos verificar tu identidad con una foto rápida. Solo te llevará unos segundos y tus datos serán procesados de forma segura y automática, sin que nadie vea tu imagen.\nTen a mano tu documento de identidad para completar el proceso en un abrir y cerrar de ojos.",
+			"title": "Pon tu mejor cara"
+		},
+		"confirmEmail": {
+			"description": "¡Perfecto! Hemos podido comprobar tu cuenta de correo sin problema. Puedes continuar con la creación de tu cuenta.",
+			"title": "Mail verificado"
+		},
+		"continueLater": {
+			"description": "¿Cansado de esperar? ¿Quieres ir directamente a ver nuestros productos?",
+			"title": "¿Lo dejamos para más tarde?"
+		},
+		"createPassword": {
+			"title": "Una contraseña memorable",
+			"validation": {
+				"case": "una letra mayúscula",
+				"length": "Al menos 8 caracteres",
+				"match": "Las contraseñas coinciden",
+				"number": "un número"
+			}
+		},
+		"enterCode": {
+			"description": "Para acceder, ingresa el código de inicio de sesión de 4 dígitos que hemos enviado a {{email}}.",
+			"title": "Ingresa el código"
+		},
+		"existingAccount": {
+			"description": "Parece que este correo ya tiene un lugar con nosotros. Puedes iniciar sesión o, si olvidaste tu contraseña, no hay problema, recupérala fácilmente en el enlace.",
+			"title": "Cuenta ya registrada"
+		},
+		"forgotPassword": {
+			"description": "Introduce el correo electrónico con el que te registraste y te enviaremos un enlace para restablecer tu contraseña.",
+			"title": "¿Olvidaste tu contraseña?"
+		},
+		"login": {
+			"noAccount": "¿No tienes cuenta?",
+			"register": "Registrarme",
+			"title": "Bienvenido a Pórtiqo"
+		},
+		"mailSent": {
+			"description": "Te hemos enviado un email para verificar tu cuenta. Si no lo encuentras, revisa tu carpeta de spam. \n\nPuedes hacerlo más tarde, pero este paso es necesario para activar tu cuenta.",
+			"title": "¡Casi listo! Sólo un paso más..."
+		},
+		"nameEmail": {
+			"title": "Comenzamos, nombre y mail"
+		},
+		"passwordChanged": {
+			"description": "Contraseña actualizada con éxito",
+			"title": "Nueva contraseña"
+		},
+		"personalData": {
+			"title": "Datos personales"
+		},
+		"resetPassword": {
+			"title": "Nueva contraseña"
+		},
+		"threeSteps": {
+			"description": "En 5 minutos estarás listo para invertir tu dinero con Pórtiqo. Introduce tus datos, verifica tu correo electrónico y hazte un selfie (necesitarás tener tu DNI a mano).",
+			"title": "En 3 pasos tendrás tu cuenta"
+		},
+		"twoStepsVerification": {
+			"description": "La autenticación en dos pasos protege tu cuenta con un código de acceso que debes ingresar cuando inicias sesión desde un dispositivo que no has marcado aún como seguro.",
+			"title": "Identificación en dos pasos"
+		},
+		"unverifiedEmail": {
+			"description": "Para poder acceder, necesitamos que verifiques tu email. \nDurante el proceso de registro, enviamos un correo con un link. Por favor, revisa tu bandeja de entrada y, si no lo encuentras, verifica tu carpeta de spam o ponte en contacto con nosotros.",
+			"title": "Verifica tu email"
+		}
+	},
+	"footer": {
+		"company": {
+			"title": "Empresa",
+			"whoWeAre": "Quiénes somos"
+		},
+		"global": "Global",
+		"legal": {
+			"commercialCommunication": "Comunicación comercial",
+			"legalNotice": "Aviso legal",
+			"privacyPolicity": "Política de privacidad",
+			"terms": "Términos y condiciones",
+			"title": "Legal"
+		},
+		"spain": "España",
+		"support": {
+			"contact": "Contacto",
+			"faq": "Preguntas más frecuentes",
+			"title": "Ayuda"
+		}
+	},
+	"global": {
+		"badge": {
+			"waitingList": "Waiting list"
+		},
+		"button": {
+			"accessPortiqo": "Acceder a Pórtiqo",
+			"back": "Volver",
+			"backToLogin": "Volver al login",
+			"becomeClient": "Hazte cliente",
+			"beTheFirst": "Quiero ser el primero",
+			"clients": "Clientes",
+			"close": "Cerrar",
+			"continue": "Continuar",
+			"continueWithGoogle": "Continuar con Google",
+			"createAccount": "Abrir una cuenta",
+			"enter": "Entrar",
+			"forgotPassword": "He olvidado mi contraseña",
+			"goSimulator": "Ir al simulador de nuestras carteras",
+			"goToPortfolioSimulator": "Ir al simulador de nuestras carteras",
+			"joinTheWaitList": "Quiero apuntarme a la lista",
+			"joinTheWaitListReduced": "Apúntate a la lista",
+			"login": "Iniciar sesión",
+			"notifyMe": "Avísame cuando esté disponible",
+			"openEmail": "Abrir email",
+			"resendCode": "Reenviar código",
+			"startInvesting": "Empieza a invertir hoy",
+			"startInvestingNow": "Comience a invertir ahora mismo",
+			"submit": "Enviar",
+			"tryPortiqo": "Quiero probar Pórtiqo"
+		},
+		"country": {
+			"albania": "Albania",
+			"argentina": "Argentina",
+			"armenia": "Armenia",
+			"austria": "Austria",
+			"belgium": "Bélgica",
+			"bulgaria": "Bulgaria",
+			"colombia": "Colombia",
+			"croatia": "Croacia",
+			"cyprus": "Chipre",
+			"czechRepublic": "República Checa",
+			"denmark": "Dinamarca",
+			"dominicanRepublic": "República Dominicana",
+			"ecuador": "Ecuador",
+			"estonia": "Estonia",
+			"finland": "Finlandia",
+			"france": "Francia",
+			"georgia": "Georgia",
+			"germany": "Alemania",
+			"greece": "Grecia",
+			"honduras": "Honduras",
+			"hungary": "Hungría",
+			"ireland": "Irlanda",
+			"italy": "Italia",
+			"latvia": "Letonia",
+			"lithuania": "Lituania",
+			"luxembourg": "Luxemburgo",
+			"malta": "Malta",
+			"mexico": "México",
+			"montenegro": "Montenegro",
+			"morocco": "Marruecos",
+			"netherlands": "Países Bajos",
+			"northMacedonia": "Macedonia del Norte",
+			"norway": "Noruega",
+			"peru": "Perú",
+			"poland": "Polonia",
+			"portugal": "Portugal",
+			"romania": "Rumania",
+			"sanMarino": "San Marino",
+			"serbia": "Serbia",
+			"slovakia": "Eslovaquia",
+			"slovenia": "Eslovenia",
+			"spain": "España",
+			"sweden": "Suecia",
+			"switzerland": "Suiza",
+			"turkey": "Turquía",
+			"unitedKingdom": "Reino Unido"
+		},
+		"error": {
+			"invalidCredentials": "Credenciales inválidas",
+			"registeredEmail": "Este correo ya está registrado.",
+			"validation": {
+				"acceptCommunication": "Debes aceptar recibir comunicaciones comerciales del Grupo Huargo.",
+				"acceptPrivacyPolicy": "Debes aceptar la política de privacidad del Grupo Huargo",
+				"acceptTerms": "Debe aceptar las condiciones",
+				"atLeast8Chars": "La contraseña debe contener al menos 8 caracteres",
+				"atLeastOneNumber": "La contraseña debe contener al menos un número",
+				"atLeastOneUpperCase": "La contraseña debe contener al menos una mayúscula",
+				"invalidEmail": "Dirección de correo electrónico no válida",
+				"required": "Este campo es obligatorio",
+				"validPhone": "Introduzca un número de teléfono válido"
+			}
+		},
+		"label": {
+			"acceptCommunication": {
+				"1": "Acepto recibir",
+				"2": "comunicaciones comerciales",
+				"3": " y ofertas promocionales del grupo Huargo."
+			},
+			"acceptPrivacyPolicy": {
+				"1": "Acepto la",
+				"2": "política de privacidad",
+				"3": "del grupo Huargo."
+			},
+			"acceptTerms": "Acepto las condiciones legales y la política de privacidad de Portiqo.",
+			"address": "Dirección",
+			"city": "Ciudad",
+			"country": "País",
+			"DNI": "DNI",
+			"documentNumber": "Número de documento",
+			"documentType": "Tipo de documento",
+			"email": "Correo electrónico",
+			"en": "Inglés",
+			"en-US": "Inglés",
+			"english": "Inglés",
+			"es": "Español",
+			"es-ES": "Español",
+			"firstName": "Nombre",
+			"lastName": "Apellidos",
+			"NIE": "NIE",
+			"or": "o",
+			"otpCode": "Código",
+			"Passport": "Pasaporte",
+			"password": "Contraseña",
+			"passwordConfirmation": "Confirmar Contraseña",
+			"phone": "Teléfono",
+			"postalCode": "Código postal",
+			"province": "Provincia",
+			"realState": "Inmobiliario",
+			"rememberDevice": "Marcar este dispositivo como seguro (y evitar este paso en próximos accesos)",
+			"renewableEnergies": "Energías renovables",
+			"spanish": "Español",
+			"technology": "Tecnología e inteligencia artificial"
+		},
+		"menu": {
+			"company": "Compañía",
+			"product": "Producto",
+			"simulator": "Simulador"
+		},
+		"title": "Título de la prueba"
+	},
+	"landing": {
+		"benefits": {
+			"backedByExperts": "Con el respaldo de expertos",
+			"backedByExpertsDescription": "Inversiones seleccionadas por profesionales experimentados con la garantía de fondos de prestigio.",
+			"everythingClear": "Todo claro y accesible",
+			"everythingClearDescription": "Entiende cada paso, sin jerga ni tecnicismos. Elige sus inversiones en categorías que conozca y controle cada decisión.",
+			"experience": "15 años de experiencia",
+			"fees": "0,0 comisiones",
+			"maximumProfitability": "Máxima rentabilidad",
+			"maximumProfitabilityDescription": "Inversiones seleccionadas por profesionales experimentados con la garantía de fondos de prestigio.",
+			"profitability": "13.4%\n12.3%\n11.1%"
+		},
+		"faq": {
+			"commissions": "¿Qué comisiones cobráis?",
+			"commissionsRes": "Cada fondo tiene su coste y este aparece en sus condiciones y en el folleto. Las comisiones son cobradas por la entidad gestora en cada caso. ",
+			"howDoIJoin": "¿Cómo me uno a Pórtiqo?",
+			"howDoIJoinRes": "¡Es muy fácil y rápido! Registrarte en Pórtiqo te llevará menos de 5 minutos. Solo necesitas:\n\n- Ser residente en Europa (con tu DNI, pasaporte o tarjeta de residencia).\n- Tener una cuenta bancaria europea.\n\nEl proceso comienza haciendo clic en \"Hazte cliente\". Durante el registro, te pediremos algunos datos personales básicos y luego realizarás un proceso de identificación rápido usando tu documento de identidad (es necesario que lo tengas a mano).\n\nEn menos de 5 minutos tendrás tu cuenta lista y podrás empezar a operar con total facilidad.",
+			"howMuch": "¿Cuánto dinero necesito para empezar a invertir?",
+			"howMuchRes": "Puedes invertir desde 1.000€ en algunos de nuestros fondos. Si aún no lo tienes claro y quieres simular qué rentabilidad obtendrías con nuestros fondos, puedes acceder a través de Google o Apple y podrás ver toda la cartera que ofrecemos.",
+			"investmentFund": "¿Qué es un fondo de inversión y cómo funciona?",
+			"investmentFundRes": "Un fondo de inversión es una forma sencilla de poner tu dinero a trabajar junto al de otros inversores. Un equipo de expertos se encarga de gestionarlo e invertirlo en distintos activos (como acciones o bonos) para aprovechar las oportunidades del mercado y reducir riesgos gracias a la diversificación.\n\nTú compras participaciones, que representan tu parte dentro del fondo. Su valor cambia cada día según la evolución de las inversiones.\n Los beneficios o pérdidas se reparten entre todos los partícipes de forma proporcional.\n\nExisten dos tipos principales:\n\n- Fondos de acumulación: los dividendos se reinvierten automáticamente.\n\n- Fondos de distribución: los dividendos se reparten directamente entre los inversores.\n\nPuedes entrar o salir del fondo cuando quieras (suscribir, traspasar a otro fondo o reembolsar participaciones), aunque el dinero puede tardar un poco en hacerse efectivo según el fondo.\n",
+			"isEasyToTransferMoney": "¿Puedo traspasar a Pórtico el dinero que tengo invertido en fondos que tenga en otras plataformas?",
+			"isEasyToTransferMoneyRes": "¡Por supuesto!. Cuando contrates el fondo tendrás la opción de hacer tu aportación por transferencia bancaria, o bien, haciendo un traspaso desde otro fondo. Solo tendrás que indicarnos si la aportación es parcial o total y seguir los pasos que te indicamos.",
+			"title": "Preguntas más frecuentes",
+			"whenCanIRecoverMyMoney": "¿Cuándo puedo recuperar mi dinero una vez que invierta en Pórtiqo?",
+			"whenCanIRecoverMyMoneyRes": "¡Cuando tú quieras!. Tan solo tienes que acceder a tu fondo, seleccionar “Rescatar” e indicar el importe que quieres recuperar y una cuenta de abono.",
+			"whyIsItBetter": "¿Por qué ofrecéis mejor rentabilidad que en otras plataformas?",
+			"whyIsItBetterRes": "En Portiqo nos especializamos en seleccionar los mejores productos del mercado. Nuestros expertos seleccionan los mejores fondos atendiendo a su rentabilidad, su riesgo y su coste en comisiones. De esta forma, somos capaces de ofrecerte únicamente aquellos productos que lo han hecho mejor históricamente que sus competidores. "
+		},
+		"hero": {
+			"badge": "Desde 10.000 euros",
+			"description": "Invierte en productos exclusivos diseñados para maximizar tu rentabilidad. Con productos claros, sin jerga ni complicaciones, hasta ahora reservados para grandes inversores.",
+			"title": "Invierte como un experto, sin serlo."
+		},
+		"legal": {
+			"commercials": {
+				"marketing": {
+					"description": "VERSIÓN: FEBRERO 2025\n\nAl marcar la casilla Vd. autoriza a que los datos personales que nos ha proporcionado sean tratados por HUARGO CAPITAL, S.L. y por las empresas del Grupo (las cuales podrán ser consultadas en www.huargo.com), para fines comerciales, de modo que se le informe de productos, servicios, ofertas y noticias de marketing que pueden ser de su interés a través de medios telefónicos, postales y/o electrónicos (SMS y/o PUSH, correo electrónico, mensajería instantánea, y cualquier otro medio electrónico adecuado conforme a la tecnología actual). También autoriza que se le envíen ofertas personalizadas para Vd. basadas en la elaboración de perfiles bien a través de equipos terminales de telecomunicaciones o bien a través de sistemas automáticos de llamadas, para adecuarla lo máximo posible a sus necesidades.\n\nVd. podrá retirar su consentimiento, dejando de recibir información de productos y servicios, ofertas y noticias, a través de su perfil en nuestra Web, utilizando el enlace de la parte inferior de cada correo electrónico publicitario y, de acuerdo con las formas previstas en la Política de Privacidad y las establecidas en el epígrafe 'Derechos' indicado más abajo.\nVd. nos garantiza que los datos aportados son suyos, verdaderos, exactos, completos y actualizados, siendo responsable de cualquier daño o perjuicio, directo o indirecto, que pueda ocasionarse como consecuencia del incumplimiento de esta obligación y obligándose a notificarnos cualquier actualización de los mismos a la mayor brevedad posible.\n\nRecuerde acceder a nuestra política de privacidad para consultar toda la información de tratamiento de sus datos personales y del Responsable del Tratamiento.",
+					"title": "Marketing y comunicación de datos"
+				},
+				"title": "Comunicaciones comerciales"
+			},
+			"privacyPolicy": {
+				"accessControl": {
+					"description": "<p>Datos recabados por cámaras de Videovigilancia o en su caso facilitados para el control de acceso a los edificios de alguna de las empresas de Pórtiqo:</p>\n<ul style=\"list-style-type: disc; padding-left: 20px;\">\n    <li><strong>Datos recabados:</strong> nombre, apellidos, documento de identidad e imágenes.</li>\n    <li><strong>Finalidad:</strong> controlar el acceso y la gestión de la seguridad interna de las instalaciones de Pórtiqo.</li>\n    <li><strong>Legitimación:</strong> interés legítimo en garantizar la seguridad en las instalaciones por parte de su titular, lo que justifica el registro de datos en el control de acceso, y que las imágenes sean captadas necesariamente al acceder a estas instalaciones.</li>\n    <li><strong>Plazos de conservación:</strong> los datos serán conservados por un plazo no superior a 30 días, salvo que fuese necesario conservarlos durante más tiempo por ser conveniente para esclarecer alguna infracción o hecho ilícito detectado, y por tanto se mantendrán a disposición de la administración pública, jueces y tribunales, por los plazos legales establecidos para la atención y defensa de las posibles responsabilidades nacidas del tratamiento.</li>\n</ul>",
+					"title": "CONTROL DE ACCESO Y SEGURIDAD"
+				},
+				"bugs": {
+					"description": "<p>Datos facilitados para la mejora de la experiencia en la web y app de Pórtiqo.</p>\n<ul style=\"list-style-type: disc; padding-left: 20px;\">\n    <li><strong>Datos recabados:</strong> IP, hora de conexión e ID de usuario, de forma seudonimizada.</li>\n    <li><strong>Finalidad:</strong> análisis de comportamiento para la mejora de la experiencia del usuario y la resolución de problemas encontrados por los usuarios. Estos datos se tratarán de forma seudonimizada, y únicamente se identificará al usuario ante la petición expresa del mismo para la resolución de un fallo en la web o aplicación móvil.</li>\n    <li><strong>Legitimación:</strong> interés Legítimo de Pórtiqo para proporcionar una mejor experiencia y resolver posibles problemas técnicos. Además, el consentimiento del usuario para resolución de problemas específicos.</li>\n    <li><strong>Plazos de conservación:</strong> los datos se conservarán durante el tiempo necesario para la finalidad del tratamiento, y una vez finalizada la misma se mantendrán a disposición de la administración pública, jueces y tribunales, por los plazos legales establecidos para la atención y defensa de las posibles responsabilidades nacidas del tratamiento.</li>\n</ul>",
+					"title": "COMPORTAMIENTO Y RESOLUCIÓN DE BUGS"
+				},
+				"clientsSuppliers": {
+					"description": "<p>Datos personales profesionales facilitados por Clientes/Proveedores para la prestación de servicios y gestión de la relación jurídica o contractual.</p>\n<ul style=\"list-style-type: disc; padding-left: 20px;\">\n    <li><strong>Datos recabados:</strong> nombre, apellidos, ID, dirección profesional de contacto, correo electrónico, teléfono de contacto.</li>\n    <li><strong>Finalidad:</strong> la gestión de la relación contractual del servicio.</li>\n    <li><strong>Legitimación:</strong> la relación jurídica o contractual existente necesaria para la prestación del servicio, así como el interés legítimo para el desarrollo de relaciones comerciales.</li>\n    <li><strong>Plazos de conservación:</strong> los datos se conservarán durante el tiempo necesario para la finalidad del tratamiento, y una vez finalizada la misma se mantendrán a disposición de la administración pública, jueces y tribunales, por los plazos legales establecidos para la atención y defensa de las posibles responsabilidades nacidas del tratamiento.</li>\n</ul>",
+					"title": "CLIENTES/PROVEEDORES"
+				},
+				"contact": {
+					"description": "Para cualquier asunto relacionado con el tratamiento de datos de personas físicas por parte de Pórtiqo podrá dirigirse a la dirección de correo electrónico info@theportiqo.com, o bien podrá también dirigirse a nuestro Delegado de Protección de Datos a través de la siguiente dirección de correo electrónico info@theportiqo.com.",
+					"title": "CONTACTO"
+				},
+				"contests": {
+					"description": "<p>Datos facilitados para la inscripción en concursos y sorteos organizados por Pórtiqo. Los premios o recompensas se identificarán en el momento de la recogida del dato y registro del mismo ,así como en las Bases Legales específicas de cada Concurso o Sorteo.</p>\n<ul style=\"list-style-type: disc; padding-left: 20px;\">\n    <li><strong>Datos recabados:</strong> nombre, apellidos, ID, dirección de contacto, domicilio, correo electrónico, teléfono de contacto y demás datos necesarios según el concurso o sorteo, que serán exclusivamente necesarios para el registro en los mismos.</li>\n    <li><strong>Finalidad:</strong> gestión y participación en la promoción, así como el mantenimiento de relaciones comerciales por medios electrónicos con base en el interés legítimo comercial de las empresas del Grupo Pórtiqo.</li>\n    <li><strong>Legitimación:</strong> el consentimiento y aceptación de los Términos y Condiciones y Bases legales de los concursos y sorteos en los que se inscribe e l interesado, así como el interés legítimo para el desarrollo de relaciones comerciales.</li>\n    <li><strong>Plazos de conservación:</strong> los datos se conservarán durante el tiempo necesario para la finalidad del tratamiento, y una vez finalizada la misma se mantendrán a disposición de la administración pública, jueces y tribunales, por los plazos legales establecidos para la atención y defensa de las posibles responsabilidades nacidas del tratamiento.</li>\n</ul>",
+					"title": "CONCURSOS Y SORTEOS"
+				},
+				"dataProvided": {
+					"description": "Los datos recabados por las distintas vías habilitadas son los estrictamente necesarios para atender a su solicitud, los cuales el Interesado comunica voluntariamente. La negativa a proporcionar los datos calificados como obligatorios supondrá la no prestación o la imposibilidad de acceder al servicio para los que eran solicitados. Asimismo, podrán facilitarse datos de modo voluntario con el objetivo de que puedan prestarse de modo óptimo los servicios. Igualmente, en aquellos supuestos en los que se facilite datos de terceros, el Interesado se compromete a informarles del contenido de la presente política de privacidad.\nPórtiqo le recuerda que en el perfil de usuario no deberá subir fotografías que incluyan información personal propia o de terceros, y que tiene los consentimientos y autorizaciones necesarias para su publicación, no siendo Pórtiqo responsable de la información incluida en la misma. En todo caso, el usuario ratifica expresamente el consentimiento para publicación y cesión de la imagen de perfil, de conformidad con lo establecido en la Ley Orgánica 1/1982 de protección civil del derecho al honor, a la intimidad personal y familiar y a la propia imagen.\nEl Interesado se compromete a comunicar a la mayor brevedad posible a Pórtiqo cualquier modificación y rectificación de sus datos de carácter personal a los efectos de que la información contenida en los Registros de Actividad de Pórtiqo estén en todo momento actualizados.",
+					"title": "DATOS FACILITADOS"
+				},
+				"dataTransfers": {
+					"description": "Podrán existir comunicaciones de datos a terceros o las autoridades competente, para el cumplimiento de obligaciones legales, así como para las prestaciones de servicios de terceros, que serán considerados como encargados de tratamiento con los que Pórtiqo ha firmado los correspondientes contratos de acceso a datos por cuenta de terceros, habiendo previamente verificado que los mismos reúnen las garantías suficientes para aplicar medidas técnicas y organizativas apropiadas, de tal manera que el tratamiento se realiza conforme a los requisitos del RGPD garantizando la seguridad y protección de los derechos del interesado.\nEl usuario conoce y acepta que la foto de perfil subida podrá ser comunicada a otros usuarios o terceros en determinados procesos o servicios implementados por Pórtiqo.",
+					"title": "CESIONES O COMUNICACIONES DE DATOS"
+				},
+				"events": {
+					"description": "<p>Datos recabados durante la inscripción al mismo, y durante su desarrollo:</p>\n<ul style=\"list-style-type: disc; padding-left: 20px;\">\n    <li><strong>Datos recabados:</strong> nombre, apellidos, ID, correo electrónico, dirección, teléfono y demás datos necesarios para la inscripción, así como la imagen del participante.</li>\n    <li><strong>Finalidad:</strong> gestionar el desarrollo de los eventos organizados por Pórtiqo y las empresas colaboradoras en el mismo, así como la promoción del mismo y de los servicios de Pórtiqo.</li>\n    <li><strong>Legitimación:</strong> prestación del consentimiento del interesado para la inscripción en los eventos organizados por Pórtiqo y las empresas con las que colabora, así como para la fijación de su imagen, nombre y voz en grabaciones audiovisuales y fotografías tomadas durante la celebración del evento.</li>\n    <li><strong>Plazos de conservación:</strong> los datos se conservarán durante el tiempo necesario para la finalidad del tratamiento, y una vez finalizada la misma se mantendrán a disposición de la administración pública, jueces y tribunales, por los plazos legales establecidos para la atención y defensa de las posibles responsabilidades nacidas del tratamiento.</li>\n<li><strong>Cesión de imagen:</strong> le informamos que durante la celebración de estos eventos es posible que se tomen imágenes de los mismos, por lo que el interesado otorga su consentimiento a la fijación de su imagen, nombre y voz en grabaciones audiovisuales y fotografías tomadas durante la celebración del evento para que pueda ser utilizada sin límite temporal o territorial mediante su reproducción, comunicación pública, exhibición, puesta a disposición y distribución en cualquier medio de exhibición y/o difusión presencial, físico, editorial, así como por redes telemáticas e internet, en cualquier formato tangible o intangible, electrónico y / o digital, con fines comerciales y promocionales de ambas empresas de conformidad con lo establecido en la Ley Orgánica 1/1982. Pórtiqo podrá ceder a terceros las imágenes, o parte de las mismas, en las que aparece como modelo, entrevistado, narrador o participante principal o secundario en el ámbito (sea cual fuere el medio de comunicación interno o externo), para la promoción de las actividades de Pórtiqo, en medios de comunicación internos o externos a la misma, para que puedan ser difundidas en todos los medios de comunicación conocidos en la actualidad incluidos los online (Youtube, Twitter, Instagram, Facebook, etc.), streaming y los que pudieran desarrollarse en el futuro. Todo ello con la única salvedad y limitación de aquellas utilizaciones o aplicaciones que pudieran atentar al derecho al honor, a la moral y/o al orden público, en los términos previstos en la legislación vigente en cada país, sin derecho a remuneración.</li>\n</ul>",
+					"title": "PARTICIPACIÓN EN EVENTOS"
+				},
+				"footer": {
+					"description": "Pórtiqo 2025 - ESPAÑA.\nTodos los derechos reservados.",
+					"title": ""
+				},
+				"newsletters": {
+					"description": "<p>El envío de información, novedades, avisos, recordatorios y promociones que pudieran ser de su interés, relacionadas con las actividades de Pórtiqo.</p>\n<ul style=\"list-style-type: disc; padding-left: 20px;\">\n    <li><strong>Datos recabados:</strong> dirección de correo electrónico, nombre, apellidos, número de teléfono, ciudad o país. Así como metadatos del usuario producidos durante su navegación (navegador, sistema operativo, IP, entre otros).</li>\n    <li><strong>Finalidad:</strong> el registro de los interesados para el envío de información, novedades y promociones, y establecer y mantener relaciones comerciales.</li>\n    <li><strong>Legitimación:</strong> prestación del consentimiento del interesado a Pórtiqo para el alta en servicios promocionales, y el interés legítimo para el desarrollo de relaciones comerciales.</li>\n    <li><strong>Plazos de conservación:</strong> los datos se conservarán durante el tiempo necesario para la finalidad del tratamiento, y una vez finalizada la misma se mantendrán a disposición de la administración pública, jueces y tribunales, por los plazos legales establecidos para la atención y defensa de las posibles responsabilidades nacidas del tratamiento.</li>\n</ul>",
+					"title": "PROMOCIONAL O NEWSLETTERS"
+				},
+				"ownership": {
+					"description": "En cumplimiento de lo establecido en el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo, de 27 de abril de 2016 (en adelante RGPD) , de la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (en adelante LOPDGDD) y cualquier otra normativa de protección de datos aplicable, le informamos que los datos personales facilitados serán incorporados a una Base de Datos titularidad de HUARGO CAPITAL, S.L.\n\nDatos identificativos del prestador de servicios\nDenominación: HUARGO CAPITAL, S.L., (en adelante, Pórtiqo)\n\nDomicilio: Calle Ferraz, 114, 28008, Madrid, Madrid, ESPAÑA.\n\nCIF: B-88466776\n\nInscrita en el Registro Mercantil de Madrid.\n\nAsí mismo, le informamos que Pórtiqo tratará los datos de forma conjunta con el resto de empresas del Grupo Pórtiqo, en calidad de Corresponsables del Tratamiento.",
+					"title": "TITULARIDAD Y RESPONSABILIDAD DEL TRATAMIENTO"
+				},
+				"personalData": {
+					"description": "<p>Pórtiqo podrá recabar los siguientes datos:</p>\n<p>\nCONTACTO COMERCIAL\n\nAtención de consultas y solicitudes de contacto recibidas por cualquier medio, de los servicios de Pórtiqo así como el mantenimiento de relaciones comerciales:\n</p>\n<ul style=\"list-style-type: disc; padding-left: 20px;\">\n    <li><strong>Datos recabados:</strong> nombre, teléfono, email y consulta.</li>\n    <li><strong>Finalidad:</strong> contestar a las solicitudes de información que el interesado haya realizado por cualquier medio sobre los productos y servicios de Pórtiqo, y establecer y mantener relaciones comerciales.</li>\n    <li><strong>Legitimación:</strong> Pórtiqo está legitimado para tratar los datos del interesado facilitados a través de la solicitud de contacto en base a la prestación del consentimiento, así como conforme al interés legítimo para el desarrollo y mantenimiento de relaciones comerciales.</li>\n    <li><strong>Plazos de conservación:</strong> los datos se conservarán hasta que el interesado solicite la baja o supresión de sus datos. Una vez suprimidos, se mantendrán a disposición de la administración pública, jueces y tribunales durante los plazos legales establecidos.</li>\n</ul>",
+					"title": "DATOS PERSONALES"
+				},
+				"preventionFraud": {
+					"description": "<p>\nDatos facilitados para la identificación formal del cliente, análisis y monitoreo con el objetivo de prevenir, detectar y gestionar actividades fraudulentas u otras actividades ilícitas. Las empresas de Pórtiqo implementarán medidas de control y supervisión adecuadas, cumpliendo con las normativas aplicables en materia de prevención del fraude. La finalidad del tratamiento se informará al cliente en el momento de la recopilación de los datos y durante su registro.\n</p>\n<ul style=\"list-style-type: disc; padding-left: 20px;\">\n    <li><strong>Datos recabados:</strong> dirección IP, información del dispositivo, uso de VPN, información de wallets externas, y cualquier otro dato relevante relacionado con la conexión del cliente y la actividad en la plataforma.</li>\n    <li><strong>Finalidad:</strong> gestionar y prevenir el riesgo de fraude en las operaciones realizadas en la plataforma.</li>\n    <li><strong>Legitimación:</strong> este tratamiento se realiza en base al interés legítimo de la empresa para garantizar la seguridad de las transacciones y prevenir actividades fraudulentas.</li>\n    <li><strong>Plazos de conservación:</strong> los datos se conservarán durante el tiempo estrictamente necesario para el cumplimiento de la finalidad descrita y, una vez concluida, se mantendrán disponibles para autoridades competentes por los plazos legales establecidos.</li>\n<li><strong>Destinatarios:</strong> \nLos datos mencionados serán analizados a través del servicio externo MaxMind, proveedor especializado en soluciones de prevención de fraude. MaxMind aplicará sus tecnologías y herramientas para evaluar el riesgo de actividad fraudulenta.\n\nAdicionalmente, la información relacionada con las wallets externas podrá ser analizada a través de servicios de análisis de blockchain, con el objetivo de detectar patrones de riesgo o actividades sospechosas en la cadena de bloques.\n</li>\n</ul>",
+					"title": "PREVENCIÓN DEL FRAUDE Y OTRAS ACTIVIDADES ILÍCITAS:"
+				},
+				"preventionMoney": {
+					"description": "<p>\nDatos facilitados para la identificación formal del cliente e investigación en materia de Prevención de Blanqueo de Capitales y Financiación de Terrorismo por las empresas de Pórtiqo que se consideren sujetos obligados al cumplimiento de la normativa de Prevención de Blanqueo de Capitales y Financiación de Terrorismo. Los servicios se identificarán en el momento de la recogida del dato y registro del mismo.\n</p>\n<ul style=\"list-style-type: disc; padding-left: 20px;\">\n    <li><strong>Datos recabados:</strong> nombre, apellidos, ID, dirección de contacto, domicilio, correo electrónico, teléfono de contacto y demás datos que fueren en su caso necesarios para la identificación formal del cliente e investigación en materia de Prevención del Blanqueo de Capitales y Financiación del Terrorismo, incluida la imagen.</li>\n    <li><strong>Finalidad:</strong> a identificación formal del cliente e investigación para el cumplimiento de la normativa de Prevención de Blanqueo de Capitales.</li>\n    <li><strong>Legitimación:</strong> la relación jurídica o contractual existente necesaria para la prestación del servicio, así como el cumplimiento de una obligación legal.</li>\n    <li><strong>Plazos de conservación:</strong>  los datos se conservarán durante el tiempo necesario para la finalidad del tratamiento (10 años), y una vez finalizada la misma se mantendrán a disposición de la administración pública, jueces y tribunales, por los plazos legales establecidos para la atención y defensa de las posibles responsabilidades nacidas del tratamiento.</li>\n<li><strong>Comunicación y cesión de datos:</strong> en determinados servicios prestados por alguna de las empresas del Grupo Pórtiqo, con la previa aceptación de las correspondientes Condiciones Particulares del Servicio, los datos de carácter personal que identifican al usuario conforme a los establecido en la Ley 10/2010, de 28 de abril, de prevención del blanqueo de capitales y de la financiación del terrorismo o cualquier otra normativa relacionada aplicable, podrán ser comunicados entre las empresas del Grupo Pórtiqo con la finalidad de cumplir con la normativa vigente de Prevención de Blanqueo de Capitales. En todo caso se comunicarán las cesiones de datos que puedan producirse en las Condiciones Particulares de cada Servicio, debiendo ser aceptados de forma previa a la utilización del mismo.\n</li>\n</ul>",
+					"title": "PREVENCIÓN DE BLANQUEO DE CAPITALES"
+				},
+				"reporterChannel": {
+					"description": "<p>Datos facilitados para la gestión del Canal del informante, investigación de las denuncias presentadas, y medidas adoptadas para su resolución.</p>\n<ul style=\"list-style-type: disc; padding-left: 20px;\">\n    <li><strong>Datos recabados:</strong> nombre, apellidos, ID, dirección de contacto, domicilio, correo electrónico, teléfono de contacto y demás datos necesarios para la presentación de la denuncia, incluyendo una descripción detallada de los hechos denunciados, así como la identidad de posibles testigos. Cabe la posibilidad de presentar las denuncias de manera anónima, por lo que puede ser presentada sin los datos identificativos o de contacto del denunciante.</li>\n    <li><strong>Finalidad:</strong> gestión del canal del informante y de las denuncias recibidas.</li>\n    <li><strong>Legitimación:</strong> cumplimiento de una obligación legal, Ley 2/2023 de 20 de febrero, reguladora de la protección de las personas que informen sobre infracciones normativas y de lucha contra la corrupción.</li>\n    <li><strong>Plazos de conservación:</strong> sus datos se conservarán durante el tiempo necesario para cumplir con la finalidad del tratamiento, durante un plazo máximo de 3 meses, salvo que por la especial complejidad del asunto, sea necesario ampliarlo durante 3 meses adicionales. Una vez cumplida la finalidad, sus datos serán bloqueados y se mantendrán a disposición de la administración pública, jueces y tribunales durante el plazo previsto de prescripción de las acciones que resulten de aplicación al tratamiento de sus datos.\nEn caso de que no se haya iniciado una investigación, los datos serán suprimidos, en todo caso, transcurridos 3 meses desde la recepción de la comunicación.\n</li>\n<li><strong>Destinatarios:</strong> sus datos no serán cedidos a terceros, salvo que resulte necesario para el cumplimiento de obligaciones legales como consecuencia del proceso de investigación de la denuncia.\n</li>\n</ul>",
+					"title": "CANAL DE DENUNCIAS/CANAL DEL INFORMANTE"
+				},
+				"rights": {
+					"description": "El Interesado tiene reconocidos sus derechos a acceso, rectificación, supresión, limitación, oposición y portabilidad de sus datos. De igual modo, está amparado por el derecho a retirar su consentimiento para el tratamiento por Pórtiqo. Asimismo, le asiste el derecho a reclamar ante la autoridad de control.\nEn cualquier momento el Interesado podrá ejercitar sus derechos mediante el envío de una comunicación, adjuntando un documento que acredite su identidad e indicando expresamente el derecho que desea ejercitar, a Pórtiqo en el domicilio más arriba indicado o enviando un correo electrónico a la dirección info@theportiqo.com.",
+					"title": "EJERCICIO DE DERECHOS"
+				},
+				"securityMeasures": {
+					"description": "Pórtiqo ha adoptado las medidas técnicas y organizativas necesarias para garantizar la seguridad e integridad de los datos, así como para evitar su alteración, pérdida, tratamiento o acceso no autorizado.",
+					"title": "MEDIDAS DE SEGURIDAD TÉCNICAS Y ORGANIZATIVAS"
+				},
+				"services": {
+					"description": "<p>\nDatos facilitados para la prestación de los servicios de Pórtiqo. Los servicios se identificarán en el momento de la recogida del dato y registro del mismo.\n</p>\n<ul style=\"list-style-type: disc; padding-left: 20px;\">\n    <li><strong>Datos recabados:</strong> nombre, apellidos, DNI, dirección de contacto, domicilio, correo electrónico, teléfono de contacto y demás datos necesarios según el registro solicitado, que serán exclusivamente necesarios para el registro en los servicios de Pórtiqo y la prestación de los servicios. En el perfil de usuario usted tiene la posibilidad de subir una foto o avatar, de forma voluntaria.</li>\n    <li><strong>Finalidad:</strong> el registro de los interesados para la prestación de los servicios y establecer y mantener relaciones comerciales.</li>\n    <li><strong>Legitimación:</strong> la relación jurídica o contractual existente necesaria para la prestación del servicio y el interés legítimo para el desarrollo de relaciones comerciales.</li>\n    <li><strong>Plazos de conservación:</strong> los datos se conservarán durante el tiempo necesario para la finalidad del tratamiento, y una vez finalizada la misma se mantendrán a disposición de la administración pública, jueces y tribunales, por los plazos legales establecidos para la atención y defensa de las posibles responsabilidades nacidas del tratamiento.</li>\n<li><strong>Comunicación y cesión de datos:</strong> para la prestación de determinados servicios, como Binance Pay, es posible que el usuario deba comunicar datos personales de un tercero, como el número de teléfono de su agenda de contactos. Este número de teléfono únicamente será tratado para estos fines, y se hará de forma cifrada, de tal manera que Pórtiqo no podrá acceder al mismo. En todo caso, se solicitarán los permisos necesarios de forma previa al acceso a la agenda telefónica.</li>\n</ul>",
+					"title": "SERVICIOS"
+				},
+				"title": "POLÍTICA DE PRIVACIDAD",
+				"whatsapp": {
+					"description": "Podremos usar tu número de teléfono para enviarte mensajes a través de WhatsApp con información relacionada con tu cuenta, tus operaciones o los servicios de Pórtiqo, incluyendo avisos importantes, actualizaciones, encuestas y promociones. Siempre que lo hagamos, será conforme a esta Política de Privacidad y respetando tus derechos. WhatsApp es una plataforma independiente de Pórtiqo, por lo que te recomendamos consultar sus políticas si quieres saber más sobre cómo tratan tus datos. Puedes darte de baja de estas comunicaciones en cualquier momento escribiéndonos a info@theportiqo.com.",
+					"title": "COMUNICACIONES A TRAVÉS DE WHATSAPP"
+				}
+			},
+			"terms": {
+				"accessAndSecurity": {
+					"description": "El acceso a los servicios transaccionales y aquellos que incluyen la captura de datos personales se realiza en un entorno seguro utilizando protocolo SSL (Secure Socker Layer) de 128 bits. El servidor seguro establece una conexión de modo que la información se transmite cifrada. Esto asegura que el contenido transmitido es sólo inteligible para el ordenador del cliente y el servidor de Pórtiqo. \n\nEl Usuario puede comprobar que se encuentra dentro de un entorno seguro si en la barra de estado de su navegador aparece un candado cerrado. La garantía de seguridad de nuestros servidores viene respaldada por un certificado expedido por la empresa COMODO RSA Domain Validation Secure Server CA. Este certificado garantiza que el cliente está comunicando sus datos a un servidor de Pórtiqo y no a un tercero que intentara hacerse pasar por ésta.",
+					"title": "Acceso y seguridad"
+				},
+				"content": {
+					"description": "Pórtiqo realiza los máximos esfuerzos para evitar cualquier error en los contenidos que pudieran aparecer en el Sitio Web. Pórtiqo no garantiza, ni se responsabiliza de las consecuencias que pudieran derivarse de los errores en los contenidos que pudieran aparecer en el Sitio Web.",
+					"title": "Contenidos"
+				},
+				"hyperlinks": {
+					"description": "El Sitio Web podrá incorporar enlaces de acceso (hipervínculos o links) a otras páginas web de las que Pórtiqo no es titular. En ningún caso, dicha posibilidad implicará la existencia de relación entre Pórtiqo y el titular de la Página Web a la que dicho hipervínculo redirige, ni siquiera su aprobación o aceptación. Pórtiqo tampoco será responsable de la licitud de los contenidos vertidos en la misma.\n\nCualquier otra Página Web tendrá prohibida la incorporación de un hipervínculo al Sitio Web de Pórtiqo, sin su expresa autorización. En cualquier caso, dicha autorización implicará que el hipervínculo no se haga de forma que perjudique la imagen pública y de marca de Pórtiqo o del propio Sitio Web, así como de los terceros que aparezcan referenciados en ésta.\n\nPórtiqo retirará cualquier enlace en cuanto tenga conocimiento por cualquier medio de la ilicitud de su contenido o de que desde los mismos se lesionan bienes o derechos de un tercero.",
+					"title": "Hipervínculos"
+				},
+				"identifyingData": {
+					"description": "Denominación: HUARGO CAPITAL, S.L., (en adelante Pórtiqo)\n\nDomicilio: Calle Ferraz 114, 28008, Madrid, Madrid, ESPAÑA\n\nNIF: B-88466776\n\nInscrita en el Registro Mercantil de Madrid.",
+					"title": "Datos identificativos del prestador de servicios"
+				},
+				"intellectualProperty": {
+					"description": "Este Sitio Web, su código fuente y los contenidos que se encuentran protegidos por la Ley de Propiedad Intelectual. No podrán ser objeto de explotación, reproducción, distribución, modificación, comunicación pública, cesión o transformación, salvo que medie autorización expresa de los titulares de los derechos.\n\nEl diseño, imágenes, rótulos, signos distintivos, nombre comercial, las marcas, logos, productos y servicios que contiene este Sitio Web se encuentran protegidos por ley de Propiedad Industrial.\n\nEl acceso al Sitio Web no otorga a los Usuarios derecho, ni titularidad alguna sobre los derechos de propiedad intelectual o industrial ni de los contenidos que alberga. Los Usuarios que accedan a este Sitio Web no podrán copiar, modificar, distribuir, transmitir, reproducir, publicar, ceder ni vender los elementos anteriormente mencionados o crear nuevos productos o servicios derivados de la información obtenida sin que medie autorización expresa y por escrito de los titulares de los derechos.",
+					"title": "Propiedad intelectual e industrial"
+				},
+				"legalNotice": {
+					"description": "VERSIÓN: FEBRERO 2025\n\nEl presente Aviso Legal establece las condiciones de uso del Sitio Web, https://www.theportiqo.com, (en adelante el Sitio Web).\n\nLa utilización de la misma atribuye al navegante la condición de Usuario, lo que implica la adhesión y compromiso de cumplimiento de todas y cada una de las condiciones contenidas en este Aviso Legal, en la versión publicada en el momento en que se acceda al mismo, por lo que se recomienda al Usuario leer este Aviso Legal atentamente cada vez que acceda al Sitio Web.\n\nEstas Condiciones serán aplicables con independencia de la existencia de otras condiciones específicas aplicables a determinados servicios que se presten en el Sitio Web.",
+					"title": "Aviso legal"
+				},
+				"navigation": {
+					"description": "Pórtiqo no se responsabiliza ni garantiza que el acceso al Sitio Web sea ininterrumpido o que esté libre de error. Tampoco se responsabiliza o garantiza que el contenido o software al que pueda accederse a través de la Página Web, esté libre de error o cause un daño. En ningún caso, Pórtiqo será responsable por las pérdidas, daños o perjuicios de cualquier tipo que surjan por el acceso y navegación por la Página Web, incluyéndose pero no limitándose, a los ocasionados a los sistemas informáticos o los provocados por la introducción de virus.\n\nPórtiqo no se hace responsable de los daños que pudiesen ocasionarse a los Usuarios por un uso inadecuado de la Página Web. En particular, no se hace responsable en modo alguno de las caídas, interrupciones, falta o defecto de las telecomunicaciones que pudieran ocurrir mientras el Usuario navega por ella.",
+					"title": "Navegación"
+				},
+				"termsAndConditionsUse": {
+					"description": "Los términos y condiciones recogidos en el presente Aviso Legal serán de aplicación a todas aquellas páginas que figuran dentro del Mapa del Sitio, que son las únicas comprendidas en este Sitio Web.\n\nEl acceso a este Sitio Web es responsabilidad exclusiva de los Usuarios y supone aceptar los presentes términos y condiciones de uso.\nEl Usuario debe realizar un uso lícito del presente Sitio Web y sus servicios de acuerdo a los presentes términos y condiciones de uso y a la legalidad vigente.\n\nPórtiqo podrá modificar unilateralmente los términos y condiciones de uso de este Sitio Web mediante su publicación en este aviso legal, y producirán efectos desde el mismo momento de su publicación\n",
+					"title": "Términos y condiciones de uso"
+				},
+				"title": "Términos y condiciones legales",
+				"websiteUpdates": {
+					"description": "La información que aparece en el Sitio Web es la vigente en la fecha de su última actualización. Pórtiqo no se hace responsable de la actualidad e idoneidad de las informaciones contenidas en la misma.\n\nNo se podrá alterar, cambiar, modificar, o adaptar el Sitio Web por parte del Usuario. Pórtiqo se reserva la facultad de efectuar cuantas actualizaciones, cambios y modificaciones estime convenientes, pudiendo hacer uso de tal facultad en cualquier momento y sin previo aviso.\n\nPórtiqo se reserva la facultad de modificar unilateralmente las condiciones y términos de uso del Sitio Web, incluyendo el presente Aviso Legal.",
+					"title": "Actualidad y modificaciones en la página web"
+				}
+			}
+		},
+		"ourPortfolio": {
+			"getAccess": "Accede a todo el catálogo de Pórtiqo con tu cuenta de Google o Apple.",
+			"gmailAccount": "Cuenta de Gmail",
+			"requirements": "REQUISITOS",
+			"title": "Algunas temáticas de nuestros productos",
+			"wantToKnowMore": "¿Quiere ver el resto de nuestros productos?"
+		},
+		"partners": {
+			"comment": "\"Saber que mis inversiones están respaldadas por líderes mundiales me da total confianza para seguir creciendo\". - Ana M.",
+			"title": "Invierte con la tranquilidad del respaldo global"
+		},
+		"waitingList": {
+			"default": {
+				"description": "Déjanos tus datos y te avisaremos en cuanto Pórtiqo esté disponible.",
+				"title": "Apúntate para ser de los primeros en usar Pórtiqo."
+			},
+			"success": {
+				"description": "Gracias por apuntarte a nuestra lista. En cuanto tengamos todo preparado, serás el primero en enterarte.",
+				"title": "¡Estás dentro!"
+			}
+		}
+	}
+}

@@ -16,7 +16,8 @@ jobs:
     env:
       AWS_REGION: eu-west-1
       ECR_REPOSITORY: 533267036621.dkr.ecr.eu-west-1.amazonaws.com/theportiqo-website
-      NEXT_PUBLIC_API_URL: https://gw.dev.theportiqo.com
+      VITE_GOOGLE_CLIENT_ID: 639125160298-bgr12tqd5ira2cb6kgkj4c9ds1iqrcdu.apps.googleusercontent.com
+      VITE_BACKEND_URL: https://gw.dev.theportiqo.com
 
     steps:
       - name: Checkout code
@@ -43,7 +44,8 @@ jobs:
           push: true
           tags: ${{ env.ECR_REPOSITORY }}:dev-${{ github.sha }}
           build-args: |
-            NEXT_PUBLIC_API_URL=${{ env.NEXT_PUBLIC_API_URL }}
+            VITE_GOOGLE_CLIENT_ID=${{ env.VITE_GOOGLE_CLIENT_ID }}
+            VITE_BACKEND_URL=${{ env.VITE_BACKEND_URL }}
           cache-from: type=registry,ref=${{ env.ECR_REPOSITORY }}:buildcache
           cache-to: type=registry,ref=${{ env.ECR_REPOSITORY }}:buildcache,mode=max
 
@@ -54,9 +56,9 @@ jobs:
           git clone https://x-access-token:${GITHUB_TOKEN}@github.com/Tubuntu-Technologies/argocd.git
           cd argocd
           pip install yq
-          yq -i -y '.image.tag = "${{ github.sha }}"' apps/theportiqo/website/config/dev/values.yaml
+          yq -i -y '.image.tag = "dev-${{ github.sha }}"' apps/theportiqo/website/config/dev/values.yaml
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
           git add apps/theportiqo/website/config/dev/values.yaml
-          git commit -m "Update theportiqo-website image tag to ${{ github.sha }} [skip ci]"
+          git commit -m "Update theportiqo-website image tag to dev-${{ github.sha }} [skip ci]"
           git push

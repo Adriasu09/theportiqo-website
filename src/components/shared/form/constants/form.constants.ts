@@ -1,0 +1,58 @@
+import { Country, SelectOption } from "../models/form.models";
+
+export const COUNTRIES: Country[] = [
+  { name: "spain", isoCode: "ES", prefix: "+34" },
+  { name: "austria", isoCode: "AT", prefix: "+43" },
+  { name: "belgium", isoCode: "BE", prefix: "+32" },
+  { name: "bulgaria", isoCode: "BG", prefix: "+359" },
+  { name: "croatia", isoCode: "HR", prefix: "+385" },
+  { name: "cyprus", isoCode: "CY", prefix: "+357" },
+  { name: "czechRepublic", isoCode: "CZ", prefix: "+420" },
+  { name: "denmark", isoCode: "DK", prefix: "+45" },
+  { name: "estonia", isoCode: "EE", prefix: "+372" },
+  { name: "finland", isoCode: "FI", prefix: "+358" },
+  { name: "france", isoCode: "FR", prefix: "+33" },
+  { name: "germany", isoCode: "DE", prefix: "+49" },
+  { name: "greece", isoCode: "GR", prefix: "+30" },
+  { name: "hungary", isoCode: "HU", prefix: "+36" },
+  { name: "ireland", isoCode: "IE", prefix: "+353" },
+  { name: "italy", isoCode: "IT", prefix: "+39" },
+  { name: "latvia", isoCode: "LV", prefix: "+371" },
+  { name: "lithuania", isoCode: "LT", prefix: "+370" },
+  { name: "luxembourg", isoCode: "LU", prefix: "+352" },
+  { name: "malta", isoCode: "MT", prefix: "+356" },
+  { name: "netherlands", isoCode: "NL", prefix: "+31" },
+  { name: "poland", isoCode: "PL", prefix: "+48" },
+  { name: "portugal", isoCode: "PT", prefix: "+351" },
+  { name: "romania", isoCode: "RO", prefix: "+40" },
+  { name: "slovakia", isoCode: "SK", prefix: "+421" },
+  { name: "slovenia", isoCode: "SI", prefix: "+386" },
+  { name: "sweden", isoCode: "SE", prefix: "+46" },
+  { name: "mexico", isoCode: "MX", prefix: "+52" },
+  { name: "morocco", isoCode: "MA", prefix: "+212" },
+  { name: "turkey", isoCode: "TR", prefix: "+90" },
+  { name: "colombia", isoCode: "CO", prefix: "+57" },
+  { name: "argentina", isoCode: "AR", prefix: "+54" },
+  { name: "ecuador", isoCode: "EC", prefix: "+593" },
+  { name: "dominicanRepublic", isoCode: "DO", prefix: "+1" },
+  { name: "peru", isoCode: "PE", prefix: "+51" },
+  { name: "honduras", isoCode: "HN", prefix: "+504" },
+  { name: "unitedKingdom", isoCode: "GB", prefix: "+44" },
+  { name: "norway", isoCode: "NO", prefix: "+47" },
+  { name: "switzerland", isoCode: "CH", prefix: "+41" },
+  { name: "albania", isoCode: "AL", prefix: "+355" },
+  { name: "sanMarino", isoCode: "SM", prefix: "+378" },
+  { name: "montenegro", isoCode: "ME", prefix: "+382" },
+  { name: "northMacedonia", isoCode: "MK", prefix: "+389" },
+  { name: "armenia", isoCode: "AM", prefix: "+374" },
+  { name: "georgia", isoCode: "GE", prefix: "+995" },
+  { name: "serbia", isoCode: "RS", prefix: "+381" }
+];
+
+
+
+export const DOCUMENT_TYPE_OPTIONS: SelectOption[] = [
+  { label: "DNI", value: "DNI" },
+  { label: "NIE", value: "NIE" },
+  { label: "Passport", value: "PASSPORT" },
+];
