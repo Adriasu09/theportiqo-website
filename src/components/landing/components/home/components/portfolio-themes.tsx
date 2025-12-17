@@ -14,7 +14,7 @@ export const PortfolioThemes = () => {
         {CAROUSEL_ITEMS.map((item) => (
           <div
             key={item.url}
-            className="flex flex-col gap-2 rounded-2xl bg-[#f7efe4] p-6"
+            className="flex flex-col gap-2 rounded-qo-lg bg-[#f7efe4] p-6"
           >
             <img
               key={item.titleKey}

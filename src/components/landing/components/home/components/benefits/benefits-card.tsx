@@ -59,7 +59,7 @@ export const BenefitsCard = ({
     >
       <div
         ref={cardRef}
-        className={`flex w-full max-w-[380px] flex-col items-start justify-end gap-2 rounded-2xl p-4 md:min-h-96 ${isAccented && "min-h-96 bg-qo-brand-100"} ${isAccented && "relative overflow-hidden"}`}
+        className={`flex w-full max-w-[380px] flex-col items-start justify-end gap-2 rounded-qo-lg p-4 md:min-h-96 ${isAccented && "min-h-96 bg-qo-brand-100"} ${isAccented && "relative overflow-hidden"}`}
       >
         <h2
           className={`font-accent whitespace-pre-line ${isAccented ? "text-accent-4xl md:text-accent-2xl text-qo-brand-500" : "text-accent-2xl"}`}
