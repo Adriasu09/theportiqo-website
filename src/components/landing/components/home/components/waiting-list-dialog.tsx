@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, XIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { FieldGroup } from "@/components/ui/field";
 import { WaitingListData } from "@/src/types/auth.types";
@@ -38,7 +38,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
   const waitingListForm = useAppForm({
     defaultValues: WAITING_LIST_DEFAULT_VALUES,
     validators: {
-      onChange: WaitingListFormSchema,
+      onSubmit: WaitingListFormSchema,
     },
     onSubmit: async ({ value }) => {
       const waitingListData: WaitingListData = {
@@ -74,13 +74,19 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
     <DialogHeader className="h-auto">
       <DialogTitle>
         <div className="flex w-full flex-col items-start gap-4">
-          <Badge variant={"outline"}>{t("global.badge.waitingList")}</Badge>
-          <h1 className="font-accent text-accent-xl">
+          <div className="flex w-full items-center justify-between">
+            <Badge variant={"outline"}>{t("global.badge.waitingList")}</Badge>
+
+            <DialogClose asChild>
+              <XIcon className="cursor-pointer" size={32} />
+            </DialogClose>
+          </div>
+          <h1 className="text-left font-accent text-accent-xl">
             {t("landing.waitingList.default.title")}
           </h1>
         </div>
       </DialogTitle>
-      <DialogDescription className="font-accent-regular text-accent-md">
+      <DialogDescription className="text-left font-accent-regular text-accent-md">
         {t("landing.waitingList.default.description")}
       </DialogDescription>
     </DialogHeader>
@@ -122,7 +128,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
           {type === "brand" && <ArrowRight />}
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-h-[90vh] overflow-y-auto min-h-[688px]">
+      <DialogContent className="max-h-[90vh] min-h-[688px] w-11/12 overflow-y-auto p-12 sm:w-[600px]">
         {showConfirmation ? successHeader : defaultHeader}
 
         {!showConfirmation ? (
@@ -163,12 +169,30 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
             </FieldGroup>
 
             <waitingListForm.Subscribe
-              selector={(state) => [state.canSubmit, state.isDirty]}
-              children={([canSubmit, isDirty]) => (
+              selector={(state) => [
+                state.values.firstName,
+                state.values.lastName,
+                state.values.email,
+                state.values.acceptCommunication,
+                state.values.acceptPrivacyPolicy,
+              ]}
+              children={([
+                firstName,
+                lastName,
+                email,
+                acceptCommunication,
+                acceptPrivacyPolicy,
+              ]) => (
                 <Button
                   type="submit"
                   className="w-full max-w-[320px]"
-                  disabled={!canSubmit || !isDirty}
+                  disabled={
+                    !firstName ||
+                    !lastName ||
+                    !email ||
+                    !acceptCommunication ||
+                    !acceptPrivacyPolicy
+                  }
                 >
                   {t("global.button.submit")}
                 </Button>
