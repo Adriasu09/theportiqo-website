@@ -13,16 +13,19 @@ export const PortfolioThemes = () => {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         {CAROUSEL_ITEMS.map((item) => (
           <div
-            key={item.url}
+            key={item.titleKey}
             className="flex flex-col gap-2 rounded-qo-lg bg-[#f7efe4] p-6"
           >
-            <img
+            <video
               key={item.titleKey}
-              src={item.url}
-              style={{
-                height: "300px",
-              }}
-            />
+              poster={item.urlGif}
+              autoPlay
+              loop
+              muted
+              playsInline
+            >
+              <source src={item.urlVideo} type="video/mp4" />
+            </video>
 
             <p className="text-center">{t(`global.label.${item.titleKey}`)}</p>
           </div>
