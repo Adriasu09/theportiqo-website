@@ -108,16 +108,21 @@ export const Carousel = ({ items }: Props) => {
           onTouchEnd={handleTouchEnd}
         >
           {items.map((item: CarouselItem) => (
-            <img
+            <video
               key={item.titleKey}
-              src={item.url}
-              alt={t(`global.label.${item.titleKey}`)}
+              poster={item.urlGif}
+              autoPlay
+              loop
+              muted
+              playsInline
               style={{
                 translate: `${-100 * currentIndex + (isDragging ? dragDistance / 5 : 0)}%`,
                 transition: isDragging ? "none" : "translate 300ms ease-in-out",
-                pointerEvents: "none", // prevent interaction during drag
+                pointerEvents: "none", // prevent video interaction during drag
               }}
-            />
+            >
+              <source src={item.urlVideo} type="video/mp4" />
+            </video>
           ))}
         </div>
 

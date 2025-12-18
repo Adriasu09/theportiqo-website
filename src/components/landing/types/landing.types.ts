@@ -1,5 +1,6 @@
 export interface CarouselItem {
-  url: string;
+  urlGif: string;
+  urlVideo: string;
   titleKey: string;
 }
 
