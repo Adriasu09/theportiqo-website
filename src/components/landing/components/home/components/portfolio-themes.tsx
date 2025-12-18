@@ -14,11 +14,12 @@ export const PortfolioThemes = () => {
         {CAROUSEL_ITEMS.map((item) => (
           <div
             key={item.titleKey}
-            className="flex flex-col gap-2 rounded-qo-lg bg-[#f7efe4] p-6"
+            className="flex max-w-[380px] flex-col gap-2 rounded-qo-lg bg-[#f7efe4] p-6"
           >
             <video
               key={item.titleKey}
               poster={item.urlGif}
+              className="w-full"
               autoPlay
               loop
               muted
