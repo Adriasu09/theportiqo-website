@@ -38,7 +38,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
   const waitingListForm = useAppForm({
     defaultValues: WAITING_LIST_DEFAULT_VALUES,
     validators: {
-      onChange: WaitingListFormSchema,
+      onSubmit: WaitingListFormSchema,
     },
     onSubmit: async ({ value }) => {
       const waitingListData: WaitingListData = {
@@ -122,7 +122,7 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
           {type === "brand" && <ArrowRight />}
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-h-[90vh] overflow-y-auto min-h-[688px]">
+      <DialogContent className="max-h-[90vh] min-h-[688px] overflow-y-auto">
         {showConfirmation ? successHeader : defaultHeader}
 
         {!showConfirmation ? (
@@ -163,12 +163,30 @@ export const WaitingListDialog = ({ type, labelKey }: Props) => {
             </FieldGroup>
 
             <waitingListForm.Subscribe
-              selector={(state) => [state.canSubmit, state.isDirty]}
-              children={([canSubmit, isDirty]) => (
+              selector={(state) => [
+                state.values.firstName,
+                state.values.lastName,
+                state.values.email,
+                state.values.acceptCommunication,
+                state.values.acceptPrivacyPolicy,
+              ]}
+              children={([
+                firstName,
+                lastName,
+                email,
+                acceptCommunication,
+                acceptPrivacyPolicy,
+              ]) => (
                 <Button
                   type="submit"
                   className="w-full max-w-[320px]"
-                  disabled={!canSubmit || !isDirty}
+                  disabled={
+                    !firstName ||
+                    !lastName ||
+                    !email ||
+                    !acceptCommunication ||
+                    !acceptPrivacyPolicy
+                  }
                 >
                   {t("global.button.submit")}
                 </Button>
